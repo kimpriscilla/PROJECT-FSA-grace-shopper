@@ -14,7 +14,7 @@ class allDogs extends React.Component {
 
   async componentDidMount() {
     this.props.loadPets();
-    this.props.loadUsers();
+    this.props.loadUsers(); 
   }
 
   render() {
@@ -25,8 +25,9 @@ class allDogs extends React.Component {
         <div id="leftAllDogs"></div>
         <div id="rightAllDogs">
           <ul id="dogCards">
-            {this.props.pets.map((dog) => (
-              <li>
+            {
+              this.props.pets.map((dog) => (
+              <li key={ dog.id }>
                 <ul id="individualCards">
                   <li>
                     <img src="/media/tempCard.jpg" />
@@ -37,13 +38,14 @@ class allDogs extends React.Component {
                     <Link to={`/dog/:${dog.id}`}> More Details </Link>
                   </li>
                   <li>
-                    <button class="button-37" role="button">
+                    <button className="button-37" role="button">
                       Add to Cart
                     </button>
                   </li>
                 </ul>
               </li>
-            ))}
+            ))
+            }
           </ul>
         </div>
       </div>
