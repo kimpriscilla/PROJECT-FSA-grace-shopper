@@ -12,7 +12,6 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-
     User.create({ email: 'jenniferlu32@gmail.com', password: '123' }),
     User.create({ email: 'kencrosas@gmail.com', password: '123' }),
     User.create({ email: 'priscillakim58@gmail.com', password: '123' }),
@@ -41,7 +40,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
-      breedId: 4,
+      breedId: breeds[4].id,
     }),
     Pet.create({
       price: 350.0,
@@ -51,7 +50,7 @@ async function seed() {
       dateOfBirth: "2021-12-31",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
-      breedId: 3,
+      breedId: breeds[3].id,
     }),
     Pet.create({
       price: 1000,
@@ -61,7 +60,7 @@ async function seed() {
       dateOfBirth: "2022-02-22",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
-      breedId: 2,
+      breedId: breeds[2].id,
     }),
     Pet.create({
       price: 220.0,
@@ -71,7 +70,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
-      breedId: 10,
+      breedId: breeds[9].id,
     }),
     Pet.create({
       price: 575.0,
@@ -81,15 +80,41 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
-      breedId: 6,
+      breedId: breeds[6].id,
     }),
   ]);
+  
+  const orders = await Promise.all([
+    Order.create({
+      shippingAddress: "1 Main St, Skokie, IL 60600",
+      billingAddress: "1 Main St, Skokie, IL 60600",
+      userId: users[0].id,
+    }),
+    Order.create({
+      shippingAddress: "5 Commercial Rd, Germantown, MD 20045",
+      billingAddress: "1 Bank Rd, Germantown, MD 20045",
+      userId: users[1].id,
+    }),
+    Order.create({
+      shippingAddress: "5000 Skippack Pike, Blue Bell, PA 30308",
+      billingAddress: "500 Broadway, New York, NY 10002",
+      userId: users[2].id,
+    }),
+    Order.create({
+      shippingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
+      billingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
+      userId: users[3].id,
+    }),
+  ])
+  
+  console.log(breeds[1])
 
   console.log(`seeded ${users.length} users`);
   return {
     users,
     pet,
-    breeds
+    breeds,
+    orders
   };
 
 }
