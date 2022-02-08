@@ -22,6 +22,7 @@ module.exports = {
   models: {
     User,
     Order,
-    Pet
+    Pet,
+    Breed
   },
 }
