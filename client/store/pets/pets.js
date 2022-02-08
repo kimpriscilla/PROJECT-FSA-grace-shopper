@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const GET_PETS = "GET_PETS";
-const EDIT_PET = 'EDIT_PET';
+const EDIT_PET = "EDIT_PET";
 
 //action creators
 const _loadPets = (pets) => {
@@ -39,8 +39,10 @@ export default function petsReducer(state = [], action) {
     case GET_PETS:
       return action.payload;
     case EDIT_PET:
-      return state.map(pet => pet.id === action.payload.id ? action.payload : pet)
+      return state.map((pet) =>
+        pet.id === action.payload.id ? action.payload : pet
+      );
     default:
       return state;
-  };
-};
+  }
+}
