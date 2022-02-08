@@ -5,13 +5,13 @@ const GET_PETS = 'GET_PETS';
 //action object
 const _loadPets = (pets) => {
   return {
-    type: pets,
-    pets
+    type: GET_PETS,
+    payload: pets
   };
 };
 
 //thunks
-export const loadPets = (pets) => {
+export const loadPets = () => {
   return async (dispatch) => {
     const pets = (await axios.get('/api/pets')).data;
     dispatch(_loadPets(pets));
@@ -22,7 +22,7 @@ export const loadPets = (pets) => {
 export default function petsReducer (state=[], action) {
   switch(action.type) {
     case GET_PETS:
-      return action.pets;
+      return action.payload;
     default:
       return state;
   };
