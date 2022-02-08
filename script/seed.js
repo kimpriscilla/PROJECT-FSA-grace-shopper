@@ -21,13 +21,59 @@ async function seed() {
     User.create({ email: "agartrell@gmail.com", password: "123" }),
   ]);
 
+  const pet = await Promise.all([
+    Pet.create({
+      price: 250.0,
+      description: "fmdgjfngksrjngrjgsgk",
+      gender: "female",
+      size: "small",
+      dateOfBirth: "2022-01-08",
+      imageUrl:
+        "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+    }),
+    Pet.create({
+      price: 350.0,
+      description: "skdjfndjnfskdf",
+      gender: "male",
+      size: "medium",
+      dateOfBirth: "2021-12-31",
+      imageUrl:
+        "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+    }),
+    Pet.create({
+      price: 1000,
+      description: "fmdgjfngksrjngrjgsgk",
+      gender: "male",
+      size: "large",
+      dateOfBirth: "2022-02-22",
+      imageUrl:
+        "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+    }),
+    Pet.create({
+      price: 220.0,
+      description: "fmdgjfngksrjngrjgsgk",
+      gender: "female",
+      size: "small",
+      dateOfBirth: "2022-01-08",
+      imageUrl:
+        "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+    }),
+    Pet.create({
+      price: 575.0,
+      description: "fmdgjfngksrjngrjgsgk",
+      gender: "female",
+      size: "small",
+      dateOfBirth: "2022-01-08",
+      imageUrl:
+        "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+    }),
+  ]);
+
   console.log(`seeded ${users.length} users`);
   console.log(`seeded successfully`);
   return {
-    users: {
-      cody: users[0],
-      murphy: users[1],
-    },
+    users,
+    pet,
   };
 }
 
