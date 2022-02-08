@@ -6,12 +6,12 @@ import { logout } from "../store";
 //temporary navBar without loggedIn function/difference
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <h1>Grace Barker: Dogs for Sale </h1>
+    <h1>Welcome to Bark Hopper! </h1>
     <nav>
       <div>
-        <Link to="/home">About Us</Link>
-        <Link to="/dogs">Dogs</Link>
         <Link to="/home">Home</Link>
+        <Link to="/dogs">Dogs</Link>
+        <Link to="/home">About Us</Link>
         <a href="#" onClick={handleClick}>
           Logout
         </a>

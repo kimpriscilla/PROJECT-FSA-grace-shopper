@@ -34,7 +34,7 @@ class allDogs extends React.Component {
                   <li>Breed: {dog.breed.name} </li>
                   <li>Born on: {dog.dateOfBirth}</li>
                   <li>
-                    <Link to={`/dog/:${dog.id}`}> More Details </Link>
+                    <Link to={`/dogs/:${dog.id}`}> More Details </Link>
                   </li>
                   <li>
                     <button className="button-37" role="button">
