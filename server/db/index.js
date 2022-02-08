@@ -3,7 +3,9 @@
 const db = require('./db')
 
 const User = require('./models/User');
+
 const Order = require('./models/Order');
+
 const Pet = require('./models/Pet');
 
 //associations could go here!
