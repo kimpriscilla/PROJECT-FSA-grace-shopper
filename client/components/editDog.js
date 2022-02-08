@@ -3,13 +3,25 @@ import { connect } from "react-redux";
 import { loadPets, editPet } from '../store/pets/pets';
 
 class editDog extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      id: 0,
       name: '',
-      description: ''
+      gender: '',
+      price: 0,
+      size: '',
+      description: '',
+      breed: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState === this.state) {
+      this.setState(this.props.pet);
+    };
   };
 
   componentDidMount() {
@@ -24,23 +36,19 @@ class editDog extends React.Component {
 
   handleSubmit(ev) {
     ev.preventDefault();
+    console.log(this.state)
   }
 
   render() {
-    console.log(this.state)
-    if (!this.props.pet) {
-      return <h1>Loading</h1>
-    } else {
-      const { name, price, size, description, gender, breed } = this.props.pet;
-      console.log(this.props)
-      return (
-        <form>
-          <input name='name' type='text' placeholder='Name' value={name} onChange={this.handleChange}></input>
-          <input name='description' type='text' placeholder='Description' value={description} onChange={this.handleChange}></input>
-          <button>Update</button>
-        </form>
-      )
-    }
+    const { name, gender, price, size, description, breed } = this.state;
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input name='name' type='text' placeholder='Name' value={name} onChange={this.handleChange}></input>
+        <input name='gender' type='text' placeholder='Gender' value={gender} onChange={this.handleChange}></input>
+        <input name='price' type='text' placeholder='Price' value={price} onChange={this.handleChange}></input>
+        <button>Update</button>
+      </form>
+    )
   };
 };
 
