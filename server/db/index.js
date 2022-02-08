@@ -10,8 +10,7 @@ const Pet = require("./models/Pet");
 
 const Breed = require("./models/Breed");
 
-const CartItem = require('./models/CartItem');
-
+const CartItem = require("./models/CartItem");
 
 //order associations
 User.hasMany(Order);
@@ -40,9 +39,6 @@ module.exports = {
     Order,
     Pet,
     Breed,
-<<<<<<< HEAD
-=======
-    CartItem
->>>>>>> 585b15cc87ff7a9264f7ac6a57da0539f3364a76
+    CartItem,
   },
 };
