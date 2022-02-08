@@ -12,6 +12,10 @@ const User = db.define('user', {
     primaryKey: true,
     defaultValue: UUIDV4
   },
+  imageUrl: {
+    type: STRING,
+    defaultValue: 'http://localhost:8080/public/default.png'
+  },
   email: {
     type: STRING,
     unique: true,
@@ -22,7 +26,7 @@ const User = db.define('user', {
   },
   password: {
     type: STRING,
-  }
+  },
 });
 
 module.exports = User;
