@@ -1,34 +1,44 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { loadPets } from '../store/pets/pets';
+import { loadPets, editPet } from '../store/pets/pets';
 
 class editDog extends React.Component {
-  constructor(props) {
-    super(props);
-    const { pet } = this.props;
+  constructor() {
+    super();
     this.state = {
-      id: pet.id ? pet.id : 0,
-      name: pet.name ? pet.name : ''
-    }
+      name: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
   };
 
   componentDidMount() {
     this.props.loadPets();
   };
 
+  handleChange(ev) {
+    this.setState({
+      [ev.target.name] : ev.target.value
+    })
+  }
+
   render() {
-    const { id, name } = this.state;
-    console.log(name)
-    return (
-      <form>
-      <p>test</p>
-      </form>
-    )
+    console.log(this.props)
+    if (!this.props.pet) {
+      return <h1>Loading</h1>
+    } else {
+      const { name, price, size, description, gender, breed } = this.props;
+      return (
+        <form>
+          <input value={name} onChange={this.handleChange}></input>
+          <button>Update</button>
+        </form>
+      )
+    }
   };
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const petId = ownProps.match.params.id[1]*1;
+  const petId = ownProps.match.params.id*1;
   return {
     pet: state.pets.filter(pet => pet.id === petId)[0]
   };
@@ -37,6 +47,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     loadPets: () => dispatch(loadPets()),
+    editPet: (newPet) => dispatch(editPet(newPet))
   };
 };
 

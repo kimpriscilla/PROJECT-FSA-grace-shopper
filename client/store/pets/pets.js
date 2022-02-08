@@ -1,12 +1,20 @@
 import axios from "axios";
 
 const GET_PETS = "GET_PETS";
+const EDIT_PET = 'EDIT_PET';
 
-//action object
+//action creators
 const _loadPets = (pets) => {
   return {
     type: GET_PETS,
     payload: pets,
+  };
+};
+
+const _editPet = (pet) => {
+  return {
+    type: EDIT_PET,
+    payload: pet,
   };
 };
 
@@ -18,12 +26,21 @@ export const loadPets = () => {
   };
 };
 
+export const editPet = (pet) => {
+  return async (dispatch) => {
+    const newPet = (await axios.put(`/api/pets/${pet.id}`, pet)).data;
+    dispatch(_editPet(newPet));
+  };
+};
+
 //reducer
 export default function petsReducer(state = [], action) {
   switch (action.type) {
     case GET_PETS:
       return action.payload;
+    case EDIT_PET:
+      return state.map(pet => pet.id === action.payload.id ? action.payload : pet)
     default:
       return state;
-  }
-}
+  };
+};

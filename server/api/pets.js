@@ -23,3 +23,14 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+router.put("/:id", async (req, res, next) => {
+  try {
+    let pet = await Pet.findByPk(req.params.id);
+    await pet.update(req.body);
+    pet = await Pet.findByPk(req.params.id);
+    res.json(pet)
+  } catch (err) {
+    next(err);
+  }
+});

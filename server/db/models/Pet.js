@@ -1,12 +1,9 @@
 const {
-  UUID,
-  UUIDV4,
   STRING,
   ENUM,
   DATEONLY,
   NOW,
   DECIMAL,
-  INTEGER,
   TEXT
 } = require("sequelize");
 const db = require("../db");
