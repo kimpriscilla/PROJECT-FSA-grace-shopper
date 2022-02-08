@@ -37,7 +37,7 @@ class editDog extends React.Component {
 
   handleSubmit(ev) {
     ev.preventDefault();
-    //this.props.editPet(this.state);
+    this.props.editPet(this.state);
   };
 
   render() {
