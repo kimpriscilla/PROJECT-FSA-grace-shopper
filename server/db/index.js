@@ -1,14 +1,14 @@
 //this is the access point for all things database related!
 
-const db = require('./db')
+const db = require("./db");
 
-const User = require('./models/User');
+const User = require("./models/User");
 
-const Order = require('./models/Order');
+const Order = require("./models/Order");
 
-const Pet = require('./models/Pet');
+const Pet = require("./models/Pet");
 
-const Breed = require('./models/Breed');
+const Breed = require("./models/Breed");
 
 //associations could go here!
 User.hasMany(Order);
@@ -23,6 +23,6 @@ module.exports = {
     User,
     Order,
     Pet,
-    Breed
+    Breed,
   },
-}
+};
