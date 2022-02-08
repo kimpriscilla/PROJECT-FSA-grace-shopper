@@ -5,7 +5,7 @@ const LOAD_USERS = "LOAD_USERS";
 
 //action creators
 
-function loadUsers(user) {
+function _loadUsers(user) {
   return {
     type: LOAD_USERS,
     user,
@@ -14,10 +14,10 @@ function loadUsers(user) {
 
 //thunk
 
-export const _loadUsers = () => {
+export const loadUsers = () => {
   return async (dispatch) => {
     const user = (await axios.get("/api/users")).data;
-    dispatch(loadUsers(user));
+    dispatch(_loadUsers(user));
   };
 };
 
@@ -26,7 +26,7 @@ export const _loadUsers = () => {
 export default function (state = [], action) {
   switch (action.type) {
     case LOAD_USERS:
-      return [...state, action.user];
+      return action.user;
     default:
       return state;
   }

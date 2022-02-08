@@ -1,26 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { loadPets } from '../store/pets/pets';
+import { loadPets } from "../store/pets/pets";
+import { loadUsers } from "../store/users";
 
 /**
  * COMPONENT
  */
 class allDogs extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+  }
 
-  };
-
-  componentDidMount() {
+  async componentDidMount() {
     this.props.loadPets();
-  };
+    this.props.loadUsers();
+  }
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return (
       <div>
-        <h3>Welcome, allDogs </h3>
+        {/* <h3>Welcome, allDogs </h3>
         <div id="leftAllDogs"></div>
         <div id="rightAllDogs">
           <ul id="dogCards">
@@ -44,11 +45,11 @@ class allDogs extends React.Component {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
     );
   }
-};
+}
 
 /**
  * CONTAINER
@@ -61,16 +62,18 @@ class allDogs extends React.Component {
 
 // export default connect(mapState)(Home);
 
-const mapStateToProps = (state) => { //to access campuses in props
+const mapStateToProps = (state) => {
+  //to access campuses in props
   return {
     pets: state.pets,
-    users: state.users
-  }
+    users: state.users,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     loadPets: () => dispatch(loadPets()),
+    loadUsers: () => dispatch(loadUsers()),
   };
 };
 
