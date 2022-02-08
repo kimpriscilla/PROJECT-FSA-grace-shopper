@@ -6,7 +6,8 @@ class editDog extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: ''
+      name: '',
+      description: ''
     };
     this.handleChange = this.handleChange.bind(this);
   };
@@ -18,18 +19,24 @@ class editDog extends React.Component {
   handleChange(ev) {
     this.setState({
       [ev.target.name] : ev.target.value
-    })
+    });
+  };
+
+  handleSubmit(ev) {
+    ev.preventDefault();
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.state)
     if (!this.props.pet) {
       return <h1>Loading</h1>
     } else {
-      const { name, price, size, description, gender, breed } = this.props;
+      const { name, price, size, description, gender, breed } = this.props.pet;
+      console.log(this.props)
       return (
         <form>
-          <input value={name} onChange={this.handleChange}></input>
+          <input name='name' type='text' placeholder='Name' value={name} onChange={this.handleChange}></input>
+          <input name='description' type='text' placeholder='Description' value={description} onChange={this.handleChange}></input>
           <button>Update</button>
         </form>
       )
