@@ -9,7 +9,7 @@ export const Home = (props) => {
 
   return (
     <div>
-      <h3>Welcome, 111 </h3>
+      <h3>Get Personalized Pet Matches</h3>
     </div>
   );
 };

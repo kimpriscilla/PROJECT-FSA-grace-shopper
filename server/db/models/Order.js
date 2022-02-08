@@ -3,11 +3,6 @@ const { Model, STRING, INTEGER, UUIDV4, UUID } = require('sequelize');
 
 class Order extends Model {};
 Order.init({
-  id: {
-    type: UUID,
-    primaryKey: true,
-    defaultValue: UUIDV4,
-  },
   shippingAddress: {
     type: STRING,
   },

@@ -7,14 +7,9 @@ const axios = require('axios');
 const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
-  id: {
-    type: UUID,
-    primaryKey: true,
-    defaultValue: UUIDV4
-  },
   imageUrl: {
     type: STRING,
-    defaultValue: 'http://localhost:8080/public/default.png'
+    defaultValue: "/default.png"
   },
   email: {
     type: STRING,

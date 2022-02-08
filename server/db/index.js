@@ -10,12 +10,28 @@ const Pet = require("./models/Pet");
 
 const Breed = require("./models/Breed");
 
-//associations could go here!
+const CartItem = require('./models/CartItem');
+
+
+//order associations
 User.hasMany(Order);
 Order.belongsTo(User);
+Order.hasMany(CartItem);
+CartItem.belongsTo(Order);
+
+//pet
 User.hasMany(Pet);
+Pet.belongsTo(User);
+
+//breed
 Pet.belongsTo(Breed);
 Breed.hasMany(Pet);
+
+//cart items
+CartItem.belongsTo(User);
+User.hasMany(CartItem);
+CartItem.belongsTo(Pet);
+Pet.hasMany(CartItem);
 
 module.exports = {
   db,
@@ -24,5 +40,9 @@ module.exports = {
     Order,
     Pet,
     Breed,
+<<<<<<< HEAD
+=======
+    CartItem
+>>>>>>> 585b15cc87ff7a9264f7ac6a57da0539f3364a76
   },
 };

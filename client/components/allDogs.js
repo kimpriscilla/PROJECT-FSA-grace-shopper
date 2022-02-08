@@ -18,38 +18,39 @@ class allDogs extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <h3>Welcome, allDogs </h3>
         <div id="leftAllDogs"></div>
         <div id="rightAllDogs">
           <ul id="dogCards">
-            {this.props.pets.map((dog) => (
-              <li>
+            {
+              this.props.pets.map((dog) => (
+              <li key={ dog.id }>
                 <ul id="individualCards">
                   <li>
-                    <img src="/media/tempCard.jpg" />
+                    <img src={dog.imageUrl} />
                   </li>
                   <li>Breed: {dog.breed.name} </li>
                   <li>Born on: {dog.dateOfBirth}</li>
                   <li>
-                    <Link to={`/dog/:${dog.id}`}> More Details </Link>
+                    <Link to={`/dogs/:${dog.id}`}> More Details </Link>
                   </li>
                   <li>
-                    <button class="button-37" role="button">
+                    <button className="button-37" role="button">
                       Add to Cart
                     </button>
                   </li>
                 </ul>
               </li>
-            ))}
+            ))
+            }
           </ul>
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 /**
  * CONTAINER
