@@ -31,6 +31,7 @@ class allDogs extends React.Component {
                   <li>
                     <img src={dog.imageUrl} />
                   </li>
+                  <li>Name: {dog.name} </li>
                   <li>Breed: {dog.breed.name} </li>
                   <li>Born on: {dog.dateOfBirth}</li>
                   <li>

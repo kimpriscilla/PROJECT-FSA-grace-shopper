@@ -27,7 +27,7 @@ class Dog extends React.Component {
     } else {
       return (
         <div>
-          <Link to={`/dog/edit/${pet.id}`}><button>Edit {pet.name}</button></Link>
+          <Link to={`/dog/edit/${pet.id}`}><button className="button-37" role="button">Edit {pet.name}</button></Link>
           <h1>Meet {pet.name}!</h1>
           <img src={pet.imageUrl}></img>
           <p>Sex: {pet.gender}</p>
@@ -36,6 +36,7 @@ class Dog extends React.Component {
           <p>Price: ${pet.price}</p>
           <p>Breed: {pet.breed.name}</p>
           <p>{pet.description}</p>
+          <button className="button-37" role="button">Add to Cart</button>
         </div>
       );
     };
