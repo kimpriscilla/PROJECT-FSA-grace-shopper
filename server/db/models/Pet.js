@@ -24,9 +24,6 @@ const Pet = db.define("pet", {
     type: STRING,
     allowNull: true,
   },
-  breed: {
-    type: STRING,
-  },
   gender: {
     type: ENUM("male", "female"),
   },
@@ -41,11 +38,6 @@ const Pet = db.define("pet", {
   imageUrl: {
     type: STRING,
     defaultValue: "/public/default.png",
-  },
-  stock: {
-    type: INTEGER,
-    allowNull: false,
-    defaultValue: 1,
   },
 });
 
