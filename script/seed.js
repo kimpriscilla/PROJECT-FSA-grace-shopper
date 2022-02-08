@@ -1,9 +1,6 @@
 "use strict";
 
-const {
-  db,
-  models: { User, Pet },
-} = require("../server/db");
+const {db, models: {User, Breed, Pet, Order} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
@@ -15,12 +12,26 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ email: "jenniferlu32@gmail.com", password: "123" }),
-    User.create({ email: "kencrosas@gmail.com", password: "123" }),
-    User.create({ email: "priscillakim58@gmail.com", password: "123" }),
-    User.create({ email: "agartrell@gmail.com", password: "123" }),
-  ]);
 
+    User.create({ email: 'jenniferlu32@gmail.com', password: '123' }),
+    User.create({ email: 'kencrosas@gmail.com', password: '123' }),
+    User.create({ email: 'priscillakim58@gmail.com', password: '123' }),
+    User.create({ email: 'agartrell@gmail.com', password: '123' }),
+  ]);
+  
+  const breeds = await Promise.all([
+    Breed.create({ name: "Retrievers (Labrador)", stock: 1 }),
+    Breed.create({ name: "German Shepherd", stock: 3 }),
+    Breed.create({ name: "Retrievers (Golden)", stock: 5 }),
+    Breed.create({ name: "Bulldogs", stock: 1 }),
+    Breed.create({ name: "Poodles", stock: 3 }),
+    Breed.create({ name: "Beagles", stock: 2 }),
+    Breed.create({ name: "Rottweilers", stock: 5 }),
+    Breed.create({ name: "Dachshunds", stock: 5 }),
+    Breed.create({ name: "Siberian Huskies", stock: 1 }),
+    Breed.create({ name: "Shih Tzu", stock: 1 }),
+  ]);
+  
   const pet = await Promise.all([
     Pet.create({
       price: 250.0,
@@ -70,11 +81,12 @@ async function seed() {
   ]);
 
   console.log(`seeded ${users.length} users`);
-  console.log(`seeded successfully`);
   return {
     users,
     pet,
+    breeds
   };
+
 }
 
 /*
