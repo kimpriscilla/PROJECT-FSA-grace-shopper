@@ -14,7 +14,7 @@ const User = db.define('user', {
   },
   imageUrl: {
     type: STRING,
-    defaultValue: 'http://localhost:8080/public/default.png'
+    defaultValue: "/default.png"
   },
   email: {
     type: STRING,

@@ -7,16 +7,20 @@ const {
   NOW,
   DECIMAL,
   INTEGER,
+  TEXT
 } = require("sequelize");
 const db = require("../db");
 
 const Pet = db.define("pet", {
+  name: {
+    type: STRING,
+  },
   price: {
     type: DECIMAL(10, 2),
     defaultValue: 0.0,
   },
   description: {
-    type: STRING,
+    type: TEXT,
     allowNull: true,
   },
   gender: {
@@ -32,7 +36,7 @@ const Pet = db.define("pet", {
   },
   imageUrl: {
     type: STRING,
-    defaultValue: "/public/default.png",
+    defaultValue: "/default.png",
   },
 });
 

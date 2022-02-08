@@ -29,7 +29,7 @@ class allDogs extends React.Component {
               <li key={ dog.id }>
                 <ul id="individualCards">
                   <li>
-                    <img src="/media/tempCard.jpg" />
+                    <img src={dog.imageUrl} />
                   </li>
                   <li>Breed: {dog.breed.name} </li>
                   <li>Born on: {dog.dateOfBirth}</li>
@@ -49,8 +49,8 @@ class allDogs extends React.Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 /**
  * CONTAINER
