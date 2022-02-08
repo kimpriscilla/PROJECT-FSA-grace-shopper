@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import { me } from "./store";
 import allDogs from "./components/allDogs";
 import Dog from './components/Dog';
+import editDog from "./components/editDog";
 
 /**
  * COMPONENT
@@ -25,6 +26,7 @@ class Routes extends Component {
           <Route path="/home" component={Home} />
           <Route path="/dogs" exact component={allDogs} />
           <Route path="/dog/:id" component={Dog} />
+          <Route path="/dog/edit/:id" component={editDog} />
           <Redirect to="/home" />
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
