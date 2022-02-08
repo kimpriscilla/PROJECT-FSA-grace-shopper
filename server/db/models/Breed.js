@@ -1,19 +1,19 @@
 const db = require('../db');
 const { Model, STRING, INTEGER, UUIDV4, UUID } = require('sequelize');
 
-class Order extends Model {};
-Order.init({
+class Breed extends Model {};
+Breed.init({
   id: {
     type: UUID,
     primaryKey: true,
     defaultValue: UUIDV4,
   },
-  shippingAddress: {
+  name: {
     type: STRING,
   },
-  billingAddress: {
-    type: STRING,
+  stock: {
+    type: INTEGER,
   },
-}, { sequelize: db, modelName: 'orders', timestamps: false });
+}, { sequelize: db, modelName: 'breeds', timestamps: false });
 
-module.exports = Order;
+module.exports = Breed;
