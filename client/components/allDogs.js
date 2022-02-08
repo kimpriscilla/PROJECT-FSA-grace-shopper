@@ -14,11 +14,10 @@ class allDogs extends React.Component {
 
   async componentDidMount() {
     this.props.loadPets();
-    this.props.loadUsers(); 
+    this.props.loadUsers();
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <h3>Welcome, allDogs </h3>

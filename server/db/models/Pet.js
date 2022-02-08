@@ -11,11 +11,6 @@ const {
 const db = require("../db");
 
 const Pet = db.define("pet", {
-  id: {
-    type: UUID,
-    primaryKey: true,
-    defaultValue: UUIDV4,
-  },
   price: {
     type: DECIMAL(10, 2),
     defaultValue: 0.0,
