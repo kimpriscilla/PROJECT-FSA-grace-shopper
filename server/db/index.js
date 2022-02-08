@@ -8,11 +8,14 @@ const Order = require('./models/Order');
 
 const Pet = require('./models/Pet');
 
+const Breed = require('./models/Breed');
+
 //associations could go here!
 User.hasMany(Order);
 Order.belongsTo(User);
 User.hasMany(Pet);
-Pet.belongsTo(User);
+Pet.belongsTo(Breed);
+Breed.hasMany(Pet);
 
 module.exports = {
   db,
