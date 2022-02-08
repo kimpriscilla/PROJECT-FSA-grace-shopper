@@ -41,6 +41,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+      breedId: 4,
     }),
     Pet.create({
       price: 350.0,
@@ -50,6 +51,7 @@ async function seed() {
       dateOfBirth: "2021-12-31",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+      breedId: 3,
     }),
     Pet.create({
       price: 1000,
@@ -59,6 +61,7 @@ async function seed() {
       dateOfBirth: "2022-02-22",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+      breedId: 2,
     }),
     Pet.create({
       price: 220.0,
@@ -68,6 +71,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+      breedId: 10,
     }),
     Pet.create({
       price: 575.0,
@@ -77,6 +81,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       imageUrl:
         "https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png",
+      breedId: 6,
     }),
   ]);
 
