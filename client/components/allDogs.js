@@ -21,18 +21,18 @@ class allDogs extends React.Component {
     console.log(this.props);
     return (
       <div>
-        {/* <h3>Welcome, allDogs </h3>
+        <h3>Welcome, allDogs </h3>
         <div id="leftAllDogs"></div>
         <div id="rightAllDogs">
           <ul id="dogCards">
-            {dogs.map((dog) => (
+            {this.props.pets.map((dog) => (
               <li>
                 <ul id="individualCards">
                   <li>
                     <img src="/media/tempCard.jpg" />
                   </li>
-                  <li>Breed: {dog.breed} </li>
-                  <li>Born on: {dog.age}</li>
+                  <li>Breed: {dog.breed.name} </li>
+                  <li>Born on: {dog.dateOfBirth}</li>
                   <li>
                     <Link to={`/dog/:${dog.id}`}> More Details </Link>
                   </li>
@@ -45,7 +45,7 @@ class allDogs extends React.Component {
               </li>
             ))}
           </ul>
-        </div> */}
+        </div>
       </div>
     );
   }
