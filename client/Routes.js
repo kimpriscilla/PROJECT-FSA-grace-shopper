@@ -8,11 +8,8 @@ import allDogs from "./components/allDogs";
 import Dog from "./components/Dog";
 import editDog from "./components/editDog";
 import Cart from "./components/Cart";
-<<<<<<< HEAD
 import editUser from "./components/editUser";
-=======
 import users from "./components/users";
->>>>>>> 4f2f39baaef77c0c01ca24bffdaf65a85bf24b0b
 
 /**
  * COMPONENT
@@ -33,13 +30,8 @@ class Routes extends Component {
           <Route path="/dogs" exact component={allDogs} />
           <Route path="/dogs/:id" component={Dog} />
           <Route path={`/dog/edit/:id`} component={editDog} />
-<<<<<<< HEAD
-          <Route path={`/user/edit/:id`} component={editUser} />
-          <Route path={"/cart"} component={Cart} />
-=======
           <Route path={"/cart"} component={Cart} />
           <Route path={"/users"} component={users} />
->>>>>>> 4f2f39baaef77c0c01ca24bffdaf65a85bf24b0b
           <Redirect to="/home" />
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
