@@ -32,6 +32,7 @@ class Routes extends Component {
           <Route path={`/dog/edit/:id`} component={editDog} />
           <Route path={"/cart"} component={Cart} />
           <Route path={"/users"} component={users} />
+          <Route path={"/user/edit/:id"} component={editUser} />
           <Redirect to="/home" />
         </Switch>
         {/* Temporary route to avoid logging in for home page */}

@@ -18,3 +18,23 @@ router.get("/", async (req, res, next) => {
     next(err);
   }
 });
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    res.send(user);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.put("/:id", async (req, res, next) => {
+  try {
+    console.log("this is working");
+    const targettedUser = await User.findByPk(req.params.id);
+    await targettedUser.update(req.body);
+    res.send(targettedUser);
+  } catch (error) {
+    next(error);
+  }
+});
