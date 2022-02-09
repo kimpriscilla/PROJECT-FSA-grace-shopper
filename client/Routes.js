@@ -7,8 +7,8 @@ import { me } from "./store";
 import allDogs from "./components/allDogs";
 import Dog from "./components/Dog";
 import editDog from "./components/editDog";
-import Users from "./components/users";
-// import loadUsers from "./store/users/users";
+import Cart from "./components/Cart";
+import users from "./components/users";
 
 /**
  * COMPONENT
@@ -16,9 +16,6 @@ import Users from "./components/users";
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
-  }
-  async componentDidMount() {
-    this.props.load_Users();
   }
 
   render() {
@@ -32,7 +29,8 @@ class Routes extends Component {
           <Route path="/dogs" exact component={allDogs} />
           <Route path="/dogs/:id" component={Dog} />
           <Route path={`/dog/edit/:id`} component={editDog} />
-          <Route path="/users" component={Users} />
+          <Route path={"/cart"} component={Cart} />
+          <Route path={"/users"} component={users} />
           <Redirect to="/home" />
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
@@ -70,9 +68,6 @@ const mapDispatch = (dispatch) => {
     loadInitialData() {
       dispatch(me());
     },
-    // load_Users: () => {
-    //   dispatch(loadUsers());
-    // },
   };
 };
 

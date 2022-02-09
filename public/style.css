@@ -20,13 +20,23 @@ form div {
   display: inline-block;
 }
 
-#dogCards {
+#dogCards,
+#userCards {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
 }
 
 #dogCards > li {
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 32px;
+  width: calc(100% / 3 - 40px);
+  border: 0px solid black;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#userCards > li {
   padding: 10px;
   margin: 10px;
   margin-bottom: 32px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { loadPets, editPet } from '../store/pets/pets';
 
 class editDog extends React.Component {
@@ -36,17 +37,22 @@ class editDog extends React.Component {
 
   handleSubmit(ev) {
     ev.preventDefault();
-    console.log(this.state)
-  }
+    this.props.editPet(this.state);
+  };
 
   render() {
     const { name, gender, price, size, description, breed } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <input name='name' type='text' placeholder='Name' value={name} onChange={this.handleChange}></input>
-        <input name='gender' type='text' placeholder='Gender' value={gender} onChange={this.handleChange}></input>
+        <select name='gender' value={gender} onChange={this.handleChange}>
+          <option>male</option>
+          <option>female</option>
+        </select>
         <input name='price' type='text' placeholder='Price' value={price} onChange={this.handleChange}></input>
-        <button>Update</button>
+        <input name='size' type='text' placeholder='Size' value={size} onChange={this.handleChange}></input>
+        <input name='description' type='text' placeholder='Description' value={description} onChange={this.handleChange}></input>
+        <button className="button-37" role="button">Update</button>
       </form>
     )
   };
