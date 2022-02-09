@@ -1,7 +1,7 @@
 //!ADMIN VIEW ONLY
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { loadUsers } from "../store/users/users";
 
 class Users extends Component {
@@ -12,7 +12,7 @@ class Users extends Component {
     this.props.loadUsers();
   }
   render() {
-    console.log("users--->", this.props.users);
+    // console.log("users--->", this.props.users);
     return (
       <>
         <h2>USERS PAGE</h2>
@@ -26,7 +26,7 @@ class Users extends Component {
                 </li>
                 <li>Email: {user.email}</li>
               </ul>
-              {/*  */}
+              <Link to={`/users/${user.id}`}>More Details</Link>
             </li>
           ))}
         </ul>

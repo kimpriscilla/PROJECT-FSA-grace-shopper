@@ -7,11 +7,7 @@ import { connect } from "react-redux";
 export const Home = (props) => {
   // const { username } = props;
 
-  return (
-    <div>
-      <h3>Get Personalized Pet Matches</h3>
-    </div>
-  );
+  return <div></div>;
 };
 
 /**

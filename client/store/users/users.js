@@ -17,6 +17,7 @@ function _loadUsers(user) {
 export const loadUsers = () => {
   return async (dispatch) => {
     const user = (await axios.get("/api/users")).data;
+    console.log("FROM THE STORE--->", user);
     dispatch(_loadUsers(user));
   };
 };
