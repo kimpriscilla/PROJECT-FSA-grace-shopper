@@ -38,6 +38,7 @@ class editDog extends React.Component {
   handleSubmit(ev) {
     ev.preventDefault();
     this.props.editPet(this.state);
+    <Redirect to={`dogs/:${this.state.id}`} />
   };
 
   render() {
