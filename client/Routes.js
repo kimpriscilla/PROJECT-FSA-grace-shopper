@@ -5,9 +5,10 @@ import { Login, Signup } from "./components/AuthForm";
 import Home from "./components/Home";
 import { me } from "./store";
 import allDogs from "./components/allDogs";
-import Dog from './components/Dog';
+import Dog from "./components/Dog";
 import editDog from "./components/editDog";
-import Cart from './components/Cart';
+import Cart from "./components/Cart";
+import users from "./components/users";
 
 /**
  * COMPONENT
@@ -28,7 +29,8 @@ class Routes extends Component {
           <Route path="/dogs" exact component={allDogs} />
           <Route path="/dogs/:id" component={Dog} />
           <Route path={`/dog/edit/:id`} component={editDog} />
-          <Route path={'/cart'} component={Cart} />
+          <Route path={"/cart"} component={Cart} />
+          <Route path={"/users"} component={users} />
           <Redirect to="/home" />
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
