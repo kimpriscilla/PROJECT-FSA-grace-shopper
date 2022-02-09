@@ -8,6 +8,7 @@ import allDogs from "./components/allDogs";
 import Dog from "./components/Dog";
 import editDog from "./components/editDog";
 import Cart from "./components/Cart";
+import editUser from "./components/editUser";
 import users from "./components/users";
 
 /**
@@ -32,6 +33,7 @@ class Routes extends Component {
           <Route path={'/cart/1'} component={Cart} /> {/*CHANGE TO USER ID LATER*/}
           <Route path={"/cart"} component={Cart} />
           <Route path={"/users"} component={users} />
+          <Route path={"/user/edit/:id"} component={editUser} />
           <Redirect to="/home" />
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
