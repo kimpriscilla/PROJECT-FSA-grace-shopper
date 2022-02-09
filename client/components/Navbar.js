@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { logout } from "../store";
 
 //temporary navBar without loggedIn function/difference
+const tempUserId = 1;
+
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
     <h1>Welcome to Bark Hopper! </h1>
@@ -12,7 +14,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         <Link to="/home">Home</Link>
         <Link to="/dogs">Dogs</Link>
         <Link to="/home">About Us</Link>
-        <Link to='/cart'>Cart</Link>
+        <Link to={`/cart/${tempUserId}`}>Cart</Link> {/*CHANGE TO USER ID LATER*/}
         <a href="#" onClick={handleClick}>
           Logout
         </a>

@@ -1,6 +1,6 @@
 "use strict";
 
-const {db, models: {User, Breed, Pet, Order} } = require('../server/db')
+const {db, models: {User, Breed, Pet, Order, CartItem} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
@@ -103,6 +103,17 @@ async function seed() {
     }),
   ])
 
+  const cartItems = await Promise.all([
+    CartItem.create({
+      userId: 1,
+      petId: 2
+    }),
+    CartItem.create({
+      userId: 1,
+      petId: 3
+    }),
+  ]);
+
   console.log(breeds[1])
 
   console.log(`seeded ${users.length} users`);
@@ -110,7 +121,8 @@ async function seed() {
     users,
     pet,
     breeds,
-    orders
+    orders,
+    cartItems
   };
 
 }

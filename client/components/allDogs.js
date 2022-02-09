@@ -18,7 +18,6 @@ class allDogs extends React.Component {
   };
 
   render() {
-    console.log('allDogs pets-->', this.props.pets)
     return (
       <div>
         <h3>Welcome, allDogs </h3>
@@ -33,6 +32,7 @@ class allDogs extends React.Component {
                     <img src={dog.imageUrl} />
                   </li>
                   <li>Name: {dog.name} </li>
+                  <li>Gender: {dog.gender} </li>
                   <li>Breed: {dog.breed.name} </li>
                   <li>Born on: {dog.dateOfBirth}</li>
                   <li>

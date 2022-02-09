@@ -7,10 +7,12 @@ import thunk from 'redux-thunk';
 
 import userReducer from "./users";
 import petsReducer from "./pets/pets";
+import cartsReducer from "./cart/cart";
 
 const reducer = combineReducers({
   pets: petsReducer,
   users: userReducer,
+  cartItems: cartsReducer,
   auth
 });
 
