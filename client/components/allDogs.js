@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { loadPets } from "../store/pets/pets";
-import { loadUsers } from "../store/users";
+import { loadUsers } from "../store/users/users";
 
 /**
  * COMPONENT
@@ -15,19 +15,18 @@ class allDogs extends React.Component {
   async componentDidMount() {
     this.props.loadPets();
     this.props.loadUsers();
-  };
+  }
 
   render() {
-    console.log('allDogs pets-->', this.props.pets)
+    console.log("allDogs pets-->", this.props.pets);
     return (
       <div>
         <h3>Welcome, allDogs </h3>
         <div id="leftAllDogs"></div>
         <div id="rightAllDogs">
           <ul id="dogCards">
-            {
-              this.props.pets.map((dog) => (
-              <li key={ dog.id }>
+            {this.props.pets.map((dog) => (
+              <li key={dog.id}>
                 <ul id="individualCards">
                   <li>
                     <img src={dog.imageUrl} />
@@ -45,14 +44,13 @@ class allDogs extends React.Component {
                   </li>
                 </ul>
               </li>
-            ))
-            }
+            ))}
           </ul>
         </div>
       </div>
     );
-  };
-};
+  }
+}
 
 /**
  * CONTAINER
