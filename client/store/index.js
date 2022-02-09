@@ -7,11 +7,13 @@ import thunk from "redux-thunk";
 
 import userReducer from "./users/users";
 import petsReducer from "./pets/pets";
+import cartsReducer from "./cart/cart";
 
 const reducer = combineReducers({
   pets: petsReducer,
   users: userReducer,
-  auth,
+  cartItems: cartsReducer,
+  auth
 });
 
 const middleware = composeWithDevTools(

@@ -29,6 +29,7 @@ class Routes extends Component {
           <Route path="/dogs" exact component={allDogs} />
           <Route path="/dogs/:id" component={Dog} />
           <Route path={`/dog/edit/:id`} component={editDog} />
+          <Route path={'/cart/1'} component={Cart} /> {/*CHANGE TO USER ID LATER*/}
           <Route path={"/cart"} component={Cart} />
           <Route path={"/users"} component={users} />
           <Redirect to="/home" />
