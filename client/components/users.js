@@ -26,6 +26,7 @@ class Users extends Component {
                 </li>
                 <li>Email: {user.email}</li>
               </ul>
+              {/*  */}
             </li>
           ))}
         </ul>
