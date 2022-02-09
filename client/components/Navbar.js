@@ -13,7 +13,6 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       style={{ backgroundColor: "#F0FFFF", height: 50 + "px" }}
     >
       <div>
-
         <form className="d-flex">
           <input
             className="form-control me-2"
@@ -50,18 +49,17 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </div>
       </div> */}
       <div>
-        <a href="/" className="navbar-brand">
-          Grace Barker
-
-        <Link to="/home">Home</Link>
+        <a href="/" className="navbar-brand" />
+        Grace Barker
+        {/* <Link to="/home">Home</Link>
         <Link to="/dogs">Dogs</Link>
         <Link to="/home">About Us</Link>
-        <Link to={`/cart/${tempUserId}`}>Cart</Link> {/*CHANGE TO USER ID LATER*/}
-        <Link to="/users">Users</Link>
+        <Link to={`/cart/${tempUserId}`}>Cart</Link>{" "} */}
+        {/*CHANGE TO USER ID LATER*/}
+        {/* <Link to="/users">Users</Link>
         <a href="#" onClick={handleClick}>
           Logout
-
-        </a>
+        </a> */}
       </div>
 
       <div>
