@@ -8,7 +8,8 @@ class SingleUser extends Component {
     super();
   }
   render() {
-    console.log("??????", this.props.user?.orders[0]);
+    // console.log("--->", this.props.user);
+    // console.log("??????", this.props.user.orders);
     return (
       <>
         <h1>SINGLE USER PAGE// ADMIN VIEW ONLY</h1>
@@ -16,14 +17,12 @@ class SingleUser extends Component {
 
         <ul id="individualCards">
           <li>
-            <img src={this.props.user?.imageUrl}></img>
+            <img src={this.props.user.imageUrl}></img>
           </li>
-          <li> EMAIL: {this.props.user?.email}</li>
+          <li> EMAIL: {this.props.user.email}</li>
           <li>
             ORDERS:
-            {/* {this.props.user?.orders
-              ? this.props.user?.orders[0]
-              : "NO ORDERS YET"}{" "} */}
+            {/* {this.props.user ? this.props.user.orders : "NO ORDERS YET"}{" "} */}
           </li>
         </ul>
       </>
@@ -32,9 +31,8 @@ class SingleUser extends Component {
 }
 
 const mapState = (state, ownProps) => {
-  const user = state.users.find(
-    (user) => user.id === ownProps.match.params.id * 1
-  );
+  const user =
+    state.users.find((user) => user.id === ownProps.match.params.id * 1) || {};
 
   return {
     user,
