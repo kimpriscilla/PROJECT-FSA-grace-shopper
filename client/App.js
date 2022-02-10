@@ -18,7 +18,7 @@ class _App extends Component {
     this.props.getCart(tempUserId);
   }
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         <Navbar />
