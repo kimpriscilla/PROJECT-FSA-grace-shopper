@@ -1,11 +1,4 @@
-const {
-  STRING,
-  ENUM,
-  DATEONLY,
-  NOW,
-  DECIMAL,
-  TEXT
-} = require("sequelize");
+const { STRING, ENUM, DATEONLY, NOW, DECIMAL, TEXT } = require("sequelize");
 const db = require("../db");
 
 const Pet = db.define("pet", {
@@ -21,7 +14,7 @@ const Pet = db.define("pet", {
     allowNull: true,
   },
   gender: {
-    type: ENUM("male", "female"),
+    type: ENUM("Male", "Female"),
   },
   size: {
     type: ENUM("small", "medium", "large"),
