@@ -29,7 +29,6 @@ export const loadPets = () => {
 export const editPet = (pet) => {
   return async (dispatch) => {
     const newPet = (await axios.put(`/api/pets/${pet.id}`, pet)).data;
-    console.log(newPet);
     dispatch(_editPet(newPet));
   };
 };

@@ -25,7 +25,7 @@ class allDogs extends React.Component {
                   </li>
                   <li>Name: {dog.name} </li>
                   <li>Gender: {dog.gender} </li>
-                  <li>Breed: {dog.breed.name} </li>
+                  {/* <li>Breed: {dog.breed.name} </li> ADD ONCE DATA SEEDS DOG BREED*/}
                   <li>Born on: {dog.dateOfBirth}</li>
                   <li>
                     <Link to={`/dogs/:${dog.id}`}> More Details </Link>
