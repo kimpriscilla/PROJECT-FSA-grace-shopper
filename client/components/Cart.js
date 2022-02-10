@@ -13,7 +13,7 @@ class Cart extends React.Component {
 
   componentDidMount() {
     this.props.getCart(this.state.userId)
-  }
+  };
 
   render() {
     const cartItems = this.props.cartItems;
@@ -52,7 +52,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getCart: (userId) => dispatch(getCart(userId)),
-    deleteCart: (userId, cartItemId) => dispatch(deleteCart(userId, cartItemId))
+    deleteCart: (userId, cartItemId) => dispatch(deleteCart(userId, cartItemId)),
   };
 };
 

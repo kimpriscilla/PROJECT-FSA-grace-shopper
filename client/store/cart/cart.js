@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const GET_CART = 'GET_CART';
 const DELETE_CART = 'DELETE_CART';
+const ADD_CART = 'ADD_CART';
 
 //action creators
 const _getCart = (cartItems) => {
@@ -18,6 +19,13 @@ const _deleteCart = (cartItemId) => {
   };
 };
 
+const _addCart = (newCartItem) => {
+  return {
+    type: ADD_CART,
+    payload: newCartItem
+  };
+};
+
 //thunks
 export const getCart = (userId) => {
   return async(dispatch) => {
@@ -29,8 +37,14 @@ export const getCart = (userId) => {
 export const deleteCart = (userId, cartItemId) => {
   return async(dispatch) => {
     await axios.delete(`/api/cart/${userId}/${cartItemId}`);
-    console.log(cartItemId)
     dispatch(_deleteCart(cartItemId));
+  };
+};
+
+export const addCart = (userId, petId) => {
+  return async(dispatch) => {
+    const newCart = (await axios.post(`/api/cart/${userId}/${petId}`, { userId, petId })).data;
+    dispatch(_addCart(newCart))
   };
 };
 
@@ -41,6 +55,8 @@ export default function cartsReducer (state=[], action) {
       return action.payload;
     case DELETE_CART:
       return state.filter(cartItem => cartItem.id !== action.payload);
+    case ADD_CART:
+      return [...state, action.payload]
     default:
       return state;
   };

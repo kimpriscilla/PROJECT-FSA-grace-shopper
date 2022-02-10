@@ -1,15 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { loadPets } from "../store/pets/pets";
+import { addCart } from '../store/cart/cart';
+
+let tempUserId = 1;
 
 class Dog extends React.Component {
   constructor() {
     super();
-  }
-
-  componentDidMount() {
-    this.props.loadPets();
   }
 
   calculateAge(dob) {
@@ -41,7 +39,7 @@ class Dog extends React.Component {
           <p>Price: ${pet.price}</p>
           <p>Breed: {pet.breed.name}</p>
           <p>{pet.description}</p>
-          <button className="button-37" role="button">
+          <button className="button-37" role="button" onClick={() => this.props.addCart(tempUserId, pet.id)}>
             Add to Cart
           </button>
         </div>
@@ -59,7 +57,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadPets: () => dispatch(loadPets()),
+    addCart: (userId, petId) => dispatch(addCart(userId, petId))
   };
 };
 

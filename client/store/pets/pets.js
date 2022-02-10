@@ -46,5 +46,5 @@ export default function petsReducer(state = [], action) {
       );
     default:
       return state;
-  }
-}
+  };
+};
