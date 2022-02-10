@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { addCart } from '../store/cart/cart';
+import { addCart } from "../store/cart/cart";
 
 let tempUserId = 1;
 
@@ -31,7 +31,11 @@ class allDogs extends React.Component {
                     <Link to={`/dogs/:${dog.id}`}> More Details </Link>
                   </li>
                   <li>
-                    <button className="button-37" role="button" onClick={() => this.props.addCart(tempUserId, dog.id)}>
+                    <button
+                      className="button-37"
+                      role="button"
+                      onClick={() => this.props.addCart(tempUserId, dog.id)}
+                    >
                       Add to Cart
                     </button>
                   </li>
@@ -55,7 +59,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addCart: (userId, petId) => dispatch(addCart(userId, petId))
+    addCart: (userId, petId) => dispatch(addCart(userId, petId)),
   };
 };
 
