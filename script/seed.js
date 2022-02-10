@@ -37,6 +37,11 @@ async function seed() {
     Breed.create({ name: "Shih Tzu", stock: 1 }),
   ]);
 
+  const randomNumber = function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+  console.log(randomNumber(1, 10));
+
   const pet = await Promise.all([
     Pet.create({
       name: "Ava",
@@ -97,6 +102,7 @@ async function seed() {
         gender: pet.gender,
         size: pet.size,
         dateOfBirth: pet.dateOfBirth,
+        breedId: breeds[randomNumber(1, 10)].id,
       });
     }),
   ]);
@@ -124,17 +130,16 @@ async function seed() {
     }),
   ]);
 
-
-  // const cartItems = await Promise.all([
-  //   CartItem.create({
-  //     userId: 1,
-  //     petId: 2
-  //   }),
-  //   CartItem.create({
-  //     userId: 1,
-  //     petId: 3
-  //   }),
-  // ]);
+  const cartItems = await Promise.all([
+    CartItem.create({
+      userId: 1,
+      petId: 2,
+    }),
+    CartItem.create({
+      userId: 1,
+      petId: 3,
+    }),
+  ]);
 
   console.log(`seeded ${users.length} users`);
   return {
@@ -142,7 +147,7 @@ async function seed() {
     pet,
     breeds,
     orders,
-    //cartItems
+    cartItems,
   };
 }
 
