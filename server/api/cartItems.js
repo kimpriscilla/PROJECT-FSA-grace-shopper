@@ -42,3 +42,20 @@ router.delete('/:userId/:id', async (req, res, next) => {
     next(err)
   };
 });
+
+//add cart items for specific user
+router.post('/:userId/:petId', async(req, res, next) => {
+  try {
+    const { userId, petId } = req.body;
+    console.log(userId, petId)
+    const newCartItem = await CartItem.create({
+      orderId: null,
+      userId,
+      petId
+    });
+    console.log(newCartItem);
+    res.json(newCartItem);
+  } catch(err) {
+    next(err);
+  };
+});

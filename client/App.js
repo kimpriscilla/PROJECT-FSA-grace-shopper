@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loadUsers } from "./store/users/users";
 import { loadPets } from "./store/pets/pets";
+import { getCart } from './store/cart/cart';
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
+
+let tempUserId = 1;
 
 class _App extends Component {
   constructor() {
@@ -12,6 +15,7 @@ class _App extends Component {
   async componentDidMount() {
     this.props.loadUsers();
     this.props.loadPets();
+    this.props.getCart(tempUserId);
   }
   render() {
     // console.log(this.props);
@@ -37,6 +41,7 @@ const mapDispatch = (dispatch) => {
     loadPets: () => {
       dispatch(loadPets());
     },
+    getCart: (userId) => dispatch(getCart(userId))
   };
 };
 

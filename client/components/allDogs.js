@@ -1,20 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { loadPets } from "../store/pets/pets";
-import { loadUsers } from "../store/users/users";
+import { addCart } from '../store/cart/cart';
 
-/**
- * COMPONENT
- */
+let tempUserId = 1;
+
 class allDogs extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  async componentDidMount() {
-    this.props.loadPets();
-    this.props.loadUsers();
   }
 
   render() {
@@ -38,7 +31,7 @@ class allDogs extends React.Component {
                     <Link to={`/dogs/:${dog.id}`}> More Details </Link>
                   </li>
                   <li>
-                    <button className="button-37" role="button">
+                    <button className="button-37" role="button" onClick={() => this.props.addCart(tempUserId, dog.id)}>
                       Add to Cart
                     </button>
                   </li>
@@ -52,17 +45,6 @@ class allDogs extends React.Component {
   }
 }
 
-/**
- * CONTAINER
- */
-// const mapState = (state) => {
-//   return {
-//     username: state.auth.username,
-//   };
-// };
-
-// export default connect(mapState)(Home);
-
 const mapStateToProps = (state) => {
   //to access campuses in props
   return {
@@ -73,8 +55,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadPets: () => dispatch(loadPets()),
-    loadUsers: () => dispatch(loadUsers()),
+    addCart: (userId, petId) => dispatch(addCart(userId, petId))
   };
 };
 
