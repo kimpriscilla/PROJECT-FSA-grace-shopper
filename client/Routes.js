@@ -40,7 +40,7 @@ class Routes extends Component {
           <Route path={"/AboutUs"} component={AboutUs} />
           <Route path={"/users"} component={users} />
           <Route path={"/user/edit/:id"} component={editUser} />
-          <Redirect to="/home" />
+          {/* <Redirect to="/home" /> */}
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
 
