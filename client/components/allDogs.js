@@ -2,21 +2,14 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { addCart } from "../store/cart/cart";
-import ReactPaginate from "react-paginate";
 import axios from "axios";
 
 let tempUserId = 1;
 
-// class allDogs extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-const Posts = ({ loading, pets, addCart, pet }) => {
+const Dogs = ({ loading, pets, addCart, pet }) => {
   if (loading) {
-    return <h2>loading...</h2>;
+    return <h2>Loading...</h2>;
   }
-  console.log("!!!!!!!!!!!!!!---->", loading);
   return (
     <div id="rightAllDogs">
       <ul id="dogCards">
@@ -50,6 +43,29 @@ const Posts = ({ loading, pets, addCart, pet }) => {
   );
 };
 
+const Pagination = ({ petPerPage, totalPet, paginate }) => {
+  const pageNumbers = [];
+
+  for (let i = 1; i <= Math.ceil(totalPet / petPerPage); i++) {
+    pageNumbers.push(i); // will gives us correct amount of page numbers
+  }
+  return (
+    <>
+      <nav>
+        <ul className="pagination justify-content-center">
+          {pageNumbers.map((number) => (
+            <li key={number} className="page-item">
+              <a onClick={() => paginate(number)} className="page-link">
+                {number}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </>
+  );
+};
+
 function allDogs({ pets, addCart }) {
   //allows us to use state in a function component
   const [pet, setPet] = useState([]); //empty array is default state
@@ -60,7 +76,7 @@ function allDogs({ pets, addCart }) {
   useEffect(() => {
     //dont want to use async on useEffect so you create a new async func
     const fetchPet = async () => {
-      setLoading(true);
+      setLoading(true); //set loading to true bc the dogs are loaded
       const res = await axios.get("/api/pets");
       setPet(res.data);
       setLoading(false);
@@ -69,24 +85,24 @@ function allDogs({ pets, addCart }) {
   }, []); //useEffect runs whenever the component mounts, and whenever it updates. When the app runs, itll update the component meaning a never ending loop, in order to stop that, pass empty array brackets. You can also put specific dependencies inside the array to make it run on that specific change
 
   const indexOfLastPet = currentPage * petPerPage; //gives us index of last dog
+  //last index is 10 in this case, (on pg 1 * 10 dogs per pager = 10 )
   const indexOfFirstPet = indexOfLastPet - petPerPage;
-  const currentPet = pet.slice(indexOfFirstPet, indexOfLastPet);
+
+  const currentDogs = pet.slice(indexOfFirstPet, indexOfLastPet);
+
+  //Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber); //page number is coming from paginate functional component. It is named number inside there
 
   //console.log("testing inside allDogs------->", pet);
   return (
     <div>
       <h3>Welcome, allDogs </h3>
       <div id="leftAllDogs"></div>
-      <Posts pets={currentPet} addCart={addCart} pet={pet} loading={loading} />
-      <ReactPaginate
-        previousLabel="<<"
-        nextLabel=">>"
-        pageCount={10}
-        containerClassName={"pagination"}
-        pageClassName={"page-item"}
-        pageLinkClassName={"page-link"}
-        previousClassName={"page-item"}
-        containerClassName={"pagination justify-content-center"}
+      <Dogs pets={currentDogs} addCart={addCart} pet={pet} loading={loading} />
+      <Pagination
+        petPerPage={petPerPage}
+        totalPet={pet.length}
+        paginate={paginate}
       />
     </div>
   );
