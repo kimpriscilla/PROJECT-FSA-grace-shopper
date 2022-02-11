@@ -40,7 +40,6 @@ async function seed() {
   const randomNumber = function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   };
-  console.log(randomNumber(1, 10));
 
   const pet = await Promise.all([
     Pet.create({
