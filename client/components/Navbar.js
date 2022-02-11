@@ -50,7 +50,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       </div> */}
       <div>
         <a href="/" className="navbar-brand" />
-        Grace Barker
+        Grace Barker {isLoggedIn ? "- Logged In" : "- Not logged in"}
         {/* <Link to="/home">Home</Link>
         <Link to="/dogs">Dogs</Link>
         <Link to="/home">About Us</Link>
@@ -128,9 +128,20 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/home">
-              LogOut
-            </a>
+            {isLoggedIn ? (
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="/home"
+                onClick={handleClick}
+              >
+                LogOut
+              </a>
+            ) : (
+              <a className="nav-link active" aria-current="page" href="/login">
+                Login
+              </a>
+            )}
           </li>
         </ul>
       </div>
