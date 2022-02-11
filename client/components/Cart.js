@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { getCart, deleteCart } from '../store/cart/cart';
+import { deleteCart } from '../store/cart/cart';
+import { Link } from "react-router-dom";
+
+let tempUserId = 1;
+let tempOrderId = 5;
 
 class Cart extends React.Component {
   constructor(props) {
@@ -9,10 +13,6 @@ class Cart extends React.Component {
       userId: 1, //CHANGE USER ID LATER
       totalPrice: 0
     };
-  };
-
-  componentDidMount() {
-    this.props.getCart(this.state.userId)
   };
 
   render() {
@@ -37,7 +37,7 @@ class Cart extends React.Component {
           ))
         }
         </ul>
-        <button className="button-37" role="button">Checkout</button>
+        <Link to={`/${tempUserId}/${tempOrderId}`}><button className="button-37" role="button">Checkout</button></Link>
       </div>
     )
   }
@@ -51,7 +51,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getCart: (userId) => dispatch(getCart(userId)),
     deleteCart: (userId, cartItemId) => dispatch(deleteCart(userId, cartItemId)),
   };
 };
