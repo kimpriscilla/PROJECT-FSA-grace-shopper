@@ -12,6 +12,44 @@ let tempUserId = 1;
 //     super(props);
 //   }
 
+const Posts = ({ loading, pets, addCart, pet }) => {
+  if (loading) {
+    return <h2>loading...</h2>;
+  }
+  console.log("!!!!!!!!!!!!!!---->", loading);
+  return (
+    <div id="rightAllDogs">
+      <ul id="dogCards">
+        {pets.map((dog) => (
+          <li key={dog.id}>
+            <ul id="individualCards">
+              <li>
+                <img src={dog.imageUrl} />
+              </li>
+              <li>Name: {dog.name} </li>
+              <li>Gender: {dog.gender} </li>
+              <li>Breed: {dog.breed.name} </li>
+              <li>Born on: {dog.dateOfBirth}</li>
+              <li>
+                <Link to={`/dogs/:${dog.id}`}> More Details </Link>
+              </li>
+              <li>
+                <button
+                  className="button-37"
+                  role="button"
+                  onClick={() => addCart(tempUserId, dog.id)}
+                >
+                  Add to Cart
+                </button>
+              </li>
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 function allDogs({ pets, addCart }) {
   //allows us to use state in a function component
   const [pet, setPet] = useState([]); //empty array is default state
@@ -29,40 +67,17 @@ function allDogs({ pets, addCart }) {
     };
     fetchPet();
   }, []); //useEffect runs whenever the component mounts, and whenever it updates. When the app runs, itll update the component meaning a never ending loop, in order to stop that, pass empty array brackets. You can also put specific dependencies inside the array to make it run on that specific change
-  console.log("testing inside allDogs------->", pet);
+
+  const indexOfLastPet = currentPage * petPerPage; //gives us index of last dog
+  const indexOfFirstPet = indexOfLastPet - petPerPage;
+  const currentPet = pet.slice(indexOfFirstPet, indexOfLastPet);
+
+  //console.log("testing inside allDogs------->", pet);
   return (
     <div>
       <h3>Welcome, allDogs </h3>
       <div id="leftAllDogs"></div>
-      <div id="rightAllDogs">
-        <ul id="dogCards">
-          {pets.map((dog) => (
-            <li key={dog.id}>
-              <ul id="individualCards">
-                <li>
-                  <img src={dog.imageUrl} />
-                </li>
-                <li>Name: {dog.name} </li>
-                <li>Gender: {dog.gender} </li>
-                <li>Breed: {dog.breed.name} </li>
-                <li>Born on: {dog.dateOfBirth}</li>
-                <li>
-                  <Link to={`/dogs/:${dog.id}`}> More Details </Link>
-                </li>
-                <li>
-                  <button
-                    className="button-37"
-                    role="button"
-                    onClick={() => addCart(tempUserId, dog.id)}
-                  >
-                    Add to Cart
-                  </button>
-                </li>
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Posts pets={currentPet} addCart={addCart} pet={pet} loading={loading} />
       <ReactPaginate
         previousLabel="<<"
         nextLabel=">>"
