@@ -10,6 +10,7 @@ const Dogs = ({ loading, pets, addCart, pet }) => {
   if (loading) {
     return <h2>Loading...</h2>;
   }
+
   return (
     <div id="rightAllDogs">
       <ul id="dogCards">
@@ -25,6 +26,38 @@ const Dogs = ({ loading, pets, addCart, pet }) => {
               <li>Born on: {dog.dateOfBirth}</li>
               <li>
                 <Link to={`/dogs/:${dog.id}`}> More Details </Link>
+
+
+  render() {
+    return (
+      <div>
+        <h3>Welcome, allDogs </h3>
+        <div id="leftAllDogs"></div>
+        <div id="rightAllDogs">
+          <ul id="dogCards">
+            {this.props.pets.map((dog) => (
+              <li key={dog.id}>
+                <ul id="individualCards">
+                  <li>
+                    <img src={dog.imageUrl} />
+                  </li>
+                  <li>Name: {dog.name} </li>
+                  <li>Gender: {dog.gender} </li>
+                  {/* <li>Breed: {dog.breed.name} </li> ADD ONCE DATA SEEDS DOG BREED*/}
+                  <li>Born on: {dog.dateOfBirth}</li>
+                  <li>
+                    <Link to={`/dogs/:${dog.id}`}> More Details </Link>
+                  </li>
+                  <li>
+                    <button
+                      className="button-37"
+                      role="button"
+                      onClick={() => this.props.addCart(tempUserId, dog.id)}
+                    >
+                      Add to Cart
+                    </button>
+                  </li>
+                </ul>
               </li>
               <li>
                 <button
