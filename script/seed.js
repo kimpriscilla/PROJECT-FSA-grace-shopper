@@ -6,8 +6,6 @@ const {
 } = require("../server/db");
 
 const { petData } = require("./pet.js");
-
-console.log(petData);
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.

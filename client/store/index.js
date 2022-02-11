@@ -8,11 +8,13 @@ import thunk from "redux-thunk";
 import userReducer from "./users/users";
 import petsReducer from "./pets/pets";
 import cartsReducer from "./cart/cart";
+import ordersReducer from "./order/order";
 
 const reducer = combineReducers({
   pets: petsReducer,
   users: userReducer,
   cartItems: cartsReducer,
+  orders: ordersReducer,
   auth
 });
 
