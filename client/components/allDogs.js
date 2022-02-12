@@ -55,7 +55,7 @@ const Dogs = ({ loading, pets, addCart, pet, auth }) => {
                 <button
                   className="button-37"
                   role="button"
-                  onClick={() => addCart(testId, dog.id)}
+                  onClick={() => addCart(uuid, dog.id)}
                 >
                   Add to Cart
                 </button>
@@ -91,7 +91,7 @@ const Pagination = ({ petPerPage, totalPet, paginate }) => {
   );
 };
 
-function allDogs({ pets, addCart }) {
+function allDogs({ pets, addCart, auth }) {
   //allows us to use state in a function component
   const [pet, setPet] = useState([]); //empty array is default state
   const [loading, setLoading] = useState(false); //false is default state
@@ -119,6 +119,7 @@ function allDogs({ pets, addCart }) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber); //page number is coming from paginate functional component. It is named number inside there
 
   //console.log("testing inside allDogs------->", pet);
+  console.log("------>", auth);
   return (
     <div>
       <h3>Welcome, allDogs </h3>
@@ -135,6 +136,7 @@ function allDogs({ pets, addCart }) {
 
 const mapStateToProps = (state) => {
   //to access campuses in props
+  console.log("---->STATE", state);
   return {
     pets: state.pets,
     users: state.users,
