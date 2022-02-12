@@ -50,6 +50,7 @@ class Routes extends Component {
         {isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
+            <Route path="/dogs" exact component={allDogs} />
             <Redirect to="/home" />
           </Switch>
         ) : (

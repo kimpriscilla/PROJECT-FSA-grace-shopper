@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { loadUsers } from "./store/users/users";
 import { loadPets } from "./store/pets/pets";
 import { getCart } from './store/cart/cart';
+import { getOrders } from './store/order/order';
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
 
@@ -41,7 +42,8 @@ const mapDispatch = (dispatch) => {
     loadPets: () => {
       dispatch(loadPets());
     },
-    getCart: (userId) => dispatch(getCart(userId))
+    getCart: (userId) => dispatch(getCart(userId)),
+    getOrders: (userId) => dispatch(getOrders(userId))
   };
 };
 

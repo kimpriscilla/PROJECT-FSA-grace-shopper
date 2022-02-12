@@ -27,7 +27,7 @@ class Checkout extends React.Component {
   handleSubmit(ev) {
     ev.preventDefault();
     this.props.addOrder(this.state);
-    <Redirect to='/confirmation' />
+
   };
 
   render() {
@@ -41,12 +41,12 @@ class Checkout extends React.Component {
         </form>
       </div>
     )
-  }
+  };
 };
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps)
   return {
-    //cartItems: state.cartItems,
     orders: state.orders
   };
 };
