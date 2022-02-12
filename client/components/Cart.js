@@ -4,7 +4,6 @@ import { deleteCart } from "../store/cart/cart";
 import { Link } from "react-router-dom";
 
 let tempUserId = 1;
-let tempOrderId = 5;
 
 class Cart extends React.Component {
   constructor(props) {
@@ -55,6 +54,8 @@ class Cart extends React.Component {
             Checkout
           </button>
         </Link>
+
+        <Link to={`/checkout/${tempUserId}`}><button className="button-37" role="button">Check Out</button></Link>
       </div>
     );
   }

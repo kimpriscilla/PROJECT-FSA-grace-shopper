@@ -104,28 +104,28 @@ async function seed() {
     }),
   ]);
 
-  const orders = await Promise.all([
-    Order.create({
-      shippingAddress: "1 Main St, Skokie, IL 60600",
-      billingAddress: "1 Main St, Skokie, IL 60600",
-      userId: users[0].id,
-    }),
-    Order.create({
-      shippingAddress: "5 Commercial Rd, Germantown, MD 20045",
-      billingAddress: "1 Bank Rd, Germantown, MD 20045",
-      userId: users[1].id,
-    }),
-    Order.create({
-      shippingAddress: "5000 Skippack Pike, Blue Bell, PA 30308",
-      billingAddress: "500 Broadway, New York, NY 10002",
-      userId: users[2].id,
-    }),
-    Order.create({
-      shippingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
-      billingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
-      userId: users[3].id,
-    }),
-  ]);
+  // const orders = await Promise.all([
+  //   Order.create({
+  //     shippingAddress: "1 Main St, Skokie, IL 60600",
+  //     billingAddress: "1 Main St, Skokie, IL 60600",
+  //     userId: users[0].id,
+  //   }),
+  //   Order.create({
+  //     shippingAddress: "5 Commercial Rd, Germantown, MD 20045",
+  //     billingAddress: "1 Bank Rd, Germantown, MD 20045",
+  //     userId: users[1].id,
+  //   }),
+  //   Order.create({
+  //     shippingAddress: "5000 Skippack Pike, Blue Bell, PA 30308",
+  //     billingAddress: "500 Broadway, New York, NY 10002",
+  //     userId: users[2].id,
+  //   }),
+  //   Order.create({
+  //     shippingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
+  //     billingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
+  //     userId: users[3].id,
+  //   }),
+  // ]);
 
   // const cartItems = await Promise.all([
   //   CartItem.create({
@@ -143,7 +143,7 @@ async function seed() {
     users,
     pet,
     breeds,
-    orders,
+    //orders,
     //cartItems,
   };
 }
