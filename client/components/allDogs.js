@@ -27,7 +27,7 @@ else {
   uuid = retrieveId.id;
 }
 
-console.log(uuid, "THIS IS UUID");
+// console.log(uuid, "THIS IS UUID");
 
 //
 
@@ -119,7 +119,8 @@ function allDogs({ pets, addCart, auth }) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber); //page number is coming from paginate functional component. It is named number inside there
 
   //console.log("testing inside allDogs------->", pet);
-  console.log("------>", auth);
+  console.log("-------->", pets);
+
   return (
     <div>
       <h3>Welcome, allDogs </h3>
@@ -136,7 +137,6 @@ function allDogs({ pets, addCart, auth }) {
 
 const mapStateToProps = (state) => {
   //to access campuses in props
-  console.log("---->STATE", state);
   return {
     pets: state.pets,
     users: state.users,
