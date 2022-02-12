@@ -24,6 +24,7 @@ export const me = () => async (dispatch) => {
         authorization: token,
       },
     });
+    console.log(res.data, "res.data hereee");
     return dispatch(setAuth(res.data));
   }
 };
@@ -53,7 +54,7 @@ export const logout = () => {
 export default function (state = {}, action) {
   switch (action.type) {
     case SET_AUTH:
-      return action.authgit;
+      return action.auth;
     default:
       return state;
   }

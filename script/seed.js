@@ -6,8 +6,6 @@ const {
 } = require("../server/db");
 
 const { petData } = require("./pet.js");
-
-console.log(petData);
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -129,16 +127,16 @@ async function seed() {
     }),
   ]);
 
-  const cartItems = await Promise.all([
-    CartItem.create({
-      userId: 1,
-      petId: 2,
-    }),
-    CartItem.create({
-      userId: 1,
-      petId: 3,
-    }),
-  ]);
+  // const cartItems = await Promise.all([
+  //   CartItem.create({
+  //     userId: 1,
+  //     petId: 2,
+  //   }),
+  //   CartItem.create({
+  //     userId: 1,
+  //     petId: 3,
+  //   }),
+  // ]);
 
   console.log(`seeded ${users.length} users`);
   return {
@@ -146,7 +144,7 @@ async function seed() {
     pet,
     breeds,
     orders,
-    cartItems,
+    //cartItems,
   };
 }
 
