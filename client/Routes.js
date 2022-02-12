@@ -12,10 +12,10 @@ import editUser from "./components/editUser";
 import users from "./components/users";
 import SingleUser from "./components/SingleUser";
 import AboutUs from "./components/AboutUs";
-import Order from './components/Order';
+import Checkout from './components/Checkout';
+import Confirmation from './components/Confirmation';
 
 let tempUserId = 1;
-let tempOrderId = 5;
 
 class Routes extends Component {
   componentDidMount() {
@@ -41,7 +41,8 @@ class Routes extends Component {
           <Route path={"/AboutUs"} component={AboutUs} />
           <Route path={"/users"} component={users} />
           <Route path={"/user/edit/:id"} component={editUser} />
-          <Route path={`/${tempUserId}/${tempOrderId}`} component={Order} />
+          <Route path={`/checkout/${tempUserId}`} component={Checkout} />
+          <Route path={`/confirmation`} component={Confirmation}/>
           {/* <Redirect to="/home" /> */}
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
