@@ -3,10 +3,35 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { addCart } from "../store/cart/cart";
 import axios from "axios";
+import auth from "../store/auth";
 
-let tempUserId = 1;
+//I need to replace this with something that identifies a guest so when he returns to the page without clearing his local storage or cookies, he can still access his cart
+//let tempUserId = 1;
 
-const Dogs = ({ loading, pets, addCart, pet }) => {
+//Grab a local storage session
+const retrieveId = JSON.parse(localStorage.getItem("guest"));
+
+//let it come into existence
+let uuid;
+
+//If session's not there, create a new session
+if (!retrieveId) {
+  const testId = {
+    id: self.crypto.randomUUID(),
+  };
+  localStorage.setItem("guest", JSON.stringify(testId));
+  uuid = testId.id;
+}
+//If session IS there, set session's id to uuid
+else {
+  uuid = retrieveId.id;
+}
+
+console.log(uuid, "THIS IS UUID");
+
+//
+
+const Dogs = ({ loading, pets, addCart, pet, auth }) => {
   if (loading) {
     return <h2>Loading...</h2>;
   }
@@ -30,7 +55,7 @@ const Dogs = ({ loading, pets, addCart, pet }) => {
                 <button
                   className="button-37"
                   role="button"
-                  onClick={() => addCart(tempUserId, dog.id)}
+                  onClick={() => addCart(testId, dog.id)}
                 >
                   Add to Cart
                 </button>
@@ -113,6 +138,7 @@ const mapStateToProps = (state) => {
   return {
     pets: state.pets,
     users: state.users,
+    auth: state.auth.id,
   };
 };
 
