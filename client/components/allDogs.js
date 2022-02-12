@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addCart } from "../store/cart/cart";
 import axios from "axios";
@@ -32,9 +32,13 @@ else {
 //
 
 const Dogs = ({ loading, pets, addCart, pet, auth }) => {
+  const dispatch = useDispatch();
   if (loading) {
     return <h2>Loading...</h2>;
   }
+  const addToCart = (uuid, id) => {
+    dispatch(addCart(uuid, id));
+  };
   return (
     <div id="rightAllDogs">
       <ul id="dogCards">
@@ -55,7 +59,7 @@ const Dogs = ({ loading, pets, addCart, pet, auth }) => {
                 <button
                   className="button-37"
                   role="button"
-                  onClick={() => addCart(uuid, dog.id)}
+                  onClick={() => addToCart(uuid, dog.id)}
                 >
                   Add to Cart
                 </button>
@@ -91,23 +95,39 @@ const Pagination = ({ petPerPage, totalPet, paginate }) => {
   );
 };
 
-function allDogs({ pets, addCart, auth }) {
+function allDogs({ addCart, auth }) {
   //allows us to use state in a function component
   const [pet, setPet] = useState([]); //empty array is default state
   const [loading, setLoading] = useState(false); //false is default state
   const [currentPage, setCurrentPage] = useState(1); //for pagination, default is page 1
   const [petPerPage, setPetPerPage] = useState(10); //how many dogs per page, default 10 dogs perpage
+  const pets = useSelector((state) => state.pets);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     //dont want to use async on useEffect so you create a new async func
-    const fetchPet = async () => {
-      setLoading(true); //set loading to true bc the dogs are loaded
-      const res = await axios.get("/api/pets");
-      setPet(res.data);
-      setLoading(false);
-    };
-    fetchPet();
-  }, []); //useEffect runs whenever the component mounts, and whenever it updates. When the app runs, itll update the component meaning a never ending loop, in order to stop that, pass empty array brackets. You can also put specific dependencies inside the array to make it run on that specific change
+    setLoading(true); //set loading to true bc the dogs are loaded
+    //const res = await axios.get("/api/pets");
+    // const res = pets;
+    setPet(pets);
+    setLoading(false);
+  }, []);
+  console.log(pets, "PETTTTSS 110");
+  //useSelector: mapStateToProps
+  //useState: local state
+  //useEffect: lifecycle
+
+  // useEffect(() => {
+  //   //dont want to use async on useEffect so you create a new async func
+  //   const fetchPet = async () => {
+  //     setLoading(true); //set loading to true bc the dogs are loaded
+  //     //const res = await axios.get("/api/pets");
+  //     const res = pets;
+  //     setPet(res.data);
+  //     setLoading(false);
+  //   };
+  //   fetchPet();
+  // }, []); //useEffect runs whenever the component mounts, and whenever it updates. When the app runs, itll update the component meaning a never ending loop, in order to stop that, pass empty array brackets. You can also put specific dependencies inside the array to make it run on that specific change
 
   const indexOfLastPet = currentPage * petPerPage; //gives us index of last dog
   //last index is 10 in this case, (on pg 1 * 10 dogs per pager = 10 )
@@ -144,10 +164,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addCart: (userId, petId) => dispatch(addCart(userId, petId)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addCart: (userId, petId) => dispatch(addCart(userId, petId)),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(allDogs);
+//export default connect(mapStateToProps)(allDogs);
+export default allDogs;

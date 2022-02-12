@@ -12,8 +12,8 @@ import editUser from "./components/editUser";
 import users from "./components/users";
 import SingleUser from "./components/SingleUser";
 import AboutUs from "./components/AboutUs";
-import Checkout from './components/Checkout';
-import Confirmation from './components/Confirmation';
+import Checkout from "./components/Checkout";
+import Confirmation from "./components/Confirmation";
 
 let tempUserId = 1;
 
@@ -42,7 +42,7 @@ class Routes extends Component {
           <Route path={"/users"} component={users} />
           <Route path={"/user/edit/:id"} component={editUser} />
           <Route path={`/checkout/${tempUserId}`} component={Checkout} />
-          <Route path={`/confirmation`} component={Confirmation}/>
+          <Route path={`/confirmation`} component={Confirmation} />
           {/* <Redirect to="/home" /> */}
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
@@ -50,10 +50,12 @@ class Routes extends Component {
         {isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
+            <Route path="/dogs" exact component={allDogs} />
             <Redirect to="/home" />
           </Switch>
         ) : (
           <Switch>
+            <Route path="/dogs" exact component={allDogs} />
             <Route path="/" exact component={Login} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
