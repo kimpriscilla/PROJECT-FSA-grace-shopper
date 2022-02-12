@@ -48,7 +48,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </div>
       </nav>
     </div>
-    <Sticky />
+    <Sticky handleClick={handleClick} isLoggedIn={isLoggedIn} />
 
     {/* <div>
       <nav className="navbar sticky-top"  style={{ backgroundColor: "#FFF8DC" }}>
