@@ -27,18 +27,21 @@ else {
   uuid = retrieveId.id;
 }
 
-console.log(uuid, "THIS IS UUID");
+// console.log(uuid, "THIS IS UUID");
 
 //
 
-const Dogs = ({ loading, pets, addCart, pet, auth }) => {
+const Dogs = ({ loading, pets }) => {
   const dispatch = useDispatch();
+
   if (loading) {
     return <h2>Loading...</h2>;
   }
   const addToCart = (uuid, id) => {
     dispatch(addCart(uuid, id));
   };
+  // [{},{},{}] 100 pets
+  //locally -> [{},{}] 10 pets
   return (
     <div id="rightAllDogs">
       <ul id="dogCards">
@@ -96,73 +99,59 @@ const Pagination = ({ petPerPage, totalPet, paginate }) => {
 };
 
 function allDogs({ addCart, auth }) {
+  const pets = useSelector((state) => state.pets);
   //allows us to use state in a function component
-  const [pet, setPet] = useState([]); //empty array is default state
+  //const [pet, setPet] = useState([]); //empty array is default state
+
+  console.log("???", pets);
+  // console.log("!!!", pet);
   const [loading, setLoading] = useState(false); //false is default state
   const [currentPage, setCurrentPage] = useState(1); //for pagination, default is page 1
-  const [petPerPage, setPetPerPage] = useState(10); //how many dogs per page, default 10 dogs perpage
-  const pets = useSelector((state) => state.pets);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    //dont want to use async on useEffect so you create a new async func
-    setLoading(true); //set loading to true bc the dogs are loaded
-    //const res = await axios.get("/api/pets");
-    // const res = pets;
-    setPet(pets);
-    setLoading(false);
-  }, []);
-  console.log(pets, "PETTTTSS 110");
-  //useSelector: mapStateToProps
-  //useState: local state
-  //useEffect: lifecycle
+  const [petPerPage] = useState(10); //how many dogs per page, default 10 dogs perpage
 
   // useEffect(() => {
   //   //dont want to use async on useEffect so you create a new async func
-  //   const fetchPet = async () => {
-  //     setLoading(true); //set loading to true bc the dogs are loaded
-  //     //const res = await axios.get("/api/pets");
-  //     const res = pets;
-  //     setPet(res.data);
-  //     setLoading(false);
-  //   };
-  //   fetchPet();
-  // }, []); //useEffect runs whenever the component mounts, and whenever it updates. When the app runs, itll update the component meaning a never ending loop, in order to stop that, pass empty array brackets. You can also put specific dependencies inside the array to make it run on that specific change
+  //   setLoading(true); //set loading to true bc the dogs are loaded
+  //   //const res = await axios.get("/api/pets");
+  //   // const res = pets;
+  //   setPet(pets);
+  //   setLoading(false);
+  // }, []);
 
   const indexOfLastPet = currentPage * petPerPage; //gives us index of last dog
   //last index is 10 in this case, (on pg 1 * 10 dogs per pager = 10 )
   const indexOfFirstPet = indexOfLastPet - petPerPage;
 
-  const currentDogs = pet.slice(indexOfFirstPet, indexOfLastPet);
+  const currentDogs = pets.slice(indexOfFirstPet, indexOfLastPet);
 
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber); //page number is coming from paginate functional component. It is named number inside there
 
   //console.log("testing inside allDogs------->", pet);
-  console.log("------>", auth);
+  //console.log("-------->", pets);
+
   return (
     <div>
       <h3>Welcome, allDogs </h3>
       <div id="leftAllDogs"></div>
-      <Dogs pets={currentDogs} addCart={addCart} pet={pet} loading={loading} />
+      <Dogs pets={currentDogs} addCart={addCart} pet={pets} loading={loading} />
       <Pagination
         petPerPage={petPerPage}
-        totalPet={pet.length}
+        totalPet={pets.length}
         paginate={paginate}
       />
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  //to access campuses in props
-  console.log("---->STATE", state);
-  return {
-    pets: state.pets,
-    users: state.users,
-    auth: state.auth.id,
-  };
-};
+// const mapStateToProps = (state) => {
+//   //to access campuses in props
+//   return {
+//     pets: state.pets,
+//     users: state.users,
+//     auth: state.auth.id,
+//   };
+// };
 
 // const mapDispatchToProps = (dispatch) => {
 //   return {
