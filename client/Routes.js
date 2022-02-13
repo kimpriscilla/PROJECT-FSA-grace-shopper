@@ -29,8 +29,8 @@ class Routes extends Component {
       <div>
         {/* Temporary route to avoid logging in for home page */}
         <Switch>
-          <Route path="/home" component={Home} />
-          <Route path="/dogs" exact component={allDogs} />
+          {/* <Route path="/home" component={Home} />
+          <Route path="/dogs" exact component={allDogs} /> */}
           <Route path="/dogs/:id" component={Dog} />
           <Route path={`/dog/edit/:id`} component={editDog} />
 
@@ -55,6 +55,7 @@ class Routes extends Component {
           </Switch>
         ) : (
           <Switch>
+            <Route path="/home" component={Home} />
             <Route path="/dogs" exact component={allDogs} />
             <Route path="/" exact component={Login} />
             <Route path="/login" component={Login} />

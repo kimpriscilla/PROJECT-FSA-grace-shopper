@@ -43,13 +43,18 @@ const Sticky = ({ handleClick, isLoggedIn }) => (
               About Us
             </Link>
           </li>
+          <li className="nav-item">
+            <a className="nav-link" aria-current="page" href="/users">
+              Users
+            </a>
+          </li>
         </ul>
       </div>
       <div>
         <ul className="nav justify-content-end">
           <li className="nav-item">
             <a className="nav-link active" aria-current="page" href="/users">
-              Users
+              Checkout
             </a>
           </li>
           <li className="nav-item">
@@ -64,7 +69,7 @@ const Sticky = ({ handleClick, isLoggedIn }) => (
               </a>
             ) : (
               <a className="nav-link active" aria-current="page" href="/login">
-                Login
+                Log In
               </a>
             )}
           </li>

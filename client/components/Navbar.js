@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
 import Sticky from "./stickyNav";
+import LoginNav from "./LoginNav";
 
 //temporary navBar without loggedIn function/difference
 const tempUserId = 1;
@@ -48,8 +49,12 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </div>
       </nav>
     </div>
-    <Sticky handleClick={handleClick} isLoggedIn={isLoggedIn} />
 
+    {isLoggedIn ? (
+      <LoginNav handleClick={handleClick} isLoggedIn={isLoggedIn} />
+    ) : (
+      <Sticky handleClick={handleClick} isLoggedIn={isLoggedIn} />
+    )}
     {/* <div>
       <nav className="navbar sticky-top"  style={{ backgroundColor: "#FFF8DC" }}>
         <div>
