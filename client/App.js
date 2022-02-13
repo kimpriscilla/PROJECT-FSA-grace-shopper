@@ -6,6 +6,7 @@ import { getCart } from './store/cart/cart';
 import { getOrders } from './store/order/order';
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
+import { me } from "./store/auth";
 
 let tempUserId = 1;
 
@@ -17,6 +18,7 @@ class _App extends Component {
     this.props.loadUsers();
     this.props.loadPets();
     this.props.getCart(tempUserId);
+    this.props.me();
   }
   render() {
     // console.log(this.props);
@@ -43,7 +45,10 @@ const mapDispatch = (dispatch) => {
       dispatch(loadPets());
     },
     getCart: (userId) => dispatch(getCart(userId)),
-    getOrders: (userId) => dispatch(getOrders(userId))
+    getOrders: (userId) => dispatch(getOrders(userId)),
+    me: () => {
+      dispatch(me());
+    },
   };
 };
 

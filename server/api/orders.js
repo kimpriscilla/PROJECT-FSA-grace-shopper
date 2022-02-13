@@ -1,6 +1,15 @@
-const router = require('express').Router()
+const router = require('express').Router();
+const stripe = require('stripe')("sk_test_51KSVFvDkRSmF4QSn3kIBI4q18XWcJWTS1oEnHnW6juu4qZySzzsopg0DP6YH38VAYkLjjnMIF6915vhMsGePMlCb00vCKGAJHD");
+//console.log('stripe', require('stripe')(process.env.STRIPE_SECRET_TEST))
+require('dotenv').config();
+const bodyParser = require('body-parser');
+const cors = require('cors'); //make stripe request
 const { models: { Order, CartItem, User }} = require('../db');
-module.exports = router
+module.exports = router;
+
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
+router.use(cors());
 
 router.get('/', async (req, res, next) => {
   try {
@@ -29,12 +38,17 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-router.post('/:userId', async (req, res, next) => {
-  try {
-    const { userId } = req.body;
+router.post('/:id', cors (), async (req, res, next) => {
 
+  let { amount, id, userId, shippingAddress, billingAddress } = req.body;
+
+	try {
     //create new order
-    let newOrder = await Order.create(req.body);
+    let newOrder = await Order.create({
+      shippingAddress,
+      billingAddress,
+      userId
+    });
     const newOrderId = newOrder.id;
 
     //set parent orderID to cart items, set user ID to null so cart items disappear once order is placed
@@ -55,9 +69,24 @@ router.post('/:userId', async (req, res, next) => {
       include: [ CartItem ]
     });
 
-    res.json(newOrder);
+		const payment = await stripe.paymentIntents.create({
+			amount,
+			currency: "USD",
+			description: "Grace Barker",
+			payment_method: id,
+			confirm: true
+		})
+		console.log("Payment", payment)
+		res.json({
+			message: "Payment successful",
+			success: true
+		})
+	} catch (error) {
+		console.log("Error", error)
+		res.json({
+			message: "Payment failed",
+			success: false
+		});
+	};
 
-  } catch (err) {
-    next(err)
-  }
 });

@@ -1,15 +1,45 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addCart } from "../store/cart/cart";
 import axios from "axios";
+import auth from "../store/auth";
 
+//I need to replace this with something that identifies a guest so when he returns to the page without clearing his local storage or cookies, he can still access his cart
 let tempUserId = 1;
 
-const Dogs = ({ loading, pets, addCart, pet }) => {
+//Grab a local storage session
+const retrieveId = JSON.parse(localStorage.getItem("guest"));
+
+//let it come into existence
+let uuid;
+
+//If session's not there, create a new session
+if (!retrieveId) {
+  const testId = {
+    id: self.crypto.randomUUID(),
+  };
+  localStorage.setItem("guest", JSON.stringify(testId));
+  uuid = testId.id;
+}
+//If session IS there, set session's id to uuid
+else {
+  uuid = retrieveId.id;
+}
+
+// console.log(uuid, "THIS IS UUID");
+
+//
+
+const Dogs = ({ loading, pets }) => {
+  const dispatch = useDispatch();
+
   if (loading) {
     return <h2>Loading...</h2>;
   }
+  const addToCart = (uuid, id) => {
+    dispatch(addCart(uuid, id));
+  };
   return (
     <div id="rightAllDogs">
       <ul id="dogCards">
@@ -30,7 +60,7 @@ const Dogs = ({ loading, pets, addCart, pet }) => {
                 <button
                   className="button-37"
                   role="button"
-                  onClick={() => addCart(tempUserId, dog.id)}
+                  onClick={() => addToCart(tempUserId, dog.id)}
                 >
                   Add to Cart
                 </button>
@@ -66,60 +96,65 @@ const Pagination = ({ petPerPage, totalPet, paginate }) => {
   );
 };
 
-function allDogs({ pets, addCart }) {
+function allDogs({ addCart, auth }) {
+  const pets = useSelector((state) => state.pets);
   //allows us to use state in a function component
-  const [pet, setPet] = useState([]); //empty array is default state
+  //const [pet, setPet] = useState([]); //empty array is default state
+
+  // console.log("!!!", pet);
   const [loading, setLoading] = useState(false); //false is default state
   const [currentPage, setCurrentPage] = useState(1); //for pagination, default is page 1
-  const [petPerPage, setPetPerPage] = useState(10); //how many dogs per page, default 10 dogs perpage
+  const [petPerPage] = useState(10); //how many dogs per page, default 10 dogs perpage
 
-  useEffect(() => {
-    //dont want to use async on useEffect so you create a new async func
-    const fetchPet = async () => {
-      setLoading(true); //set loading to true bc the dogs are loaded
-      const res = await axios.get("/api/pets");
-      setPet(res.data);
-      setLoading(false);
-    };
-    fetchPet();
-  }, []); //useEffect runs whenever the component mounts, and whenever it updates. When the app runs, itll update the component meaning a never ending loop, in order to stop that, pass empty array brackets. You can also put specific dependencies inside the array to make it run on that specific change
+  // useEffect(() => {
+  //   //dont want to use async on useEffect so you create a new async func
+  //   setLoading(true); //set loading to true bc the dogs are loaded
+  //   //const res = await axios.get("/api/pets");
+  //   // const res = pets;
+  //   setPet(pets);
+  //   setLoading(false);
+  // }, []);
 
   const indexOfLastPet = currentPage * petPerPage; //gives us index of last dog
   //last index is 10 in this case, (on pg 1 * 10 dogs per pager = 10 )
   const indexOfFirstPet = indexOfLastPet - petPerPage;
 
-  const currentDogs = pet.slice(indexOfFirstPet, indexOfLastPet);
+  const currentDogs = pets.slice(indexOfFirstPet, indexOfLastPet);
 
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber); //page number is coming from paginate functional component. It is named number inside there
 
   //console.log("testing inside allDogs------->", pet);
+  //console.log("-------->", pets);
+
   return (
     <div>
       <h3>Welcome, allDogs </h3>
       <div id="leftAllDogs"></div>
-      <Dogs pets={currentDogs} addCart={addCart} pet={pet} loading={loading} />
+      <Dogs pets={currentDogs} addCart={addCart} pet={pets} loading={loading} />
       <Pagination
         petPerPage={petPerPage}
-        totalPet={pet.length}
+        totalPet={pets.length}
         paginate={paginate}
       />
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  //to access campuses in props
-  return {
-    pets: state.pets,
-    users: state.users,
-  };
-};
+// const mapStateToProps = (state) => {
+//   //to access campuses in props
+//   return {
+//     pets: state.pets,
+//     users: state.users,
+//     auth: state.auth.id,
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addCart: (userId, petId) => dispatch(addCart(userId, petId)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addCart: (userId, petId) => dispatch(addCart(userId, petId)),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(allDogs);
+//export default connect(mapStateToProps)(allDogs);
+export default allDogs;

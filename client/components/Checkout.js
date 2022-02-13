@@ -1,62 +1,18 @@
-import React from 'react';
-import { connect } from "react-redux";
-import { getOrders, addOrder } from '../store/order/order';
-import { Redirect } from 'react-router-dom';
+import React from "react";
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import PaymentForm from './PaymentForm';
 
-let tempUserId = 1;
+const PUBLIC_KEY = 'pk_test_51KSVFvDkRSmF4QSnpbWBWyNLDWTMK0rzvSMEgHUH3fXx73CxORNnu4pBVhgI27t9lro43zToldWybcCCPh7Qhz8w00DOohZCLt';
 
-class Checkout extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      userId: tempUserId,
-      shippingAddress: '',
-      billingAddress: '',
-    };
+const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  };
-
-  handleChange(ev) {
-    this.setState({
-      [ev.target.name] : ev.target.value
-    });
-  };
-
-  handleSubmit(ev) {
-    ev.preventDefault();
-    this.props.addOrder(this.state);
-
-  };
-
-  render() {
+export default function Checkout () {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input name='shippingAddress' placeholder='Shipping Address' onChange={this.handleChange}></input>
-          <input name='billingAddress' placeholder='Billing Address' onChange={this.handleChange}></input>
-          <p>(payment method)</p>
-          <button>Place Order</button>
-        </form>
+        <Elements stripe={stripeTestPromise}>
+          <PaymentForm />
+        </Elements>
       </div>
     )
   };
-};
-
-const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps)
-  return {
-    orders: state.orders
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    //getCart: (userId) => dispatch(getCart(userId)),
-    getOrders: (userId) => dispatch(getOrders(userId)),
-    addOrder: (order) => dispatch(addOrder(order))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
