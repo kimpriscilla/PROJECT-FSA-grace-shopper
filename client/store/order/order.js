@@ -26,10 +26,12 @@ export const getOrders = (userId) => {
   };
 };
 
-export const addOrder = (order) => {
+export const addOrder = (orderData) => {
   return async(dispatch) => {
-    const newOrder = (await axios.post(`/api/orders/${order.userId}`, order)).data;
-    console.log('new order -->', newOrder)
+    const newOrder = (await axios.post(`http://localhost:8080/api/orders/${orderData.userId}`, orderData)).data;
+    if(newOrder.success) {
+      console.log("Successful payment")
+  };
     dispatch(_addOrder(newOrder));
   };
 };

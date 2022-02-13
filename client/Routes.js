@@ -30,7 +30,6 @@ class Routes extends Component {
         {/* Temporary route to avoid logging in for home page */}
         <Switch>
           <Route path="/home" component={Home} />
-          <Route path="/dogs" exact component={allDogs} />
           <Route path="/dogs/:id" component={Dog} />
           <Route path={`/dog/edit/:id`} component={editDog} />
 
