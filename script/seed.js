@@ -6,7 +6,11 @@ const {
 } = require("../server/db");
 
 const { petData } = require("./pet.js");
+
+
+
 const { breedImg } = require("./breedPics.js");
+
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -35,6 +39,8 @@ async function seed() {
     Breed.create({ name: "Siberian Husky", stock: 1 }),
     Breed.create({ name: "Shih Tzu", stock: 1 }),
   ]);
+
+  console.log(breeds.map((el) => console.log("NAME", el.name)));
 
   const randomNumber = function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -91,6 +97,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       breedId: breeds[6].id,
     }),
+
     petData.forEach(async (pet) => {
       const newPet = await Pet.create({
         name: pet.name,
@@ -101,6 +108,7 @@ async function seed() {
         size: pet.size,
         dateOfBirth: pet.dateOfBirth,
         breedId: breeds[randomNumber(1, 10)].id,
+        imageUrl: "",
       });
       const oneBreed = await Breed.findByPk(newPet.breedId);
       const breedName = oneBreed.dataValues.name;

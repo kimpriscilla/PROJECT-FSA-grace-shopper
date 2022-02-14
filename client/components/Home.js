@@ -5,9 +5,11 @@ import { connect } from "react-redux";
  * COMPONENT
  */
 export const Home = (props) => {
+
   if (props) {
     console.log(props);
   }
+
   return (
     <div>
       <h2>
@@ -111,16 +113,5 @@ export const Home = (props) => {
     </div>
   );
 };
-
-/**
- * CONTAINER
- */
-// const mapState = (state) => {
-//   return {
-//     username: state.auth.username,
-//   };
-// };
-
-// export default connect(mapState)(Home);
 
 export default Home;
