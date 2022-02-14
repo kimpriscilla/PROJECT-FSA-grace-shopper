@@ -8,16 +8,11 @@ class editUser extends Component {
     super(props);
     this.state = {
       id: this.props.match.params.id * 1,
-      imageUrl: "",
-      password: "",
-      email: "",
     };
   }
 
   input = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+    this.setState({ ...this.state, [event.target.name]: event.target.value });
   };
 
   handleSubmit = (event) => {
@@ -91,14 +86,7 @@ class editUser extends Component {
               <tr>
                 <td></td>
                 <td>
-                  <button
-                    type="submit"
-                    disabled={
-                      this.state.imageUrl === "" || this.state.email === ""
-                    }
-                  >
-                    Save information
-                  </button>
+                  <button type="submit">Save information</button>
                 </td>
               </tr>
             </tbody>
