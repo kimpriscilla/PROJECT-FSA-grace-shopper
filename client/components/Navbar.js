@@ -43,7 +43,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId }) => (
               <a
                 className="nav-link active"
                 aria-current="page"
-                href={`/cart/${tempUserId}`}
+                href={`/cart/${authId}`}
               >
                 Cart
               </a>

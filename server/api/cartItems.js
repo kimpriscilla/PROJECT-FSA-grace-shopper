@@ -1,61 +1,63 @@
-const router = require('express').Router()
-const { models: { CartItem, Pet, User }} = require('../db')
-module.exports = router
+const router = require("express").Router();
+const {
+  models: { CartItem, Pet, User },
+} = require("../db");
+module.exports = router;
 
 //load all cart items
-router.get('/', async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
-    const cartItems = await CartItem.findAll()
-    res.json(cartItems)
+    const cartItems = await CartItem.findAll();
+    res.json(cartItems);
   } catch (err) {
-    next(err)
+    next(err);
   }
 });
 
 //load cart items for specific user
-router.get('/:id', async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const cartItems = await CartItem.findAll({
       where: {
-        userId: req.params.id
+        userId: req.params.id,
       },
-      include: [ Pet, User ]
+      include: [Pet, User],
     });
-    res.json(cartItems)
+    res.json(cartItems);
   } catch (err) {
-    next(err)
+    next(err);
   }
 });
 
 //delete cart items for specific user
-router.delete('/:userId/:id', async (req, res, next) => {
+router.delete("/:userId/:id", async (req, res, next) => {
   try {
     const { id, userId } = req.params;
     await CartItem.destroy({
       where: {
         id,
-        userId
-      }
+        userId,
+      },
     });
     res.sendStatus(204);
   } catch (err) {
-    next(err)
-  };
+    next(err);
+  }
 });
 
 //add cart items for specific user
-router.post('/:userId/:petId', async(req, res, next) => {
+router.post("/:userId/:petId", async (req, res, next) => {
   try {
     const { userId, petId } = req.body;
-    console.log(userId, petId)
+    console.log(userId, petId);
     const newCartItem = await CartItem.create({
       orderId: null,
       userId,
-      petId
+      petId,
     });
-    console.log(newCartItem);
+
     res.json(newCartItem);
-  } catch(err) {
+  } catch (err) {
     next(err);
-  };
+  }
 });

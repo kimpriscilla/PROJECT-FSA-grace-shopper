@@ -2,30 +2,26 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loadUsers } from "./store/users/users";
 import { loadPets } from "./store/pets/pets";
-import { getCart } from './store/cart/cart';
-import { getOrders } from './store/order/order';
+import { getCart } from "./store/cart/cart";
+import { getOrders } from "./store/order/order";
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
-
 import Footer from "./components/Footer";
-
 import { me } from "./store/auth";
-
 
 let tempUserId = 1;
 
 class _App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
   async componentDidMount() {
     this.props.loadUsers();
     this.props.loadPets();
-    this.props.getCart(tempUserId);
     this.props.me();
   }
+
   render() {
-    // console.log(this.props);
     return (
       <div>
         <Navbar />
@@ -37,7 +33,6 @@ class _App extends Component {
 }
 
 const mapState = (state) => {
-  // console.log("INSIDE APP", state);
   return state;
 };
 

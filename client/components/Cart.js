@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteCart } from "../store/cart/cart";
+import { deleteCart, getCart } from "../store/cart/cart";
 import { Link } from "react-router-dom";
 
 let tempUserId = 1;
@@ -13,7 +13,9 @@ class Cart extends React.Component {
       totalPrice: 0,
     };
   }
-
+  async componentDidMount() {
+    this.props.getCart(this.props.authId);
+  }
   render() {
     const cartItems = this.props.cartItems;
     const authId = this.props.authId ? this.props.authId : null;
@@ -64,6 +66,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     deleteCart: (userId, cartItemId) =>
       dispatch(deleteCart(userId, cartItemId)),
+    getCart: (userId) => dispatch(getCart(userId)),
   };
 };
 

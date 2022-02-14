@@ -14,6 +14,7 @@ import SingleUser from "./components/SingleUser";
 import AboutUs from "./components/AboutUs";
 import Checkout from "./components/Checkout";
 import Confirmation from "./components/Confirmation";
+import auth from "./store/auth";
 
 let tempUserId = 1;
 //Grab a local storage session
@@ -46,7 +47,6 @@ class Routes extends Component {
 
   render() {
     const { isLoggedIn, authId } = this.props;
-    console.log("this is authId", authId);
 
     return (
       <div>
