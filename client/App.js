@@ -2,11 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loadUsers } from "./store/users/users";
 import { loadPets } from "./store/pets/pets";
-import { getCart } from "./store/cart/cart";
-import { me } from "./store/auth";
+import { getCart } from './store/cart/cart';
+import { getOrders } from './store/order/order';
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
+
 import Footer from "./components/Footer";
+
+import { me } from "./store/auth";
+
 
 let tempUserId = 1;
 
@@ -46,6 +50,7 @@ const mapDispatch = (dispatch) => {
       dispatch(loadPets());
     },
     getCart: (userId) => dispatch(getCart(userId)),
+    getOrders: (userId) => dispatch(getOrders(userId)),
     me: () => {
       dispatch(me());
     },

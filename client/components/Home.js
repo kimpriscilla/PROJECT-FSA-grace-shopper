@@ -5,6 +5,11 @@ import { connect } from "react-redux";
  * COMPONENT
  */
 export const Home = (props) => {
+
+  if (props) {
+    console.log(props);
+  }
+
   return (
     <div>
       <h2>

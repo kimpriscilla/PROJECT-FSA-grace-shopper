@@ -8,8 +8,7 @@ class SingleUser extends Component {
     super();
   }
   render() {
-    // console.log("--->", this.props.user);
-    // console.log("??????", this.props.user.orders);
+    const { imageUrl, email, orders } = this.props.user;
     return (
       <>
         <h1>SINGLE USER PAGE// ADMIN VIEW ONLY</h1>
@@ -17,9 +16,9 @@ class SingleUser extends Component {
 
         <ul id="individualCards">
           <li>
-            <img src={this.props.user.imageUrl}></img>
+            <img src={imageUrl}></img>
           </li>
-          <li> EMAIL: {this.props.user.email}</li>
+          <li> EMAIL: {email}</li>
           <li>
             ORDERS:
             {/* {this.props.user ? this.props.user.orders : "NO ORDERS YET"}{" "} */}

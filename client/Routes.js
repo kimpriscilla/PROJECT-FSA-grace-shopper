@@ -23,12 +23,14 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.props;
+    const { isLoggedIn, authId } = this.props;
+    console.log("this is authId", authId);
 
     return (
       <div>
         {/* Temporary route to avoid logging in for home page */}
         <Switch>
+
           {/* <Route path="/home" component={Home} />
           <Route path="/dogs" exact component={allDogs} /> */}
           {/* <Route path="/dogs/:id" component={Dog} /> */}
@@ -38,6 +40,18 @@ class Routes extends Component {
           {/* <Route path={`/users/:id`} component={SingleUser} /> */}
           {/* <Route path={"/AboutUs"} component={AboutUs} /> */}
           {/* <Route path={`/cart/${tempUserId}`} component={Cart} /> */}
+
+          <Route path="/home" component={Home} />
+          <Route path="/dogs/:id" component={Dog} />
+          <Route path={`/dog/edit/:id`} component={editDog} />
+
+          {/*CHANGE TO USER ID LATER*/}
+          <Route path={`/cart/${authId}`} component={Cart} />
+          <Route exact path={"/users"} component={users} />
+          <Route path={`/users/:id`} component={SingleUser} />
+          <Route path={"/AboutUs"} component={AboutUs} />
+          <Route path={"/users"} component={users} />
+
           <Route path={"/user/edit/:id"} component={editUser} />
           <Route path={`/checkout/${tempUserId}`} component={Checkout} />
           <Route path={`/confirmation`} component={Confirmation} />
@@ -87,6 +101,7 @@ const mapState = (state) => {
     // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
+    authId: state.auth.id,
   };
 };
 

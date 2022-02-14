@@ -40,7 +40,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/cart">
+              <a className="nav-link active" aria-current="page" href={`/cart/${tempUserId}`}>
                 Cart
               </a>
             </li>
