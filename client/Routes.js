@@ -62,7 +62,7 @@ class Routes extends Component {
           {/* <Route path={"/AboutUs"} component={AboutUs} /> */}
           {/* <Route path={`/cart/${tempUserId}`} component={Cart} /> */}
 
-          <Route path="/home" component={Home} />
+          {/* <Route path="/home" component={Home} /> */}
           <Route path="/dogs/:id" component={Dog} />
           <Route path={`/dog/edit/:id`} component={editDog} />
 
