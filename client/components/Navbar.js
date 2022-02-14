@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../store";
-import Sticky from "./stickyNav";
+import Fixed from "./fixedNav";
 import LoginNav from "./LoginNav";
 
 //temporary navBar without loggedIn function/difference
@@ -12,7 +12,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
     <div>
       <nav
         className="navbar sticky-top navbar-light bg-light"
-        style={{ backgroundColor: "#F0FFFF", top: 100 + "px" }}
+        style={{ backgroundColor: "#F0FFFF" }}
       >
         <div>
           <form className="d-flex">
@@ -51,7 +51,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       {isLoggedIn ? (
         <LoginNav handleClick={handleClick} isLoggedIn={isLoggedIn} />
       ) : (
-        <Sticky handleClick={handleClick} isLoggedIn={isLoggedIn} />
+        <Fixed handleClick={handleClick} isLoggedIn={isLoggedIn} />
       )}
     </div>
   </div>

@@ -132,7 +132,6 @@ function allDogs({ addCart, auth }) {
 
   return (
     <div>
-      <h3>Welcome, allDogs </h3>
       <div id="leftAllDogs"></div>
       <Dogs pets={currentDogs} addCart={addCart} pet={pets} loading={loading} />
       <Pagination
