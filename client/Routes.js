@@ -16,6 +16,28 @@ import Checkout from "./components/Checkout";
 import Confirmation from "./components/Confirmation";
 
 let tempUserId = 1;
+//Grab a local storage session
+const retrieveId = JSON.parse(localStorage.getItem("guest"));
+
+//let it come into existence
+let uuid;
+
+//If session's not there, create a new session
+if (!retrieveId) {
+  const testId = {
+    id: self.crypto.randomUUID(),
+  };
+  localStorage.setItem("guest", JSON.stringify(testId));
+  uuid = testId.id;
+}
+//If session IS there, set session's id to uuid
+else {
+  uuid = retrieveId.id;
+}
+
+// console.log(uuid, "THIS IS UUID");
+
+//
 
 class Routes extends Component {
   componentDidMount() {
@@ -30,7 +52,6 @@ class Routes extends Component {
       <div>
         {/* Temporary route to avoid logging in for home page */}
         <Switch>
-
           {/* <Route path="/home" component={Home} />
           <Route path="/dogs" exact component={allDogs} /> */}
           {/* <Route path="/dogs/:id" component={Dog} /> */}
@@ -53,7 +74,7 @@ class Routes extends Component {
           <Route path={"/users"} component={users} />
 
           <Route path={"/user/edit/:id"} component={editUser} />
-          <Route path={`/checkout/${tempUserId}`} component={Checkout} />
+
           <Route path={`/confirmation`} component={Confirmation} />
           {/* <Redirect to="/home" /> */}
         </Switch>
@@ -68,8 +89,8 @@ class Routes extends Component {
             <Route path="/dogs/:id" component={Dog} />
             <Route path={"/AboutUs"} component={AboutUs} />
             <Route path={`/dog/edit/:id`} component={editDog} />
-            <Route path={`/cart/${tempUserId}`} component={Cart} />
-
+            <Route path={`/cart/${authId}`} component={Cart} />
+            <Route path={`/checkout/${authId}`} component={Checkout} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -85,7 +106,7 @@ class Routes extends Component {
             <Route path="/dogs/:id" component={Dog} />
             <Route path={`/dog/edit/:id`} component={editDog} />
             <Route path={"/AboutUs"} component={AboutUs} />
-            <Route path={`/cart/${tempUserId}`} component={Cart} />
+            <Route path={`/cart/${authId}`} component={Cart} />
           </Switch>
         )}
       </div>

@@ -9,21 +9,14 @@ class Cart extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      //userId: JSON.parse(localStorage.getItem("guest")).id, //CHANGE USER ID LATER
-      userId: tempUserId,
-      //Maybe something that checks if a session or cookie exist. If so, check for userId and set the state's userID to the cookie's stored userID.
-
-      //ERROR: Does not work atm because the UUID obviously doesn't match a user in the database
-
-      //Consideration: How to have a post route that checks if the user exist and if it doesn't....Do something? Idk
-
-      //Also if the user is logged in, maybe have something here that checks isLoggedIn and if so, grab the userId from isLoggedIn.
+      userId: props.authId,
       totalPrice: 0,
     };
   }
 
   render() {
     const cartItems = this.props.cartItems;
+    const authId = this.props.authId ? this.props.authId : null;
     return (
       <div>
         <ul id="dogCards">
@@ -50,7 +43,11 @@ class Cart extends React.Component {
           ))}
         </ul>
 
-        <Link to={`/checkout/${tempUserId}`}><button className="button-37" role="button">Check Out</button></Link>
+        <Link to={`/checkout/${authId}`}>
+          <button className="button-37" role="button">
+            Check Out
+          </button>
+        </Link>
       </div>
     );
   }
@@ -59,6 +56,7 @@ class Cart extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     cartItems: state.cartItems,
+    authId: state.auth.id,
   };
 };
 

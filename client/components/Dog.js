@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { addCart } from '../store/cart/cart';
+import { addCart } from "../store/cart/cart";
 
 let tempUserId = 1;
 
@@ -20,7 +20,7 @@ class Dog extends React.Component {
   }
 
   render() {
-    const { pet } = this.props;
+    const { pet, authId } = this.props;
     if (!pet) {
       return <h1>Loading Pet!</h1>;
     } else {
@@ -39,7 +39,11 @@ class Dog extends React.Component {
           <p>Price: ${pet.price}</p>
           <p>Breed: {pet.breed.name}</p>
           <p>{pet.description}</p>
-          <button className="button-37" role="button" onClick={() => this.props.addCart(tempUserId, pet.id)}>
+          <button
+            className="button-37"
+            role="button"
+            onClick={() => this.props.addCart(authId, pet.id)}
+          >
             Add to Cart
           </button>
         </div>
@@ -52,12 +56,13 @@ const mapStateToProps = (state, ownProps) => {
   const petId = ownProps.match.params.id[1] * 1;
   return {
     pet: state.pets.filter((pet) => pet.id === petId)[0],
+    authId: state.auth.id,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addCart: (userId, petId) => dispatch(addCart(userId, petId))
+    addCart: (userId, petId) => dispatch(addCart(userId, petId)),
   };
 };
 
