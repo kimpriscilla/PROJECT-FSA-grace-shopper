@@ -1,6 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addOrder } from "../store/order/order";
 
 let tempUserId = 1;
@@ -27,8 +27,15 @@ const CARD_OPTIONS = {
 	}
 };
 
-export default function PaymentForm() {
-    const [userId, setUserId ] = useState(tempUserId);
+export default function PaymentForm(props) {
+    const [ userId, setUserId ] = useState(tempUserId);
+
+    const cartItems = useSelector((state) => state.cartItems);
+
+    const totalPrice = cartItems.reduce((acc, cartItem) => {
+      return acc += cartItem.pet.price*1;
+    }, 0);
+
     const [ formData, setFormData ] = useState({
         shippingAddress: '',
         billingAddress: '',
@@ -59,7 +66,7 @@ export default function PaymentForm() {
         try {
             const { id } = paymentMethod;
             const orderData = {
-                amount: 1000,
+                amount: totalPrice*100,
                 id,
                 userId,
                 shippingAddress: formData.shippingAddress,

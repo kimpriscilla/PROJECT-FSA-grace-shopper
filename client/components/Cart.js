@@ -10,7 +10,6 @@ class Cart extends React.Component {
     super();
     this.state = {
       userId: props.authId,
-      totalPrice: 0,
     };
   }
   async componentDidMount() {
