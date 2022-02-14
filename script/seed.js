@@ -6,6 +6,7 @@ const {
 } = require("../server/db");
 
 const { petData } = require("./pet.js");
+const { breedImg } = require("./breedPics.js");
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -23,15 +24,15 @@ async function seed() {
   ]);
 
   const breeds = await Promise.all([
-    Breed.create({ name: "Retrievers (Labrador)", stock: 1 }),
+    Breed.create({ name: "Labrador Retriever", stock: 1 }),
     Breed.create({ name: "German Shepherd", stock: 3 }),
-    Breed.create({ name: "Retrievers (Golden)", stock: 5 }),
-    Breed.create({ name: "Bulldogs", stock: 1 }),
-    Breed.create({ name: "Poodles", stock: 3 }),
-    Breed.create({ name: "Beagles", stock: 2 }),
-    Breed.create({ name: "Rottweilers", stock: 5 }),
-    Breed.create({ name: "Dachshunds", stock: 5 }),
-    Breed.create({ name: "Siberian Huskies", stock: 1 }),
+    Breed.create({ name: "Golden Retriever", stock: 5 }),
+    Breed.create({ name: "Bulldog", stock: 1 }),
+    Breed.create({ name: "Poodle", stock: 3 }),
+    Breed.create({ name: "Beagle", stock: 2 }),
+    Breed.create({ name: "Rottweiler", stock: 5 }),
+    Breed.create({ name: "Dachshund", stock: 5 }),
+    Breed.create({ name: "Siberian Husky", stock: 1 }),
     Breed.create({ name: "Shih Tzu", stock: 1 }),
   ]);
 
@@ -91,7 +92,7 @@ async function seed() {
       breedId: breeds[6].id,
     }),
     petData.forEach(async (pet) => {
-      await Pet.create({
+      const newPet = await Pet.create({
         name: pet.name,
         price: pet.price,
         description: pet.description,
@@ -101,6 +102,11 @@ async function seed() {
         dateOfBirth: pet.dateOfBirth,
         breedId: breeds[randomNumber(1, 10)].id,
       });
+      const oneBreed = await Breed.findByPk(newPet.breedId);
+      const breedName = oneBreed.dataValues.name;
+      const imgArray = breedImg[breedName];
+      const oneImage = imgArray[Math.floor(Math.random() * imgArray.length)];
+      Pet.update({ imageUrl: oneImage }, { where: { id: newPet.id } });
     }),
   ]);
 
