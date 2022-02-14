@@ -4,8 +4,47 @@ import { Link } from "react-router-dom";
 const LoginNav = ({ handleClick, isLoggedIn }) => (
   <>
     <div>
+      {/* <nav
+        className="navbar sticky-top navbar-light bg-light"
+        style={{ backgroundColor: "#F0FFFF", height: 50 + "px" }}
+      >
+        <div>
+          <form className="d-flex">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button className="btn btn-sm btn-outline-secondary" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+        <div>
+          <a href="/" className="navbar-brand" />
+          Grace Barker
+        </div>
+
+        <div>
+          <ul className="nav justify-content-end">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/">
+                Contact Us
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/cart">
+                Cart
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav> */}
+
+      {/* -------------------------------------- */}
       <nav
-        className=" nav navbar-expand-sm"
+        className=" navbar fixed-top navbar-expand-sm scrolling-navbar"
         style={{ backgroundColor: "#FFF8DC" }}
       >
         <div className="collapse navbar-collapse " id="navbarSupportedContent">

@@ -31,15 +31,13 @@ class Routes extends Component {
         <Switch>
           {/* <Route path="/home" component={Home} />
           <Route path="/dogs" exact component={allDogs} /> */}
-          <Route path="/dogs/:id" component={Dog} />
-          <Route path={`/dog/edit/:id`} component={editDog} />
-
+          {/* <Route path="/dogs/:id" component={Dog} /> */}
+          {/* <Route path={`/dog/edit/:id`} component={editDog} /> */}
           {/*CHANGE TO USER ID LATER*/}
-          <Route path={`/cart/${tempUserId}`} component={Cart} />
-          <Route exact path={"/users"} component={users} />
-          <Route path={`/users/:id`} component={SingleUser} />
-          <Route path={"/AboutUs"} component={AboutUs} />
-          <Route path={"/users"} component={users} />
+          {/* <Route exact path={"/users"} component={users} /> */}
+          {/* <Route path={`/users/:id`} component={SingleUser} /> */}
+          {/* <Route path={"/AboutUs"} component={AboutUs} /> */}
+          {/* <Route path={`/cart/${tempUserId}`} component={Cart} /> */}
           <Route path={"/user/edit/:id"} component={editUser} />
           <Route path={`/checkout/${tempUserId}`} component={Checkout} />
           <Route path={`/confirmation`} component={Confirmation} />
@@ -51,6 +49,13 @@ class Routes extends Component {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/dogs" exact component={allDogs} />
+            <Route exact path={"/users"} component={users} />
+            <Route path={`/users/:id`} component={SingleUser} />
+            <Route path="/dogs/:id" component={Dog} />
+            <Route path={"/AboutUs"} component={AboutUs} />
+            <Route path={`/dog/edit/:id`} component={editDog} />
+            <Route path={`/cart/${tempUserId}`} component={Cart} />
+
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -60,6 +65,13 @@ class Routes extends Component {
             <Route path="/" exact component={Login} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route exact path={"/users"} component={users} />
+            {/* users & users/:id eventually going to be admin view */}
+            <Route path={`/users/:id`} component={SingleUser} />
+            <Route path="/dogs/:id" component={Dog} />
+            <Route path={`/dog/edit/:id`} component={editDog} />
+            <Route path={"/AboutUs"} component={AboutUs} />
+            <Route path={`/cart/${tempUserId}`} component={Cart} />
           </Switch>
         )}
       </div>
