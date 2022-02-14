@@ -16,6 +16,28 @@ import Checkout from "./components/Checkout";
 import Confirmation from "./components/Confirmation";
 
 let tempUserId = 1;
+//Grab a local storage session
+const retrieveId = JSON.parse(localStorage.getItem("guest"));
+
+//let it come into existence
+let uuid;
+
+//If session's not there, create a new session
+if (!retrieveId) {
+  const testId = {
+    id: self.crypto.randomUUID(),
+  };
+  localStorage.setItem("guest", JSON.stringify(testId));
+  uuid = testId.id;
+}
+//If session IS there, set session's id to uuid
+else {
+  uuid = retrieveId.id;
+}
+
+// console.log(uuid, "THIS IS UUID");
+
+//
 
 class Routes extends Component {
   componentDidMount() {
