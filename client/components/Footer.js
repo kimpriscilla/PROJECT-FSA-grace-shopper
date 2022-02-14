@@ -1,11 +1,30 @@
 import React from "react";
 
 const Footer = () => (
-  <nav class="navbar sticky-bottom navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        Fixed bottom
-      </a>
+  <nav
+    className="navbar sticky-bottom "
+    style={{ backgroundColor: "cornSilk" }}
+  >
+    <div className="container-fluid">
+      <div className="navbar-brand" href="#">
+        <ul className="nav flex-column mt-3">
+          <li className="nav-item">
+            <a className="nav-link" aria-current="page" href="/">
+              Home
+            </a>
+          </li>
+          <li className="nav-item">
+            <a class="nav-link" href="/FAQ">
+              FAQ
+            </a>
+          </li>
+          <li className="nav-item">
+            <a class="nav-link" href="#">
+              Get In Touch
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 );

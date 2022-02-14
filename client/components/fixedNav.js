@@ -9,7 +9,7 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
     >
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
         <ul className="nav nav-tabs">
-          <li className="nav-item ">
+          <li className="nav-item">
             <Link to="/home" className="nav-link ">
               Home
             </Link>

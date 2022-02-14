@@ -33,25 +33,27 @@ const Navbar = ({ handleClick, isLoggedIn, authId }) => (
         </div>
 
         <div>
-          <ul className="nav justify-content-end">
+          <ul className="nav justify-content-end ">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a className=" nav-link active" aria-current="page" href="/">
                 Contact Us
               </a>
             </li>
-            <li className="nav-item">
+            <li className="nav-item text-center">
               <a
                 className="nav-link active"
                 aria-current="page"
                 href={`/cart/${authId}`}
               >
-                Cart
+                <div className=" h5">
+                  <i className="bi- bi-cart-fill"></i>
+                </div>
               </a>
             </li>
           </ul>
         </div>
       </nav>
-      {/* --------------------------------------------------- */}
+
       {isLoggedIn ? (
         <LoginNav
           handleClick={handleClick}

@@ -20,35 +20,35 @@ const breedImg = {
     "https://images.dog.ceo/breeds/retriever-golden/n02099601_7019.jpg",
     "https://images.dog.ceo/breeds/retriever-golden/n02099601_9153.jpg",
   ],
-  "Bulldog": [
+  Bulldog: [
     "https://images.dog.ceo/breeds/bulldog-english/mami.jpg",
     "https://images.dog.ceo/breeds/bulldog-english/jager-1.jpg",
     "https://images.dog.ceo/breeds/bulldog-english/bunz.jpg",
     "https://images.dog.ceo/breeds/bulldog-english/murphy.jpg",
     "https://images.dog.ceo/breeds/bulldog-french/n02108915_895.jpg",
   ],
-  "Poodle": [
+  Poodle: [
     "https://images.dog.ceo/breeds/poodle-standard/n02113799_1536.jpg",
     "https://images.dog.ceo/breeds/poodle-standard/n02113799_6727.jpg",
     "https://images.dog.ceo/breeds/poodle-standard/n02113799_525.jpg",
     "https://images.dog.ceo/breeds/poodle-standard/n02113799_4499.jpg",
     "https://images.dog.ceo/breeds/poodle-standard/n02113799_2814.jpg",
   ],
-  "Beagle": [
+  Beagle: [
     "https://images.dog.ceo/breeds/beagle/n02088364_17294.jpg",
     "https://images.dog.ceo/breeds/beagle/n02088364_12973.jpg",
     "https://images.dog.ceo/breeds/beagle/n02088364_14779.jpg",
     "https://images.dog.ceo/breeds/beagle/n02088364_12794.jpg",
     "https://images.dog.ceo/breeds/beagle/n02088364_161.jpg",
   ],
-  "Rottweiler": [
+  Rottweiler: [
     "https://images.dog.ceo/breeds/rottweiler/n02106550_9317.jpg",
     "https://images.dog.ceo/breeds/rottweiler/n02106550_3886.jpg",
     "https://images.dog.ceo/breeds/rottweiler/n02106550_1567.jpg",
     "https://images.dog.ceo/breeds/rottweiler/n02106550_6926.jpg",
     "https://images.dog.ceo/breeds/rottweiler/n02106550_10555.jpg",
   ],
-  "Dachshund": [
+  Dachshund: [
     "https://images.dog.ceo/breeds/dachshund/dachshund-1018409_640.jpg",
     "https://images.dog.ceo/breeds/dachshund/dog-55140_640.jpg",
     "https://images.dog.ceo/breeds/dachshund/dachshund-3.jpg",

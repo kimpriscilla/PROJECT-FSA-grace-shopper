@@ -119,20 +119,20 @@ export const Home = (props) => {
             <p className="text-center"> EASY PROCESSSSS </p>
           </h2>
           <div className="row text-center">
-            <div className="col">
+            <div className="col-md">
               <img src={"process.png"} />
               <h2>
                 <div className="p-5"> SEARCH FOR DESIRED DOG</div>
               </h2>
             </div>
-            <div className="col">
+            <div className="col-md">
               {" "}
               <img src={"process.png"} />
               <h2>
                 <div className="p-5"> TESTING</div>
               </h2>
             </div>
-            <div className="col">
+            <div className="col-md">
               {" "}
               <img src={"process.png"} />
               <h2>
