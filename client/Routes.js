@@ -30,7 +30,6 @@ class Routes extends Component {
       <div>
         {/* Temporary route to avoid logging in for home page */}
         <Switch>
-
           {/* <Route path="/home" component={Home} />
           <Route path="/dogs" exact component={allDogs} /> */}
           {/* <Route path="/dogs/:id" component={Dog} /> */}
@@ -53,7 +52,7 @@ class Routes extends Component {
           <Route path={"/users"} component={users} />
 
           <Route path={"/user/edit/:id"} component={editUser} />
-          <Route path={`/checkout/${tempUserId}`} component={Checkout} />
+
           <Route path={`/confirmation`} component={Confirmation} />
           {/* <Redirect to="/home" /> */}
         </Switch>
@@ -68,8 +67,8 @@ class Routes extends Component {
             <Route path="/dogs/:id" component={Dog} />
             <Route path={"/AboutUs"} component={AboutUs} />
             <Route path={`/dog/edit/:id`} component={editDog} />
-            <Route path={`/cart/${tempUserId}`} component={Cart} />
-
+            <Route path={`/cart/${authId}`} component={Cart} />
+            <Route path={`/checkout/${authId}`} component={Checkout} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -85,7 +84,7 @@ class Routes extends Component {
             <Route path="/dogs/:id" component={Dog} />
             <Route path={`/dog/edit/:id`} component={editDog} />
             <Route path={"/AboutUs"} component={AboutUs} />
-            <Route path={`/cart/${tempUserId}`} component={Cart} />
+            <Route path={`/cart/${authId}`} component={Cart} />
           </Switch>
         )}
       </div>
