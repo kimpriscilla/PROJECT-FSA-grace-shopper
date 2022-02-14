@@ -6,7 +6,7 @@ import axios from "axios";
 import auth from "../store/auth";
 
 //I need to replace this with something that identifies a guest so when he returns to the page without clearing his local storage or cookies, he can still access his cart
-//let tempUserId = 1;
+let tempUserId = 1;
 
 //Grab a local storage session
 const retrieveId = JSON.parse(localStorage.getItem("guest"));
@@ -40,8 +40,6 @@ const Dogs = ({ loading, pets }) => {
   const addToCart = (uuid, id) => {
     dispatch(addCart(uuid, id));
   };
-  // [{},{},{}] 100 pets
-  //locally -> [{},{}] 10 pets
   return (
     <div id="rightAllDogs">
       <ul id="dogCards">
@@ -62,7 +60,7 @@ const Dogs = ({ loading, pets }) => {
                 <button
                   className="button-37"
                   role="button"
-                  onClick={() => addToCart(uuid, dog.id)}
+                  onClick={() => addToCart(tempUserId, dog.id)}
                 >
                   Add to Cart
                 </button>
@@ -103,7 +101,6 @@ function allDogs({ addCart, auth }) {
   //allows us to use state in a function component
   //const [pet, setPet] = useState([]); //empty array is default state
 
-  console.log("???", pets);
   // console.log("!!!", pet);
   const [loading, setLoading] = useState(false); //false is default state
   const [currentPage, setCurrentPage] = useState(1); //for pagination, default is page 1

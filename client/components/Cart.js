@@ -9,7 +9,8 @@ class Cart extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      userId: JSON.parse(localStorage.getItem("guest")).id, //CHANGE USER ID LATER
+      //userId: JSON.parse(localStorage.getItem("guest")).id, //CHANGE USER ID LATER
+      userId: tempUserId,
       //Maybe something that checks if a session or cookie exist. If so, check for userId and set the state's userID to the cookie's stored userID.
 
       //ERROR: Does not work atm because the UUID obviously doesn't match a user in the database
@@ -22,7 +23,6 @@ class Cart extends React.Component {
   }
 
   render() {
-    console.log(this.state, "This is state");
     const cartItems = this.props.cartItems;
     return (
       <div>
@@ -49,11 +49,6 @@ class Cart extends React.Component {
             </li>
           ))}
         </ul>
-        <Link to={`/${tempUserId}/${tempOrderId}`}>
-          <button className="button-37" role="button">
-            Checkout
-          </button>
-        </Link>
 
         <Link to={`/checkout/${tempUserId}`}><button className="button-37" role="button">Check Out</button></Link>
       </div>
