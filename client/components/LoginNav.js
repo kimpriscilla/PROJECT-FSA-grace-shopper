@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const LoginNav = ({ handleClick, isLoggedIn }) => (
+const LoginNav = ({ handleClick, isLoggedIn, id }) => (
   <>
     <div>
       {/* -------------------------------------- */}
@@ -58,7 +58,7 @@ const LoginNav = ({ handleClick, isLoggedIn }) => (
               <a
                 className="nav-link active"
                 aria-current="page"
-                href="/checkout"
+                href={`/checkout/${id}`}
               >
                 Checkout
               </a>

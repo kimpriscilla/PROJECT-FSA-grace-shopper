@@ -8,40 +8,15 @@ import auth from "../store/auth";
 //I need to replace this with something that identifies a guest so when he returns to the page without clearing his local storage or cookies, he can still access his cart
 //let tempUserId = 1;
 
-//Grab a local storage session
-const retrieveId = JSON.parse(localStorage.getItem("guest"));
-
-//let it come into existence
-let uuid;
-
-//If session's not there, create a new session
-if (!retrieveId) {
-  const testId = {
-    id: self.crypto.randomUUID(),
-  };
-  localStorage.setItem("guest", JSON.stringify(testId));
-  uuid = testId.id;
-}
-//If session IS there, set session's id to uuid
-else {
-  uuid = retrieveId.id;
-}
-
-// console.log(uuid, "THIS IS UUID");
-
-//
-
-const Dogs = ({ loading, pets }) => {
+const Dogs = ({ loading, pets, id }) => {
   const dispatch = useDispatch();
-
+  console.log("this is inside dogs", id);
   if (loading) {
     return <h2>Loading...</h2>;
   }
   const addToCart = (uuid, id) => {
     dispatch(addCart(uuid, id));
   };
-  // [{},{},{}] 100 pets
-  //locally -> [{},{}] 10 pets
   return (
     <div id="rightAllDogs">
       <ul id="dogCards">
@@ -62,7 +37,7 @@ const Dogs = ({ loading, pets }) => {
                 <button
                   className="button-37"
                   role="button"
-                  onClick={() => addToCart(uuid, dog.id)}
+                  onClick={() => addToCart(id, dog.id)}
                 >
                   Add to Cart
                 </button>
@@ -98,12 +73,13 @@ const Pagination = ({ petPerPage, totalPet, paginate }) => {
   );
 };
 
-function allDogs({ addCart, auth }) {
+function allDogs({ addCart }) {
   const pets = useSelector((state) => state.pets);
+  const id = useSelector((state) => state.auth.id);
+  console.log("this is the id", id);
   //allows us to use state in a function component
   //const [pet, setPet] = useState([]); //empty array is default state
 
-  console.log("???", pets);
   // console.log("!!!", pet);
   const [loading, setLoading] = useState(false); //false is default state
   const [currentPage, setCurrentPage] = useState(1); //for pagination, default is page 1
@@ -133,7 +109,13 @@ function allDogs({ addCart, auth }) {
   return (
     <div>
       <div id="leftAllDogs"></div>
-      <Dogs pets={currentDogs} addCart={addCart} pet={pets} loading={loading} />
+      <Dogs
+        pets={currentDogs}
+        addCart={addCart}
+        pet={pets}
+        loading={loading}
+        id={id}
+      />
       <Pagination
         petPerPage={petPerPage}
         totalPet={pets.length}

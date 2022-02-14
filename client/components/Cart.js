@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteCart } from "../store/cart/cart";
+import { deleteCart, getCart } from "../store/cart/cart";
 import { Link } from "react-router-dom";
 
 let tempUserId = 1;
@@ -9,21 +9,16 @@ class Cart extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      userId: JSON.parse(localStorage.getItem("guest")).id, //CHANGE USER ID LATER
-      //Maybe something that checks if a session or cookie exist. If so, check for userId and set the state's userID to the cookie's stored userID.
-
-      //ERROR: Does not work atm because the UUID obviously doesn't match a user in the database
-
-      //Consideration: How to have a post route that checks if the user exist and if it doesn't....Do something? Idk
-
-      //Also if the user is logged in, maybe have something here that checks isLoggedIn and if so, grab the userId from isLoggedIn.
+      userId: props.authId,
       totalPrice: 0,
     };
   }
-
+  async componentDidMount() {
+    this.props.getCart(this.props.authId);
+  }
   render() {
-    console.log(this.state, "This is state");
     const cartItems = this.props.cartItems;
+    const authId = this.props.authId ? this.props.authId : null;
     return (
       <div>
         <ul id="dogCards">
@@ -49,13 +44,12 @@ class Cart extends React.Component {
             </li>
           ))}
         </ul>
-        <Link to={`/${tempUserId}/${tempOrderId}`}>
+
+        <Link to={`/checkout/${authId}`}>
           <button className="button-37" role="button">
-            Checkout
+            Check Out
           </button>
         </Link>
-
-        <Link to={`/checkout/${tempUserId}`}><button className="button-37" role="button">Check Out</button></Link>
       </div>
     );
   }
@@ -64,6 +58,7 @@ class Cart extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     cartItems: state.cartItems,
+    authId: state.auth.id,
   };
 };
 
@@ -71,6 +66,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     deleteCart: (userId, cartItemId) =>
       dispatch(deleteCart(userId, cartItemId)),
+    getCart: (userId) => dispatch(getCart(userId)),
   };
 };
 

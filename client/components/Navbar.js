@@ -7,7 +7,7 @@ import LoginNav from "./LoginNav";
 //temporary navBar without loggedIn function/difference
 const tempUserId = 1;
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({ handleClick, isLoggedIn, authId }) => (
   <div>
     <div>
       <nav
@@ -40,7 +40,11 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/cart">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href={`/cart/${authId}`}
+              >
                 Cart
               </a>
             </li>
@@ -49,7 +53,11 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
       </nav>
       {/* --------------------------------------------------- */}
       {isLoggedIn ? (
-        <LoginNav handleClick={handleClick} isLoggedIn={isLoggedIn} />
+        <LoginNav
+          handleClick={handleClick}
+          isLoggedIn={isLoggedIn}
+          id={authId}
+        />
       ) : (
         <Fixed handleClick={handleClick} isLoggedIn={isLoggedIn} />
       )}
@@ -63,6 +71,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
+    authId: state.auth.id,
   };
 };
 
