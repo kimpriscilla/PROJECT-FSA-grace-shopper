@@ -5,22 +5,23 @@ import { connect } from "react-redux";
  * COMPONENT
  */
 export const Home = (props) => {
-  // const { username } = props;
-
+  if (props) {
+    console.log(props);
+  }
   return (
     <div>
       <h2>
         <div
           id="carouselExampleDark"
-          class="carousel carousel-dark slide"
+          className="carousel carousel-dark slide"
           data-bs-ride="carousel"
         >
-          <div class="carousel-indicators">
+          <div className="carousel-indicators">
             <button
               type="button"
               data-bs-target="#carouselExampleDark"
               data-bs-slide-to="0"
-              class="active"
+              className="active"
               aria-current="true"
               aria-label="Slide 1"
             ></button>
@@ -37,43 +38,43 @@ export const Home = (props) => {
               aria-label="Slide 3"
             ></button>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
+          <div className="carousel-inner">
+            <div className="carousel-item active" data-bs-interval="10000">
               <img
                 src="dog3.jpg"
-                class="d-block w-100"
+                className="d-block w-100"
                 style={{ aspectRatio: 3 / 2, width: "fixed" }}
                 alt="..."
               />
-              <div class="carousel-caption d-none d-md-block">
+              <div className="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>
                   Some representative placeholder content for the first slide.
                 </p>
               </div>
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
+            <div className="carousel-item" data-bs-interval="2000">
               <img
                 src="dog.jpg"
                 style={{ aspectRatio: 3 / 2, width: "fixed" }}
-                class="d-block w-100"
+                className="d-block w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-none d-md-block">
+              <div className="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>
                   Some representative placeholder content for the second slide.
                 </p>
               </div>
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src="dog2.jpg"
                 style={{ aspectRatio: 3 / 2, width: "fixed" }}
-                class="d-block w-100"
+                className="d-block w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-none d-md-block">
+              <div className="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
                 <p>
                   Some representative placeholder content for the third slide.
@@ -82,22 +83,28 @@ export const Home = (props) => {
             </div>
           </div>
           <button
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleDark"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
           </button>
           <button
-            class="carousel-control-next"
+            className="carousel-control-next"
             type="button"
             data-bs-target="#carouselExampleDark"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </h2>

@@ -29,10 +29,12 @@ export const me = () => async (dispatch) => {
   }
 };
 
+//This function compares the email and password. It takes a method so it may either be a log in function or a signup function.
 export const authenticate = (email, password, method) => async (dispatch) => {
   try {
     const res = await axios.post(`/auth/${method}`, { email, password });
     window.localStorage.setItem(TOKEN, res.data.token);
+    console.log(res, "this is res");
     dispatch(me());
   } catch (authError) {
     return dispatch(setAuth({ error: authError }));
