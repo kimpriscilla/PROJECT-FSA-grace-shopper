@@ -45,7 +45,7 @@ const Sticky = ({ handleClick, isLoggedIn }) => (
 
     <nav
       className=" navbar fixed-top navbar-expand-lg"
-      style={{ backgroundColor: "#FFF8DC", Top: 50 + "px" }}
+      style={{ backgroundColor: "#FFF8DC" }}
     >
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
         <ul className="nav nav-tabs">

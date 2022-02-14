@@ -12,7 +12,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
     <div>
       <nav
         className="navbar sticky-top navbar-light bg-light"
-        style={{ backgroundColor: "#F0FFFF" }}
+        style={{ backgroundColor: "#F0FFFF", top: 100 + "px" }}
       >
         <div>
           <form className="d-flex">
