@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../store";
-import Sticky from "./stickyNav";
+import Fixed from "./fixedNav";
 import LoginNav from "./LoginNav";
 
 //temporary navBar without loggedIn function/difference
@@ -12,7 +12,8 @@ const Navbar = ({ handleClick, isLoggedIn, authId }) => (
     <div>
       <nav
         className="navbar sticky-top navbar-light bg-light"
-        style={{ backgroundColor: "#F0FFFF", top: 100 + "px" }}
+        id="sticky-nav"
+        style={{ backgroundColor: "#F0FFFF" }}
       >
         <div>
           <form className="d-flex">
@@ -29,29 +30,31 @@ const Navbar = ({ handleClick, isLoggedIn, authId }) => (
         </div>
         <div>
           <a href="/" className="navbar-brand" />
-          Grace Barker
+          <span style={{ fontWeight: "bold" }}> Grace Barker</span>
         </div>
 
         <div>
-          <ul className="nav justify-content-end">
+          <ul className="nav justify-content-end ">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a className=" nav-link active" aria-current="page" href="/">
                 Contact Us
               </a>
             </li>
-            <li className="nav-item">
+            <li className="nav-item text-center">
               <a
                 className="nav-link active"
                 aria-current="page"
                 href={`/cart/${authId}`}
               >
-                Cart
+                <div className=" h5">
+                  <i className="bi- bi-cart-fill"></i>
+                </div>
               </a>
             </li>
           </ul>
         </div>
       </nav>
-      {/* --------------------------------------------------- */}
+
       {isLoggedIn ? (
         <LoginNav
           handleClick={handleClick}
@@ -59,7 +62,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId }) => (
           id={authId}
         />
       ) : (
-        <Sticky handleClick={handleClick} isLoggedIn={isLoggedIn} id={null} />
+        <Fixed handleClick={handleClick} isLoggedIn={isLoggedIn} />
       )}
     </div>
   </div>

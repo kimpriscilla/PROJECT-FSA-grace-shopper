@@ -3,12 +3,28 @@ import React from "react";
 const Footer = () => (
   <nav
     className="navbar sticky-bottom "
-    style={{ backgroundColor: "#F0FFFF", height: 50 + "px" }}
+    style={{ backgroundColor: "cornSilk" }}
   >
     <div className="container-fluid">
-      <a className="navbar-brand" href="#">
-        FOOTER
-      </a>
+      <div className="navbar-brand" href="#">
+        <ul className="nav flex-column mt-3">
+          <li className="nav-item">
+            <a className="nav-link" aria-current="page" href="/home">
+              Home
+            </a>
+          </li>
+          <li className="nav-item">
+            <a class="nav-link" href="/FAQ">
+              FAQ
+            </a>
+          </li>
+          <li className="nav-item">
+            <a class="nav-link" href="#">
+              Get In Touch
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 );
