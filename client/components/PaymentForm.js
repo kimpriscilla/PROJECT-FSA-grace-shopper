@@ -29,7 +29,8 @@ const CARD_OPTIONS = {
 };
 
 export default function PaymentForm() {
-    const [ userId, setUserId ] = useState(tempUserId);
+
+    const userId = useSelector((state) => state.auth.id);
 
     const cartItems = useSelector((state) => state.cartItems);
 

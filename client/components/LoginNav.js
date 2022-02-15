@@ -80,9 +80,9 @@ const LoginNav = ({ handleClick, isLoggedIn, id }) => (
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/">
+                  <Link to={`/account/orders/${id}`} className="dropdown-item">
                     Orders
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   {isLoggedIn ? (
