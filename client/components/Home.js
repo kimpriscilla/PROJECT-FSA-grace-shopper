@@ -111,7 +111,6 @@ export const Home = (props) => {
               <span className="visually-hidden">Next</span>
             </button>
           </div>
-
         </h2>
       </div>
       <section className="p-5">
