@@ -53,7 +53,7 @@ class Dog extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const petId = ownProps.match.params.id[1] * 1;
+  const petId = ownProps.match.params.id * 1;
   return {
     pet: state.pets.filter((pet) => pet.id === petId)[0],
     authId: state.auth.id,
