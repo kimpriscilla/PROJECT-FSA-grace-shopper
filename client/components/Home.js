@@ -128,23 +128,6 @@ export const Home = (props) => {
               <h2>
                 <div className="p-5"> SEARCH FOR DESIRED DOG</div>
               </h2>
-
-          <div className="carousel-inner">
-            <div className="carousel-item active" data-bs-interval="10000">
-              <img
-                src="dog3.jpg"
-                className="d-block w-100"
-                style={{ aspectRatio: 3 / 2, width: "fixed" }}
-                alt="..."
-              />
-              <div className="carousel-caption d-none d-md-block">
-                <h3>We are Grace Barker</h3>
-                <p>
-                  A multi-breeder, nation wide platform for connecting our
-                  precious pups to loving families
-                </p>
-              </div>
-
             </div>
             <div className="col-md">
               {" "}
