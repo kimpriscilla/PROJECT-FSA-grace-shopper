@@ -97,7 +97,7 @@ class Routes extends Component {
             <Route path="/FAQ" component={Faq} />
 
             <Route path={`/confirmation`} component={Confirmation} />
-
+            <Route path={"/user/edit/:id"} component={editUser} />
             <Redirect to="/home" />
           </Switch>
         ) : (
