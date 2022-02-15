@@ -26,7 +26,8 @@ class Users extends Component {
                 </li>
                 <li>Email: {user.email}</li>
               </ul>
-              <Link to={`/users/${user.id}`}>More Details</Link>
+              <Link to={`/users/${user.id}`}>More Details</Link> |
+              <Link to={`/user/edit/${user.id}`}> Edit User</Link>
             </li>
           ))}
         </ul>
