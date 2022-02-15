@@ -1,7 +1,8 @@
-const { STRING, ENUM, DATEONLY, NOW, DECIMAL, TEXT } = require("sequelize");
+const { STRING, ENUM, DATEONLY, NOW, DECIMAL, TEXT, Model } = require("sequelize");
 const db = require("../db");
 
-const Pet = db.define("pet", {
+class Pet extends Model{};
+Pet.init({
   name: {
     type: STRING,
   },
@@ -28,6 +29,6 @@ const Pet = db.define("pet", {
     type: STRING,
     defaultValue: "/default.png",
   },
-});
+}, { sequelize: db, modelName: 'pets', timestamps: false });
 
 module.exports = Pet;
