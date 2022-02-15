@@ -7,8 +7,7 @@ const PUBLIC_KEY = 'pk_test_51KSVFvDkRSmF4QSnpbWBWyNLDWTMK0rzvSMEgHUH3fXx73CxORN
 
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
-export default function Checkout (props) {
-
+export default function Checkout () {
     return (
       <div>
         <Elements stripe={stripeTestPromise}>

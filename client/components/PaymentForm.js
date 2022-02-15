@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addOrder } from "../store/order/order";
+import { useHistory } from 'react-router';
 
 let tempUserId = 1;
 
@@ -27,7 +28,7 @@ const CARD_OPTIONS = {
 	}
 };
 
-export default function PaymentForm(props) {
+export default function PaymentForm() {
     const [ userId, setUserId ] = useState(tempUserId);
 
     const cartItems = useSelector((state) => state.cartItems);
@@ -44,6 +45,7 @@ export default function PaymentForm(props) {
     const stripe = useStripe();
     const elements = useElements();
     const dispatch = useDispatch();
+    const history = useHistory();
 
     function handleChange(ev) {
         const { name, value } = ev.target
@@ -72,9 +74,10 @@ export default function PaymentForm(props) {
                 shippingAddress: formData.shippingAddress,
                 billingAddress: formData.billingAddress
             };
-            console.log(orderData);
 
             dispatch(addOrder(orderData));
+
+            history.push('/confirmation')
 
         } catch (error) {
             console.log("Error", error)

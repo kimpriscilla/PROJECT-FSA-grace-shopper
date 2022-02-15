@@ -91,6 +91,7 @@ class Routes extends Component {
             <Route path={`/dog/edit/:id`} component={editDog} />
             <Route path={`/cart/${authId}`} component={Cart} />
             <Route path={`/checkout/${authId}`} component={Checkout} />
+            <Route path={`/confirmation`} component={Confirmation} />
             <Redirect to="/home" />
           </Switch>
         ) : (
