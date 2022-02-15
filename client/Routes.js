@@ -15,6 +15,7 @@ import AboutUs from "./components/AboutUs";
 import Checkout from "./components/Checkout";
 import Confirmation from "./components/Confirmation";
 import auth from "./store/auth";
+import Faq from "./components/Faq";
 
 let tempUserId = 1;
 //Grab a local storage session
@@ -91,6 +92,7 @@ class Routes extends Component {
             <Route path={`/dog/edit/:id`} component={editDog} />
             <Route path={`/cart/${authId}`} component={Cart} />
             <Route path={`/checkout/${authId}`} component={Checkout} />
+            <Route path="/FAQ" component={Faq} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -107,6 +109,7 @@ class Routes extends Component {
             <Route path={`/dog/edit/:id`} component={editDog} />
             <Route path={"/AboutUs"} component={AboutUs} />
             <Route path={`/cart/${authId}`} component={Cart} />
+            <Route path="/FAQ" component={Faq} />
           </Switch>
         )}
       </div>

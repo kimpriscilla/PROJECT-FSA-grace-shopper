@@ -12,6 +12,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId }) => (
     <div>
       <nav
         className="navbar sticky-top navbar-light bg-light"
+        id="sticky-nav"
         style={{ backgroundColor: "#F0FFFF" }}
       >
         <div>
@@ -29,7 +30,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId }) => (
         </div>
         <div>
           <a href="/" className="navbar-brand" />
-          Grace Barker
+          <span style={{ fontWeight: "bold" }}> Grace Barker</span>
         </div>
 
         <div>

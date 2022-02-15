@@ -9,7 +9,7 @@ const Footer = () => (
       <div className="navbar-brand" href="#">
         <ul className="nav flex-column mt-3">
           <li className="nav-item">
-            <a className="nav-link" aria-current="page" href="/">
+            <a className="nav-link" aria-current="page" href="/home">
               Home
             </a>
           </li>

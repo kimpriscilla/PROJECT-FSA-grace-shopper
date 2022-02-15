@@ -21,6 +21,19 @@ nav a {
   margin: 0.5px;
 }
 
+/* #fixed-nav {
+  position: fixed;
+  top: 0;
+  height: 72px;
+  z-index: 100;
+}
+
+#sticky-nav {
+  position: sticky;
+  top: 72px;
+  z-index: 200;
+} */
+
 form div {
   margin: 1em;
   display: inline-block;

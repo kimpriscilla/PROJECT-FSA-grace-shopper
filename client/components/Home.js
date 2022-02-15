@@ -116,7 +116,10 @@ export const Home = (props) => {
       <section className="p-5">
         <div className="container">
           <h2>
-            <p className="text-center"> EASY PROCESSSSS </p>
+            <p className="text-center">
+              {" "}
+              <span style={{ fontWeight: "bold" }}> EASY PROCESSSSS </span>
+            </p>
           </h2>
           <div className="row text-center">
             <div className="col-md">

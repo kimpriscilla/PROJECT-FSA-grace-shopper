@@ -5,13 +5,14 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
   <div>
     <nav
       className=" navbar fixed-top navbar-expand-lg"
+      id="fixed-nav"
       style={{ backgroundColor: "#FFF8DC" }}
     >
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
         <ul className="nav nav-tabs">
           <li className="nav-item">
             <Link to="/home" className="nav-link ">
-              Home
+              <span style={{ fontWeight: "bold" }}> Home </span>
             </Link>
           </li>
           <li className="nav-item dropdown">
