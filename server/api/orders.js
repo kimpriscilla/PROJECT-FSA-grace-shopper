@@ -14,7 +14,7 @@ router.use(cors());
 router.get('/', async (req, res, next) => {
   try {
     const orders = await Order.findAll({
-      attributes: ['id', 'shippingAddress', 'billingAddress']
+      include: [ User ]
     })
     res.json(orders)
   } catch (err) {
@@ -52,6 +52,7 @@ router.post('/:id', cors (), async (req, res, next) => {
     const newOrderId = newOrder.id;
 
     //set parent orderID to cart items, set user ID to null so cart items disappear once order is placed
+    console.log('update user ID to null', userId)
     await CartItem.update({
       orderId: newOrderId,
       userId: null
