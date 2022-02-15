@@ -5,7 +5,6 @@ import { connect } from "react-redux";
  * COMPONENT
  */
 export const Home = (props) => {
-
   if (props) {
     console.log(props);
   }
@@ -49,9 +48,10 @@ export const Home = (props) => {
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
+                <h3>We are Grace Barker</h3>
                 <p>
-                  Some representative placeholder content for the first slide.
+                  A multi-breeder, nation wide platform for connecting our
+                  precious pups to loving families
                 </p>
               </div>
             </div>

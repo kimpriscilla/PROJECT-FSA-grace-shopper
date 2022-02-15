@@ -62,12 +62,11 @@ class Routes extends Component {
           {/* <Route path={"/AboutUs"} component={AboutUs} /> */}
           {/* <Route path={`/cart/${tempUserId}`} component={Cart} /> */}
 
-          <Route path="/home" component={Home} />
           <Route path="/dogs/:id" component={Dog} />
           <Route path={`/dog/edit/:id`} component={editDog} />
 
           {/*CHANGE TO USER ID LATER*/}
-          <Route path={`/cart/${authId}`} component={Cart} />
+
           <Route exact path={"/users"} component={users} />
           <Route path={`/users/:id`} component={SingleUser} />
           <Route path={"/AboutUs"} component={AboutUs} />
