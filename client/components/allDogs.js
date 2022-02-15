@@ -31,7 +31,7 @@ const Dogs = ({ loading, pets, id }) => {
               <li>Breed: {dog.breed.name} </li>
               <li>Born on: {dog.dateOfBirth}</li>
               <li>
-                <Link to={`/dogs/:${dog.id}`}> More Details </Link>
+                <Link to={`/dogs/${dog.id}`}> More Details </Link>
               </li>
               <li>
                 <button

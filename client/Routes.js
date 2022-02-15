@@ -89,7 +89,7 @@ class Routes extends Component {
             <Route path="/dogs" exact component={allDogs} />
             <Route exact path={"/users"} component={users} />
             <Route path={`/users/:id`} component={SingleUser} />
-            <Route path={`/dogs/:id`} component={Dog} />
+            <Route path="/dogs/:id" component={Dog} />
             <Route path={"/AboutUs"} component={AboutUs} />
             <Route path={`/account/orders/:id`} component={Order} />
 
@@ -112,7 +112,7 @@ class Routes extends Component {
             <Route exact path={"/users"} component={users} />
             {/* users & users/:id eventually going to be admin view */}
             <Route path={`/users/:id`} component={SingleUser} />
-            <Route path="/dogs/:id" component={Dog} />
+            <Route path={`/dogs/:id`} component={Dog} />
             <Route path={`/dog/edit/:id`} component={editDog} />
             <Route path={"/AboutUs"} component={AboutUs} />
             <Route path={`/cart/${authId}`} component={Cart} />
