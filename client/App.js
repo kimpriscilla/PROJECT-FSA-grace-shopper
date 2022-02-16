@@ -19,7 +19,7 @@ class _App extends Component {
     this.props.loadUsers();
     this.props.loadPets();
     this.props.me();
-    console.log(this.props)
+    console.log(this.props);
   }
 
   render() {
