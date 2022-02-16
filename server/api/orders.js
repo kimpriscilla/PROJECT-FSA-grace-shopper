@@ -4,7 +4,7 @@ const stripe = require('stripe')("sk_test_51KSVFvDkRSmF4QSn3kIBI4q18XWcJWTS1oEnH
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const cors = require('cors'); //make stripe request
-const { models: { Order, CartItem, User }} = require('../db');
+const { models: { Order, CartItem, User, Pet }} = require('../db');
 module.exports = router;
 
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -14,7 +14,7 @@ router.use(cors());
 router.get('/', async (req, res, next) => {
   try {
     const orders = await Order.findAll({
-      include: [ User ]
+      include: [ User, CartItem, Pet ]
     })
     res.json(orders)
   } catch (err) {
@@ -30,7 +30,7 @@ router.get('/:id', async (req, res, next) => {
       where: {
         userId: req.params.id
       },
-      include: [ CartItem ]
+      include: [{ model: CartItem, include: [ Pet ] }]
     })
     res.json(orders)
   } catch (err) {
@@ -52,7 +52,6 @@ router.post('/:id', cors (), async (req, res, next) => {
     const newOrderId = newOrder.id;
 
     //set parent orderID to cart items, set user ID to null so cart items disappear once order is placed
-    console.log('update user ID to null', userId)
     await CartItem.update({
       orderId: newOrderId,
       userId: null
@@ -67,7 +66,7 @@ router.post('/:id', cors (), async (req, res, next) => {
       where: {
         id: newOrderId
       },
-      include: [ CartItem ]
+      include: [{ model: CartItem, include: [ Pet ] }]
     });
 
 		const payment = await stripe.paymentIntents.create({
@@ -78,10 +77,7 @@ router.post('/:id', cors (), async (req, res, next) => {
 			confirm: true
 		})
 		console.log("Payment", payment)
-		res.json({
-			message: "Payment successful",
-			success: true
-		})
+    res.json(newOrder)
 	} catch (error) {
 		console.log("Error", error)
 		res.json({
