@@ -43,6 +43,7 @@ export const authenticate = (email, password, method) => async (dispatch) => {
 
 export const logout = () => {
   window.localStorage.removeItem(TOKEN);
+  window.localStorage.removeItem("guest");
   history.push("/login");
   return {
     type: SET_AUTH,

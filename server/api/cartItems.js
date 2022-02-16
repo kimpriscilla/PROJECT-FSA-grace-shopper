@@ -29,6 +29,20 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+router.get("/guest/:auth", async (req, res, next) => {
+  try {
+    const cartItems = await CartItem.findAll({
+      where: {
+        authId: req.params.auth,
+      },
+      include: [Pet],
+    });
+    res.json(cartItems);
+  } catch (err) {
+    next(err);
+  }
+});
+
 //delete cart items for specific user
 router.delete("/:userId/:id", async (req, res, next) => {
   try {
@@ -45,6 +59,20 @@ router.delete("/:userId/:id", async (req, res, next) => {
   }
 });
 
+router.post("/guest/:petId", async (req, res, next) => {
+  try {
+    const { petId, authId } = req.body;
+    const newCartItem = await CartItem.create({
+      authId,
+      orderId: null,
+      petId,
+    });
+    res.json(newCartItem);
+  } catch (error) {
+    next(error);
+  }
+});
+
 //add cart items for specific user
 router.post("/:userId/:petId", async (req, res, next) => {
   try {
@@ -55,7 +83,6 @@ router.post("/:userId/:petId", async (req, res, next) => {
       userId,
       petId,
     });
-
     res.json(newCartItem);
   } catch (err) {
     next(err);
