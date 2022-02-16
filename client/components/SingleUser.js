@@ -9,6 +9,7 @@ class SingleUser extends Component {
   }
   render() {
     const { imageUrl, email, orders } = this.props.user;
+    console.log(orders)
     return (
       <>
         <h1>SINGLE USER PAGE// ADMIN VIEW ONLY</h1>
@@ -21,7 +22,28 @@ class SingleUser extends Component {
           <li> EMAIL: {email}</li>
           <li>
             ORDERS:
-            {/* {this.props.user ? this.props.user.orders : "NO ORDERS YET"}{" "} */}
+            {orders ? orders.map(order => {
+              return (
+                <div id="dogCards" key={order.id}>
+                    {
+                      cartItems.map(cartItem => {
+                        return (
+                        <li key={cartItem.id}>
+                          <ul id="individualCards">
+                            <li>
+                              <img src={cartItem.pet.imageUrl} />
+                            </li>
+                            <li>Name: {cartItem.pet.name} </li>
+                            <li>Price: ${cartItem.pet.price} </li>
+                            <li>Ordered Date: {require('moment')(order.createdAt).format('YYYY-MM-DD')}</li>
+                            <li></li>
+                          </ul>
+                        </li>
+                      )})
+                    }
+                  </div>
+              )
+            }) : "NO ORDERS YET"}{" "}
           </li>
         </ul>
       </>

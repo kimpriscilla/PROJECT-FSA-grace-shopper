@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {
-  models: { User, Order, CartItem },
+  models: { User, Order, CartItem, Pet },
 } = require("../db");
 module.exports = router;
 
@@ -25,7 +25,8 @@ router.get("/:id", async (req, res, next) => {
       where: {
         id: req.params.id,
       },
-      include: [ Order, CartItem ]
+      // include: [ Order, CartItem ]
+      include: [{ model: Order, include: [ CartItem ] }]
     });
     res.send(user);
   } catch (error) {

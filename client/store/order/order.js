@@ -21,7 +21,7 @@ const _addOrder = (newOrder) => {
 //thunks
 export const getOrders = (userId) => {
   return async(dispatch) => {
-    const orders = (await axios.get(`api/orders/${userId}`)).data;
+    const orders = (await axios.get(`/api/orders/${userId}`)).data;
     dispatch(_getOrders(orders));
   };
 };
@@ -42,6 +42,7 @@ export default function ordersReducer(state=[], action){
     case GET_ORDERS:
       return action.payload;
     case ADD_ORDER:
+      console.log(action.payload)
       return [...state, action.payload];
     default:
       return state;

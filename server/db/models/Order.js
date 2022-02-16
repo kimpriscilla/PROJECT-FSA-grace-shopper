@@ -9,6 +9,6 @@ Order.init({
   billingAddress: {
     type: STRING,
   },
-}, { sequelize: db, modelName: 'orders', timestamps: false });
+}, { sequelize: db, modelName: 'orders' });
 
 module.exports = Order;

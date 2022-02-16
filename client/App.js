@@ -14,12 +14,14 @@ let tempUserId = 1;
 class _App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      userId: props.authId,
+    };
   }
   async componentDidMount() {
     this.props.loadUsers();
     this.props.loadPets();
     this.props.me();
-    console.log(this.props)
   }
 
   render() {
@@ -46,7 +48,6 @@ const mapDispatch = (dispatch) => {
       dispatch(loadPets());
     },
     getCart: (userId) => dispatch(getCart(userId)),
-    getOrders: (userId) => dispatch(getOrders(userId)),
     me: () => {
       dispatch(me());
     },
