@@ -47,7 +47,8 @@ const mapDispatch = (dispatch) => {
     loadPets: () => {
       dispatch(loadPets());
     },
-    getCart: (userId) => dispatch(getCart(userId)),
+    getCart: (userId) => dispatch(getCart(userId)) || {},
+    getOrders: (userId) => dispatch(getOrders(userId)),
     me: () => {
       dispatch(me());
     },
