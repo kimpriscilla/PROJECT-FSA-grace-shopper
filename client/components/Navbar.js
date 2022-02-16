@@ -49,6 +49,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart }) => (
               >
                 <div className=" h5">
                   <i className="bi- bi-cart-fill"></i> ({cart.length})
+                  {/* ({console.log(cart.length)}) */}
                 </div>
               </a>
             </li>
@@ -76,7 +77,7 @@ const mapState = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
     authId: state.auth.id,
-    cart: state.cartItems,
+    cart: state.cartItems || {},
   };
 };
 
@@ -85,7 +86,7 @@ const mapDispatch = (dispatch) => {
     handleClick() {
       dispatch(logout());
     },
-    getCart: () => dispatch(getCart()) || {},
+    getCart: () => dispatch(getCart()),
   };
 };
 

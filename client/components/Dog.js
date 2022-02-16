@@ -52,7 +52,7 @@ class Dog extends React.Component {
             <div className="card">
               <div className="card-body">
                 <h3 className="card-title">{pet.name}</h3>
-                <h6 className="card-subtitle">globe type chair for rest</h6>
+                <h6 className="card-subtitle">{pet.breed.name}</h6>
                 <div className="row">
                   <div className="col-lg-5 col-md-5 col-sm-6">
                     <div className="white-box text-center">
@@ -102,21 +102,27 @@ class Dog extends React.Component {
                     <h3 className="box-title mt-5">Key Highlights</h3>
                     <ul className="list-unstyled">
                       <li>
-                        <i className="fa fa-check text-success"></i>Sturdy
-                        structure
+                        <i className="fa fa-check text-success"></i>Testing
                       </li>
                       <li>
-                        <i className="fa fa-check text-success"></i>Designed to
-                        foster easy portability
+                        <i className="fa fa-check text-success"></i>Testing
                       </li>
                       <li>
-                        <i className="fa fa-check text-success"></i>Perfect
-                        furniture to flaunt your wonderful collectibles
+                        <i className="fa fa-check text-success"></i>Testing
                       </li>
                     </ul>
                   </div>
                   <div className="col-lg-12 col-md-12 col-sm-12">
                     <h3 className="box-title mt-5">General Info</h3>
+                    <p>testinggggg</p>
+                    <p>
+                      {" "}
+                      <Link to={`/dog/edit/${pet.id}`}>
+                        <button classNameName="button-37" role="button">
+                          Edit {pet.name}
+                        </button>
+                      </Link>
+                    </p>
                   </div>
                 </div>
               </div>
