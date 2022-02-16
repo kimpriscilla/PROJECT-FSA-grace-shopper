@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 import { logout } from "../store";
 import Fixed from "./fixedNav";
 import LoginNav from "./LoginNav";
+import { getCart } from "../store/cart/cart";
 
 //temporary navBar without loggedIn function/difference
 const tempUserId = 1;
 
-const Navbar = ({ handleClick, isLoggedIn, authId }) => (
+const Navbar = ({ handleClick, isLoggedIn, authId, cart }) => (
   <div>
     <div>
       <nav
@@ -47,7 +48,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId }) => (
                 href={`/cart/${authId}`}
               >
                 <div className=" h5">
-                  <i className="bi- bi-cart-fill"></i>
+                  <i className="bi- bi-cart-fill"></i> ({cart.length})
                 </div>
               </a>
             </li>
@@ -75,6 +76,7 @@ const mapState = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
     authId: state.auth.id,
+    cart: state.cartItems,
   };
 };
 
@@ -83,6 +85,7 @@ const mapDispatch = (dispatch) => {
     handleClick() {
       dispatch(logout());
     },
+    getCart: () => dispatch(getCart()) || {},
   };
 };
 
