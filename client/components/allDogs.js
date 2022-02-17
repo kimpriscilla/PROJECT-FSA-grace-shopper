@@ -10,7 +10,7 @@ import auth from "../store/auth";
 
 const Dogs = ({ loading, pets, id }) => {
   const dispatch = useDispatch();
-  console.log("this is inside dogs", id);
+
   if (loading) {
     return <h2>Loading...</h2>;
   }
@@ -76,7 +76,7 @@ const Pagination = ({ petPerPage, totalPet, paginate }) => {
 function allDogs({ addCart }) {
   const pets = useSelector((state) => state.pets);
   const id = useSelector((state) => state.auth.id);
-  console.log("this is the id", id);
+
   //allows us to use state in a function component
   //const [pet, setPet] = useState([]); //empty array is default state
 

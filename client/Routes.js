@@ -79,7 +79,6 @@ class Routes extends Component {
 
           {/* <Route path={"/user/edit/:id"} component={editUser} /> */}
 
-          <Route path={`/confirmation`} component={Confirmation} />
           {/* <Redirect to="/home" /> */}
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
@@ -118,7 +117,11 @@ class Routes extends Component {
             <Route path={"/AboutUs"} component={AboutUs} />
             <Route path={`/cart/${authId}`} component={Cart} />
             <Route path="/FAQ" component={Faq} />
+
             <Route path="/create" component={CreateUser} />
+
+            <Route path={`/confirmation`} component={Confirmation} />
+
           </Switch>
         )}
       </div>

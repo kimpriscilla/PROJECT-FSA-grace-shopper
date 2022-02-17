@@ -28,16 +28,16 @@ async function seed() {
   ]);
 
   const breeds = await Promise.all([
-    Breed.create({ name: "Labrador Retriever", stock: 1 }),
-    Breed.create({ name: "German Shepherd", stock: 3 }),
-    Breed.create({ name: "Golden Retriever", stock: 5 }),
-    Breed.create({ name: "Bulldog", stock: 1 }),
-    Breed.create({ name: "Poodle", stock: 3 }),
-    Breed.create({ name: "Beagle", stock: 2 }),
-    Breed.create({ name: "Rottweiler", stock: 5 }),
-    Breed.create({ name: "Dachshund", stock: 5 }),
-    Breed.create({ name: "Siberian Husky", stock: 1 }),
-    Breed.create({ name: "Shih Tzu", stock: 1 }),
+    Breed.create({ name: "Labrador Retriever",}),
+    Breed.create({ name: "German Shepherd",}),
+    Breed.create({ name: "Golden Retriever",}),
+    Breed.create({ name: "Bulldog",}),
+    Breed.create({ name: "Poodle",}),
+    Breed.create({ name: "Beagle",}),
+    Breed.create({ name: "Rottweiler",}),
+    Breed.create({ name: "Dachshund",}),
+    Breed.create({ name: "Siberian Husky",}),
+    Breed.create({ name: "Shih Tzu",}),
   ]);
 
   console.log(breeds.map((el) => console.log("NAME", el.name)));

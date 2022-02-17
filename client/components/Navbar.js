@@ -86,7 +86,6 @@ const mapDispatch = (dispatch) => {
     handleClick() {
       dispatch(logout());
     },
-    getCart: () => dispatch(getCart()),
   };
 };
 
