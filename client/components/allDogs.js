@@ -83,7 +83,7 @@ function allDogs({ addCart }) {
   // console.log("!!!", pet);
   const [loading, setLoading] = useState(false); //false is default state
   const [currentPage, setCurrentPage] = useState(1); //for pagination, default is page 1
-  const [petPerPage] = useState(10); //how many dogs per page, default 10 dogs perpage
+  const [petPerPage] = useState(9); //how many dogs per page, default 10 dogs perpage
 
   // useEffect(() => {
   //   //dont want to use async on useEffect so you create a new async func

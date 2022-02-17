@@ -1,21 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 function SearchBar() {
   const pets = useSelector((state) => state.pets) || [];
 
-  //console.log("dog-name-->", pets);
-  // console.log(pet[1].name);
+  const [filteredData, setFilteredData] = useState([]);
+  //testing purposes
+  // const uniqueAges = [...new Set(pets.map((dog) => dog.breed.name))];
+  //console.log(uniqueAges);
+
+  const handleChange = (ev) => {
+    const searchWord = ev.target.value;
+    const newFilter = pets.filter((value) => {
+      if (value.breed.name) {
+        return value.breed.name
+          .toLowerCase()
+          .includes(searchWord.toLowerCase());
+      }
+    });
+    setFilteredData(newFilter);
+  };
+
   return (
     <>
       <div className="search">
         <div className="searchInputs">
-          <input type="text" placeholder="search...." />
+          <input type="text" placeholder="search...." onChange={handleChange} />
           <div className="searchIcon"> </div>
           <div className="dataResult">
-            {pets.map((dog) => {
-              return <a key={dog.id}>{dog.name} </a>;
-            })}
+            {/*   const uniqueAges = [...new Set(pets.map((dog) => dog.breed.name))]
+                console.log(uniqueAges); */}
+            {/* {filteredData.length != 0 && ( */}
+            <div className="dataItem">
+              {[
+                ...new Set(
+                  pets.map((dog, key) => (
+                    <a className="dataItem" key={dog.id}>
+                      <p>{dog.breed.name}</p>
+                    </a>
+                  ))
+                ),
+              ]}
+            </div>
+            {/* )} */}
           </div>
         </div>
       </div>

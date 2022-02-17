@@ -19,6 +19,15 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.post("/", async (req, res, next) => {
+  try {
+    console.log("AM I WORKINGGGGG>>>????", req.body);
+    res.send(await User.create(req.body));
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findOne({
@@ -26,7 +35,7 @@ router.get("/:id", async (req, res, next) => {
         id: req.params.id,
       },
       // include: [ Order, CartItem ]
-      include: [{ model: Order, include: [ CartItem ] }]
+      include: [{ model: Order, include: [CartItem] }],
     });
     res.send(user);
   } catch (error) {

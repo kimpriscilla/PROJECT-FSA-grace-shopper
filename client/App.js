@@ -17,7 +17,6 @@ class _App extends Component {
     this.state = {
       userId: props.authId,
     };
-    console.log(this.props);
   }
   async componentDidMount() {
     this.props.loadUsers();
@@ -27,6 +26,7 @@ class _App extends Component {
   }
 
   render() {
+    console.log(this.state.me);
     return (
       <div>
         <Navbar />

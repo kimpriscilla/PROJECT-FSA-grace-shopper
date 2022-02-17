@@ -4,7 +4,6 @@ import { logout } from "../store";
 import Fixed from "./fixedNav";
 import LoginNav from "./LoginNav";
 import { getCart } from "../store/cart/cart";
-import SearchBar from "./SearchBar";
 
 //temporary navBar without loggedIn function/difference
 const tempUserId = 1;
@@ -68,7 +67,6 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart }) => (
         <Fixed handleClick={handleClick} isLoggedIn={isLoggedIn} />
       )}
     </div>
-    <SearchBar />
   </div>
 );
 
