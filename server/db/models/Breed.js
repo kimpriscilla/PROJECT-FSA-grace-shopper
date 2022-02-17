@@ -13,9 +13,6 @@ Breed.init(
     name: {
       type: STRING,
     },
-    stock: {
-      type: INTEGER,
-    },
   },
   { sequelize: db, modelName: "breeds", timestamps: false }
 );
