@@ -54,6 +54,11 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
             </a>
           </li>
           <li className="nav-item">
+            <a className="nav-link active " aria-current="page" href="/create">
+              Sign Up
+            </a>
+          </li>
+          <li className="nav-item">
             {isLoggedIn ? (
               <a
                 className="nav-link active "

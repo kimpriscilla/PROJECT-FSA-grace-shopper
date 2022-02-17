@@ -14,12 +14,12 @@ const Footer = () => (
             </a>
           </li>
           <li className="nav-item">
-            <a class="nav-link" href="/FAQ">
+            <a className="nav-link" href="/FAQ">
               FAQ
             </a>
           </li>
           <li className="nav-item">
-            <a class="nav-link" href="#">
+            <a className="nav-link" href="#">
               Get In Touch
             </a>
           </li>

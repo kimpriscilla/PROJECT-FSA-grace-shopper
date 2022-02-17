@@ -3,6 +3,7 @@ import axios from "axios";
 //action type
 const LOAD_USERS = "LOAD_USERS";
 const EDIT_USER = "EDIT_USERS";
+const ADD_USER = "ADD_USER";
 
 //action creators
 
@@ -16,6 +17,13 @@ function _loadUsers(user) {
 function _editUsers(user) {
   return {
     type: EDIT_USER,
+    user,
+  };
+}
+
+function _addUsers(user) {
+  return {
+    type: ADD_USER,
     user,
   };
 }
@@ -38,6 +46,13 @@ export const changeUser = (user) => {
   };
 };
 
+export const addUser = (user) => {
+  console.log("INSIDE THE STORE ADD USERRRR-->", user);
+  return async (dispatch) => {
+    const newUser = (await axios.post("/api/users", user)).data;
+    dispatch(_addUsers(newUser));
+  };
+};
 //user reducer
 
 export default function (state = [], action) {
@@ -48,6 +63,8 @@ export default function (state = [], action) {
       return state.map((user) =>
         user.id === action.user.id ? action.user : user
       );
+    case ADD_USER:
+      return [...state, action.user];
     default:
       return state;
   }
