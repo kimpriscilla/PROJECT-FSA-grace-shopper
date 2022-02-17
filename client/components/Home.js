@@ -145,7 +145,7 @@ export const Home = (props) => {
             </div>
           </div>
         </div>
-        <SearchBar />
+        {/* <SearchBar /> */}
       </section>
     </>
   );
