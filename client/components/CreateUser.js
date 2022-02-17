@@ -41,7 +41,7 @@ class CreateUser extends Component {
                     <div className="col-lg-6">
                       <div className="p-5">
                         <div className="mb-5">
-                          <h3 class="h4 font-weight-bold text-theme">
+                          <h3 className="h4 font-weight-bold text-theme">
                             Create Account
                           </h3>
                         </div>
@@ -51,7 +51,7 @@ class CreateUser extends Component {
                         </p>
                         <form onSubmit={onSubmit}>
                           <div className="form-group">
-                            <label for="yourName">Image URL</label>
+                            <label htmlFor="yourName">Image URL</label>
                             <input
                               value={imageUrl}
                               name="imageUrl"
@@ -59,7 +59,7 @@ class CreateUser extends Component {
                             />
                           </div>
                           <div className="form-group">
-                            <label for="exampleInputEmail1">
+                            <label htmlFor="exampleInputEmail1">
                               Email address
                             </label>
                             <input
@@ -69,7 +69,9 @@ class CreateUser extends Component {
                             />
                           </div>
                           <div className="form-group mb-5">
-                            <label for="exampleInputPassword1">Password</label>
+                            <label htmlFor="exampleInputPassword1">
+                              Password
+                            </label>
                             <input
                               value={password}
                               name="password"
