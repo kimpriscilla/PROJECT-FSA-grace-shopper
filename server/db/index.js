@@ -12,6 +12,8 @@ const Breed = require("./models/Breed");
 
 const CartItem = require("./models/CartItem");
 
+const Wishlist = require('./models/Wishlist');
+
 //order associations
 User.hasMany(Order);
 Order.belongsTo(User);
@@ -42,5 +44,6 @@ module.exports = {
     Pet,
     Breed,
     CartItem,
+    Wishlist
   },
 };

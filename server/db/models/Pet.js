@@ -1,4 +1,4 @@
-const { STRING, ENUM, DATEONLY, NOW, DECIMAL, TEXT, Model } = require("sequelize");
+const { STRING, ENUM, DATEONLY, NOW, DECIMAL, TEXT, Model, INTEGER } = require("sequelize");
 const db = require("../db");
 
 class Pet extends Model{};
@@ -29,6 +29,10 @@ Pet.init({
     type: STRING,
     defaultValue: "/default.png",
   },
+  stock: {
+    type: INTEGER,
+    defaultValue: 1
+  }
 }, { sequelize: db, modelName: 'pets', timestamps: false });
 
 module.exports = Pet;

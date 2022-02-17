@@ -22,6 +22,7 @@ class _App extends Component {
     this.props.loadUsers();
     this.props.loadPets();
     this.props.me();
+    this.state.userId && this.props.getCart(this.state.userId)
   }
 
   render() {
@@ -47,7 +48,7 @@ const mapDispatch = (dispatch) => {
     loadPets: () => {
       dispatch(loadPets());
     },
-    getCart: (userId) => dispatch(getCart(userId)) || {},
+    getCart: (userId) => dispatch(getCart(userId)),
     getOrders: (userId) => dispatch(getOrders(userId)),
     me: () => {
       dispatch(me());
