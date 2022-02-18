@@ -17,9 +17,10 @@ import Confirmation from "./components/Confirmation";
 import auth from "./store/auth";
 import Faq from "./components/Faq";
 import Order from "./components/Order";
-import Breed from './components/Breed';
-import SelectedBreed from './components/SelectedBreed';
+import Breed from "./components/Breed";
+import SelectedBreed from "./components/SelectedBreed";
 import CreateUser from "./components/CreateUser";
+import AddDog from "./components/AddDog";
 
 let tempUserId = 1;
 //Grab a local storage session
@@ -100,8 +101,9 @@ class Routes extends Component {
             <Route path={`/dog/edit/:id`} component={editDog} />
             <Route path={`/confirmation`} component={Confirmation} />
             <Route path={"/user/edit/:id"} component={editUser} />
-            <Route exact path={'/breed'} component={Breed}/>
-            <Route path={`/breed/:id`} component={SelectedBreed}/>
+            <Route exact path={"/breed"} component={Breed} />
+            <Route path={`/breed/:id`} component={SelectedBreed} />
+            <Route path="/addDog" component={AddDog} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -124,8 +126,8 @@ class Routes extends Component {
             <Route path="/create" component={CreateUser} />
             <Route path={`/checkout/`} component={Checkout} />
             <Route path={`/confirmation`} component={Confirmation} />
-            <Route exact path={'/breed'} component={Breed}/>
-            <Route path={`/breed/:id`} component={SelectedBreed}/>
+            <Route exact path={"/breed"} component={Breed} />
+            <Route path={`/breed/:id`} component={SelectedBreed} />
           </Switch>
         )}
       </div>

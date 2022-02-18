@@ -21,7 +21,7 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
-    console.log("AM I WORKINGGGGG>>>????", req.body);
+    //console.log("AM I WORKINGGGGG>>>????", req.body);
     res.send(await User.create(req.body));
   } catch (error) {
     next(error);
