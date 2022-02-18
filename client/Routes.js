@@ -119,9 +119,8 @@ class Routes extends Component {
             <Route path="/FAQ" component={Faq} />
 
             <Route path="/create" component={CreateUser} />
-
+            <Route path={`/checkout/`} component={Checkout} />
             <Route path={`/confirmation`} component={Confirmation} />
-
           </Switch>
         )}
       </div>
