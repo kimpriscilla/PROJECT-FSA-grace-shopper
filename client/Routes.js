@@ -17,6 +17,8 @@ import Confirmation from "./components/Confirmation";
 import auth from "./store/auth";
 import Faq from "./components/Faq";
 import Order from "./components/Order";
+import Breed from './components/Breed';
+import SelectedBreed from './components/SelectedBreed';
 import CreateUser from "./components/CreateUser";
 
 let tempUserId = 1;
@@ -82,7 +84,6 @@ class Routes extends Component {
           {/* <Redirect to="/home" /> */}
         </Switch>
         {/* Temporary route to avoid logging in for home page */}
-
         {isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
@@ -99,6 +100,8 @@ class Routes extends Component {
             <Route path={`/dog/edit/:id`} component={editDog} />
             <Route path={`/confirmation`} component={Confirmation} />
             <Route path={"/user/edit/:id"} component={editUser} />
+            <Route exact path={'/breed'} component={Breed}/>
+            <Route path={`/breed/:id`} component={SelectedBreed}/>
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -121,7 +124,8 @@ class Routes extends Component {
             <Route path="/create" component={CreateUser} />
 
             <Route path={`/confirmation`} component={Confirmation} />
-
+            <Route exact path={'/breed'} component={Breed}/>
+            <Route path={`/breed/:id`} component={SelectedBreed}/>
           </Switch>
         )}
       </div>

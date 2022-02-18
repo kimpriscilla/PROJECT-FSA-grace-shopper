@@ -29,7 +29,7 @@ const Dogs = ({ loading, pets, id }) => {
               <li>Name: {dog.name} </li>
               <li>Gender: {dog.gender} </li>
               <li>Breed: {dog.breed.name} </li>
-              <li>Born on: {dog.dateOfBirth}</li>
+              <li>Price: ${dog.price}</li>
               <li>
                 <Link to={`/dogs/${dog.id}`}> More Details </Link>
               </li>
