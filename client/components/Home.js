@@ -1,4 +1,5 @@
 import React from "react";
+import SearchBar from "./SearchBar";
 import { connect } from "react-redux";
 
 /**
@@ -144,6 +145,7 @@ export const Home = (props) => {
             </div>
           </div>
         </div>
+        {/* <SearchBar /> */}
       </section>
     </>
   );

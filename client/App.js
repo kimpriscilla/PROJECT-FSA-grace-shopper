@@ -22,12 +22,14 @@ class _App extends Component {
   async componentDidMount() {
     this.props.loadUsers();
     this.props.loadPets();
+    this.props.getCart();
     this.props.me();
     this.props.getBreeds();
     this.state.userId && this.props.getCart(this.state.userId)
   }
 
   render() {
+    console.log(this.state.me);
     return (
       <div>
         <Navbar />
@@ -38,9 +40,9 @@ class _App extends Component {
   }
 }
 
-const mapState = (state) => {
-  return state;
-};
+// const mapState = (state) => {
+//   return state;
+// };
 
 const mapDispatch = (dispatch) => {
   return {
@@ -50,7 +52,12 @@ const mapDispatch = (dispatch) => {
     loadPets: () => {
       dispatch(loadPets());
     },
+
+    //getCart: (tempUserId) => dispatch(getCart(tempUserId)), //tempuserId works when logged out, cart items persists.
+    getCart: (userId) => dispatch(getCart(userId)), //on a hard reload, userId is undefined.
+
     getCart: (userId) => dispatch(getCart(userId)),
+
     getOrders: (userId) => dispatch(getOrders(userId)),
     me: () => {
       dispatch(me());
@@ -59,6 +66,6 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-const App = connect(mapState, mapDispatch)(_App);
+const App = connect(null, mapDispatch)(_App);
 
 export default App;
