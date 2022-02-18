@@ -6,30 +6,27 @@ const {
 module.exports = router;
 
 /*
-SQL query
 SELECT
   breeds.id,
   breeds.name,
   COUNT(pets.id) AS stock
 FROM breeds
 LEFT JOIN pets AS pets on breeds.id = pets.breedId
-GROUP BY breeds.id
-
+GROUP BY breeds.id, breeds.name
 */
+
+//get all breeds
 router.get("/", async (req, res, next) => {
   try {
-    console.log('running')
     const breeds = await Breed.findAll({
-      // include: [ Pet ]
-      // include: [[Sequelize.fn("COUNT", Sequelize.col("pet.id")), "pets"]]
       attributes: {
-        include: [[Sequelize.fn("COUNT", Sequelize.col("pets.id")), "stock"]]
+        include: [[Sequelize.fn("COUNT", Sequelize.col("pets.id")), "stock"]] //compute stock
       },
       include: [{
           model: Pet, attributes: []
       }],
-      group: ['Breed.id']
-      })
+      group: ['breeds.id', 'breeds.name'],
+      });
     res.json(breeds)
   } catch (err) {
     next(err);

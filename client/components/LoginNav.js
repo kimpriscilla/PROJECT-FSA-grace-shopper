@@ -34,8 +34,8 @@ const LoginNav = ({ handleClick, isLoggedIn, id }) => (
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/">
-                    Featured Dogs
+                  <a className="dropdown-item" href="/breed">
+                    Breed
                   </a>
                 </li>
               </ul>
