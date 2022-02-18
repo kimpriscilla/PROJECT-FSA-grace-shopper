@@ -7,18 +7,26 @@ module.exports = router;
 router.get("/", async (req, res, next) => {
   try {
     const pets = await Pet.findAll({
-      include: [ Breed ]
+      include: [Breed],
     });
-    res.json(pets)
+    res.json(pets);
   } catch (err) {
     next(err);
+  }
+});
+
+router.post("/", async (req, res, next) => {
+  try {
+    res.send(await Pet.create(req.body));
+  } catch (error) {
+    next(error);
   }
 });
 
 router.get("/:id", async (req, res, next) => {
   try {
     const pet = await Pet.findByPk(req.params.id);
-    res.json(pet)
+    res.json(pet);
   } catch (err) {
     next(err);
   }
@@ -30,11 +38,11 @@ router.put("/:id", async (req, res, next) => {
     await pet.update(req.body);
     pet = await Pet.findOne({
       where: {
-        id: req.params.id
+        id: req.params.id,
       },
-      include: [ Breed ]
+      include: [Breed],
     });
-    res.json(pet)
+    res.json(pet);
   } catch (err) {
     next(err);
   }

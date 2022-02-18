@@ -115,11 +115,8 @@ class CreateUser extends Component {
                   LOGIN
                 </a>
               </p>
-              {/* <!-- end row --> */}
             </div>
-            {/* <!-- end col --> */}
           </div>
-          {/* <!-- Row --> */}
         </div>
       </>
     );

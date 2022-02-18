@@ -18,6 +18,7 @@ import auth from "./store/auth";
 import Faq from "./components/Faq";
 import Order from "./components/Order";
 import CreateUser from "./components/CreateUser";
+import AddDog from "./components/AddDog";
 
 let tempUserId = 1;
 //Grab a local storage session
@@ -100,6 +101,7 @@ class Routes extends Component {
             <Route path={`/dog/edit/:id`} component={editDog} />
             <Route path={`/confirmation`} component={Confirmation} />
             <Route path={"/user/edit/:id"} component={editUser} />
+            <Route path="/addDog" component={AddDog} />
             <Redirect to="/home" />
           </Switch>
         ) : (
