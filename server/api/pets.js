@@ -2,6 +2,7 @@ const router = require("express").Router();
 const {
   models: { Pet, Breed },
 } = require("../db");
+
 module.exports = router;
 
 router.get("/", async (req, res, next) => {
@@ -16,6 +17,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
+  console.log(req.body);
   try {
     res.send(await Pet.create(req.body));
   } catch (error) {

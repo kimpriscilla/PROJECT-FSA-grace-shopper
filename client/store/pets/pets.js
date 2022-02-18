@@ -42,6 +42,7 @@ export const editPet = (pet) => {
 };
 
 export const addPet = (pet) => {
+  console.log("!!!!", pet);
   return async (dispatch) => {
     const newPet = (await axios.post("/api/pets", pet)).data;
     dispatch(_addPet(newPet));

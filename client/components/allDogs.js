@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { addCart } from "../store/cart/cart";
 import axios from "axios";
 import auth from "../store/auth";
@@ -20,7 +20,7 @@ const Dogs = ({ loading, pets, id }) => {
   };
   return (
     <div id="rightAllDogs">
-      <Link to="/addDog"> Add Dog</Link>
+      <Link to="/addDog">ADD DOG</Link>
 
       <ul id="dogCards">
         {pets.map((dog) => (
