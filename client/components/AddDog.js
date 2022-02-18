@@ -128,7 +128,7 @@ class AddDog extends Component {
               </tr>
               <tr>
                 <td>
-                  {/* <select
+                  <select
                     value={breedId}
                     name="breed"
                     onChange={onChange}
@@ -143,7 +143,7 @@ class AddDog extends Component {
                         </option>
                       );
                     })}
-                  </select> */}
+                  </select>
                 </td>
               </tr>
             </tbody>

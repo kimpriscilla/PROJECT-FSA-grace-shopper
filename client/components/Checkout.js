@@ -5,12 +5,12 @@ import PaymentForm from './PaymentForm';
 
 const PUBLIC_KEY = 'pk_test_51KSVFvDkRSmF4QSnpbWBWyNLDWTMK0rzvSMEgHUH3fXx73CxORNnu4pBVhgI27t9lro43zToldWybcCCPh7Qhz8w00DOohZCLt';
 
-const stripeTestPromise = loadStripe(PUBLIC_KEY);
+const stripe = loadStripe(PUBLIC_KEY);
 
 export default function Checkout () {
     return (
       <div>
-        <Elements stripe={stripeTestPromise}>
+        <Elements stripe={stripe}>
           <PaymentForm />
         </Elements>
       </div>

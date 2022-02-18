@@ -19,6 +19,7 @@ class Order extends React.Component {
     } else {
       return (
         <div>
+          <h1>Your Pups</h1>
           <ul id="dogCards">
           {
             orders.map(order => {

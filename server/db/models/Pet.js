@@ -6,6 +6,7 @@ const {
   DECIMAL,
   TEXT,
   Model,
+  INTEGER,
 } = require("sequelize");
 const db = require("../db");
 
@@ -37,6 +38,10 @@ Pet.init(
     imageUrl: {
       type: STRING,
       defaultValue: "/default.png",
+    },
+    stock: {
+      type: INTEGER,
+      defaultValue: 1,
     },
   },
   { sequelize: db, modelName: "pets", timestamps: false }

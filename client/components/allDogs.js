@@ -11,7 +11,7 @@ import { AddDog } from "./AddDog";
 
 const Dogs = ({ loading, pets, id }) => {
   const dispatch = useDispatch();
-  console.log("this is inside dogs", id);
+
   if (loading) {
     return <h2>Loading...</h2>;
   }
@@ -32,7 +32,7 @@ const Dogs = ({ loading, pets, id }) => {
               <li>Name: {dog.name} </li>
               <li>Gender: {dog.gender} </li>
               <li>Breed: {dog.breed.name} </li>
-              <li>Born on: {dog.dateOfBirth}</li>
+              <li>Price: ${dog.price}</li>
               <li>
                 <Link to={`/dogs/${dog.id}`}> More Details </Link>
               </li>
@@ -79,7 +79,7 @@ const Pagination = ({ petPerPage, totalPet, paginate }) => {
 function allDogs({ addCart }) {
   const pets = useSelector((state) => state.pets);
   const id = useSelector((state) => state.auth.id);
-  console.log("this is the id", id);
+
   //allows us to use state in a function component
   //const [pet, setPet] = useState([]); //empty array is default state
 

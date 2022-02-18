@@ -5,16 +5,12 @@ class Breed extends Model {}
 
 Breed.init(
   {
-    id: {
-      type: UUID,
-      primaryKey: true,
-      defaultValue: UUIDV4,
-    },
     name: {
       type: STRING,
     },
-    stock: {
-      type: INTEGER,
+    imageUrl: {
+      type: STRING,
+      defaultValue: "/default.png",
     },
   },
   { sequelize: db, modelName: "breeds", timestamps: false }
