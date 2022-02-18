@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addPet } from "../store/pets/pets";
-import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 
 class AddDog extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class AddDog extends Component {
       size: "",
       dateOfBirth: "",
       imageUrl: "",
-      // breedId: "",
+      breedId: "",
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -35,7 +34,7 @@ class AddDog extends Component {
       size: "",
       dateOfBirth: "",
       imageUrl: "",
-      // breedId: "",
+      breedId: "",
     });
   }
   render() {
@@ -47,10 +46,11 @@ class AddDog extends Component {
       size,
       dateOfBirth,
       imageUrl,
-      // breedId,
+      breedId,
     } = this.state;
     const { onChange, onSubmit } = this;
-    //console.log("INSIDE ADDDOGGGG---->", this.props.pets);
+    console.log("INSIDE ADDDOGGGG---->", this.props.breeds);
+    console.log("????????????????", breedId);
     return (
       <>
         <form onSubmit={onSubmit}>
@@ -128,18 +128,13 @@ class AddDog extends Component {
               </tr>
               <tr>
                 <td>
-                  <select
-                    value={breedId}
-                    name="breed"
-                    onChange={onChange}
-                    placeholder="breed"
-                  >
+                  <select value={breedId} name="breedId" onChange={onChange}>
                     <option value="">--------------</option>
-                    {this.props.pets.map((dog) => {
-                      console.log("___________>", dog.breed);
+                    {this.props.breeds.map((dog) => {
+                      //console.log("___________>", dog.breed);
                       return (
                         <option value={dog.id} key={dog.id}>
-                          {dog.breed.name}
+                          {dog.name}
                         </option>
                       );
                     })}
@@ -161,7 +156,7 @@ class AddDog extends Component {
 
 const mapState = (state) => {
   return {
-    pets: state.pet || [],
+    breeds: state.breeds || [],
   };
 };
 
@@ -173,4 +168,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default withRouter(connect(mapState, mapDispatch)(AddDog));
+export default connect(mapState, mapDispatch)(AddDog);

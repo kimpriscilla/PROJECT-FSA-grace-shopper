@@ -8,7 +8,7 @@ export default function Breed() {
   return (
     <div>
       <h1>Browse By Breed:</h1>
-      <ul id="dogCards">
+      {/* <ul id="dogCards">
         {breeds.map((breed) => (
           <li key={breed.id}>
             <ul id="individualCards">
@@ -25,7 +25,7 @@ export default function Breed() {
             </ul>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }

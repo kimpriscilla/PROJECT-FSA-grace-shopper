@@ -103,6 +103,7 @@ class Routes extends Component {
             <Route path={"/user/edit/:id"} component={editUser} />
             <Route exact path={"/breed"} component={Breed} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
+            <Route path="/addDog" component={AddDog} />
             <Redirect to="/home" />
           </Switch>
         ) : (
