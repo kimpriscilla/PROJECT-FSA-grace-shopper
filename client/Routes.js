@@ -122,7 +122,7 @@ class Routes extends Component {
             <Route path="/FAQ" component={Faq} />
 
             <Route path="/create" component={CreateUser} />
-
+            <Route path={`/checkout/`} component={Checkout} />
             <Route path={`/confirmation`} component={Confirmation} />
             <Route exact path={'/breed'} component={Breed}/>
             <Route path={`/breed/:id`} component={SelectedBreed}/>
