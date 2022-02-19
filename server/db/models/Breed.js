@@ -10,8 +10,8 @@ Breed.init(
     },
     imageUrl: {
       type: STRING,
-      defaultValue: "/default.png"
-    }
+      defaultValue: "/default.png",
+    },
   },
   { sequelize: db, modelName: "breeds", timestamps: false }
 );

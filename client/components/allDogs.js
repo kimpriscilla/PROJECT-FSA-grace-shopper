@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { addCart } from "../store/cart/cart";
 import axios from "axios";
 import auth from "../store/auth";
+import { AddDog } from "./AddDog";
 
 //I need to replace this with something that identifies a guest so when he returns to the page without clearing his local storage or cookies, he can still access his cart
 //let tempUserId = 1;
@@ -19,6 +20,8 @@ const Dogs = ({ loading, pets, id }) => {
   };
   return (
     <div id="rightAllDogs">
+      <Link to="/addDog">ADD DOG</Link>
+
       <ul id="dogCards">
         {pets.map((dog) => (
           <li key={dog.id}>

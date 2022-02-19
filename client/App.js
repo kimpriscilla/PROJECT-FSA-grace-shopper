@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Routes from "./Routes";
 import Footer from "./components/Footer";
 import { me } from "./store/auth";
-import { getBreeds } from './store/pets/breeds';
+import { getBreeds } from "./store/pets/breeds";
 
 let tempUserId = 1;
 
@@ -25,7 +25,7 @@ class _App extends Component {
     this.props.getCart();
     this.props.me();
     this.props.getBreeds();
-    this.state.userId && this.props.getCart(this.state.userId)
+    this.state.userId && this.props.getCart(this.state.userId);
   }
 
   render() {
