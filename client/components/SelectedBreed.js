@@ -54,7 +54,7 @@ const mapStateToProps = (state, ownProps) => {
   const breedId = ownProps.match.params.id*1;
   return {
     userId: state.auth.id,
-    breedPets: state.pets.filter((pet) => pet.breedId === breedId)
+    breedPets: state.pets.filter((pet) => pet.breedId === breedId && !pet.orderId)
   };
 };
 

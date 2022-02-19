@@ -11,7 +11,7 @@ SELECT
   breeds.name,
   COUNT(pets.id) AS stock
 FROM breeds
-LEFT JOIN pets AS pets on breeds.id = pets.breedId
+LEFT JOIN (SELECT * from pets WHERE pets.orderId IS NULL) AS pets on breeds.id = pets.breedId
 GROUP BY breeds.id, breeds.name
 */
 
@@ -23,7 +23,10 @@ router.get("/", async (req, res, next) => {
         include: [[Sequelize.fn("COUNT", Sequelize.col("pets.id")), "stock"]] //compute stock
       },
       include: [{
-          model: Pet, attributes: []
+          model: Pet, attributes: [],
+          where: {
+            orderId: null
+          }
       }],
       group: ['breeds.id', 'breeds.name'],
       });

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {
-  models: { Pet, Breed },
+  models: { Pet, Breed, Order, User },
 } = require("../db");
 
 module.exports = router;
@@ -8,7 +8,11 @@ module.exports = router;
 router.get("/", async (req, res, next) => {
   try {
     const pets = await Pet.findAll({
-      include: [Breed],
+      include: [Breed, Order, User],
+    }, {
+      where: {
+        orderId: null
+      }
     });
     res.json(pets);
   } catch (err) {
