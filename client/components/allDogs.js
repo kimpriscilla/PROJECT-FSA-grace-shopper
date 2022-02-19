@@ -18,6 +18,8 @@ const Dogs = ({ loading, pets, id }) => {
   const addToCart = (uuid, id) => {
     dispatch(addCart(uuid, id));
   };
+
+  console.log('dogs', pets)
   return (
     <div id="rightAllDogs">
       <Link to="/addDog">ADD DOG</Link>
@@ -77,7 +79,8 @@ const Pagination = ({ petPerPage, totalPet, paginate }) => {
 };
 
 function allDogs({ addCart }) {
-  const pets = useSelector((state) => state.pets);
+  const pets = useSelector((state) => state.pets).filter((pet) => !pet.orderId);
+
   const id = useSelector((state) => state.auth.id);
 
   //allows us to use state in a function component
