@@ -47,12 +47,22 @@ router.get("/guest/:auth", async (req, res, next) => {
 router.delete("/:userId/:id", async (req, res, next) => {
   try {
     const { id, userId } = req.params;
-    await CartItem.destroy({
-      where: {
-        id,
-        userId,
-      },
-    });
+    console.log(userId, "line 50, cartItems, userId");
+    console.log(typeof userId * 1, "line 51, cartItem");
+
+    userId * 1
+      ? await CartItem.destroy({
+          where: {
+            id,
+            userId,
+          },
+        })
+      : await CartItem.destroy({
+          where: {
+            id,
+            authId: userId,
+          },
+        });
     res.sendStatus(204);
   } catch (err) {
     next(err);
@@ -91,15 +101,15 @@ router.post("/:userId/:petId", async (req, res, next) => {
 
 router.put("/", async (req, res, next) => {
   try {
-    const identifier = JSON.parse(localStorage["guest"]);
-    const { userId, petId } = req.body;
+    const { userId, petId, authId } = req.body;
+    console.log(authId, "hey Im in the put route");
     const updatedItem = await CartItem.update(
       {
         userId: userId,
       },
       {
         where: {
-          authId: identifier,
+          authId,
           petId: petId,
         },
       }

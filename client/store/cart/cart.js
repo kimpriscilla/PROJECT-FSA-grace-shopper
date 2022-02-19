@@ -33,18 +33,23 @@ export const getCart = (userId) => {
     //if userId exist do this
     if (userId) {
       //grab a cart in localstorage
-      const identifier = localStorage.getItem("cart");
+      const guestCart = localStorage.getItem("cart");
+      let identifier = JSON.parse(localStorage["guest"]);
       //If there is a cart in localstorage
-      if (identifier) {
+      if (guestCart) {
         //Parse it
         const grabCart = JSON.parse(localStorage["cart"]);
         //for each element found in grabCart, go to post route using the given userId and the petId stored in each element
         grabCart.forEach(async (pet) => {
-          //await axios.put(`/api/cart`, { userId, petId: pet.petId})
-          await axios.post(`/api/cart/${userId}/${pet.petId}`, {
+          await axios.put(`/api/cart`, {
             userId,
             petId: pet.petId,
+            authId: identifier.id,
           });
+          /* await axios.post(`/api/cart/${userId}/${pet.petId}`, {
+            userId,
+            petId: pet.petId,
+          });*/
         });
         //clear the local storage because user is logged in
         localStorage.removeItem("cart");
@@ -62,6 +67,9 @@ export const getCart = (userId) => {
 };
 
 export const deleteCart = (userId, cartItemId) => {
+  console.log(userId, "cart.Js, line 70, userId");
+  const guestId = JSON.parse(localStorage["guest"]);
+  userId = userId ? userId : guestId.id;
   return async (dispatch) => {
     await axios.delete(`/api/cart/${userId}/${cartItemId}`);
     dispatch(_deleteCart(cartItemId));
