@@ -97,10 +97,13 @@ router.post("/:userId/:petId", async (req, res, next) => {
   try {
     const { userId, petId } = req.body;
     console.log(userId, petId);
-    const newCartItem = await CartItem.create({
-      orderId: null,
-      userId,
-      petId,
+    const newCartItem = await CartItem.findOrCreate({
+      where: { petId },
+      defaults: {
+        orderId: null,
+        userId,
+        petId,
+      }
     });
     res.json(newCartItem);
   } catch (err) {
