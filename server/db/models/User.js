@@ -1,4 +1,4 @@
-const { STRING, UUIDV4, UUID } = require("sequelize");
+const { STRING, UUIDV4, UUID, ENUM } = require("sequelize");
 const db = require("../db");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -21,6 +21,10 @@ const User = db.define("user", {
   },
   password: {
     type: STRING,
+  },
+  role: {
+    type: ENUM("user", "admin"),
+    defaultValue: "user",
   },
 });
 
