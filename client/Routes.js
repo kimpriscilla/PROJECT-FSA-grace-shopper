@@ -53,7 +53,7 @@ class Routes extends Component {
 
   render() {
     const { isLoggedIn, authId } = this.props;
-
+    console.log(this.props.auth, "auth, line 56, Routes.js");
     return (
       <div>
         {/* Temporary route to avoid logging in for home page */}
@@ -144,6 +144,7 @@ const mapState = (state) => {
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
     authId: state.auth.id,
+    auth: state.auth,
   };
 };
 
