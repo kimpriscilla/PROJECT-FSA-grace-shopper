@@ -21,28 +21,27 @@ class SingleUser extends Component {
             <img src={imageUrl}></img>
           </li>
           <li> EMAIL: {email}</li>
-          <li>
-            ORDERS:
+          <div>
+            Pets:
             {orders ? orders.map(order => {
-              console.log(order)
               return (
-                <div id="dogCards" key={order.id}>
-                    <li key={order.id}>
-                      <ul id="individualCards">
-                        <li>
-                          <img src={order.pet.imageUrl} />
-                        </li>
-                        <li>Name: {order.pet.name} </li>
-                        <li>Price: ${order.pet.price} </li>
-                        <li>Ordered Date: {require('moment')(order.createdAt).format('YYYY-MM-DD')}</li>
-                        <li></li>
-                      </ul>
-                    </li>
-                  )
-                </div>
+                  order.cart_items.map(cartItem => {
+                    return (
+                      <li key={cartItem.id}>
+                        <ul id="individualCards">
+                          <li>
+                            <img src={cartItem.pet.imageUrl} />
+                          </li>
+                          <li>Name: {cartItem.pet.name} </li>
+                          <li>Price: ${cartItem.pet.price} </li>
+                          <li>Ordered Date: {require('moment')(order.createdAt).format('YYYY-MM-DD')}</li>
+                        </ul>
+                      </li>
+                    )
+                  })
               )
-            }) : "NO ORDERS YET"}{" "}
-          </li>
+            }) : "No Orders Yet"}
+          </div>
         </ul>
       </>
     );
