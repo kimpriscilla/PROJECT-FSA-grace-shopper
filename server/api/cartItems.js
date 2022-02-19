@@ -88,3 +88,25 @@ router.post("/:userId/:petId", async (req, res, next) => {
     next(err);
   }
 });
+
+router.put("/", async (req, res, next) => {
+  try {
+    const identifier = JSON.parse(localStorage["guest"]);
+    const { userId, petId } = req.body;
+    const updatedItem = await CartItem.update(
+      {
+        userId: userId,
+      },
+      {
+        where: {
+          authId: identifier,
+          petId: petId,
+        },
+      }
+    );
+    res.json(updatedItem);
+    //bobby
+  } catch (err) {
+    next(err);
+  }
+});

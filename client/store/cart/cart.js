@@ -40,7 +40,7 @@ export const getCart = (userId) => {
         const grabCart = JSON.parse(localStorage["cart"]);
         //for each element found in grabCart, go to post route using the given userId and the petId stored in each element
         grabCart.forEach(async (pet) => {
-          console.log(pet.id);
+          //await axios.put(`/api/cart`, { userId, petId: pet.petId})
           await axios.post(`/api/cart/${userId}/${pet.petId}`, {
             userId,
             petId: pet.petId,
