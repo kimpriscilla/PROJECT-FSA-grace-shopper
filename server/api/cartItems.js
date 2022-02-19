@@ -72,10 +72,18 @@ router.delete("/:userId/:id", async (req, res, next) => {
 router.post("/guest/:petId", async (req, res, next) => {
   try {
     const { petId, authId } = req.body;
-    const newCartItem = await CartItem.create({
-      authId,
-      orderId: null,
-      petId,
+    // const newCartItem = await CartItem.findOrCreate({
+    //   where: { petId },
+    //   defaults: {
+    //     authId,
+    //     orderId: null,
+    //     petId,
+    //   }
+    // });
+    const newCartItem = await CartItem.Create({
+        authId,
+        orderId: null,
+        petId,
     });
     res.json(newCartItem);
   } catch (error) {
@@ -88,10 +96,13 @@ router.post("/:userId/:petId", async (req, res, next) => {
   try {
     const { userId, petId } = req.body;
     console.log(userId, petId);
-    const newCartItem = await CartItem.create({
-      orderId: null,
-      userId,
-      petId,
+    const newCartItem = await CartItem.findOrCreate({
+      where: { petId },
+      defaults: {
+        orderId: null,
+        userId,
+        petId,
+      }
     });
     res.json(newCartItem);
   } catch (err) {

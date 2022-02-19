@@ -103,7 +103,6 @@ router.post("/:id", cors(), async (req, res, next) => {
     await Promise.all(petIds.map(petId => {
       Pet.update({
         orderId: newOrderId,
-        userId
       }, {
         where: {
           id: petId
