@@ -26,6 +26,7 @@ class CreateUser extends Component {
       email: "",
       password: "",
     });
+
   }
   render() {
     const { imageUrl, email, password } = this.state;
