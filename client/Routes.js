@@ -22,29 +22,13 @@ import SelectedBreed from "./components/SelectedBreed";
 import CreateUser from "./components/CreateUser";
 import AddDog from "./components/AddDog";
 
-let tempUserId = 1;
-//Grab a local storage session
 const retrieveId = JSON.parse(localStorage.getItem("guest"));
-
-//let it come into existence
-let uuid;
-
-//If session's not there, create a new session
 if (!retrieveId) {
   const testId = {
     id: self.crypto.randomUUID(),
   };
   localStorage.setItem("guest", JSON.stringify(testId));
-  uuid = testId.id;
 }
-//If session IS there, set session's id to uuid
-else {
-  uuid = retrieveId.id;
-}
-
-// console.log(uuid, "THIS IS UUID");
-
-//
 
 class Routes extends Component {
   componentDidMount() {
@@ -52,8 +36,7 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn, authId, auth } = this.props;
-    console.log(auth, "56, Routes.js, auth");
+    const { isLoggedIn, authId, authRole } = this.props;
     return (
       <div>
         {!isLoggedIn ? (
@@ -63,7 +46,6 @@ class Routes extends Component {
             <Route path="/" exact component={Login} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            <Route exact path={"/users"} component={users} />
             <Route path={`/dogs/:id`} component={Dog} />
             <Route path={"/AboutUs"} component={AboutUs} />
             <Route path={`/cart/guest`} component={Cart} />
@@ -74,7 +56,7 @@ class Routes extends Component {
             <Route exact path={"/breed"} component={Breed} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
           </Switch>
-        ) : auth === "user" ? (
+        ) : authRole === "user" ? (
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/dogs" exact component={allDogs} />
@@ -118,17 +100,11 @@ class Routes extends Component {
     );
   }
 }
-
-/**
- * CONTAINER
- */
 const mapState = (state) => {
   return {
-    // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
-    // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
     authId: state.auth.id,
-    auth: state.auth.role,
+    authRole: state.auth.role,
   };
 };
 

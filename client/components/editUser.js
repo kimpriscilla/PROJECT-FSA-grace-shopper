@@ -25,7 +25,7 @@ class editUser extends Component {
   };
 
   render() {
-    const { email, password, imageUrl } = this.state;
+    const { email, password, imageUrl, role } = this.state;
     if (this.props.users.length === 0) {
       return <></>;
     }
@@ -86,7 +86,20 @@ class editUser extends Component {
                 </td>
                 <td>{filtered.imageUrl}</td>
               </tr>
-
+              {this.props.auth.role === "admin" ? (
+                <tr>
+                  <td>Update Role </td>
+                  <td>
+                    <select name="role" onChange={this.input}>
+                      <option value="user">User</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </td>
+                  <td>{filtered.imageUrl}</td>
+                </tr>
+              ) : (
+                <tr></tr>
+              )}
               <tr>
                 <td></td>
                 <td>
