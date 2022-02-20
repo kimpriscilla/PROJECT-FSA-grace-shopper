@@ -45,7 +45,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart }) => (
               <a
                 className="nav-link active"
                 aria-current="page"
-                href={`/cart/${authId}`}
+                href={`/cart/${authId ? authId : "guest"}`}
               >
                 <div className=" h5">
                   <i className="bi- bi-cart-fill"></i> ({cart.length})

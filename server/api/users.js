@@ -11,7 +11,7 @@ router.get("/", async (req, res, next) => {
       // users' passwords are encrypted, it won't help if we just
       // send everything to anyone who asks!
       attributes: ["id", "email", "imageUrl"],
-      include: [Order, CartItem],
+      include: [{ model: Order, include: [{ model: CartItem, include: [Pet] }] }],
     });
     res.json(users);
   } catch (err) {
@@ -22,7 +22,17 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     //console.log("AM I WORKINGGGGG>>>????", req.body);
-    res.send(await User.create(req.body));
+    const findUser = await User.findAll({
+      where: {
+        email: req.body.email
+      }
+    });
+    if (findUser) {
+      res.json('User already exists')
+    } else {
+      const newUser = await User.create(req.body);
+      res.json(newUser)
+    }
   } catch (error) {
     next(error);
   }

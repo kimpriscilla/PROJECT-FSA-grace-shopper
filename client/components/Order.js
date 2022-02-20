@@ -13,7 +13,7 @@ class Order extends React.Component {
 
   render() {
     const { orders } = this.props;
-    console.log(orders)
+
     if (orders.length < 1) {
       return <h1>You have no orders yet!</h1>
     } else {

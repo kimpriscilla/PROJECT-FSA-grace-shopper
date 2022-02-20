@@ -59,6 +59,7 @@ router.post("/:id", cors(), async (req, res, next) => {
             billingAddress,
           });
     const newOrderId = newOrder.id;
+
     //set parent orderID to cart items, set user ID to null so cart items disappear once order is placed
     if (typeof userId === "string") {
       await CartItem.update(
@@ -85,7 +86,7 @@ router.post("/:id", cors(), async (req, res, next) => {
           },
         }
       );
-    }
+    };
 
     //retrieve cart items using their parent order ID
     newOrder = await Order.findOne({
@@ -94,6 +95,20 @@ router.post("/:id", cors(), async (req, res, next) => {
       },
       include: [{ model: CartItem, include: [Pet] }],
     });
+
+    const petIds = newOrder.cart_items.map(cartItem => {
+      return cartItem.petId;
+    });
+
+    await Promise.all(petIds.map(petId => {
+      Pet.update({
+        orderId: newOrderId,
+      }, {
+        where: {
+          id: petId
+        }
+      })
+    }));
 
     const payment = await stripe.paymentIntents.create({
       amount,

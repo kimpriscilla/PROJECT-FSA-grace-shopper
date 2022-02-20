@@ -64,7 +64,11 @@ export default function (state = [], action) {
         user.id === action.user.id ? action.user : user
       );
     case ADD_USER:
-      return [...state, action.user];
+      if (action.user !== 'User already exists') {
+        return [...state, action.user];
+      } else {
+        return state
+      }
     default:
       return state;
   }

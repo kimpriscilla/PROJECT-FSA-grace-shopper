@@ -7,8 +7,6 @@ const {
 
 const { petData } = require("./pet.js");
 
-
-
 const { breedImg } = require("./breedPics.js");
 
 /**
@@ -24,20 +22,20 @@ async function seed() {
     User.create({ email: "jenniferlu32@gmail.com", password: "123" }),
     User.create({ email: "kencrosas@gmail.com", password: "123" }),
     User.create({ email: "priscillakim58@gmail.com", password: "123" }),
-    User.create({ email: "agartrell@gmail.com", password: "123" }),
+    User.create({ email: "admin@admin.com", password: "123", role: "admin" }),
   ]);
 
   const breeds = await Promise.all([
-    Breed.create({ name: "Labrador Retriever",}),
-    Breed.create({ name: "German Shepherd",}),
-    Breed.create({ name: "Golden Retriever",}),
-    Breed.create({ name: "Bulldog",}),
-    Breed.create({ name: "Poodle",}),
-    Breed.create({ name: "Beagle",}),
-    Breed.create({ name: "Rottweiler",}),
-    Breed.create({ name: "Dachshund",}),
-    Breed.create({ name: "Siberian Husky",}),
-    Breed.create({ name: "Shih Tzu",}),
+    Breed.create({ name: "Labrador Retriever" }),
+    Breed.create({ name: "German Shepherd" }),
+    Breed.create({ name: "Golden Retriever" }),
+    Breed.create({ name: "Bulldog" }),
+    Breed.create({ name: "Poodle" }),
+    Breed.create({ name: "Beagle" }),
+    Breed.create({ name: "Rottweiler" }),
+    Breed.create({ name: "Dachshund" }),
+    Breed.create({ name: "Siberian Husky" }),
+    Breed.create({ name: "Shih Tzu" }),
   ]);
 
   console.log(breeds.map((el) => console.log("NAME", el.name)));
