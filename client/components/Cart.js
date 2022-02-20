@@ -44,7 +44,7 @@ class Cart extends React.Component {
           ))}
         </ul>
 
-        <Link to={`/checkout/${authId}`}>
+        <Link to={`/checkout/${authId ? authId : "guest"}`}>
           <button className="button-37" role="button">
             Check Out
           </button>

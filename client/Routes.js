@@ -52,40 +52,47 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn, authId } = this.props;
-    console.log(this.props.auth, "auth, line 56, Routes.js");
+    const { isLoggedIn, authId, auth } = this.props;
+    console.log(auth, "56, Routes.js, auth");
     return (
       <div>
-        {/* Temporary route to avoid logging in for home page */}
-        <Switch>
-          {/* <Route path="/home" component={Home} />
-          <Route path="/dogs" exact component={allDogs} /> */}
-          {/* <Route path="/dogs/:id" component={Dog} /> */}
-          {/* <Route path={`/dog/edit/:id`} component={editDog} /> */}
-          {/*CHANGE TO USER ID LATER*/}
-          {/* <Route exact path={"/users"} component={users} /> */}
-          {/* <Route path={`/users/:id`} component={SingleUser} /> */}
-          {/* <Route path={"/AboutUs"} component={AboutUs} /> */}
-          {/* <Route path={`/cart/${tempUserId}`} component={Cart} /> */}
-
-          {/* <Route path="/home" component={Home} /> */}
-          {/*
-          <Route path="/dogs/:id" component={Dog} />
-          <Route path={`/dog/edit/:id`} component={editDog} /> */}
-
-          {/*CHANGE TO USER ID LATER*/}
-
-          {/* <Route exact path={"/users"} component={users} /> */}
-          {/* <Route path={`/users/:id`} component={SingleUser} /> */}
-          {/* <Route path={"/AboutUs"} component={AboutUs} /> */}
-          {/* <Route path={"/users"} component={users} /> */}
-
-          {/* <Route path={"/user/edit/:id"} component={editUser} /> */}
-
-          {/* <Redirect to="/home" /> */}
-        </Switch>
-        {/* Temporary route to avoid logging in for home page */}
-        {isLoggedIn ? (
+        {!isLoggedIn ? (
+          <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/dogs" exact component={allDogs} />
+            <Route path="/" exact component={Login} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route exact path={"/users"} component={users} />
+            <Route path={`/dogs/:id`} component={Dog} />
+            <Route path={"/AboutUs"} component={AboutUs} />
+            <Route path={`/cart/guest`} component={Cart} />
+            <Route path="/FAQ" component={Faq} />
+            <Route path="/create" component={CreateUser} />
+            <Route path={`/checkout/guest`} component={Checkout} />
+            <Route path={`/confirmation`} component={Confirmation} />
+            <Route exact path={"/breed"} component={Breed} />
+            <Route path={`/breed/:id`} component={SelectedBreed} />
+          </Switch>
+        ) : auth === "user" ? (
+          <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/dogs" exact component={allDogs} />
+            <Route path={`/users/:id`} component={SingleUser} />
+            <Route path="/dogs/:id" component={Dog} />
+            <Route path={"/AboutUs"} component={AboutUs} />
+            <Route path={`/account/orders/:id`} component={Order} />
+            <Route path={`/cart/${authId}`} component={Cart} />
+            <Route path={`/checkout/${authId}`} component={Checkout} />
+            <Route path="/FAQ" component={Faq} />
+            <Route path={`/confirmation`} component={Confirmation} />
+            <Route path={`/user/edit/`} component={editUser} />
+            <Route exact path={"/breed"} component={Breed} />
+            <Route path={`/breed/:id`} component={SelectedBreed} />
+            <Route path="/addDog" component={AddDog} />
+            <Redirect to="/home" />
+          </Switch>
+        ) : (
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/dogs" exact component={allDogs} />
@@ -106,29 +113,6 @@ class Routes extends Component {
             <Route path="/addDog" component={AddDog} />
             <Redirect to="/home" />
           </Switch>
-        ) : (
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/dogs" exact component={allDogs} />
-            <Route path="/" exact component={Login} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route exact path={"/users"} component={users} />
-            {/* users & users/:id eventually going to be admin view */}
-
-            <Route path={`/users/:id`} component={SingleUser} />
-            <Route path={`/dogs/:id`} component={Dog} />
-            <Route path={`/dog/edit/:id`} component={editDog} />
-            <Route path={"/AboutUs"} component={AboutUs} />
-            <Route path={`/cart/${authId}`} component={Cart} />
-            <Route path="/FAQ" component={Faq} />
-
-            <Route path="/create" component={CreateUser} />
-            <Route path={`/checkout/`} component={Checkout} />
-            <Route path={`/confirmation`} component={Confirmation} />
-            <Route exact path={"/breed"} component={Breed} />
-            <Route path={`/breed/:id`} component={SelectedBreed} />
-          </Switch>
         )}
       </div>
     );
@@ -144,7 +128,7 @@ const mapState = (state) => {
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
     authId: state.auth.id,
-    auth: state.auth,
+    auth: state.auth.role,
   };
 };
 
