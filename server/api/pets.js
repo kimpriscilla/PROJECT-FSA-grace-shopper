@@ -7,13 +7,16 @@ module.exports = router;
 
 router.get("/", async (req, res, next) => {
   try {
-    const pets = await Pet.findAll({
-      include: [Breed, Order, User],
-    }, {
-      where: {
-        orderId: null
+    const pets = await Pet.findAll(
+      {
+        include: [Breed, Order, User],
+      },
+      {
+        where: {
+          orderId: null,
+        },
       }
-    });
+    );
     res.json(pets);
   } catch (err) {
     next(err);
@@ -51,5 +54,15 @@ router.put("/:id", async (req, res, next) => {
     res.json(pet);
   } catch (err) {
     next(err);
+  }
+});
+
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const deletePet = await Pet.findByPk(req.params.id);
+    await deletePet.destroy();
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
   }
 });

@@ -13,7 +13,7 @@ class Dog extends React.Component {
   calculateAge(dob) {
     // dob is a date
     let dob1 = Date.parse(dob);
-    console.log(dob1);
+    //console.log(dob1);
     var ageDifMs = Date.now() - dob1.getTime();
     var ageDate = new Date(ageDifMs); // miliseconds from epoch
     return Math.abs(ageDate.getUTCFullYear() - 1970);
@@ -21,6 +21,7 @@ class Dog extends React.Component {
 
   render() {
     const { pet, authId } = this.props;
+
     if (!pet) {
       return <h1>Loading Pet!</h1>;
     } else {
@@ -92,7 +93,7 @@ class Dog extends React.Component {
                     </h2>
 
                     <button
-                      classNameName="button-37"
+                      className="button-37"
                       role="button"
                       onClick={() => this.props.addCart(authId, pet.id)}
                     >
