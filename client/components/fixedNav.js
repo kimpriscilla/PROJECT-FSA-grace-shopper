@@ -12,7 +12,7 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
         <ul className="nav nav-tabs">
           <li className="nav-item">
             <Link to="/home" className="nav-link ">
-              <span style={{ fontWeight: "bold" }}> I AM GUEST NAV </span>
+              <span style={{ fontWeight: "bold" }}> Home (Guest) </span>
             </Link>
           </li>
           <li className="nav-item dropdown">

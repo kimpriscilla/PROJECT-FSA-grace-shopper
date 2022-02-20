@@ -19,7 +19,7 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
             <ul className="nav nav-tabs">
               <li className="nav-item">
                 <Link to="/home" className="nav-link">
-                  LOGINNAV
+                  Home (Logged In)
                 </Link>
               </li>
 

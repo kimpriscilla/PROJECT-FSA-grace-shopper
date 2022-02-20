@@ -12,7 +12,7 @@ const AdminNav = ({ handleClick, isLoggedIn }) => (
           <ul className="nav nav-tabs">
             <li className="nav-item">
               <Link to="/home" className="nav-link">
-                ADMIN NAV
+                Home (Admin)
               </Link>
             </li>
             <li className="nav-item dropdown">
