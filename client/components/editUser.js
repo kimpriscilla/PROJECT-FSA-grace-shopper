@@ -29,9 +29,13 @@ class editUser extends Component {
     if (this.props.users.length === 0) {
       return <></>;
     }
-
+    const filterValue =
+      this.props.auth.role === "user"
+        ? this.props.auth.id
+        : this.props.match.params.id;
+    console.log(filterValue, "32, editUser, filterValue");
     const filtered = this.props.users.filter(
-      (user) => user.id === this.props.match.params.id * 1
+      (user) => user.id === filterValue * 1
     )[0];
 
     return (
