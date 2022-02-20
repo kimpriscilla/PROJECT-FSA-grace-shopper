@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
+import auth from "./store/auth";
+import { me } from "./store";
 import { Login, Signup } from "./components/AuthForm";
 import Home from "./components/Home";
-import { me } from "./store";
 import allDogs from "./components/allDogs";
 import Dog from "./components/Dog";
 import editDog from "./components/editDog";
@@ -14,13 +15,13 @@ import SingleUser from "./components/SingleUser";
 import AboutUs from "./components/AboutUs";
 import Checkout from "./components/Checkout";
 import Confirmation from "./components/Confirmation";
-import auth from "./store/auth";
 import Faq from "./components/Faq";
 import Order from "./components/Order";
 import Breed from "./components/Breed";
 import SelectedBreed from "./components/SelectedBreed";
 import CreateUser from "./components/CreateUser";
 import AddDog from "./components/AddDog";
+import DataPortal from "./components/dataPortal";
 
 const retrieveId = JSON.parse(localStorage.getItem("guest"));
 if (!retrieveId) {
@@ -91,6 +92,7 @@ class Routes extends Component {
             <Route path={`/confirmation`} component={Confirmation} />
             <Route path={"/user/edit/:id"} component={editUser} />
             <Route exact path={"/breed"} component={Breed} />
+            <Route path={"/dataportal"} component={DataPortal} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
             <Route path="/addDog" component={AddDog} />
             <Redirect to="/home" />
