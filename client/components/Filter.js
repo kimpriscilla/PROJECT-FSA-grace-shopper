@@ -1,56 +1,110 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, Component } from "react";
+import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-function Filter() {
-  const pets = useSelector((state) => state.pets) || [];
-  console.log(pets);
+class Filter extends Component {
+  constructor() {
+    super();
+    this.state = {
+      size: "",
+      gender: "",
+      age: "",
+      price: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(ev) {
+    this.setState({ size: ev });
+    console.log("what is ev?", ev);
+  }
+  render() {
+    console.log("what is size rn", this.state.size);
+    console.log(this.props.pets);
+    const filterBySize = [...new Set(this.props.pets.map((dog) => dog.size))];
+    //console.log(filterBySize);
+    return (
+      <>
+        <div className="filter-form">
+          <h1>filer form</h1>
+          <FilterOption
+            options={filterBySize}
+            selected={this.state.size}
+            changeOption={this.handleChange}
+          />
+          <FilterItem data={this.props.pets} filter={this.state.size} />
+        </div>
+      </>
+    );
+  }
+}
 
-  const [item, setItem] = useState(pets);
-  console.log("?>>", item);
+class FilterOption extends Component {
+  constructor() {
+    super();
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(ev) {
+    this.props.changeOption(ev.target.value);
+    console.log("!!!", this.props.changeOption());
+  }
+  render() {
+    const selectedOption = this.props.selected;
+    //console.log("testing", this.props.options);
+    return (
+      <>
+        <select id="size" value={selectedOption} onChange={this.handleChange}>
+          {this.props.options.map((option) => {
+            return (
+              <option
+                key={option}
+                value={option}
+                selected={option.value == selectedOption}
+              >
+                {option}
+              </option>
+            );
+          })}
+        </select>
+      </>
+    );
+  }
+}
 
-  const filterBySize = [...new Set(pets.map((dog) => dog.size))];
-  //console.log(filterBySize);
-  const filterByGender = [...new Set(pets.map((dog) => dog.gender))];
-  //console.log(filterByGender);
-  // const filterByAge = [...new Set(pets.map((dog) => dog.age))];
-  // console.log(filterByAge); //!dob is not done in allDogs page
-  const filterByPrice = [...new Set(pets.map((dog) => dog.price))];
-  // console.log(filterByPrice);
-
-  //testing size for now
-  const filterByCategory = (val) => {
-    const item = pets.filter((newVal) => {
-      return newVal.size === val;
+class FilterItem extends Component {
+  constructor() {
+    super();
+  }
+  render() {
+    const filter = this.props.filter;
+    console.log("what is filter", filter);
+    const filteredData = this.props.data.filter((item) => {
+      return filter === item.size;
     });
-    setItem(item);
-  };
+    console.log("final------------->", filteredData);
+    return (
+      <>
+        <div className="filter-item">
+          {filteredData.map((item) => {
+            return <div>{item.name}</div>;
+          })}
+        </div>
+      </>
+    );
+  }
+}
 
-  return (
-    <>
-      {/* <div className="d-flex justify-content-center">
-        {filterBySize.map((dog, id) => {
-          return (
-            <button
-              className="btn-dark text-white p-1 px-2 mx-5 btn fw-bold"
-              onClick={() => filterByCategory(dog)}
-              key={id}
-            >
-              {dog}
-            </button>
-          );
-        })}
-        <button
-          className="btn-dark text-white p-1 px-3 mx-5 fw-bold btn"
-          onClick={() => setItem(pets)}
-        >
-          All
-        </button>
-      </div> */}
-      <div className="btn-group">
-        <div class="dropdown">
+const mapState = (state) => {
+  return {
+    pets: state.pets,
+  };
+};
+export default connect(mapState, null)(Filter);
+
+/*
+ <div className="btn-group">
+        <div className="dropdown">
           <button
-            class="btn btn-primary dropdown-toggle"
+            className="btn btn-primary dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
@@ -59,11 +113,11 @@ function Filter() {
             Size
           </button>
 
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            {filterBySize.map((val, id) => {
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            {filterBySize.map((val) => {
               return (
                 <li key={val.id}>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     {val}
                   </a>
                 </li>
@@ -71,9 +125,9 @@ function Filter() {
             })}
           </ul>
         </div>
-        <div class="dropdown">
+        <div className="dropdown">
           <button
-            class="btn btn-primary dropdown-toggle"
+            className="btn btn-primary dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
@@ -82,11 +136,11 @@ function Filter() {
             Gender
           </button>
 
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             {filterByGender.map((val) => {
               return (
                 <li key={val.id}>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     {val}
                   </a>
                 </li>
@@ -94,9 +148,9 @@ function Filter() {
             })}
           </ul>
         </div>
-        <div class="dropdown">
+        <div className="dropdown">
           <button
-            class="btn btn-primary dropdown-toggle"
+            className="btn btn-primary dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
@@ -105,11 +159,11 @@ function Filter() {
             Price
           </button>
 
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             {filterByPrice.map((val) => {
               return (
                 <li key={val.id}>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     {val}
                   </a>
                 </li>
@@ -118,8 +172,4 @@ function Filter() {
           </ul>
         </div>
       </div>
-    </>
-  );
-}
-
-export default Filter;
+*/

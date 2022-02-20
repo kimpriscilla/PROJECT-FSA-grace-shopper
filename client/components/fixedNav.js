@@ -32,8 +32,8 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
                 </a>
               </li>
               <li>
-                <a className="dropdown-item " href="/">
-                  Featured Dogs
+                <a className="dropdown-item " href="/breed">
+                  Breeds
                 </a>
               </li>
             </ul>
