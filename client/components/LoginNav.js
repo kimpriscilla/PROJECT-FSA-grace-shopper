@@ -22,82 +22,7 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
                   Home (Logged In)
                 </Link>
               </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                href="/"
-                role="button"
-                aria-expanded="false"
-              >
-                Dogs
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="/dogs">
-                    Available Dogs
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Breed
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <Link to="/AboutUs" className="nav-link">
-                About Us
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/users">
-                Users
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <ul className="nav justify-content-end">
-            <li className="nav-item">
-              <a
-                className="nav-link active"
-                aria-current="page"
-                href={`/checkout/${id}`}
-              >
-                Checkout
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                href="/"
-                role="button"
-                aria-expanded="false"
-              >
-                My Account
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link className="dropdown-item" to={`/users/${id}`}>
-                    Account
-                  </Link>
-                </li>
-                <li>
-                  <Link to={`/account/orders/${id}`} className="dropdown-item">
-                    Orders
-                  </Link>
-                </li>
-                <li>
-                  {isLoggedIn ? (
-                    <a
-                      className="nav-link active"
-                      aria-current="page"
-                      href="/home"
-                      onClick={handleClick}
-                    >
-                      Log Out
+
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -156,9 +81,9 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <Link className="dropdown-item" to={`/users/${id}`}>
                       Account
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Link
@@ -197,5 +122,4 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
     )}
   </>
 );
-
 export default LoginNav;
