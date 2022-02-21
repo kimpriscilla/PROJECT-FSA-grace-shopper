@@ -41,7 +41,6 @@ export const loadUsers = () => {
 export const changeUser = (user) => {
   return async (dispatch) => {
     const edited = (await axios.put(`/api/users/${user.id}`, user)).data;
-
     dispatch(_editUsers(edited));
   };
 };
@@ -64,10 +63,10 @@ export default function (state = [], action) {
         user.id === action.user.id ? action.user : user
       );
     case ADD_USER:
-      if (action.user !== 'User already exists') {
+      if (action.user !== "User already exists") {
         return [...state, action.user];
       } else {
-        return state
+        return state;
       }
     default:
       return state;
