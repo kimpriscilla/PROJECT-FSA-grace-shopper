@@ -4,11 +4,12 @@ import { logout } from "../store";
 import Fixed from "./fixedNav";
 import LoginNav from "./LoginNav";
 import { getCart } from "../store/cart/cart";
+import AdminNav from "./AdminNav";
 
 //temporary navBar without loggedIn function/difference
 const tempUserId = 1;
 
-const Navbar = ({ handleClick, isLoggedIn, authId, cart }) => (
+const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
   <div>
     <div>
       <nav
@@ -31,7 +32,10 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart }) => (
         </div>
         <div>
           <a href="/" className="navbar-brand" />
-          <span style={{ fontWeight: "bold" }}> Grace Barker</span>
+          <span style={{ fontWeight: "bold" }}>
+            {" "}
+            (THIS WILL ALWAYS BE HERE)Grace Barker
+          </span>
         </div>
 
         <div>
@@ -62,6 +66,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart }) => (
           handleClick={handleClick}
           isLoggedIn={isLoggedIn}
           id={authId}
+          authRole={authRole}
         />
       ) : (
         <Fixed handleClick={handleClick} isLoggedIn={isLoggedIn} />
@@ -78,6 +83,7 @@ const mapState = (state) => {
     isLoggedIn: !!state.auth.id,
     authId: state.auth.id,
     cart: state.cartItems || {},
+    authRole: state.auth.role,
   };
 };
 

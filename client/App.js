@@ -31,7 +31,6 @@ class _App extends Component {
   }
 
   render() {
-    console.log(this.state.me);
     return (
       <div>
         <Navbar />
@@ -42,9 +41,9 @@ class _App extends Component {
   }
 }
 
-// const mapState = (state) => {
-//   return state;
-// };
+const mapState = (state) => {
+  return state;
+};
 
 const mapDispatch = (dispatch) => {
   return {
@@ -54,8 +53,6 @@ const mapDispatch = (dispatch) => {
     loadPets: () => {
       dispatch(loadPets());
     },
-
-    //getCart: (tempUserId) => dispatch(getCart(tempUserId)), //tempuserId works when logged out, cart items persists.
     getCart: (userId) => dispatch(getCart(userId)), //on a hard reload, userId is undefined.
 
     getCart: (userId) => dispatch(getCart(userId)),
