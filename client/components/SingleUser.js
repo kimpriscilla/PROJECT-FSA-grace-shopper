@@ -1,22 +1,19 @@
-//!CURRENTLY NOT WORKING
-
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom';
 
 class SingleUser extends Component {
   constructor() {
     super();
   }
   render() {
-    const { imageUrl, email, orders } = this.props.user;
-    console.log(this.props.user)
-
+    const { imageUrl, email, orders, id } = this.props.user;
     return (
       <>
-        <h1>SINGLE USER PAGE// ADMIN VIEW ONLY</h1>
+        <h1>Account Details</h1>
         <ul id="userCard"></ul>
-
         <ul id="individualCards">
+          <Link to={'/user/edit/'}> Edit User</Link>
           <li>
             <img src={imageUrl}></img>
           </li>

@@ -29,7 +29,8 @@ router.get("/", async (req, res, next) => {
           }
       }],
       group: ['breeds.id', 'breeds.name'],
-      });
+      },
+      );
     res.json(breeds)
   } catch (err) {
     next(err);
