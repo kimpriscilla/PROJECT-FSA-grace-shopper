@@ -79,7 +79,7 @@ router.post("/guest/:petId", async (req, res, next) => {
     });*/
     console.log(petId, "line 80, cartItem.js, petId");
     const newCartItem = await CartItem.findOrCreate({
-      where: { petId: petId },
+      where: { petId: petId, authId },
       defaults: {
         authId,
         orderId: null,
@@ -98,7 +98,7 @@ router.post("/:userId/:petId", async (req, res, next) => {
     const { userId, petId } = req.body;
     console.log(userId, petId);
     const newCartItem = await CartItem.findOrCreate({
-      where: { petId },
+      where: { petId, userId },
       defaults: {
         orderId: null,
         userId,

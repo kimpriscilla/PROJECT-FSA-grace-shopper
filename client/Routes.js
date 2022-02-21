@@ -22,6 +22,7 @@ import SelectedBreed from "./components/SelectedBreed";
 import CreateUser from "./components/CreateUser";
 import AddDog from "./components/AddDog";
 import DataPortal from "./components/dataPortal";
+import Analytics from './components/Analytics';
 
 const retrieveId = JSON.parse(localStorage.getItem("guest"));
 if (!retrieveId) {
@@ -95,6 +96,7 @@ class Routes extends Component {
             <Route path={"/dataportal"} component={DataPortal} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
             <Route path="/addDog" component={AddDog} />
+            <Route path="/analytics" component={Analytics} />
             <Redirect to="/home" />
           </Switch>
         )}

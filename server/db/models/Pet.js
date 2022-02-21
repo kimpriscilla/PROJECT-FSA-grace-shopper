@@ -39,10 +39,6 @@ Pet.init(
       type: STRING,
       defaultValue: "/default.png",
     },
-    stock: {
-      type: INTEGER,
-      defaultValue: 1,
-    },
   },
   { sequelize: db, modelName: "pets", timestamps: false }
 );

@@ -9,6 +9,7 @@ import Routes from "./Routes";
 import Footer from "./components/Footer";
 import { me } from "./store/auth";
 import { getBreeds } from "./store/pets/breeds";
+import { getBreedSales } from './store/analytics/analytics';
 
 let tempUserId = 1;
 
@@ -25,6 +26,7 @@ class _App extends Component {
     this.props.getCart();
     this.props.me();
     this.props.getBreeds();
+    this.props.getBreedSales();
     this.state.userId && this.props.getCart(this.state.userId);
   }
 
@@ -63,6 +65,7 @@ const mapDispatch = (dispatch) => {
       dispatch(me());
     },
     getBreeds: () => dispatch(getBreeds()),
+    getBreedSales: () => dispatch(getBreedSales())
   };
 };
 

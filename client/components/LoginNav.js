@@ -34,7 +34,7 @@ const LoginNav = ({ handleClick, isLoggedIn, id }) => (
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/breed">
+                  <a className="dropdown-item" href="/">
                     Breed
                   </a>
                 </li>
@@ -75,9 +75,9 @@ const LoginNav = ({ handleClick, isLoggedIn, id }) => (
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="/">
+                  <Link className="dropdown-item" to={`/users/${id}`}>
                     Account
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link to={`/account/orders/${id}`} className="dropdown-item">

@@ -9,6 +9,7 @@ import petsReducer from "./pets/pets";
 import cartsReducer from "./cart/cart";
 import ordersReducer from "./order/order";
 import breedsReducer from "./pets/breeds";
+import analyticsReducer from "./analytics/analytics";
 
 const reducer = combineReducers({
   pets: petsReducer,
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   cartItems: cartsReducer,
   orders: ordersReducer,
   breeds: breedsReducer,
+  analytics: analyticsReducer,
   auth,
 });
 
