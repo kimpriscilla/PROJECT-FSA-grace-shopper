@@ -11,6 +11,8 @@ const { breedImg } = require("./breedPics.js");
 
 const { userData } = require("./users.js");
 
+const { ordersData } = require("./orders.js");
+
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -25,13 +27,13 @@ async function seed() {
     User.create({ email: "kencrosas@gmail.com", password: "123" }),
     User.create({ email: "priscillakim58@gmail.com", password: "123" }),
     User.create({ email: "admin@admin.com", password: "123", role: "admin" }),
-    User.create({ email: "rebecca@gmail.com", password: "123"}),
-    User.create({ email: "lucy@gmail.com", password: "123"}),
-    User.create({ email: "sam@gmail.com", password: "123"}),
-    User.create({ email: "charlie@gmail.com", password: "123"}),
-    User.create({ email: "alex@gmail.com", password: "123"}),
-    User.create({ email: "lauren@gmail.com", password: "123"}),
-    User.create({ email: "quinn@gmail.com", password: "123"})
+    User.create({ email: "rebecca@gmail.com", password: "123" }),
+    User.create({ email: "lucy@gmail.com", password: "123" }),
+    User.create({ email: "sam@gmail.com", password: "123" }),
+    User.create({ email: "charlie@gmail.com", password: "123" }),
+    User.create({ email: "alex@gmail.com", password: "123" }),
+    User.create({ email: "lauren@gmail.com", password: "123" }),
+    User.create({ email: "quinn@gmail.com", password: "123" }),
   ]);
 
   userData.forEach(async (user) => await User.create(user));
@@ -77,40 +79,48 @@ async function seed() {
       userId: users[3].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[4].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[5].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[6].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[7].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[8].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[9].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[10].id,
     }),
+    ordersData.forEach(async (orders) => await Order.create(orders)),
   ]);
 
   const pet = await Promise.all([
@@ -124,7 +134,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       breedId: breeds[4].id,
       orderId: orders[0].id,
-      userId: users[0].id
+      userId: users[0].id,
     }),
     Pet.create({
       name: "Brutis",
@@ -137,7 +147,7 @@ async function seed() {
       imageUrl: "/default.png",
       breedId: breeds[3].id,
       orderId: orders[1].id,
-      userId: users[1].id
+      userId: users[1].id,
     }),
     Pet.create({
       name: "Pip",
@@ -148,7 +158,7 @@ async function seed() {
       dateOfBirth: "2022-02-22",
       breedId: breeds[2].id,
       orderId: orders[2].id,
-      userId: users[2].id
+      userId: users[2].id,
     }),
     Pet.create({
       name: "Lily",
@@ -160,7 +170,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       breedId: breeds[9].id,
       orderId: orders[3].id,
-      userId: users[3].id
+      userId: users[3].id,
     }),
     Pet.create({
       name: "Summer",
@@ -172,7 +182,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       breedId: breeds[6].id,
       orderId: orders[4].id,
-      userId: users[4].id
+      userId: users[4].id,
     }),
 
     petData.forEach(async (pet) => {
