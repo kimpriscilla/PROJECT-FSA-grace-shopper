@@ -29,8 +29,9 @@ router.post("/", async (req, res, next) => {
         email: req.body.email,
       },
     });
-    if (findUser) {
-      res.json("User already exists");
+
+    if (findUser===[]) {
+      res.json('User already exists')
     } else {
       const newUser = await User.create(req.body);
       res.json(newUser);
