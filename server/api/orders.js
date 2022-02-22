@@ -43,20 +43,54 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/:id", cors(), async (req, res, next) => {
-  let { amount, id, userId, shippingAddress, billingAddress } = req.body;
-  console.log(userId, "wutttttttttttt");
+  // let { amount, id, userId, shippingAddress, billingAddress } = req.body;
+  let {
+    amount,
+    id,
+    userId,
+    sStreet,
+    sCity,
+    sZip,
+    sState,
+    bStreet,
+    bCity,
+    bZip,
+    bState,
+  } = req.body;
   try {
     //create new order
     let newOrder =
+      // typeof userId !== "string"
+      //   ? await Order.create({
+      //       shippingAddress,
+      //       billingAddress,
+      //       userId,
+      //     })
+      //   : await Order.create({
+      //       shippingAddress,
+      //       billingAddress,
+      //     });
       typeof userId !== "string"
         ? await Order.create({
-            shippingAddress,
-            billingAddress,
+            sStreet,
+            sCity,
+            sZip,
+            sState,
+            bStreet,
+            bCity,
+            bZip,
+            bState,
             userId,
           })
         : await Order.create({
-            shippingAddress,
-            billingAddress,
+            sStreet,
+            sCity,
+            sZip,
+            sState,
+            bStreet,
+            bCity,
+            bZip,
+            bState,
           });
     const newOrderId = newOrder.id;
 
@@ -86,7 +120,7 @@ router.post("/:id", cors(), async (req, res, next) => {
           },
         }
       );
-    };
+    }
 
     //retrieve cart items using their parent order ID
     newOrder = await Order.findOne({
@@ -96,19 +130,24 @@ router.post("/:id", cors(), async (req, res, next) => {
       include: [{ model: CartItem, include: [Pet] }],
     });
 
-    const petIds = newOrder.cart_items.map(cartItem => {
+    const petIds = newOrder.cart_items.map((cartItem) => {
       return cartItem.petId;
     });
 
-    await Promise.all(petIds.map(petId => {
-      Pet.update({
-        orderId: newOrderId,
-      }, {
-        where: {
-          id: petId
-        }
+    await Promise.all(
+      petIds.map((petId) => {
+        Pet.update(
+          {
+            orderId: newOrderId,
+          },
+          {
+            where: {
+              id: petId,
+            },
+          }
+        );
       })
-    }));
+    );
 
     const payment = await stripe.paymentIntents.create({
       amount,

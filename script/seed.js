@@ -9,6 +9,8 @@ const { petData } = require("./pet.js");
 
 const { breedImg } = require("./breedPics.js");
 
+const { userData } = require("./users.js");
+
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -31,6 +33,8 @@ async function seed() {
     User.create({ email: "lauren@gmail.com", password: "123"}),
     User.create({ email: "quinn@gmail.com", password: "123"})
   ]);
+
+  userData.forEach(async (user) => await User.create(user));
 
   const breeds = await Promise.all([
     Breed.create({ name: "Labrador Retriever" }),
