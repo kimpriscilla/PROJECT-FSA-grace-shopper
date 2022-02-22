@@ -9,7 +9,7 @@ import Routes from "./Routes";
 import Footer from "./components/Footer";
 import { me } from "./store/auth";
 import { getBreeds } from "./store/pets/breeds";
-import { getBreedSales } from './store/analytics/analytics';
+import { getBreedSales } from "./store/analytics/analytics";
 
 let tempUserId = 1;
 
@@ -32,9 +32,11 @@ class _App extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar />
-        <Routes />
+      <div id="page-container">
+        <div id="content-wrap">
+          <Navbar />
+          <Routes />
+        </div>
         <Footer />
       </div>
     );
@@ -62,7 +64,7 @@ const mapDispatch = (dispatch) => {
       dispatch(me());
     },
     getBreeds: () => dispatch(getBreeds()),
-    getBreedSales: () => dispatch(getBreedSales())
+    getBreedSales: () => dispatch(getBreedSales()),
   };
 };
 

@@ -66,6 +66,7 @@ export const Home = (props) => {
                     id="graceBarkerHome"
                     style={{
                       fontSize: 300 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
                       webkitTextStroke: "black " + 2 + "px",
@@ -76,6 +77,7 @@ export const Home = (props) => {
                   <h2
                     style={{
                       fontSize: 200 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
                       webkitTextStroke: "black " + 2 + "px",
@@ -114,6 +116,7 @@ export const Home = (props) => {
                   <h1
                     style={{
                       fontSize: 250 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
                       webkitTextStroke: "black " + 2 + "px",
@@ -149,6 +152,7 @@ export const Home = (props) => {
                   <h1
                     style={{
                       fontSize: 250 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
                       webkitTextStroke: "black " + 2 + "px",
@@ -159,6 +163,7 @@ export const Home = (props) => {
                   <p
                     style={{
                       fontSize: 100 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
                       webkitTextStroke: "black " + 2 + "px",
@@ -193,6 +198,7 @@ export const Home = (props) => {
                   <h1
                     style={{
                       fontSize: 250 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
                       webkitTextStroke: "black " + 2 + "px",
@@ -251,7 +257,10 @@ export const Home = (props) => {
             <div className="col-md">
               <img src={"process.png"} />
               <h2>
-                <div className="p-5" style={{ fontFamily: "dosis" }}>
+                <div
+                  className="p-5"
+                  style={{ fontFamily: "dosis", fontWeight: 600 }}
+                >
                   {" "}
                   CREATE AN ACCOUNT OR LOG IN
                 </div>
@@ -265,7 +274,7 @@ export const Home = (props) => {
                   className="p-5"
                   style={{
                     fontFamily: "dosis",
-                    fontWeight: 500 + "%",
+                    fontWeight: 600,
                   }}
                 >
                   {" "}
@@ -277,7 +286,10 @@ export const Home = (props) => {
               {" "}
               <img src={"process.png"} />
               <h2>
-                <div className="p-5" style={{ fontFamily: "dosis" }}>
+                <div
+                  className="p-5"
+                  style={{ fontFamily: "dosis", fontWeight: 600 }}
+                >
                   {" "}
                   EASY CHECKOUT & SHIPPING
                 </div>
