@@ -13,7 +13,6 @@ class editDog extends React.Component {
       price: 0,
       size: "",
       description: "",
-      breed: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,12 +36,13 @@ class editDog extends React.Component {
 
   handleSubmit(ev) {
     ev.preventDefault();
+    console.log(this.state)
     this.props.editPet(this.state);
     <Redirect to={`dogs/:${this.state.id}`} />;
   }
 
   render() {
-    const { name, gender, price, size, description, breed } = this.state;
+    const { name, gender, price, size, description } = this.state;
 
     return (
       <>
@@ -120,30 +120,6 @@ class editDog extends React.Component {
                               value={name}
                               onChange={this.handleChange}
                             ></input>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <strong>
-                              <span className="glyphicon glyphicon-cloud text-primary"></span>
-                              Breed
-                            </strong>
-                          </td>
-                          <td>
-                            <select
-                              name="breed"
-                              value={breed.name}
-                              onChange={this.handleChange}
-                            >
-                              <option>{breed.name}</option>
-                              {this.props.breeds.map((breed) => {
-                                return (
-                                  <option value={breed.id} key={breed.id}>
-                                    {breed.name}{" "}
-                                  </option>
-                                );
-                              })}
-                            </select>
                           </td>
                         </tr>
 
