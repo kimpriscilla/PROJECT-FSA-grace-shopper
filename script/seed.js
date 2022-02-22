@@ -19,17 +19,62 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ email: "jenniferlu32@gmail.com", password: "123" }),
-    User.create({ email: "kencrosas@gmail.com", password: "123" }),
-    User.create({ email: "priscillakim58@gmail.com", password: "123" }),
-    User.create({ email: "admin@admin.com", password: "123", role: "admin" }),
-    User.create({ email: "rebecca@gmail.com", password: "123"}),
-    User.create({ email: "lucy@gmail.com", password: "123"}),
-    User.create({ email: "sam@gmail.com", password: "123"}),
-    User.create({ email: "charlie@gmail.com", password: "123"}),
-    User.create({ email: "alex@gmail.com", password: "123"}),
-    User.create({ email: "lauren@gmail.com", password: "123"}),
-    User.create({ email: "quinn@gmail.com", password: "123"})
+    User.create({
+      email: "jenniferlu32@gmail.com",
+      password: "123",
+      imageUrl: "https://www.bootdey.com/img/Content/avatar/avatar8.png",
+    }),
+    User.create({
+      email: "kencrosas@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    }),
+    User.create({
+      email: "priscillakim58@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar3.png",
+    }),
+    User.create({
+      email: "admin@admin.com",
+      password: "123",
+      role: "admin",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar4.png",
+    }),
+    User.create({
+      email: "rebecca@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar2.png",
+    }),
+    User.create({
+      email: "lucy@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar5.png",
+    }),
+    User.create({
+      email: "sam@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar6.png",
+    }),
+    User.create({
+      email: "charlie@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar7.png",
+    }),
+    User.create({
+      email: "alex@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    }),
+    User.create({
+      email: "lauren@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar4.png",
+    }),
+    User.create({
+      email: "quinn@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar2.png",
+    }),
   ]);
 
   const breeds = await Promise.all([
@@ -73,37 +118,44 @@ async function seed() {
       userId: users[3].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[4].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[5].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[6].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[7].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[8].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[9].id,
     }),
     Order.create({
-      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      shippingAddress:
+        "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[10].id,
     }),
@@ -120,7 +172,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       breedId: breeds[4].id,
       orderId: orders[0].id,
-      userId: users[0].id
+      userId: users[0].id,
     }),
     Pet.create({
       name: "Brutis",
@@ -133,7 +185,7 @@ async function seed() {
       imageUrl: "/default.png",
       breedId: breeds[3].id,
       orderId: orders[1].id,
-      userId: users[1].id
+      userId: users[1].id,
     }),
     Pet.create({
       name: "Pip",
@@ -144,7 +196,7 @@ async function seed() {
       dateOfBirth: "2022-02-22",
       breedId: breeds[2].id,
       orderId: orders[2].id,
-      userId: users[2].id
+      userId: users[2].id,
     }),
     Pet.create({
       name: "Lily",
@@ -156,7 +208,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       breedId: breeds[9].id,
       orderId: orders[3].id,
-      userId: users[3].id
+      userId: users[3].id,
     }),
     Pet.create({
       name: "Summer",
@@ -168,7 +220,7 @@ async function seed() {
       dateOfBirth: "2022-01-08",
       breedId: breeds[6].id,
       orderId: orders[4].id,
-      userId: users[4].id
+      userId: users[4].id,
     }),
 
     petData.forEach(async (pet) => {

@@ -78,27 +78,37 @@ const AuthForm = (props) => {
                   </form>
                 </div>
               </div>
-              {/* <div
-                className="card text-white bg-primary py-5 d-md-down-none"
-                style={{ width: 44 + "%" }}
-              >
-                <div className="card-body text-center">
-                  <div>
-                    <h2>Sign up</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                    <button
+
+              <img
+                className="card text-white py-15 d-md-down-none mb-9"
+                src={"dog3.jpg"}
+                style={{
+                  width: 30 + "vh",
+                  height: 30 + "vw",
+                  objectFit: "cover",
+                }}
+              />
+
+              {/* <div className="card-body text-center"> */}
+              {/* <div>
+                  <img
+                    src={"/dog.jpg"}
+                    style={{
+                      width: 30 + "vh",
+                      height: 20 + "vw",
+                      objectFit: "cover",
+                    }}
+                  /> */}
+              {/* <img src={"dog.jpg"} style={{ width: 33 + "%" }} /> */}
+
+              {/* <button
                       type="button"
                       className="btn btn-primary active mt-3"
                     >
                       Register Now!
-                    </button>
-                  </div>
-                </div>
-              </div> */}
+                    </button> */}
+              {/* </div> */}
+              {/* </div> */}
             </div>
           </div>
         </div>

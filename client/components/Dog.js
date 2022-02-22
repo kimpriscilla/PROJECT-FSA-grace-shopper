@@ -10,14 +10,14 @@ class Dog extends React.Component {
     super();
   }
 
-  calculateAge(dob) {
-    // dob is a date
-    let dob1 = Date.parse(dob);
-    //console.log(dob1);
-    var ageDifMs = Date.now() - dob1.getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }
+  // calculateAge(dob) {
+  //   // dob is a date
+  //   let dob1 = Date.parse(dob);
+  //   //console.log(dob1);
+  //   var ageDifMs = Date.now() - dob1.getTime();
+  //   var ageDate = new Date(ageDifMs); // miliseconds from epoch
+  //   return Math.abs(ageDate.getUTCFullYear() - 1970);
+  // }
 
   render() {
     const { pet, authId } = this.props;
@@ -64,8 +64,10 @@ class Dog extends React.Component {
                     <h4 className="box-title mt-5">Meet {pet.name}!</h4>
                     <p>
                       {" "}
-                      <span style={{ fontWeight: "bold" }}>Age:</span> {pet.dob}{" "}
-                      (come back to calculation later)
+                      <span style={{ fontWeight: "bold" }}>
+                        Date of Birth:
+                      </span>{" "}
+                      {pet.dateOfBirth}{" "}
                     </p>
                     <p>
                       {" "}
@@ -116,14 +118,7 @@ class Dog extends React.Component {
                   <div className="col-lg-12 col-md-12 col-sm-12">
                     <h3 className="box-title mt-5">General Info</h3>
                     <p>testinggggg</p>
-                    <p>
-                      {" "}
-                      <Link to={`/dog/edit/${pet.id}`}>
-                        <button classNameName="button-37" role="button">
-                          Edit {pet.name}
-                        </button>
-                      </Link>
-                    </p>
+                    <p> </p>
                   </div>
                 </div>
               </div>
