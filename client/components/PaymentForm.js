@@ -41,9 +41,20 @@ export default function PaymentForm() {
     return (acc += cartItem.pet.price * 1);
   }, 0);
 
+  // const [formData, setFormData] = useState({
+  //   shippingAddress: "",
+  //   billingAddress: "",
+  // });
+
   const [formData, setFormData] = useState({
-    shippingAddress: "",
-    billingAddress: "",
+    sStreet: "",
+    sCity: "",
+    sZip: "",
+    sState: "",
+    bStreet: "",
+    bCity: "",
+    bZip: "",
+    bState: "",
   });
 
   const stripe = useStripe();
@@ -75,8 +86,16 @@ export default function PaymentForm() {
           amount: totalPrice * 100,
           id,
           userId,
-          shippingAddress: formData.shippingAddress,
-          billingAddress: formData.billingAddress,
+          //shippingAddress: formData.shippingAddress,
+          //billingAddress: formData.billingAddress,
+          sStreet: formData.sStreet,
+          sCity: formData.sCity,
+          sZip: formData.sZip,
+          sState: formData.sState,
+          bStreet: formData.bStreet,
+          bCity: formData.bCity,
+          bZip: formData.bZip,
+          bState: formData.bState,
         };
 
         dispatch(addOrder(orderData));
@@ -98,7 +117,7 @@ export default function PaymentForm() {
             <CardElement options={CARD_OPTIONS} />
           </div>
         </fieldset>
-        <input
+        {/* <input
           type="text"
           name="shippingAddress"
           placeholder="Shipping Address"
@@ -108,7 +127,56 @@ export default function PaymentForm() {
           name="billingAddress"
           placeholder="Billing Address"
           onChange={handleChange}
+        ></input> */}
+        <input
+          type="text"
+          name="sStreet"
+          placeholder="Shipping Street Address"
+          onChange={handleChange}
         ></input>
+        <input
+          type="text"
+          name="sCity"
+          placeholder="Shipping City"
+          onChange={handleChange}
+        ></input>
+        <input
+          type="text"
+          name="sZip"
+          placeholder="Shipping Zip Code"
+          onChange={handleChange}
+        ></input>
+        <input
+          type="text"
+          name="sState"
+          placeholder="Shipping State"
+          onChange={handleChange}
+        ></input>
+        <input
+          type="text"
+          name="bStreet"
+          placeholder="Billing Street Address"
+          onChange={handleChange}
+        ></input>
+        <input
+          type="text"
+          name="bCity"
+          placeholder="Billing State"
+          onChange={handleChange}
+        ></input>
+        <input
+          type="text"
+          name="bZip"
+          placeholder="Billing Zip Code"
+          onChange={handleChange}
+        ></input>
+        <input
+          type="text"
+          name="bState"
+          placeholder="Billing State"
+          onChange={handleChange}
+        ></input>
+
         <button className="button-37">Place Order</button>
       </form>
     </>
