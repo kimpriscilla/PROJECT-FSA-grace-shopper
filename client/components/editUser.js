@@ -33,7 +33,9 @@ class editUser extends Component {
       this.props.auth.role === "user"
         ? this.props.auth.id
         : this.props.match.params.id;
-    console.log(filterValue, "32, editUser, filterValue");
+    //console.log(filterValue, "32, editUser, filterValue");
+    // console.log(filterValue);
+
     const filtered = this.props.users.filter(
       (user) => user.id === filterValue * 1
     )[0];
@@ -43,7 +45,7 @@ class editUser extends Component {
         <div>
           <h3>EDIT USER DETAILS</h3>
         </div>
-        <form onSubmit={this.handleSubmit}>
+        {/* <form onSubmit={this.handleSubmit}>
           <table>
             <tbody>
               <tr>
@@ -108,7 +110,106 @@ class editUser extends Component {
               </tr>
             </tbody>
           </table>
-        </form>
+        </form> */}
+
+        <div className="container bootstrap snippets bootdey">
+          <div className="panel-body inf-content">
+            <div className="row">
+              <div className="col-md-3 offset-md-2">
+                <img
+                  alt=""
+                  style={{ width: 600 + "px" }}
+                  title=""
+                  className="img-circle img-thumbnail isTooltip"
+                  src={imageUrl ? imageUrl : filtered.imageUrl}
+                  data-original-title="Usuario"
+                />
+              </div>
+
+              <div className=" col-md-6">
+                <strong>Information</strong>
+                <br />
+
+                <div className="table-responsive">
+                  <form onSubmit={this.handleSubmit}>
+                    <table className="table table-user-information">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <strong>
+                              <span className="glyphicon glyphicon-user  text-primary"></span>
+                              Email
+                            </strong>
+                          </td>
+                          <td>
+                            <input
+                              type="text"
+                              name="email"
+                              onChange={this.input}
+                              value={email ? email : filtered.email}
+                            ></input>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <strong>
+                              <span className="glyphicon glyphicon-bookmark text-primary"></span>
+                              Password
+                            </strong>
+                          </td>
+                          <td>
+                            <input
+                              type="text"
+                              name="password"
+                              onChange={this.input}
+                              value={password ? password : ""}
+                            ></input>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <strong>
+                              <span className="glyphicon glyphicon-eye-open text-primary"></span>
+                              ImageUrl
+                            </strong>
+                          </td>
+                          <td>
+                            <input
+                              type="text"
+                              name="imageUrl"
+                              onChange={this.input}
+                              value={imageUrl ? imageUrl : filtered.imageUrl}
+                            ></input>
+                          </td>
+                        </tr>
+                        {this.props.auth.role === "admin" ? (
+                          <tr>
+                            <td>Update Role </td>
+                            <td>
+                              <select
+                                name="role"
+                                value={role}
+                                onChange={this.input}
+                              >
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                              </select>
+                            </td>
+                          </tr>
+                        ) : (
+                          <tr></tr>
+                        )}
+                      </tbody>
+                    </table>
+                    <button>Save</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

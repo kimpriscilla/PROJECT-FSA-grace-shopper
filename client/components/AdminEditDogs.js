@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deletePet } from "../store/pets/pets";
-import { editPet } from "../store/pets/pets";
+import { editPet, addPet } from "../store/pets/pets";
+import { Link } from "react-router-dom";
 
-const AdminEditDogs = ({ pets, deletePet, editPet }) => (
+const AdminEditDogs = ({ pets, deletePet }) => (
   <>
-    {console.log(pets)}
     <h1>ADMIN EDIT DOG</h1>
+    <Link to="/addDog"> ADD DOG</Link>
+
     <div className="container">
       <div className="row">
         <div className="col-md-12">
@@ -78,16 +80,15 @@ const AdminEditDogs = ({ pets, deletePet, editPet }) => (
                   {pets.map((dog) => {
                     return (
                       <>
-                        <tr>
-                          <td key={dog.id} className="pl-4">
-                            {dog.id}
+                        <tr key={dog.id}>
+                          <td className="pl-4">
+                            <img
+                              src={dog.imageUrl}
+                              style={{ height: 50 + "px", width: 50 + "px" }}
+                            />
                           </td>
                           <td>
                             <h5 className="font-medium mb-0">{dog.name}</h5>
-                            <img
-                              src={dog.imageUrl}
-                              style={{ height: 40 + "px", width: 40 + "px" }}
-                            />
                           </td>
                           <td>
                             <span className="text-muted">{dog.breed.name}</span>
@@ -122,20 +123,32 @@ const AdminEditDogs = ({ pets, deletePet, editPet }) => (
                               <option>Edit</option>
                             </select>
                           </td> */}
+
                           <td>
-                            <button
+                            {/* <button
                               type="button"
                               className="btn btn-outline-info btn-circle btn-sm btn-circle ml-2"
                               style={{ margin: 5 + "px" }}
                               onClick={() => editPet(dog)}
                             >
                               <i className="bi- bi-pen"></i>
+
                               <a
                                 className="nav-link active"
                                 aria-current="page"
                                 href={`/dog/edit/${dog.id}`}
                               ></a>
-                            </button>
+                            </button> */}
+                            <div className="btn-group">
+                              <a
+                                className="nav-link active"
+                                aria-current="page"
+                                href={`/dog/edit/${dog.id}`}
+                                // onClick={() => editPet(dog)}
+                              >
+                                <i className="bi- bi-pen"></i>
+                              </a>
+                            </div>
 
                             <button
                               type="button"
@@ -171,6 +184,9 @@ const mapDispatch = (dispatch) => {
     },
     editPet: (pet) => {
       dispatch(editPet(pet));
+    },
+    addPet: (dog) => {
+      dispatch(addPet(dog));
     },
   };
 };
