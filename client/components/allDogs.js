@@ -19,13 +19,10 @@ const Dogs = ({ loading, pets, id }) => {
     dispatch(addCart(uuid, id));
   };
 
-  console.log('dogs', pets)
+  console.log("dogs", pets);
   return (
     <div id="rightAllDogs">
-      <Link to="/addDog">ADD DOG</Link>
-      <div>
-        <Filter />
-      </div>
+      <div></div>
       <ul id="dogCards">
         {pets.map((dog) => (
           <li key={dog.id}>
