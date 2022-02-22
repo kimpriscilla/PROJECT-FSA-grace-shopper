@@ -68,6 +68,11 @@ const AdminNav = ({ handleClick, isLoggedIn }) => (
                     Manage Users
                   </a>
                 </li>
+                <li>
+                  <a className="dropdown-item" href="/analytics">
+                    Analytics
+                  </a>
+                </li>
               </ul>
             </li>
             <li className="nav-item dropdown">
