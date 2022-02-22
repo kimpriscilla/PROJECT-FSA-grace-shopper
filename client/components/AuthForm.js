@@ -75,10 +75,6 @@ const AuthForm = (props) => {
                     </div>
                     <div className="row">
                       <div className="col-6">
-                        {/* <button type="button" className="btn btn-primary px-4">
-                          Login
-                        </button> */}
-
                         <button
                           type="submit"
                           className="btn btn-outline-warning btn-lg rounded-pill"
