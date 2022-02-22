@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deletePet } from "../store/pets/pets";
-import { editPet } from "../store/pets/pets";
+import { editPet, addPet } from "../store/pets/pets";
+import { Link } from "react-router-dom";
 
-const AdminEditDogs = ({ pets, deletePet, editPet }) => (
+const AdminEditDogs = ({ pets, deletePet }) => (
   <>
     <h1>ADMIN EDIT DOG</h1>
+    <Link to="/addDog"> ADD DOG</Link>
+
     <div className="container">
       <div className="row">
         <div className="col-md-12">
@@ -181,6 +184,9 @@ const mapDispatch = (dispatch) => {
     },
     editPet: (pet) => {
       dispatch(editPet(pet));
+    },
+    addPet: (dog) => {
+      dispatch(addPet(dog));
     },
   };
 };

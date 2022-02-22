@@ -49,11 +49,6 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
       <div>
         <ul className="nav justify-content-end">
           <li className="nav-item">
-            <a className="nav-link active " aria-current="page" href="/users">
-              Users
-            </a>
-          </li>
-          <li className="nav-item">
             <a className="nav-link active " aria-current="page" href="/create">
               Sign Up
             </a>
@@ -70,7 +65,7 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
               </a>
             ) : (
               <a className="nav-link active " aria-current="page" href="/login">
-                Login
+                Log In
               </a>
             )}
           </li>

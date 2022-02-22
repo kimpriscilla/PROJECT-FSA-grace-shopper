@@ -49,8 +49,7 @@ class AddDog extends Component {
       breedId,
     } = this.state;
     const { onChange, onSubmit } = this;
-    console.log("INSIDE ADDDOGGGG---->", this.props.breeds);
-    console.log("????????????????", breedId);
+
     return (
       <>
         <form onSubmit={onSubmit}>
@@ -131,7 +130,6 @@ class AddDog extends Component {
                   <select value={breedId} name="breedId" onChange={onChange}>
                     <option value="">--------------</option>
                     {this.props.breeds.map((dog) => {
-                      //console.log("___________>", dog.breed);
                       return (
                         <option value={dog.id} key={dog.id}>
                           {dog.name}

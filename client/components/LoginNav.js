@@ -51,11 +51,6 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
                   About Us
                 </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/users">
-                  Users
-                </a>
-              </li>
             </ul>
           </div>
           <div>

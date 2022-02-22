@@ -87,7 +87,7 @@ class editDog extends React.Component {
         <div className="container bootstrap snippets bootdey">
           <div className="panel-body inf-content">
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-md-3 offset-md-2">
                 <img
                   alt=""
                   style={{ width: 600 + "px" }}
@@ -96,36 +96,9 @@ class editDog extends React.Component {
                   src={this.props.pet.imageUrl}
                   data-original-title="Usuario"
                 />
-                <ul title="Ratings" className="list-inline ratings text-center">
-                  <li>
-                    <a href="#">
-                      <span className="glyphicon glyphicon-star"></span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span className="glyphicon glyphicon-star"></span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span className="glyphicon glyphicon-star"></span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span className="glyphicon glyphicon-star"></span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span className="glyphicon glyphicon-star"></span>
-                    </a>
-                  </li>
-                </ul>
               </div>
 
-              <div className="col-md-6">
+              <div className=" col-md-6">
                 <strong>Information</strong>
                 <br />
 
@@ -140,13 +113,14 @@ class editDog extends React.Component {
                               Name
                             </strong>
                           </td>
-                          <input
-                            style={{ border: 0 }}
-                            name="name"
-                            type="text"
-                            value={name}
-                            onChange={this.handleChange}
-                          ></input>
+                          <td>
+                            <input
+                              name="name"
+                              type="text"
+                              value={name}
+                              onChange={this.handleChange}
+                            ></input>
+                          </td>
                         </tr>
                         <tr>
                           <td>
@@ -155,21 +129,22 @@ class editDog extends React.Component {
                               Breed
                             </strong>
                           </td>
-                          <select
-                            style={{ border: 0 }}
-                            name="breed"
-                            value={breed.name}
-                            onChange={this.handleChange}
-                          >
-                            <option>{breed.name}</option>
-                            {this.props.breeds.map((breed) => {
-                              return (
-                                <option value={breed.id} key={breed.id}>
-                                  {breed.name}{" "}
-                                </option>
-                              );
-                            })}
-                          </select>
+                          <td>
+                            <select
+                              name="breed"
+                              value={breed.name}
+                              onChange={this.handleChange}
+                            >
+                              <option>{breed.name}</option>
+                              {this.props.breeds.map((breed) => {
+                                return (
+                                  <option value={breed.id} key={breed.id}>
+                                    {breed.name}{" "}
+                                  </option>
+                                );
+                              })}
+                            </select>
+                          </td>
                         </tr>
 
                         <tr>
@@ -179,13 +154,14 @@ class editDog extends React.Component {
                               Price
                             </strong>
                           </td>
-                          <input
-                            style={{ border: 0 }}
-                            name="price"
-                            type="text"
-                            value={price}
-                            onChange={this.handleChange}
-                          ></input>
+                          <td>
+                            <input
+                              name="price"
+                              type="text"
+                              value={price}
+                              onChange={this.handleChange}
+                            ></input>
+                          </td>
                         </tr>
 
                         <tr>
@@ -195,15 +171,16 @@ class editDog extends React.Component {
                               Gender
                             </strong>
                           </td>
-                          <select
-                            style={{ border: 0 }}
-                            name="gender"
-                            value={gender}
-                            onChange={this.handleChange}
-                          >
-                            <option>Male</option>
-                            <option>Female</option>
-                          </select>
+                          <td>
+                            <select
+                              name="gender"
+                              value={gender}
+                              onChange={this.handleChange}
+                            >
+                              <option>Male</option>
+                              <option>Female</option>
+                            </select>
+                          </td>
                         </tr>
                         <tr>
                           <td>
@@ -212,13 +189,14 @@ class editDog extends React.Component {
                               Size
                             </strong>
                           </td>
-                          <input
-                            style={{ border: 0 }}
-                            name="size"
-                            type="text"
-                            value={size}
-                            onChange={this.handleChange}
-                          ></input>
+                          <td>
+                            <input
+                              name="size"
+                              type="text"
+                              value={size}
+                              onChange={this.handleChange}
+                            ></input>
+                          </td>
                         </tr>
                         <tr>
                           <td>
@@ -227,14 +205,16 @@ class editDog extends React.Component {
                               Description
                             </strong>
                           </td>
-                          <textarea
-                            id="w3review"
-                            name="description"
-                            value={description}
-                            rows="4"
-                            cols="20"
-                            onChange={this.handleChange}
-                          ></textarea>
+                          <td>
+                            <textarea
+                              id="w3review"
+                              name="description"
+                              value={description}
+                              rows="4"
+                              cols="20"
+                              onChange={this.handleChange}
+                            ></textarea>
+                          </td>
                         </tr>
                       </tbody>
                     </table>

@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { deleteUser } from "../store/users/users";
+import { Link } from "react-router-dom";
 
-const AdminEditUsers = ({ users }) => {
+const AdminEditUsers = ({ users, deleteUser }) => {
   return (
     <>
       <h1>ADMIN EDIT user</h1>
+      <Link to="/create">Add User</Link>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -68,23 +71,21 @@ const AdminEditUsers = ({ users }) => {
                               <br />
                             </td>
                             <td>
-                              <button
-                                type="button"
-                                className="btn btn-outline-info btn-circle btn-sm btn-circle ml-2"
-                                style={{ margin: 5 + "px" }}
-                              >
-                                <i className="bi- bi-pen"></i>
+                              <div className="btn-group">
                                 <a
                                   className="nav-link active"
                                   aria-current="page"
                                   href={`/user/edit/${user.id}`}
-                                ></a>
-                              </button>
+                                >
+                                  <i className="bi- bi-pen"></i>
+                                </a>
+                              </div>
 
                               <button
                                 type="button"
                                 className="btn btn-outline-info btn-circle btn-md btn-circle ml-2"
                                 style={{ margin: 5 + "px" }}
+                                onClick={() => deleteUser(user.id)}
                               >
                                 <i className="bi bi-trash"></i>{" "}
                               </button>
@@ -110,4 +111,12 @@ const mapState = (state) => {
   };
 };
 
-export default connect(mapState, null)(AdminEditUsers);
+const mapDispatch = (dispatch) => {
+  return {
+    deleteUser: (id) => {
+      dispatch(deleteUser(id));
+    },
+  };
+};
+
+export default connect(mapState, mapDispatch)(AdminEditUsers);

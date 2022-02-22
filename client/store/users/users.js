@@ -4,6 +4,7 @@ import axios from "axios";
 const LOAD_USERS = "LOAD_USERS";
 const EDIT_USER = "EDIT_USERS";
 const ADD_USER = "ADD_USER";
+const DELETE_USER = "DELETE_USER";
 
 //action creators
 
@@ -25,6 +26,13 @@ function _addUsers(user) {
   return {
     type: ADD_USER,
     user,
+  };
+}
+
+function _deleteUser(id) {
+  return {
+    type: DELETE_USER,
+    id,
   };
 }
 
@@ -52,6 +60,13 @@ export const addUser = (user) => {
     dispatch(_addUsers(newUser));
   };
 };
+
+export const deleteUser = (id) => {
+  return async (dispatch) => {
+    await axios.delete(`/api/users/${id}`);
+    dispatch(_deleteUser(id));
+  };
+};
 //user reducer
 
 export default function (state = [], action) {
@@ -68,6 +83,8 @@ export default function (state = [], action) {
       } else {
         return state;
       }
+    case DELETE_USER:
+      return state.filter((user) => user.id !== action.id);
     default:
       return state;
   }

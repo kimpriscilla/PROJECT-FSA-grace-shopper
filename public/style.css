@@ -23,6 +23,8 @@ nav a {
   margin: 0.5px;
 }
 
+/* for search bar */
+/*
 .dataResult {
   margin-top: 5px;
   width: 300px;
@@ -31,7 +33,7 @@ nav a {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
-}
+} */
 
 /* .dataResult::-webkit-scrollbar {
   display: none;
@@ -43,27 +45,6 @@ nav a {
   display: flex;
   align-items: center;
   color: black;
-} */
-
-.dataItem p {
-  margin-left: 10px;
-}
-
-.avatar {
-  width: 200px;
-  height: 200px;
-}
-/* #fixed-nav {
-  position: fixed;
-  top: 0;
-  height: 72px;
-  z-index: 100;
-}
-
-#sticky-nav {
-  position: sticky;
-  top: 72px;
-  z-index: 200;
 } */
 
 /**/
