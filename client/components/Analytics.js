@@ -1,45 +1,55 @@
 import React from 'react';
 import { useSelector } from "react-redux";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import faker from 'faker';
 
 export default function Analytics() {
   const sales = useSelector((state) => state.analytics);
-  const UserData = [
-    {
-      id: 1,
-      year: 2016,
-      userGain: 80000,
-      userLost: 823,
-    },
-    {
-      id: 2,
-      year: 2017,
-      userGain: 45677,
-      userLost: 345,
-    },
-    {
-      id: 3,
-      year: 2018,
-      userGain: 78888,
-      userLost: 555,
-    },
-    {
-      id: 4,
-      year: 2019,
-      userGain: 90000,
-      userLost: 4555,
-    },
-    {
-      id: 5,
-      year: 2020,
-      userGain: 4300,
-      userLost: 234,
-    },
-  ];
+  console.log(sales)
 
-  return (
-    <div>
-      <Bar data={UserData} />
-    </div>
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
   );
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Sales by Breed',
+      },
+    },
+  };
+
+  const labels = sales.map((breed) => breed.name);
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Sales by Breed',
+        data: sales.map((breed) => breed.sales),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ],
+  };
+
+  return <Bar options={options} data={data} />;
 };

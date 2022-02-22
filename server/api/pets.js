@@ -44,6 +44,7 @@ router.get("/:id", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   try {
     let pet = await Pet.findByPk(req.params.id);
+
     await pet.update(req.body);
     pet = await Pet.findOne({
       where: {
@@ -51,6 +52,7 @@ router.put("/:id", async (req, res, next) => {
       },
       include: [Breed],
     });
+
     res.json(pet);
   } catch (err) {
     next(err);
