@@ -26,7 +26,6 @@ class CreateUser extends Component {
       email: "",
       password: "",
     });
-
   }
   render() {
     const { imageUrl, email, password } = this.state;
@@ -51,14 +50,14 @@ class CreateUser extends Component {
                           One step closer to meeting your best bud!
                         </p>
                         <form onSubmit={onSubmit}>
-                          <div className="form-group">
+                          {/* <div className="form-group">
                             <label htmlFor="yourName">Image URL</label>
                             <input
                               value={imageUrl}
                               name="imageUrl"
                               onChange={onChange}
                             />
-                          </div>
+                          </div> */}
                           <div className="form-group">
                             <label htmlFor="exampleInputEmail1">
                               Email address

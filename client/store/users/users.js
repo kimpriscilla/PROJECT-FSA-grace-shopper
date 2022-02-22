@@ -4,6 +4,7 @@ import axios from "axios";
 const LOAD_USERS = "LOAD_USERS";
 const EDIT_USER = "EDIT_USERS";
 const ADD_USER = "ADD_USER";
+const DELETE_USER = "DELETE_USER";
 
 //action creators
 
@@ -28,6 +29,13 @@ function _addUsers(user) {
   };
 }
 
+function _deleteUser(id) {
+  return {
+    type: DELETE_USER,
+    id,
+  };
+}
+
 //thunk
 
 export const loadUsers = () => {
@@ -41,7 +49,6 @@ export const loadUsers = () => {
 export const changeUser = (user) => {
   return async (dispatch) => {
     const edited = (await axios.put(`/api/users/${user.id}`, user)).data;
-
     dispatch(_editUsers(edited));
   };
 };
@@ -51,6 +58,13 @@ export const addUser = (user) => {
   return async (dispatch) => {
     const newUser = (await axios.post("/api/users", user)).data;
     dispatch(_addUsers(newUser));
+  };
+};
+
+export const deleteUser = (id) => {
+  return async (dispatch) => {
+    await axios.delete(`/api/users/${id}`);
+    dispatch(_deleteUser(id));
   };
 };
 //user reducer
@@ -64,11 +78,13 @@ export default function (state = [], action) {
         user.id === action.user.id ? action.user : user
       );
     case ADD_USER:
-      if (action.user !== 'User already exists') {
+      if (action.user !== "User already exists") {
         return [...state, action.user];
       } else {
-        return state
+        return state;
       }
+    case DELETE_USER:
+      return state.filter((user) => user.id !== action.id);
     default:
       return state;
   }

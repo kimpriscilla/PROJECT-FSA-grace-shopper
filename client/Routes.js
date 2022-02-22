@@ -22,6 +22,9 @@ import SelectedBreed from "./components/SelectedBreed";
 import CreateUser from "./components/CreateUser";
 import AddDog from "./components/AddDog";
 import DataPortal from "./components/dataPortal";
+import Analytics from './components/Analytics';
+import AdminEditDogs from "./components/AdminEditDogs";
+import AdminEditUsers from "./components/AdminEditUsers";
 
 const retrieveId = JSON.parse(localStorage.getItem("guest"));
 if (!retrieveId) {
@@ -38,15 +41,17 @@ class Routes extends Component {
 
   render() {
     const { isLoggedIn, authId, authRole } = this.props;
+    console.log(this.props);
     return (
       <div>
+        {/*//! for guest, not logged in */}
         {!isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/dogs" exact component={allDogs} />
-            <Route path="/" exact component={Login} />
+            {/* <Route path="/" exact component={Login} /> */}
             <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            {/* <Route path="/signup" component={Signup} /> */}
             <Route path={`/dogs/:id`} component={Dog} />
             <Route path={"/AboutUs"} component={AboutUs} />
             <Route path={`/cart/guest`} component={Cart} />
@@ -57,7 +62,8 @@ class Routes extends Component {
             <Route exact path={"/breed"} component={Breed} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
           </Switch>
-        ) : authRole === "user" ? (
+        ) : // ! for logged in users
+        authRole === "user" ? (
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/dogs" exact component={allDogs} />
@@ -73,6 +79,7 @@ class Routes extends Component {
             <Route exact path={"/breed"} component={Breed} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
             <Route path="/addDog" component={AddDog} />
+            <Route path={`/dog/edit/:id`} component={editDog} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -95,6 +102,10 @@ class Routes extends Component {
             <Route path={"/dataportal"} component={DataPortal} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
             <Route path="/addDog" component={AddDog} />
+            <Route path="/analytics" component={Analytics} />
+            <Route path="/manageDogs" component={AdminEditDogs} />
+            <Route path="/manageUsers" component={AdminEditUsers} />
+            <Route path="/create" component={CreateUser} />
             <Redirect to="/home" />
           </Switch>
         )}

@@ -9,6 +9,7 @@ import Routes from "./Routes";
 import Footer from "./components/Footer";
 import { me } from "./store/auth";
 import { getBreeds } from "./store/pets/breeds";
+import { getBreedSales } from './store/analytics/analytics';
 
 let tempUserId = 1;
 
@@ -25,11 +26,11 @@ class _App extends Component {
     this.props.getCart();
     this.props.me();
     this.props.getBreeds();
+    this.props.getBreedSales();
     this.state.userId && this.props.getCart(this.state.userId);
   }
 
   render() {
-    console.log(this.state.me);
     return (
       <div>
         <Navbar />
@@ -40,9 +41,9 @@ class _App extends Component {
   }
 }
 
-// const mapState = (state) => {
-//   return state;
-// };
+const mapState = (state) => {
+  return state;
+};
 
 const mapDispatch = (dispatch) => {
   return {
@@ -52,8 +53,6 @@ const mapDispatch = (dispatch) => {
     loadPets: () => {
       dispatch(loadPets());
     },
-
-    //getCart: (tempUserId) => dispatch(getCart(tempUserId)), //tempuserId works when logged out, cart items persists.
     getCart: (userId) => dispatch(getCart(userId)), //on a hard reload, userId is undefined.
 
     getCart: (userId) => dispatch(getCart(userId)),
@@ -63,6 +62,7 @@ const mapDispatch = (dispatch) => {
       dispatch(me());
     },
     getBreeds: () => dispatch(getBreeds()),
+    getBreedSales: () => dispatch(getBreedSales())
   };
 };
 

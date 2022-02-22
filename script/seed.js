@@ -25,6 +25,13 @@ async function seed() {
     User.create({ email: "kencrosas@gmail.com", password: "123" }),
     User.create({ email: "priscillakim58@gmail.com", password: "123" }),
     User.create({ email: "admin@admin.com", password: "123", role: "admin" }),
+    User.create({ email: "rebecca@gmail.com", password: "123"}),
+    User.create({ email: "lucy@gmail.com", password: "123"}),
+    User.create({ email: "sam@gmail.com", password: "123"}),
+    User.create({ email: "charlie@gmail.com", password: "123"}),
+    User.create({ email: "alex@gmail.com", password: "123"}),
+    User.create({ email: "lauren@gmail.com", password: "123"}),
+    User.create({ email: "quinn@gmail.com", password: "123"})
   ]);
 
   userData.forEach(async (user) => await User.create(user));
@@ -48,6 +55,64 @@ async function seed() {
     return Math.floor(Math.random() * (max - min) + min);
   };
 
+  const orders = await Promise.all([
+    Order.create({
+      shippingAddress: "1 Main St, Skokie, IL 60600",
+      billingAddress: "1 Main St, Skokie, IL 60600",
+      userId: users[1].id,
+    }),
+    Order.create({
+      shippingAddress: "5 Commercial Rd, Germantown, MD 20045",
+      billingAddress: "1 Bank Rd, Germantown, MD 20045",
+      userId: users[1].id,
+    }),
+    Order.create({
+      shippingAddress: "5000 Skippack Pike, Blue Bell, PA 30308",
+      billingAddress: "500 Broadway, New York, NY 10002",
+      userId: users[2].id,
+    }),
+    Order.create({
+      shippingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
+      billingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
+      userId: users[3].id,
+    }),
+    Order.create({
+      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      userId: users[4].id,
+    }),
+    Order.create({
+      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      userId: users[5].id,
+    }),
+    Order.create({
+      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      userId: users[6].id,
+    }),
+    Order.create({
+      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      userId: users[7].id,
+    }),
+    Order.create({
+      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      userId: users[8].id,
+    }),
+    Order.create({
+      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      userId: users[9].id,
+    }),
+    Order.create({
+      shippingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
+      userId: users[10].id,
+    }),
+  ]);
+
   const pet = await Promise.all([
     Pet.create({
       name: "Ava",
@@ -58,6 +123,8 @@ async function seed() {
       size: "small",
       dateOfBirth: "2022-01-08",
       breedId: breeds[4].id,
+      orderId: orders[0].id,
+      userId: users[0].id
     }),
     Pet.create({
       name: "Brutis",
@@ -69,6 +136,8 @@ async function seed() {
       dateOfBirth: "2021-12-31",
       imageUrl: "/default.png",
       breedId: breeds[3].id,
+      orderId: orders[1].id,
+      userId: users[1].id
     }),
     Pet.create({
       name: "Pip",
@@ -78,6 +147,8 @@ async function seed() {
       size: "large",
       dateOfBirth: "2022-02-22",
       breedId: breeds[2].id,
+      orderId: orders[2].id,
+      userId: users[2].id
     }),
     Pet.create({
       name: "Lily",
@@ -88,6 +159,8 @@ async function seed() {
       size: "small",
       dateOfBirth: "2022-01-08",
       breedId: breeds[9].id,
+      orderId: orders[3].id,
+      userId: users[3].id
     }),
     Pet.create({
       name: "Summer",
@@ -98,6 +171,8 @@ async function seed() {
       size: "small",
       dateOfBirth: "2022-01-08",
       breedId: breeds[6].id,
+      orderId: orders[4].id,
+      userId: users[4].id
     }),
 
     petData.forEach(async (pet) => {
@@ -119,29 +194,6 @@ async function seed() {
       Pet.update({ imageUrl: oneImage }, { where: { id: newPet.id } });
     }),
   ]);
-
-  // const orders = await Promise.all([
-  //   Order.create({
-  //     shippingAddress: "1 Main St, Skokie, IL 60600",
-  //     billingAddress: "1 Main St, Skokie, IL 60600",
-  //     userId: users[0].id,
-  //   }),
-  //   Order.create({
-  //     shippingAddress: "5 Commercial Rd, Germantown, MD 20045",
-  //     billingAddress: "1 Bank Rd, Germantown, MD 20045",
-  //     userId: users[1].id,
-  //   }),
-  //   Order.create({
-  //     shippingAddress: "5000 Skippack Pike, Blue Bell, PA 30308",
-  //     billingAddress: "500 Broadway, New York, NY 10002",
-  //     userId: users[2].id,
-  //   }),
-  //   Order.create({
-  //     shippingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
-  //     billingAddress: "5 Bloomingdale Rd, Muncie, IN 50058",
-  //     userId: users[3].id,
-  //   }),
-  // ]);
 
   // const cartItems = await Promise.all([
   //   CartItem.create({

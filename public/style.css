@@ -12,15 +12,19 @@ a {
   text-decoration: none;
 }
 
-label {
+/* label {
   display: block;
-}
+} */
+
+/*  */
 
 nav a {
   display: inline-block;
   margin: 0.5px;
 }
 
+/* for search bar */
+/*
 .dataResult {
   margin-top: 5px;
   width: 300px;
@@ -29,11 +33,11 @@ nav a {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
-}
+} */
 
-.dataResult::-webkit-scrollbar {
+/* .dataResult::-webkit-scrollbar {
   display: none;
-}
+} */
 
 /* .dataResult .dataItem {
   width: 100%;
@@ -43,25 +47,7 @@ nav a {
   color: black;
 } */
 
-.dataItem p {
-  margin-left: 10px;
-}
-
-a {
-}
-
-/* #fixed-nav {
-  position: fixed;
-  top: 0;
-  height: 72px;
-  z-index: 100;
-}
-
-#sticky-nav {
-  position: sticky;
-  top: 72px;
-  z-index: 200;
-} */
+/**/
 
 form div {
   margin: 1em;
