@@ -41,49 +41,174 @@ export const Home = (props) => {
                 data-bs-slide-to="2"
                 aria-label="Slide 3"
               ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active" data-bs-interval="10000">
                 <img
-                  src="dog3.jpg"
+                  src="dog0.jpg"
                   className="d-block w-100"
-                  style={{ aspectRatio: 3 / 2, width: "fixed" }}
+                  style={{
+                    width: 200 + "%",
+                    height: 900 + "px",
+                    objectFit: "cover",
+                    objectPosition: 50 + "%" + 50 + "%",
+                  }}
                   alt="..."
                 />
                 <div className="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>
-                    Some representative placeholder content for the first slide.
-                  </p>
+                  <h1
+                    id="graceBarkerHome"
+                    style={{
+                      fontSize: 300 + "%",
+                      fontFamily: "dosis",
+                      color: "#FFF8DC",
+                      webkitTextStroke: "black " + 2 + "px",
+                    }}
+                  >
+                    GRACE BARKER
+                  </h1>
+                  <h2
+                    style={{
+                      fontSize: 200 + "%",
+                      fontFamily: "dosis",
+                      color: "#FFF8DC",
+                      webkitTextStroke: "black " + 2 + "px",
+                    }}
+                  >
+                    Be a bud to our buds!
+                  </h2>
+
+                  <a
+                    href="/dogs
+                  "
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-warning btn-lg rounded-pill"
+                    >
+                      <span style={{ fontWeight: "bold" }}> EXPLORE </span>
+                    </button>
+                  </a>
                 </div>
               </div>
+
               <div className="carousel-item" data-bs-interval="2000">
                 <img
                   src="dog.jpg"
-                  style={{ aspectRatio: 3 / 2, width: "fixed" }}
+                  style={{
+                    width: 200 + "%",
+                    height: 900 + "px",
+                    objectFit: "cover",
+                    objectPosition: 50 + "%" + 50 + "%",
+                  }}
                   className="d-block w-100"
                   alt="..."
                 />
                 <div className="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>
-                    Some representative placeholder content for the second
-                    slide.
+                  <h1
+                    style={{
+                      fontSize: 250 + "%",
+                      fontFamily: "dosis",
+                      color: "#FFF8DC",
+                      webkitTextStroke: "black " + 2 + "px",
+                    }}
+                  >
+                    SHOP BY BREED
+                  </h1>
+
+                  <a href="/breed">
+                    <button
+                      type="button"
+                      class="btn btn-outline-warning btn-lg rounded-pill"
+                    >
+                      <span style={{ fontWeight: "bold" }}> EXPLORE </span>
+                    </button>
+                  </a>
+                </div>
+              </div>
+
+              <div className="carousel-item">
+                <img
+                  src="dog2.jpg"
+                  style={{
+                    width: 200 + "%",
+                    height: 900 + "px",
+                    objectFit: "cover",
+                    objectPosition: 50 + "%" + 50 + "%",
+                  }}
+                  className="d-block w-100"
+                  alt="..."
+                />
+                <div className="carousel-caption d-none d-md-block">
+                  <h1
+                    style={{
+                      fontSize: 250 + "%",
+                      fontFamily: "dosis",
+                      color: "#FFF8DC",
+                      webkitTextStroke: "black " + 2 + "px",
+                    }}
+                  >
+                    CUDDLY FRIENDLY DOGS
+                  </h1>
+                  <p
+                    style={{
+                      fontSize: 100 + "%",
+                      fontFamily: "dosis",
+                      color: "#FFF8DC",
+                      webkitTextStroke: "black " + 2 + "px",
+                    }}
+                  >
+                    FOR SALE
                   </p>
+
+                  <a href="/breed">
+                    <button
+                      type="button"
+                      class="btn btn-outline-warning btn-lg rounded-pill"
+                    >
+                      <span style={{ fontWeight: "bold" }}> EXPLORE </span>
+                    </button>
+                  </a>
                 </div>
               </div>
               <div className="carousel-item">
                 <img
-                  src="dog2.jpg"
-                  style={{ aspectRatio: 3 / 2, width: "fixed" }}
+                  src="dog1.jpg"
+                  style={{
+                    width: 200 + "%",
+                    height: 900 + "px",
+                    objectFit: "cover",
+                    objectPosition: 50 + "%" + 50 + "%",
+                  }}
                   className="d-block w-100"
                   alt="..."
                 />
                 <div className="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>
-                    Some representative placeholder content for the third slide.
-                  </p>
+                  <h1
+                    style={{
+                      fontSize: 250 + "%",
+                      fontFamily: "dosis",
+                      color: "#FFF8DC",
+                      webkitTextStroke: "black " + 2 + "px",
+                    }}
+                  >
+                    Pup, pup, hooray!
+                  </h1>
+
+                  <a href="/dogs">
+                    <button
+                      type="button"
+                      class="btn btn-outline-warning btn-lg rounded-pill"
+                    >
+                      <span style={{ fontWeight: "bold" }}> EXPLORE </span>
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -119,28 +244,43 @@ export const Home = (props) => {
           <h2>
             <p className="text-center">
               {" "}
-              <span style={{ fontWeight: "bold" }}> EASY PROCESSSSS </span>
+              <span style={{ fontWeight: "bold" }}> EASY PROCESS </span>
             </p>
           </h2>
           <div className="row text-center">
             <div className="col-md">
               <img src={"process.png"} />
               <h2>
-                <div className="p-5"> SEARCH FOR DESIRED DOG</div>
+                <div className="p-5" style={{ fontFamily: "dosis" }}>
+                  {" "}
+                  CREATE AN ACCOUNT OR LOG IN
+                </div>
               </h2>
             </div>
             <div className="col-md">
               {" "}
               <img src={"process.png"} />
               <h2>
-                <div className="p-5"> TESTING</div>
+                <div
+                  className="p-5"
+                  style={{
+                    fontFamily: "dosis",
+                    fontWeight: 500 + "%",
+                  }}
+                >
+                  {" "}
+                  SEARCH FOR DESIRED DOG
+                </div>
               </h2>
             </div>
             <div className="col-md">
               {" "}
               <img src={"process.png"} />
               <h2>
-                <div className="p-5"> EASY CHECKOUT & SHIPPING</div>
+                <div className="p-5" style={{ fontFamily: "dosis" }}>
+                  {" "}
+                  EASY CHECKOUT & SHIPPING
+                </div>
               </h2>
             </div>
           </div>
