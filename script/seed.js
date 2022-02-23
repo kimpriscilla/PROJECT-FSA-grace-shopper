@@ -23,7 +23,6 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-
     User.create({
       email: "jenniferlu32@gmail.com",
       password: "123",
@@ -80,19 +79,18 @@ async function seed() {
       password: "123",
       imageUrl: "https://bootdey.com/img/Content/avatar/avatar2.png",
     }),
-    
-    User.create({ email: "jenniferlu32@gmail.com", password: "123" }),
-    User.create({ email: "kencrosas@gmail.com", password: "123" }),
-    User.create({ email: "priscillakim58@gmail.com", password: "123" }),
-    User.create({ email: "admin@admin.com", password: "123", role: "admin" }),
-    User.create({ email: "rebecca@gmail.com", password: "123" }),
-    User.create({ email: "lucy@gmail.com", password: "123" }),
-    User.create({ email: "sam@gmail.com", password: "123" }),
-    User.create({ email: "charlie@gmail.com", password: "123" }),
-    User.create({ email: "alex@gmail.com", password: "123" }),
-    User.create({ email: "lauren@gmail.com", password: "123" }),
-    User.create({ email: "quinn@gmail.com", password: "123" }),
 
+    // User.create({ email: "jenniferlu32@gmail.com", password: "123" }),
+    // User.create({ email: "kencrosas@gmail.com", password: "123" }),
+    // User.create({ email: "priscillakim58@gmail.com", password: "123" }),
+    // User.create({ email: "admin@admin.com", password: "123", role: "admin" }),
+    // User.create({ email: "rebecca@gmail.com", password: "123" }),
+    // User.create({ email: "lucy@gmail.com", password: "123" }),
+    // User.create({ email: "sam@gmail.com", password: "123" }),
+    // User.create({ email: "charlie@gmail.com", password: "123" }),
+    // User.create({ email: "alex@gmail.com", password: "123" }),
+    // User.create({ email: "lauren@gmail.com", password: "123" }),
+    // User.create({ email: "quinn@gmail.com", password: "123" }),
   ]);
 
   userData.forEach(async (user) => await User.create(user));

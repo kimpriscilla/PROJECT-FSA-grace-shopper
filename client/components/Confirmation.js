@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { connect } from "react-redux";
 import { getOrders } from "../store/order/order";
+import emailjs from "@emailjs/browser";
 
 class Confirmation extends React.Component {
   constructor() {
@@ -8,10 +9,31 @@ class Confirmation extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     if (this.props.orders.length < 1) {
       return <h1>Loading order...</h1>;
     } else {
+      /*This section is for the automatic email confirmation*/
+      const stuff = this.props.orders[0].cart_items;
+      const justPrice = stuff.map((e) => e.pet.price);
+      const total = justPrice.reduce((a, b) => parseInt(a) + parseInt(b), 0);
+      const d = new Date();
+      if (this.props.email) {
+        const templateParams = {
+          from_name: "Grace Barker",
+          to_name: this.props.email,
+          to_email: this.props.email,
+          orderDate: `${d}`,
+          total: `$${total}.00`,
+        };
+        emailjs.send(
+          "service_p2kt39t",
+          "template_2kjrixe",
+          templateParams,
+          "user_w4BQ3Zi1y4LNQaYgylatf"
+        );
+      }
+      /*Final line of automatic email confirmation code*/
+
       return (
         <div>
           <h1>Order Placed!</h1>
@@ -53,6 +75,7 @@ class Confirmation extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     orders: state.orders,
+    email: state.auth.email,
   };
 };
 
