@@ -38,7 +38,11 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
         <div>
           <ul className="nav justify-content-end ">
             <li className="nav-item">
-              <a className=" nav-link active" aria-current="page" href="/">
+              <a
+                className=" nav-link active"
+                aria-current="page"
+                href="/ContactUs"
+              >
                 Contact Us
               </a>
             </li>

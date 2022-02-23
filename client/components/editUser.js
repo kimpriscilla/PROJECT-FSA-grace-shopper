@@ -186,7 +186,11 @@ class editUser extends Component {
                         </tr>
                         {this.props.auth.role === "admin" ? (
                           <tr>
-                            <td>Update Role </td>
+                            <td>
+                              <span style={{ fontWeight: "bold" }}>
+                                Update Role{" "}
+                              </span>
+                            </td>
                             <td>
                               <select
                                 name="role"

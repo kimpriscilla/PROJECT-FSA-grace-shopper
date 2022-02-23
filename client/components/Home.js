@@ -69,7 +69,7 @@ export const Home = (props) => {
                       fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     GRACE BARKER
@@ -80,7 +80,7 @@ export const Home = (props) => {
                       fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     Be a bud to our buds!
@@ -92,7 +92,7 @@ export const Home = (props) => {
                   >
                     <button
                       type="button"
-                      class="btn btn-warning btn-lg rounded-pill"
+                      className="btn btn-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
@@ -119,7 +119,7 @@ export const Home = (props) => {
                       fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     SHOP BY BREED
@@ -128,7 +128,7 @@ export const Home = (props) => {
                   <a href="/breed">
                     <button
                       type="button"
-                      class="btn btn-outline-warning btn-lg rounded-pill"
+                      className="btn btn-outline-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
@@ -155,7 +155,7 @@ export const Home = (props) => {
                       fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     CUDDLY FRIENDLY DOGS
@@ -166,7 +166,7 @@ export const Home = (props) => {
                       fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     FOR SALE
@@ -175,7 +175,7 @@ export const Home = (props) => {
                   <a href="/breed">
                     <button
                       type="button"
-                      class="btn btn-outline-warning btn-lg rounded-pill"
+                      className="btn btn-outline-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
@@ -201,7 +201,7 @@ export const Home = (props) => {
                       fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     Pup, pup, hooray!
@@ -210,7 +210,7 @@ export const Home = (props) => {
                   <a href="/dogs">
                     <button
                       type="button"
-                      class="btn btn-outline-warning btn-lg rounded-pill"
+                      className="btn btn-outline-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
