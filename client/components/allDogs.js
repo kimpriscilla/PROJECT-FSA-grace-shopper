@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addCart } from "../store/cart/cart";
 import axios from "axios";
 import auth from "../store/auth";
 import Filter from "./Filter";
+import Select from "react-select";
 
 //I need to replace this with something that identifies a guest so when he returns to the page without clearing his local storage or cookies, he can still access his cart
 //let tempUserId = 1;
@@ -15,11 +16,11 @@ const Dogs = ({ loading, pets, id }) => {
   if (loading) {
     return <h2>Loading...</h2>;
   }
+
   const addToCart = (uuid, id) => {
     dispatch(addCart(uuid, id));
   };
 
-  console.log("dogs", pets);
   return (
     <div id="rightAllDogs">
       <div></div>
@@ -78,7 +79,36 @@ const Pagination = ({ petPerPage, totalPet, paginate }) => {
 };
 
 function allDogs({ addCart }) {
-  const pets = useSelector((state) => state.pets).filter((pet) => !pet.orderId);
+  let pets = useSelector((state) => state.pets).filter((pet) => !pet.orderId);
+
+  //Attempt at filtering
+  const [search, setNewSearch] = useState("");
+  const [sPrice, setsPrice] = useState("");
+  const [sGender, setsGender] = useState("");
+  const handleSearchChange = (e) => {
+    setNewSearch(e.target.value);
+  };
+  const handleSearchPrice = (e) => {
+    setsPrice(e.target.value);
+  };
+  const handleSearchGender = (e) => {
+    console.log("EEEEE---->", e);
+    setsGender(e.target.value);
+  };
+
+  pets = !search
+    ? pets
+    : pets.filter((dog) =>
+        dog.breed.name.toLowerCase().includes(search.toLowerCase())
+      );
+
+  pets = !sPrice
+    ? pets
+    : pets.filter((dog) => parseInt(dog.price) < parseInt(sPrice));
+
+  pets = !sGender
+    ? pets
+    : pets.filter((dog) => dog.gender.toLowerCase() === sGender.toLowerCase());
 
   const id = useSelector((state) => state.auth.id);
 
@@ -88,8 +118,10 @@ function allDogs({ addCart }) {
   // console.log("!!!", pet);
   const [loading, setLoading] = useState(false); //false is default state
   const [currentPage, setCurrentPage] = useState(1); //for pagination, default is page 1
-  const [petPerPage] = useState(9); //how many dogs per page, default 10 dogs perpage
-
+  const [petPerPage, setpetPerPage] = useState(9); //how many dogs per page, default 10 dogs perpage
+  const handlePets = (e) => {
+    setpetPerPage(e.target.value);
+  };
   // useEffect(() => {
   //   //dont want to use async on useEffect so you create a new async func
   //   setLoading(true); //set loading to true bc the dogs are loaded
@@ -113,6 +145,39 @@ function allDogs({ addCart }) {
 
   return (
     <div>
+      <table>
+        <tbody>
+          <tr>
+            <td>Search by Breed </td>
+            <td>
+              <input type="text" value={search} onChange={handleSearchChange} />
+            </td>
+          </tr>
+          <tr>
+            <td>Search by Max Price</td>
+            <td>
+              <input type="text" value={sPrice} onChange={handleSearchPrice} />
+            </td>
+          </tr>
+          <tr>
+            <td>Search by Gender</td>
+            <td>
+              <input
+                type="text"
+                value={sGender}
+                onChange={handleSearchGender}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Number of Pets Per Page</td>
+            <td>
+              <input type="text" value={petPerPage} onChange={handlePets} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
       <div id="leftAllDogs"></div>
       <Dogs
         pets={currentDogs}
