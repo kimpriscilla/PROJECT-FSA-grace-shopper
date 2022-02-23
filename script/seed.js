@@ -9,6 +9,10 @@ const { petData } = require("./pet.js");
 
 const { breedImg } = require("./breedPics.js");
 
+const { userData } = require("./users.js");
+
+const { ordersData } = require("./orders.js");
+
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -75,7 +79,21 @@ async function seed() {
       password: "123",
       imageUrl: "https://bootdey.com/img/Content/avatar/avatar2.png",
     }),
+
+    // User.create({ email: "jenniferlu32@gmail.com", password: "123" }),
+    // User.create({ email: "kencrosas@gmail.com", password: "123" }),
+    // User.create({ email: "priscillakim58@gmail.com", password: "123" }),
+    // User.create({ email: "admin@admin.com", password: "123", role: "admin" }),
+    // User.create({ email: "rebecca@gmail.com", password: "123" }),
+    // User.create({ email: "lucy@gmail.com", password: "123" }),
+    // User.create({ email: "sam@gmail.com", password: "123" }),
+    // User.create({ email: "charlie@gmail.com", password: "123" }),
+    // User.create({ email: "alex@gmail.com", password: "123" }),
+    // User.create({ email: "lauren@gmail.com", password: "123" }),
+    // User.create({ email: "quinn@gmail.com", password: "123" }),
   ]);
+
+  userData.forEach(async (user) => await User.create(user));
 
   const breeds = await Promise.all([
     Breed.create({ name: "Labrador Retriever" }),
@@ -159,6 +177,7 @@ async function seed() {
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[10].id,
     }),
+    ordersData.forEach(async (orders) => await Order.create(orders)),
   ]);
 
   const pet = await Promise.all([
