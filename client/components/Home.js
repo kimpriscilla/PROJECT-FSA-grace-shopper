@@ -66,9 +66,10 @@ export const Home = (props) => {
                     id="graceBarkerHome"
                     style={{
                       fontSize: 300 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     GRACE BARKER
@@ -76,9 +77,10 @@ export const Home = (props) => {
                   <h2
                     style={{
                       fontSize: 200 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     Be a bud to our buds!
@@ -90,7 +92,7 @@ export const Home = (props) => {
                   >
                     <button
                       type="button"
-                      class="btn btn-warning btn-lg rounded-pill"
+                      className="btn btn-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
@@ -114,9 +116,10 @@ export const Home = (props) => {
                   <h1
                     style={{
                       fontSize: 250 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     SHOP BY BREED
@@ -125,7 +128,7 @@ export const Home = (props) => {
                   <a href="/breed">
                     <button
                       type="button"
-                      class="btn btn-outline-warning btn-lg rounded-pill"
+                      className="btn btn-outline-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
@@ -149,9 +152,10 @@ export const Home = (props) => {
                   <h1
                     style={{
                       fontSize: 250 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     CUDDLY FRIENDLY DOGS
@@ -159,9 +163,10 @@ export const Home = (props) => {
                   <p
                     style={{
                       fontSize: 100 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     FOR SALE
@@ -170,7 +175,7 @@ export const Home = (props) => {
                   <a href="/breed">
                     <button
                       type="button"
-                      class="btn btn-outline-warning btn-lg rounded-pill"
+                      className="btn btn-outline-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
@@ -193,9 +198,10 @@ export const Home = (props) => {
                   <h1
                     style={{
                       fontSize: 250 + "%",
+                      fontWeight: 800,
                       fontFamily: "dosis",
                       color: "#FFF8DC",
-                      webkitTextStroke: "black " + 2 + "px",
+                      WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
                     Pup, pup, hooray!
@@ -204,7 +210,7 @@ export const Home = (props) => {
                   <a href="/dogs">
                     <button
                       type="button"
-                      class="btn btn-outline-warning btn-lg rounded-pill"
+                      className="btn btn-outline-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
@@ -251,7 +257,10 @@ export const Home = (props) => {
             <div className="col-md">
               <img src={"process.png"} />
               <h2>
-                <div className="p-5" style={{ fontFamily: "dosis" }}>
+                <div
+                  className="p-5"
+                  style={{ fontFamily: "dosis", fontWeight: 600 }}
+                >
                   {" "}
                   CREATE AN ACCOUNT OR LOG IN
                 </div>
@@ -265,7 +274,7 @@ export const Home = (props) => {
                   className="p-5"
                   style={{
                     fontFamily: "dosis",
-                    fontWeight: 500 + "%",
+                    fontWeight: 600,
                   }}
                 >
                   {" "}
@@ -277,7 +286,10 @@ export const Home = (props) => {
               {" "}
               <img src={"process.png"} />
               <h2>
-                <div className="p-5" style={{ fontFamily: "dosis" }}>
+                <div
+                  className="p-5"
+                  style={{ fontFamily: "dosis", fontWeight: 600 }}
+                >
                   {" "}
                   EASY CHECKOUT & SHIPPING
                 </div>

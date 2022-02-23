@@ -39,14 +39,22 @@ const AuthForm = (props) => {
             <div className="card-group mb-0">
               <div className="card p-4">
                 <div className="card-body">
-                  <h1>Login</h1>
-                  <p className="text-muted">Sign In to your account</p>
+                  <h1 style={{ fontFamily: "dosis", fontWeight: 400 }}>
+                    Login
+                  </h1>
+                  <p
+                    className="text-muted"
+                    style={{ fontFamily: "dosis", fontWeight: 400 }}
+                  >
+                    Sign In to your account
+                  </p>
                   <form onSubmit={handleSubmit} name={name}>
                     <div className="input-group mb-3">
                       <span className="input-group-addon">
                         <i className="fa fa-user"></i>
                       </span>
                       <input
+                        style={{ fontFamily: "dosis", fontWeight: 400 }}
                         type="text"
                         name="email"
                         className="form-control"
@@ -58,6 +66,7 @@ const AuthForm = (props) => {
                         <i className="fa fa-lock"></i>
                       </span>
                       <input
+                        style={{ fontFamily: "dosis", fontWeight: 400 }}
                         type="password"
                         name="password"
                         className="form-control"
@@ -66,10 +75,15 @@ const AuthForm = (props) => {
                     </div>
                     <div className="row">
                       <div className="col-6">
-                        {/* <button type="button" className="btn btn-primary px-4">
-                          Login
-                        </button> */}
-                        <button type="submit">{displayName}</button>
+                        <button
+                          type="submit"
+                          className="btn btn-outline-warning btn-lg rounded-pill"
+                        >
+                          <span style={{ fontWeight: "bold" }}>
+                            {" "}
+                            {displayName}
+                          </span>
+                        </button>
                       </div>
                       {error && error.response && (
                         <div> {error.response.data} </div>
@@ -88,27 +102,6 @@ const AuthForm = (props) => {
                   objectFit: "cover",
                 }}
               />
-
-              {/* <div className="card-body text-center"> */}
-              {/* <div>
-                  <img
-                    src={"/dog.jpg"}
-                    style={{
-                      width: 30 + "vh",
-                      height: 20 + "vw",
-                      objectFit: "cover",
-                    }}
-                  /> */}
-              {/* <img src={"dog.jpg"} style={{ width: 33 + "%" }} /> */}
-
-              {/* <button
-                      type="button"
-                      className="btn btn-primary active mt-3"
-                    >
-                      Register Now!
-                    </button> */}
-              {/* </div> */}
-              {/* </div> */}
             </div>
           </div>
         </div>

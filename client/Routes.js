@@ -22,9 +22,10 @@ import SelectedBreed from "./components/SelectedBreed";
 import CreateUser from "./components/CreateUser";
 import AddDog from "./components/AddDog";
 import DataPortal from "./components/dataPortal";
-import Analytics from './components/Analytics';
+import Analytics from "./components/Analytics";
 import AdminEditDogs from "./components/AdminEditDogs";
 import AdminEditUsers from "./components/AdminEditUsers";
+import ContactUs from "./components/ContactUs";
 
 const retrieveId = JSON.parse(localStorage.getItem("guest"));
 if (!retrieveId) {
@@ -61,6 +62,7 @@ class Routes extends Component {
             <Route path={`/confirmation`} component={Confirmation} />
             <Route exact path={"/breed"} component={Breed} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
+            <Route path="/ContactUs" component={ContactUs} />
           </Switch>
         ) : // ! for logged in users
         authRole === "user" ? (
@@ -80,6 +82,7 @@ class Routes extends Component {
             <Route path={`/breed/:id`} component={SelectedBreed} />
             <Route path="/addDog" component={AddDog} />
             <Route path={`/dog/edit/:id`} component={editDog} />
+            <Route path="/ContactUs" component={ContactUs} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -106,6 +109,8 @@ class Routes extends Component {
             <Route path="/manageDogs" component={AdminEditDogs} />
             <Route path="/manageUsers" component={AdminEditUsers} />
             <Route path="/create" component={CreateUser} />
+            <Route path="/ContactUs" component={ContactUs} />
+
             <Redirect to="/home" />
           </Switch>
         )}

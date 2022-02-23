@@ -187,7 +187,7 @@ async function seed() {
       description:
         "Energy, sass, brains -- Ava is a loving firecracker. This hairy girl is good with dogs, walks well on leash, seems housebroken, and LOVES to play and to learn tricks she can do in return for treats. She's a little anxious in new situations, but she's very trusting and sweet -- just needs a little time to decompress and lots of exercise to help her chill out. Ava came from a home where she wasn't getting enough exercise, so she's a little overweight and needs a home where she's getting a minimum of 90 minutes of serious exercise a day. Running, fetch, long walks... this girl is not a couch potato and needs humans who will keep her brain and body busy. She's a little to enthusiastic with her mouth when playing with toys, so she needs a grownups only home. Heads up, she is NOT HYPOALLERGENIC -- this girl sheds a good amount.",
       gender: "Female",
-      size: "small",
+      size: "Small",
       dateOfBirth: "2022-01-08",
       breedId: breeds[4].id,
       orderId: orders[0].id,
@@ -199,7 +199,7 @@ async function seed() {
       description:
         "Brutis is a seven-year-old male Bulldog mix. This friendly, gentle boy enjoys meeting new people and getting tons of attention. This sweetie knows basic commands, is house-trained and crate trained. Brutis has a low energy level-- although he loves his walks and playtime. Brutis needs an experienced owner and needs to be your one and only pet in the home.",
       gender: "Male",
-      size: "medium",
+      size: "Medium",
       dateOfBirth: "2021-12-31",
       imageUrl: "/default.png",
       breedId: breeds[3].id,
@@ -211,7 +211,7 @@ async function seed() {
       price: 1000,
       description: `Pip has all the love in the world and gives it openly to those around her. She adores a good cuddle and will burrow herself any way possible to make it happen. Pip also loves exploring the East River and making new friends - the quote "though she is little, she is fierce" captures her confidence in playing with big dogs, pretty perfectly. While she is a speedster with fetch (she'll even throw the toy across the room and play all by herself if need be) - Pip keeps at your side when it comes to walks. With sharp awareness of behavioral cues, Pip has an adaptable and enthusiastic spirit. Although capable of finding her voice, Pip is a fairly quiet pup. Again, attributed to a keen awareness of her surroundings, Pip hasn't felt the need to really bark since being a big city girl.`,
       gender: "Male",
-      size: "large",
+      size: "Large",
       dateOfBirth: "2022-02-22",
       breedId: breeds[2].id,
       orderId: orders[2].id,
@@ -223,7 +223,7 @@ async function seed() {
       description:
         "Lily is a big bundle of joy. She loves semi-playing fetch, meeting new people, and giving kisses. Lily is a very curious dog yet caring and loving. She has bursts of energy then can naps for hours afterward. She loves to nap on the couch andwith you in the bed, but is also completely fine sleeping in her crate at night just as long as she gets a treat out of it! Though when she is awake she needs lots of attention and entertainment.She always gravitates towards squeaky toys and she sometimes plays with her food as if kibble jumps. Lily likes to be active when she has the energyand she's energetic for most of the day. She currently is obsessed with shoes and will grab 'em given the chance. Lily's a little shy with strangers for about 1 minute, after that she's made a new best friend. Lily has a great personality with lots of love to give.",
       gender: "Female",
-      size: "small",
+      size: "Small",
       dateOfBirth: "2022-01-08",
       breedId: breeds[9].id,
       orderId: orders[3].id,
@@ -235,7 +235,7 @@ async function seed() {
       description:
         "Summer is a 3 months old, 17-pound female from the NYCACC. She is a crate-trained, housebroken Summer Russel Terrier mix with all the spunk and intelligence that are characteristic of this breed. She seeks a spacious home and dreams of having a yard, outside the city with folks who have experience with JR-type (terrier) dogs! Because she struggles with dog reactivity on walks, Waggytail has enrolled Summer in a 4-week home-based training program. Summer will be sent to her new forever home with a VIP SWAG BAG: 2 complimentary sessions with his AMAZING trainer, toys, collar, and leash are included.",
       gender: "Female",
-      size: "small",
+      size: "Small",
       dateOfBirth: "2022-01-08",
       breedId: breeds[6].id,
       orderId: orders[4].id,

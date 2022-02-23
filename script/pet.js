@@ -5,7 +5,7 @@ const petData = [
     description: "Schiller-Cruickshank",
     email: "dkahane0@ucoz.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-11-09",
   },
   {
@@ -14,7 +14,7 @@ const petData = [
     description: "Hane-Nitzsche",
     email: "hkeneleyside1@dell.com",
     gender: "Female",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2021-03-11",
   },
   {
@@ -23,7 +23,7 @@ const petData = [
     description: "Shields Inc",
     email: "bcosgrave2@google.nl",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-01-05",
   },
   {
@@ -32,7 +32,7 @@ const petData = [
     description: "Reilly-Greenfelder",
     email: "mhambric3@reference.com",
     gender: "Female",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2019-05-22",
   },
   {
@@ -41,7 +41,7 @@ const petData = [
     description: "Altenwerth-Osinski",
     email: "kathersmith4@1688.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-06-25",
   },
   {
@@ -50,7 +50,7 @@ const petData = [
     description: "Nicolas, Green and Ledner",
     email: "bdoley5@slashdot.org",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-04-28",
   },
   {
@@ -59,7 +59,7 @@ const petData = [
     description: "Bogisich Inc",
     email: "cbarrabeale6@cbslocal.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-10-01",
   },
   {
@@ -68,7 +68,7 @@ const petData = [
     description: "Monahan-O'Kon",
     email: "zcicculini7@people.com.cn",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-11-08",
   },
   {
@@ -77,7 +77,7 @@ const petData = [
     description: "Grady, VonRueden and D'Amore",
     email: "dyoudell8@nationalgeographic.com",
     gender: "Male",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2021-02-24",
   },
   {
@@ -86,7 +86,7 @@ const petData = [
     description: "Cummerata, Koelpin and Cassin",
     email: "hmelloy9@ehow.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2019-11-28",
   },
   {
@@ -95,7 +95,7 @@ const petData = [
     description: "Macejkovic, Boyer and Swift",
     email: "lomulderriga@patch.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-05-09",
   },
   {
@@ -104,7 +104,7 @@ const petData = [
     description: "Mann, Baumbach and Skiles",
     email: "mcawsb@so-net.ne.jp",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2019-11-14",
   },
   {
@@ -113,7 +113,7 @@ const petData = [
     description: "Aufderhar, Rempel and Quigley",
     email: "fbernardetc@time.com",
     gender: "Male",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2020-07-14",
   },
   {
@@ -122,7 +122,7 @@ const petData = [
     description: "Haley-Stoltenberg",
     email: "lclewerd@discuz.net",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-09-12",
   },
   {
@@ -131,7 +131,7 @@ const petData = [
     description: "Purdy and Sons",
     email: "gmcteaguee@foxnews.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-08-04",
   },
   {
@@ -140,7 +140,7 @@ const petData = [
     description: "Kuphal Inc",
     email: "thincef@newyorker.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-07-23",
   },
   {
@@ -149,7 +149,7 @@ const petData = [
     description: "Huels, Lehner and Marquardt",
     email: "rbuddellg@wikimedia.org",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-11-23",
   },
   {
@@ -158,7 +158,7 @@ const petData = [
     description: "Kessler-Johnson",
     email: "mtranckleh@nifty.com",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-01-19",
   },
   {
@@ -167,7 +167,7 @@ const petData = [
     description: "Ortiz-Wiza",
     email: "aduesberryi@yellowpages.com",
     gender: "Male",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2019-06-29",
   },
   {
@@ -176,7 +176,7 @@ const petData = [
     description: "Jakubowski, Turner and Grant",
     email: "smacallanj@state.gov",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-05-07",
   },
   {
@@ -185,7 +185,7 @@ const petData = [
     description: "Rath-Kiehn",
     email: "wrothwellk@hostgator.com",
     gender: "Male",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2021-02-25",
   },
   {
@@ -194,7 +194,7 @@ const petData = [
     description: "VonRueden, Auer and Reinger",
     email: "dgallehawkl@vinaora.com",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-11-16",
   },
   {
@@ -203,7 +203,7 @@ const petData = [
     description: "Turcotte Inc",
     email: "rhalversenm@tamu.edu",
     gender: "Male",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2020-08-26",
   },
   {
@@ -212,7 +212,7 @@ const petData = [
     description: "Fisher, Williamson and Klocko",
     email: "ecicceralen@fotki.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-11-30",
   },
   {
@@ -221,7 +221,7 @@ const petData = [
     description: "Kulas-Streich",
     email: "vcasirolio@unicef.org",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-08-19",
   },
   {
@@ -230,7 +230,7 @@ const petData = [
     description: "Gleichner-McDermott",
     email: "adiablep@usgs.gov",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-01-21",
   },
   {
@@ -239,7 +239,7 @@ const petData = [
     description: "Bode Group",
     email: "skenninghamq@instagram.com",
     gender: "Female",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2020-02-27",
   },
   {
@@ -248,7 +248,7 @@ const petData = [
     description: "Lowe and Sons",
     email: "tmuzzollor@de.vu",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-12-24",
   },
   {
@@ -257,7 +257,7 @@ const petData = [
     description: "Wilderman, Runolfsdottir and Predovic",
     email: "mwoolners@canalblog.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-02-27",
   },
   {
@@ -266,7 +266,7 @@ const petData = [
     description: "Denesik-Corkery",
     email: "wfranyt@netscape.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2022-01-10",
   },
   {
@@ -275,7 +275,7 @@ const petData = [
     description: "Legros, McDermott and Cole",
     email: "tstraceyu@oaic.gov.au",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2019-09-19",
   },
   {
@@ -284,7 +284,7 @@ const petData = [
     description: "Murray, Morar and Aufderhar",
     email: "ffriendv@thetimes.co.uk",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-07-05",
   },
   {
@@ -293,7 +293,7 @@ const petData = [
     description: "Ward, Powlowski and Kris",
     email: "rpaullw@unc.edu",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-08-05",
   },
   {
@@ -302,7 +302,7 @@ const petData = [
     description: "Simonis, Schaden and White",
     email: "kbrestonx@unblog.fr",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-03-24",
   },
   {
@@ -311,7 +311,7 @@ const petData = [
     description: "Kuhlman-Turcotte",
     email: "imcgavigany@lulu.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-06-29",
   },
   {
@@ -320,7 +320,7 @@ const petData = [
     description: "Mayert-Carroll",
     email: "cfarrawayz@behance.net",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-09-29",
   },
   {
@@ -329,7 +329,7 @@ const petData = [
     description: "Ankunding Group",
     email: "clorrie10@bizjournals.com",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-10-18",
   },
   {
@@ -338,7 +338,7 @@ const petData = [
     description: "Hermiston, Quigley and Marquardt",
     email: "stoplis11@nationalgeographic.com",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-07-06",
   },
   {
@@ -347,7 +347,7 @@ const petData = [
     description: "Veum-O'Keefe",
     email: "sscala12@csmonitor.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-01-11",
   },
   {
@@ -356,7 +356,7 @@ const petData = [
     description: "Harvey Group",
     email: "blytle13@networkadvertising.org",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-04-03",
   },
   {
@@ -365,7 +365,7 @@ const petData = [
     description: "Upton, Hudson and Labadie",
     email: "gcroose14@elegantthemes.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2019-04-08",
   },
   {
@@ -374,7 +374,7 @@ const petData = [
     description: "Champlin and Sons",
     email: "aoverill15@springer.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-02-11",
   },
   {
@@ -383,7 +383,7 @@ const petData = [
     description: "Leannon LLC",
     email: "ghandy16@goo.ne.jp",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-07-20",
   },
   {
@@ -392,7 +392,7 @@ const petData = [
     description: "Reichel-Crooks",
     email: "cmcdirmid17@npr.org",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-12-24",
   },
   {
@@ -401,7 +401,7 @@ const petData = [
     description: "Witting, Hayes and Gleason",
     email: "edonlon18@nationalgeographic.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-10-29",
   },
   {
@@ -410,7 +410,7 @@ const petData = [
     description: "Boyle-Rosenbaum",
     email: "rglyde19@fda.gov",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-03-07",
   },
   {
@@ -419,7 +419,7 @@ const petData = [
     description: "Howell, Koss and Strosin",
     email: "cbelloch1a@odnoklassniki.ru",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-10-02",
   },
   {
@@ -428,7 +428,7 @@ const petData = [
     description: "Abbott and Sons",
     email: "whughes1b@bloglines.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2022-01-11",
   },
   {
@@ -437,7 +437,7 @@ const petData = [
     description: "Krajcik, Cole and Kassulke",
     email: "ghorburgh1c@mashable.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-12-19",
   },
   {
@@ -446,7 +446,7 @@ const petData = [
     description: "Bosco and Sons",
     email: "agottelier1d@weather.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-11-13",
   },
   {
@@ -455,7 +455,7 @@ const petData = [
     description: "Littel, Glover and Wiegand",
     email: "mgodwyn1e@live.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-08-16",
   },
   {
@@ -464,7 +464,7 @@ const petData = [
     description: "Mraz-Brekke",
     email: "kkadar1f@bloglovin.com",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-01-23",
   },
   {
@@ -473,7 +473,7 @@ const petData = [
     description: "Hills, Altenwerth and Weissnat",
     email: "ratton1g@epa.gov",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-07-18",
   },
   {
@@ -482,7 +482,7 @@ const petData = [
     description: "Torp, Champlin and Hickle",
     email: "dwark1h@admin.ch",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-11-15",
   },
   {
@@ -491,7 +491,7 @@ const petData = [
     description: "Ernser-Hagenes",
     email: "dallott1i@booking.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-12-17",
   },
   {
@@ -500,7 +500,7 @@ const petData = [
     description: "DuBuque, Konopelski and Willms",
     email: "sgoundry1j@tiny.cc",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2019-11-05",
   },
   {
@@ -509,7 +509,7 @@ const petData = [
     description: "Auer, Cummerata and Bailey",
     email: "bdarrigone1k@fda.gov",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-09-12",
   },
   {
@@ -518,7 +518,7 @@ const petData = [
     description: "Wolf, Stamm and Mann",
     email: "stolemache1l@mozilla.org",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-07-05",
   },
   {
@@ -527,7 +527,7 @@ const petData = [
     description: "Bode Inc",
     email: "urubica1m@paginegialle.it",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-11-12",
   },
   {
@@ -536,7 +536,7 @@ const petData = [
     description: "Jast-Abernathy",
     email: "cblamey1n@harvard.edu",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-03-06",
   },
   {
@@ -545,7 +545,7 @@ const petData = [
     description: "Ullrich, Price and O'Reilly",
     email: "rsnoday1o@plala.or.jp",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-06-16",
   },
   {
@@ -554,7 +554,7 @@ const petData = [
     description: "Rutherford, Ankunding and Rippin",
     email: "ipetruskevich1p@opera.com",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-05-17",
   },
   {
@@ -563,7 +563,7 @@ const petData = [
     description: "Schroeder, Adams and Sanford",
     email: "rmildmott1q@friendfeed.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-12-04",
   },
   {
@@ -572,7 +572,7 @@ const petData = [
     description: "Ernser-Nikolaus",
     email: "jdomek1r@vimeo.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-09-15",
   },
   {
@@ -581,7 +581,7 @@ const petData = [
     description: "Kovacek-Ullrich",
     email: "kyearn1s@cocolog-nifty.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-02-01",
   },
   {
@@ -590,7 +590,7 @@ const petData = [
     description: "Sawayn-Kessler",
     email: "mtwiggins1t@soundcloud.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-11-12",
   },
   {
@@ -599,7 +599,7 @@ const petData = [
     description: "Littel-Leffler",
     email: "hsaiens1u@fastcompany.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-11-01",
   },
   {
@@ -608,7 +608,7 @@ const petData = [
     description: "Halvorson-Muller",
     email: "sstobbie1v@apache.org",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-03-21",
   },
   {
@@ -617,7 +617,7 @@ const petData = [
     description: "Boyle Inc",
     email: "callcott1w@gravatar.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-02-27",
   },
   {
@@ -626,7 +626,7 @@ const petData = [
     description: "Schmeler LLC",
     email: "mmacmorland1x@unblog.fr",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2019-12-16",
   },
   {
@@ -635,7 +635,7 @@ const petData = [
     description: "Kessler, Wuckert and Mraz",
     email: "rpuleque1y@unicef.org",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-05-31",
   },
   {
@@ -644,7 +644,7 @@ const petData = [
     description: "Bode-Fisher",
     email: "nbarnsdale1z@pagesperso-orange.fr",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-07-02",
   },
   {
@@ -653,7 +653,7 @@ const petData = [
     description: "Rowe LLC",
     email: "ahalloway20@surveymonkey.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-05-22",
   },
   {
@@ -662,7 +662,7 @@ const petData = [
     description: "Padberg Inc",
     email: "hbuchanan21@live.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2022-01-11",
   },
   {
@@ -671,7 +671,7 @@ const petData = [
     description: "Kris Inc",
     email: "dsayre22@ucla.edu",
     gender: "Female",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2020-02-23",
   },
   {
@@ -680,7 +680,7 @@ const petData = [
     description: "Kozey and Sons",
     email: "yjonathon23@wsj.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2020-12-27",
   },
   {
@@ -689,7 +689,7 @@ const petData = [
     description: "Carter-Shields",
     email: "uduthie24@paypal.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-11-21",
   },
   {
@@ -698,7 +698,7 @@ const petData = [
     description: "Grant Inc",
     email: "djuett25@imageshack.us",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-09-13",
   },
   {
@@ -707,7 +707,7 @@ const petData = [
     description: "Olson Group",
     email: "jcosham26@163.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-04-06",
   },
   {
@@ -716,7 +716,7 @@ const petData = [
     description: "Kozey, Hoppe and McCullough",
     email: "obonnesen27@nydailynews.com",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2022-01-05",
   },
   {
@@ -725,7 +725,7 @@ const petData = [
     description: "Kuvalis, Ondricka and Kautzer",
     email: "hoddy28@live.com",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-07-22",
   },
   {
@@ -734,7 +734,7 @@ const petData = [
     description: "Dibbert and Sons",
     email: "fcabrer29@npr.org",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-02-10",
   },
   {
@@ -743,7 +743,7 @@ const petData = [
     description: "Kuhlman, Hartmann and Mills",
     email: "channam2a@ebay.co.uk",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-03-20",
   },
   {
@@ -752,7 +752,7 @@ const petData = [
     description: "Emmerich and Sons",
     email: "mcoomber2b@google.com.au",
     gender: "Male",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2019-04-02",
   },
   {
@@ -761,7 +761,7 @@ const petData = [
     description: "Hackett Inc",
     email: "dunger2c@tripadvisor.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-12-02",
   },
   {
@@ -770,7 +770,7 @@ const petData = [
     description: "Zieme, Morar and Kuhlman",
     email: "iwoodbridge2d@indiegogo.com",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-01-30",
   },
   {
@@ -779,7 +779,7 @@ const petData = [
     description: "Hyatt-Schinner",
     email: "mpridham2e@umn.edu",
     gender: "Male",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2020-09-05",
   },
   {
@@ -788,7 +788,7 @@ const petData = [
     description: "Osinski, Kub and Vandervort",
     email: "sadicot2f@51.la",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-04-16",
   },
   {
@@ -797,7 +797,7 @@ const petData = [
     description: "Yundt, Rau and Robel",
     email: "cbickerdicke2g@cam.ac.uk",
     gender: "Female",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2021-06-18",
   },
   {
@@ -806,7 +806,7 @@ const petData = [
     description: "Boehm, Ritchie and Hand",
     email: "gyurchishin2h@reference.com",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2019-02-11",
   },
   {
@@ -815,7 +815,7 @@ const petData = [
     description: "White LLC",
     email: "jkubera2i@elpais.com",
     gender: "Female",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2020-07-22",
   },
   {
@@ -824,7 +824,7 @@ const petData = [
     description: "Waters-Kovacek",
     email: "rmckellar2j@elegantthemes.com",
     gender: "Female",
-    size: "medium",
+    size: "Medium",
     dateOfBirth: "2020-06-08",
   },
   {
@@ -833,7 +833,7 @@ const petData = [
     description: "Schmitt Inc",
     email: "onelle2k@wikispaces.com",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2020-09-18",
   },
   {
@@ -842,7 +842,7 @@ const petData = [
     description: "Williamson-Ullrich",
     email: "bdeathridge2l@tuttocitta.it",
     gender: "Female",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-04-17",
   },
   {
@@ -851,7 +851,7 @@ const petData = [
     description: "Hilpert-Wunsch",
     email: "rlantiffe2m@blogtalkradio.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2019-11-02",
   },
   {
@@ -860,7 +860,7 @@ const petData = [
     description: "Emard, Buckridge and Connelly",
     email: "mdunton2n@livejournal.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-03-24",
   },
   {
@@ -869,7 +869,7 @@ const petData = [
     description: "Flatley, Spencer and Davis",
     email: "rkubik2o@hud.gov",
     gender: "Male",
-    size: "large",
+    size: "Large",
     dateOfBirth: "2022-01-03",
   },
   {
@@ -878,7 +878,7 @@ const petData = [
     description: "Heathcote LLC",
     email: "tclaypool2p@symantec.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-12-23",
   },
   {
@@ -887,7 +887,7 @@ const petData = [
     description: "Torphy, Moore and Bashirian",
     email: "ycornehl2q@chicagotribune.com",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2021-10-31",
   },
   {
@@ -896,7 +896,7 @@ const petData = [
     description: "Jacobs LLC",
     email: "mlacrouts2r@virginia.edu",
     gender: "Male",
-    size: "small",
+    size: "Small",
     dateOfBirth: "2019-04-28",
   },
 ];

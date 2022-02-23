@@ -28,7 +28,7 @@ Pet.init(
       type: ENUM("Male", "Female"),
     },
     size: {
-      type: ENUM("small", "medium", "large"),
+      type: ENUM("Small", "Medium", "Large"),
     },
     dateOfBirth: {
       type: DATEONLY,
