@@ -14,6 +14,7 @@ class Confirmation extends React.Component {
     } else {
       /*This section is for the automatic email confirmation*/
       const stuff = this.props.orders[0].cart_items;
+      console.log("WHAT IS STUFF?", stuff);
       const justPrice = stuff.map((e) => e.pet.price);
       const total = justPrice.reduce((a, b) => parseInt(a) + parseInt(b), 0);
       const d = new Date();

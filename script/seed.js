@@ -96,16 +96,49 @@ async function seed() {
   userData.forEach(async (user) => await User.create(user));
 
   const breeds = await Promise.all([
-    Breed.create({ name: "Labrador Retriever" }),
-    Breed.create({ name: "German Shepherd" }),
-    Breed.create({ name: "Golden Retriever" }),
-    Breed.create({ name: "Bulldog" }),
-    Breed.create({ name: "Poodle" }),
-    Breed.create({ name: "Beagle" }),
-    Breed.create({ name: "Rottweiler" }),
-    Breed.create({ name: "Dachshund" }),
-    Breed.create({ name: "Siberian Husky" }),
-    Breed.create({ name: "Shih Tzu" }),
+    Breed.create({
+      name: "Labrador Retriever",
+      imageUrl: "https://images.dog.ceo/breeds/labrador/n02099712_6897.jpg",
+    }),
+    Breed.create({
+      name: "German Shepherd",
+      imageUrl:
+        "https://images.dog.ceo/breeds/germanshepherd/n02106662_3953.jpg",
+    }),
+    Breed.create({
+      name: "Golden Retriever",
+      imageUrl:
+        "https://images.dog.ceo/breeds/retriever-golden/n02099601_2440.jpg",
+    }),
+    Breed.create({
+      name: "Bulldog",
+      imageUrl: "https://images.dog.ceo/breeds/bulldog-english/jager-1.jpg",
+    }),
+    Breed.create({
+      name: "Poodle",
+      imageUrl:
+        "https://images.dog.ceo/breeds/poodle-standard/n02113799_525.jpg",
+    }),
+    Breed.create({
+      name: "Beagle",
+      imageUrl: "https://images.dog.ceo/breeds/beagle/n02088364_17294.jpg",
+    }),
+    Breed.create({
+      name: "Rottweiler",
+      imageUrl: "https://images.dog.ceo/breeds/rottweiler/n02106550_6926.jpg",
+    }),
+    Breed.create({
+      name: "Dachshund",
+      imageUrl: "https://images.dog.ceo/breeds/dachshund/dachshund-6.jpg",
+    }),
+    Breed.create({
+      name: "Siberian Husky",
+      imageUrl: "https://images.dog.ceo/breeds/husky/n02110185_11841.jpg",
+    }),
+    Breed.create({
+      name: "Shih Tzu",
+      imageUrl: "https://images.dog.ceo/breeds/shihtzu/n02086240_6833.jpg",
+    }),
   ]);
 
   console.log(breeds.map((el) => console.log("NAME", el.name)));
