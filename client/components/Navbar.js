@@ -17,7 +17,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
         style={{ backgroundColor: "#F0FFFF" }}
       >
         <div>
-          <form className="d-flex">
+          {/* <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -27,16 +27,22 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
             <button className="btn btn-sm btn-outline-secondary" type="submit">
               Search
             </button>
-          </form>
-        </div>
-        <div>
+          </form> */}
           <a href="/" className="navbar-brand" />
-          <span style={{ fontWeight: "bold" }}> Grace Barker</span>
+          <span style={{ fontFamily: "dosis", fontWeight: 800 }}>
+            {" "}
+            Grace Barker
+          </span>
         </div>
+        <div></div>
         <div>
           <ul className="nav justify-content-end ">
             <li className="nav-item">
-              <a className=" nav-link active" aria-current="page" href="/">
+              <a
+                className=" nav-link active"
+                aria-current="page"
+                href="/ContactUs"
+              >
                 Contact Us
               </a>
             </li>

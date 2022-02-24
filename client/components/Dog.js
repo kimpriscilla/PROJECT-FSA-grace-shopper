@@ -49,7 +49,7 @@ class Dog extends React.Component {
               Add to Cart
             </button>
           </div> */}
-          <div className="container">
+          <div className="container" style={{ fontFamily: "dosis" }}>
             <div className="card">
               <div className="card-body">
                 <h3 className="card-title">{pet.name}</h3>
