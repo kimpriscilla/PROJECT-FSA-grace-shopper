@@ -5,7 +5,6 @@ import Fixed from "./fixedNav";
 import LoginNav from "./LoginNav";
 import { getCart } from "../store/cart/cart";
 import AdminNav from "./AdminNav";
-
 //temporary navBar without loggedIn function/difference
 const tempUserId = 1;
 
@@ -32,17 +31,15 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
         </div>
         <div>
           <a href="/" className="navbar-brand" />
-          <span style={{ fontWeight: "bold" }}> Grace Barker</span>
+          <span style={{ fontWeight: "bold" }}>
+            {" "}
+            (THIS WILL ALWAYS BE HERE)Grace Barker
+          </span>
         </div>
-
         <div>
           <ul className="nav justify-content-end ">
             <li className="nav-item">
-              <a
-                className=" nav-link active"
-                aria-current="page"
-                href="/ContactUs"
-              >
+              <a className=" nav-link active" aria-current="page" href="/">
                 Contact Us
               </a>
             </li>
@@ -61,6 +58,8 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
           </ul>
         </div>
       </nav>
+
+
 
       {isLoggedIn ? (
         <LoginNav
@@ -87,7 +86,6 @@ const mapState = (state) => {
     authRole: state.auth.role,
   };
 };
-
 const mapDispatch = (dispatch) => {
   return {
     handleClick() {
@@ -95,5 +93,4 @@ const mapDispatch = (dispatch) => {
     },
   };
 };
-
 export default connect(mapState, mapDispatch)(Navbar);
