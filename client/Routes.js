@@ -25,6 +25,7 @@ import DataPortal from "./components/dataPortal";
 import Analytics from './components/Analytics';
 import AdminEditDogs from "./components/AdminEditDogs";
 import AdminEditUsers from "./components/AdminEditUsers";
+import orderMap from './components/orderMap';
 
 const retrieveId = JSON.parse(localStorage.getItem("guest"));
 if (!retrieveId) {
@@ -102,7 +103,8 @@ class Routes extends Component {
             <Route path={"/dataportal"} component={DataPortal} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
             <Route path="/addDog" component={AddDog} />
-            <Route path="/analytics" component={Analytics} />
+            <Route exact path="/analytics" component={Analytics} />
+            <Route path="/analytics/map" component={orderMap} />
             <Route path="/manageDogs" component={AdminEditDogs} />
             <Route path="/manageUsers" component={AdminEditUsers} />
             <Route path="/create" component={CreateUser} />
