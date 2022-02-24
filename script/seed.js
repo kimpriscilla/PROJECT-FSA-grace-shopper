@@ -210,7 +210,7 @@ async function seed() {
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[10].id,
     }),
-    ordersData.forEach(async (orders) => await Order.create(orders)),
+    // ordersData.forEach(async (orders) => await Order.create(orders)),
   ]);
 
   const pet = await Promise.all([
