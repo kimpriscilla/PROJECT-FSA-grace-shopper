@@ -49,11 +49,17 @@ class Dog extends React.Component {
               Add to Cart
             </button>
           </div> */}
+          <a href="/dogs">
+            <button
+              type="button"
+              className="btn btn-outline-warning btn-md rounded-pill"
+            >
+              <span style={{ fontWeight: "bold" }}> Doggos </span>
+            </button>
+          </a>
           <div className="container" style={{ fontFamily: "dosis" }}>
             <div className="card">
-              <div className="card-body">
-                <h3 className="card-title">{pet.name}</h3>
-                <h6 className="card-subtitle">{pet.breed.name}</h6>
+              <div className="card-body" style={{ backgroundColor: "#FFF8DC" }}>
                 <div className="row">
                   <div className="col-lg-5 col-md-5 col-sm-6">
                     <div className="white-box text-center">
@@ -61,33 +67,46 @@ class Dog extends React.Component {
                     </div>
                   </div>
                   <div className="col-lg-7 col-md-7 col-sm-6">
-                    <h4 className="box-title mt-5">Meet {pet.name}!</h4>
+                    <h4
+                      className="box-title mt-5"
+                      style={{ fontWeight: 600, fontSize: 250 + "%" }}
+                    >
+                      Meet {pet.name}!
+                    </h4>
                     <p>
                       {" "}
                       <span style={{ fontWeight: "bold" }}>
-                        Date of Birth:
+                        <span style={{ fontSize: 120 + "%" }}>
+                          Date of Birth:
+                        </span>
                       </span>{" "}
-                      {pet.dateOfBirth}{" "}
+                      <span style={{ fontSize: 120 + "%" }}>
+                        {pet.dateOfBirth}{" "}
+                      </span>
                     </p>
                     <p>
                       {" "}
-                      <span style={{ fontWeight: "bold" }}>Sex:</span>{" "}
-                      {pet.gender}
+                      <span style={{ fontWeight: "bold" }}>
+                        <span style={{ fontSize: 120 + "%" }}>Gender:</span>
+                      </span>{" "}
+                      <span style={{ fontSize: 120 + "%" }}>{pet.gender} </span>
                     </p>
                     <p>
                       {" "}
-                      <span style={{ fontWeight: "bold" }}>Size:</span>{" "}
-                      {pet.size}
+                      <span style={{ fontWeight: "bold" }}>
+                        <span style={{ fontSize: 120 + "%" }}>Size:</span>
+                      </span>{" "}
+                      <span style={{ fontSize: 120 + "%" }}>{pet.size} </span>
                     </p>
+
                     <p>
                       {" "}
-                      <span style={{ fontWeight: "bold" }}>Price:</span> $
-                      {pet.price}
-                    </p>
-                    <p>
-                      {" "}
-                      <span style={{ fontWeight: "bold" }}>Breed:</span>{" "}
-                      {pet.breed.name}
+                      <span style={{ fontWeight: "bold" }}>
+                        <span style={{ fontSize: 120 + "%" }}>Breed:</span>
+                      </span>{" "}
+                      <span style={{ fontSize: 120 + "%" }}>
+                        {pet.breed.name}{" "}
+                      </span>
                     </p>
                     <h2 className="mt-5">
                       $ {pet.price}
@@ -95,31 +114,25 @@ class Dog extends React.Component {
                     </h2>
 
                     <button
-                      className="button-37"
-                      role="button"
+                      type="button"
+                      className="btn btn-outline-warning btn-md rounded-pill"
                       onClick={() => this.props.addCart(authId, pet.id)}
                     >
-                      {" "}
-                      Add to Cart
+                      <span style={{ fontWeight: "bold" }}> ADD TO CART </span>
                     </button>
-                    <h3 className="box-title mt-5">Key Highlights</h3>
+                    <h3 className="box-title mt-5">Description:</h3>
                     <ul className="list-unstyled">
                       <li>
-                        <i className="fa fa-check text-success"></i>Testing
-                      </li>
-                      <li>
-                        <i className="fa fa-check text-success"></i>Testing
-                      </li>
-                      <li>
-                        <i className="fa fa-check text-success"></i>Testing
+                        <i className="fa fa-check text-success"></i>
+                        {pet.description}
                       </li>
                     </ul>
                   </div>
-                  <div className="col-lg-12 col-md-12 col-sm-12">
+                  {/* <div className="col-lg-12 col-md-12 col-sm-12">
                     <h3 className="box-title mt-5">General Info</h3>
                     <p>testinggggg</p>
                     <p> </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
