@@ -83,7 +83,7 @@ const Dogs = ({ loading, pets, id }) => {
                 <button
                   type="button"
                   className="btn btn-outline-warning btn-md rounded-pill"
-                  onClick={() => this.props.addCart(this.props.userId, pet.id)}
+                  onClick={() => addToCart(id, dog.id)}
                 >
                   <span style={{ fontWeight: "bold" }}> ADD TO CART </span>
                 </button>
