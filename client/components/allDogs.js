@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { addCart } from "../store/cart/cart";
 import axios from "axios";
 import auth from "../store/auth";
-import Filter from "./Filter";
+
 import Select from "react-select";
 
 //I need to replace this with something that identifies a guest so when he returns to the page without clearing his local storage or cookies, he can still access his cart
@@ -24,27 +24,68 @@ const Dogs = ({ loading, pets, id }) => {
   return (
     <div id="rightAllDogs">
       <div></div>
-      <ul id="dogCards">
+      <ul id="dogCards" style={{ fontFamily: "dosis" }}>
         {pets.map((dog) => (
           <li key={dog.id}>
             <ul id="individualCards">
               <li>
                 <img src={dog.imageUrl} />
               </li>
-              <li>Name: {dog.name} </li>
-              <li>Gender: {dog.gender} </li>
-              <li>Breed: {dog.breed.name} </li>
-              <li>Price: ${dog.price}</li>
+              <li>
+                {" "}
+                <span style={{ fontSize: 25 + "px", fontWeight: 600 }}>
+                  {dog.name}{" "}
+                </span>
+              </li>
+              <li>
+                {" "}
+                <span
+                  style={{
+                    fontFamily: "dosis",
+                    fontWeight: 600,
+                    fontSize: 20 + "px",
+                  }}
+                >
+                  Gender:
+                </span>{" "}
+                <span style={{ fontSize: 20 + "px" }}>{dog.gender} </span>
+              </li>
+              <li>
+                {" "}
+                <span
+                  style={{
+                    fontFamily: "dosis",
+                    fontWeight: 600,
+                    fontSize: 20 + "px",
+                  }}
+                >
+                  Breed:
+                </span>{" "}
+                <span style={{ fontSize: 20 + "px" }}>{dog.breed.name} </span>
+              </li>
+              <li>
+                {" "}
+                <span
+                  style={{
+                    fontFamily: "dosis",
+                    fontWeight: 600,
+                    fontSize: 20 + "px",
+                  }}
+                >
+                  Price:
+                </span>{" "}
+                ${dog.price}
+              </li>
               <li>
                 <Link to={`/dogs/${dog.id}`}> More Details </Link>
               </li>
               <li>
                 <button
-                  className="button-37"
-                  role="button"
-                  onClick={() => addToCart(id, dog.id)}
+                  type="button"
+                  className="btn btn-outline-warning btn-md rounded-pill"
+                  onClick={() => this.props.addCart(this.props.userId, pet.id)}
                 >
-                  Add to Cart
+                  <span style={{ fontWeight: "bold" }}> ADD TO CART </span>
                 </button>
               </li>
             </ul>
