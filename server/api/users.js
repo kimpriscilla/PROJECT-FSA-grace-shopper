@@ -29,7 +29,6 @@ router.post("/", async (req, res, next) => {
         email: req.body.email,
       },
     });
-    console.log(findUser, "findUserahhhhhhhahf ");
     // if (findUser === []) {
     if (findUser.length > 0) {
       console.log("user existttttttttttttt");

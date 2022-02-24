@@ -58,97 +58,6 @@ router.post("/:id", cors(), async (req, res, next) => {
     bState,
   } = req.body;
   try {
-    //create new order
-    let newOrder =
-      // typeof userId !== "string"
-      //   ? await Order.create({
-      //       shippingAddress,
-      //       billingAddress,
-      //       userId,
-      //     })
-      //   : await Order.create({
-      //       shippingAddress,
-      //       billingAddress,
-      //     });
-      typeof userId !== "string"
-        ? await Order.create({
-            sStreet,
-            sCity,
-            sZip,
-            sState,
-            bStreet,
-            bCity,
-            bZip,
-            bState,
-            userId,
-          })
-        : await Order.create({
-            sStreet,
-            sCity,
-            sZip,
-            sState,
-            bStreet,
-            bCity,
-            bZip,
-            bState,
-          });
-    const newOrderId = newOrder.id;
-
-    //set parent orderID to cart items, set user ID to null so cart items disappear once order is placed
-    if (typeof userId === "string") {
-      await CartItem.update(
-        {
-          orderId: newOrderId,
-          userId: null,
-          authId: null,
-        },
-        {
-          where: {
-            authId: userId, //pull in user's current cart items using user ID
-          },
-        }
-      );
-    } else {
-      await CartItem.update(
-        {
-          orderId: newOrderId,
-          userId: null,
-        },
-        {
-          where: {
-            userId, //pull in user's current cart items using user ID
-          },
-        }
-      );
-    }
-
-    //retrieve cart items using their parent order ID
-    newOrder = await Order.findOne({
-      where: {
-        id: newOrderId,
-      },
-      include: [{ model: CartItem, include: [Pet] }],
-    });
-
-    const petIds = newOrder.cart_items.map((cartItem) => {
-      return cartItem.petId;
-    });
-
-    await Promise.all(
-      petIds.map((petId) => {
-        Pet.update(
-          {
-            orderId: newOrderId,
-          },
-          {
-            where: {
-              id: petId,
-            },
-          }
-        );
-      })
-    );
-
     const payment = await stripe.paymentIntents.create({
       amount,
       currency: "USD",
@@ -156,6 +65,96 @@ router.post("/:id", cors(), async (req, res, next) => {
       payment_method: id,
       confirm: true,
     });
+        //create new order
+        let newOrder =
+        // typeof userId !== "string"
+        //   ? await Order.create({
+        //       shippingAddress,
+        //       billingAddress,
+        //       userId,
+        //     })
+        //   : await Order.create({
+        //       shippingAddress,
+        //       billingAddress,
+        //     });
+        typeof userId !== "string"
+          ? await Order.create({
+              sStreet,
+              sCity,
+              sZip,
+              sState,
+              bStreet,
+              bCity,
+              bZip,
+              bState,
+              userId,
+            })
+          : await Order.create({
+              sStreet,
+              sCity,
+              sZip,
+              sState,
+              bStreet,
+              bCity,
+              bZip,
+              bState,
+            });
+      const newOrderId = newOrder.id;
+
+      //set parent orderID to cart items, set user ID to null so cart items disappear once order is placed
+      if (typeof userId === "string") {
+        await CartItem.update(
+          {
+            orderId: newOrderId,
+            userId: null,
+            authId: null,
+          },
+          {
+            where: {
+              authId: userId, //pull in user's current cart items using user ID
+            },
+          }
+        );
+      } else {
+        await CartItem.update(
+          {
+            orderId: newOrderId,
+            userId: null,
+          },
+          {
+            where: {
+              userId, //pull in user's current cart items using user ID
+            },
+          }
+        );
+      }
+
+      //retrieve cart items using their parent order ID
+      newOrder = await Order.findOne({
+        where: {
+          id: newOrderId,
+        },
+        include: [{ model: CartItem, include: [Pet] }],
+      });
+
+      const petIds = newOrder.cart_items.map((cartItem) => {
+        return cartItem.petId;
+      });
+
+      await Promise.all(
+        petIds.map((petId) => {
+          Pet.update(
+            {
+              orderId: newOrderId,
+            },
+            {
+              where: {
+                id: petId,
+              },
+            }
+          );
+        })
+      );
     console.log("Payment", payment);
     res.json(newOrder);
   } catch (error) {

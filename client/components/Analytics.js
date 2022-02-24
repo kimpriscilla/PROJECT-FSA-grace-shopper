@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from "react-redux";
+import OrderMap from './orderMap';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,11 +11,9 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import faker from 'faker';
 
-export default function Analytics() {
+export default function Analytics(props) {
   const sales = useSelector((state) => state.analytics);
-  console.log(sales)
 
   ChartJS.register(
     CategoryScale,
@@ -51,5 +50,8 @@ export default function Analytics() {
     ],
   };
 
-  return <Bar options={options} data={data} />;
+  return ([
+  <Bar options={options} data={data} />,
+  <div><OrderMap /></div>
+  ]);
 };
