@@ -57,6 +57,7 @@ export const addUser = (user) => {
   //console.log("INSIDE THE STORE ADD USERRRR-->", user);
   return async (dispatch) => {
     const newUser = (await axios.post("/api/users", user)).data;
+    console.log(newUser, "line 60, aaaaaa");
     dispatch(_addUsers(newUser));
   };
 };
