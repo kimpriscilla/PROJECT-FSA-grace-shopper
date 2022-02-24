@@ -29,14 +29,18 @@ router.post("/", async (req, res, next) => {
         email: req.body.email,
       },
     });
-
-    if (findUser===[]) {
-      res.json('User already exists')
+    console.log(findUser, "findUserahhhhhhhahf ");
+    // if (findUser === []) {
+    if (findUser.length > 0) {
+      console.log("user existttttttttttttt");
+      res.json("User already exists");
     } else {
+      //code continues to go here regardless if user exist as of 2/23 924PM
       const newUser = await User.create(req.body);
       res.json(newUser);
     }
   } catch (error) {
+    res.status(500).send(error);
     next(error);
   }
 });
