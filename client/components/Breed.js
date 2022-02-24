@@ -7,7 +7,7 @@ export default function Breed() {
 
   return (
     <div>
-      <h1>Browse By Breed:</h1>
+      <h1 style={{}}>Browse By Breed:</h1>
       <ul id="dogCards">
         {breeds.map((breed) => (
           <li key={breed.id}>

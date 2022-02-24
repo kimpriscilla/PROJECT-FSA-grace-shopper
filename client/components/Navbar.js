@@ -59,8 +59,6 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
         </div>
       </nav>
 
-
-
       {isLoggedIn ? (
         <LoginNav
           handleClick={handleClick}
