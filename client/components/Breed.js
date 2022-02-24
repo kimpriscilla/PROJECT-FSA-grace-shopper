@@ -16,7 +16,15 @@ export default function Breed() {
                 <img src={breed.imageUrl} />
               </li>
               <li>
-                {breed.name} ({breed.stock})
+                <span
+                  style={{
+                    fontFamily: "dosis",
+                    fontWeight: "600",
+                    fontSize: 150 + "%",
+                  }}
+                >
+                  {breed.name} ({breed.stock})
+                </span>
               </li>
               <li>
                 <Link to={`/breed/${breed.id}`}> Shop </Link>

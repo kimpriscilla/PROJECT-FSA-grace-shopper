@@ -7,6 +7,7 @@ import { getCart } from "../store/cart/cart";
 import AdminNav from "./AdminNav";
 //temporary navBar without loggedIn function/difference
 const tempUserId = 1;
+
 const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
   <div>
     <div>
@@ -57,6 +58,9 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
           </ul>
         </div>
       </nav>
+
+
+
       {isLoggedIn ? (
         <LoginNav
           handleClick={handleClick}
@@ -70,6 +74,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
     </div>
   </div>
 );
+
 /**
  * CONTAINER
  */
