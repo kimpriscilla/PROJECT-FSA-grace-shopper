@@ -31,10 +31,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
         </div>
         <div>
           <a href="/" className="navbar-brand" />
-          <span style={{ fontWeight: "bold" }}>
-            {" "}
-            (THIS WILL ALWAYS BE HERE)Grace Barker
-          </span>
+          <span style={{ fontWeight: "bold" }}> Grace Barker</span>
         </div>
         <div>
           <ul className="nav justify-content-end ">
@@ -58,8 +55,6 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
           </ul>
         </div>
       </nav>
-
-
 
       {isLoggedIn ? (
         <LoginNav
