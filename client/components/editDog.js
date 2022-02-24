@@ -166,12 +166,15 @@ class editDog extends React.Component {
                             </strong>
                           </td>
                           <td>
-                            <input
+                            <select
                               name="size"
-                              type="text"
                               value={size}
                               onChange={this.handleChange}
-                            ></input>
+                            >
+                              <option>Small</option>
+                              <option>Medium</option>
+                              <option>Large</option>
+                            </select>
                           </td>
                         </tr>
                         <tr>

@@ -23,32 +23,122 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ email: "jenniferlu32@gmail.com", password: "123" }),
-    User.create({ email: "kencrosas@gmail.com", password: "123" }),
-    User.create({ email: "priscillakim58@gmail.com", password: "123" }),
-    User.create({ email: "admin@admin.com", password: "123", role: "admin" }),
-    User.create({ email: "rebecca@gmail.com", password: "123" }),
-    User.create({ email: "lucy@gmail.com", password: "123" }),
-    User.create({ email: "sam@gmail.com", password: "123" }),
-    User.create({ email: "charlie@gmail.com", password: "123" }),
-    User.create({ email: "alex@gmail.com", password: "123" }),
-    User.create({ email: "lauren@gmail.com", password: "123" }),
-    User.create({ email: "quinn@gmail.com", password: "123" }),
+    User.create({
+      email: "jenniferlu32@gmail.com",
+      password: "123",
+      imageUrl: "https://www.bootdey.com/img/Content/avatar/avatar8.png",
+    }),
+    User.create({
+      email: "kencrosas@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    }),
+    User.create({
+      email: "priscillakim58@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar3.png",
+    }),
+    User.create({
+      email: "admin@admin.com",
+      password: "123",
+      role: "admin",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar4.png",
+    }),
+    User.create({
+      email: "rebecca@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar2.png",
+    }),
+    User.create({
+      email: "lucy@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar5.png",
+    }),
+    User.create({
+      email: "sam@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar6.png",
+    }),
+    User.create({
+      email: "charlie@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar7.png",
+    }),
+    User.create({
+      email: "alex@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    }),
+    User.create({
+      email: "lauren@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar4.png",
+    }),
+    User.create({
+      email: "quinn@gmail.com",
+      password: "123",
+      imageUrl: "https://bootdey.com/img/Content/avatar/avatar2.png",
+    }),
+
+    // User.create({ email: "jenniferlu32@gmail.com", password: "123" }),
+    // User.create({ email: "kencrosas@gmail.com", password: "123" }),
+    // User.create({ email: "priscillakim58@gmail.com", password: "123" }),
+    // User.create({ email: "admin@admin.com", password: "123", role: "admin" }),
+    // User.create({ email: "rebecca@gmail.com", password: "123" }),
+    // User.create({ email: "lucy@gmail.com", password: "123" }),
+    // User.create({ email: "sam@gmail.com", password: "123" }),
+    // User.create({ email: "charlie@gmail.com", password: "123" }),
+    // User.create({ email: "alex@gmail.com", password: "123" }),
+    // User.create({ email: "lauren@gmail.com", password: "123" }),
+    // User.create({ email: "quinn@gmail.com", password: "123" }),
   ]);
 
   userData.forEach(async (user) => await User.create(user));
 
   const breeds = await Promise.all([
-    Breed.create({ name: "Labrador Retriever" }),
-    Breed.create({ name: "German Shepherd" }),
-    Breed.create({ name: "Golden Retriever" }),
-    Breed.create({ name: "Bulldog" }),
-    Breed.create({ name: "Poodle" }),
-    Breed.create({ name: "Beagle" }),
-    Breed.create({ name: "Rottweiler" }),
-    Breed.create({ name: "Dachshund" }),
-    Breed.create({ name: "Siberian Husky" }),
-    Breed.create({ name: "Shih Tzu" }),
+    Breed.create({
+      name: "Labrador Retriever",
+      imageUrl: "https://images.dog.ceo/breeds/labrador/n02099712_6897.jpg",
+    }),
+    Breed.create({
+      name: "German Shepherd",
+      imageUrl:
+        "https://images.dog.ceo/breeds/germanshepherd/n02106662_3953.jpg",
+    }),
+    Breed.create({
+      name: "Golden Retriever",
+      imageUrl:
+        "https://images.dog.ceo/breeds/retriever-golden/n02099601_2440.jpg",
+    }),
+    Breed.create({
+      name: "Bulldog",
+      imageUrl: "https://images.dog.ceo/breeds/bulldog-english/jager-1.jpg",
+    }),
+    Breed.create({
+      name: "Poodle",
+      imageUrl:
+        "https://images.dog.ceo/breeds/poodle-standard/n02113799_525.jpg",
+    }),
+    Breed.create({
+      name: "Beagle",
+      imageUrl: "https://images.dog.ceo/breeds/beagle/n02088364_17294.jpg",
+    }),
+    Breed.create({
+      name: "Rottweiler",
+      imageUrl: "https://images.dog.ceo/breeds/rottweiler/n02106550_6926.jpg",
+    }),
+    Breed.create({
+      name: "Dachshund",
+      imageUrl: "https://images.dog.ceo/breeds/dachshund/dachshund-6.jpg",
+    }),
+    Breed.create({
+      name: "Siberian Husky",
+      imageUrl: "https://images.dog.ceo/breeds/husky/n02110185_11841.jpg",
+    }),
+    Breed.create({
+      name: "Shih Tzu",
+      imageUrl: "https://images.dog.ceo/breeds/shihtzu/n02086240_6833.jpg",
+    }),
   ]);
 
   console.log(breeds.map((el) => console.log("NAME", el.name)));
@@ -120,7 +210,7 @@ async function seed() {
       billingAddress: "50 State Rt 120, East Rutherford, New Jersey(NJ), 07073",
       userId: users[10].id,
     }),
-    ordersData.forEach(async (orders) => await Order.create(orders)),
+    // ordersData.forEach(async (orders) => await Order.create(orders)),
   ]);
 
   const pet = await Promise.all([
@@ -130,7 +220,7 @@ async function seed() {
       description:
         "Energy, sass, brains -- Ava is a loving firecracker. This hairy girl is good with dogs, walks well on leash, seems housebroken, and LOVES to play and to learn tricks she can do in return for treats. She's a little anxious in new situations, but she's very trusting and sweet -- just needs a little time to decompress and lots of exercise to help her chill out. Ava came from a home where she wasn't getting enough exercise, so she's a little overweight and needs a home where she's getting a minimum of 90 minutes of serious exercise a day. Running, fetch, long walks... this girl is not a couch potato and needs humans who will keep her brain and body busy. She's a little to enthusiastic with her mouth when playing with toys, so she needs a grownups only home. Heads up, she is NOT HYPOALLERGENIC -- this girl sheds a good amount.",
       gender: "Female",
-      size: "small",
+      size: "Small",
       dateOfBirth: "2022-01-08",
       breedId: breeds[4].id,
       orderId: orders[0].id,
@@ -142,7 +232,7 @@ async function seed() {
       description:
         "Brutis is a seven-year-old male Bulldog mix. This friendly, gentle boy enjoys meeting new people and getting tons of attention. This sweetie knows basic commands, is house-trained and crate trained. Brutis has a low energy level-- although he loves his walks and playtime. Brutis needs an experienced owner and needs to be your one and only pet in the home.",
       gender: "Male",
-      size: "medium",
+      size: "Medium",
       dateOfBirth: "2021-12-31",
       imageUrl: "/default.png",
       breedId: breeds[3].id,
@@ -154,7 +244,7 @@ async function seed() {
       price: 1000,
       description: `Pip has all the love in the world and gives it openly to those around her. She adores a good cuddle and will burrow herself any way possible to make it happen. Pip also loves exploring the East River and making new friends - the quote "though she is little, she is fierce" captures her confidence in playing with big dogs, pretty perfectly. While she is a speedster with fetch (she'll even throw the toy across the room and play all by herself if need be) - Pip keeps at your side when it comes to walks. With sharp awareness of behavioral cues, Pip has an adaptable and enthusiastic spirit. Although capable of finding her voice, Pip is a fairly quiet pup. Again, attributed to a keen awareness of her surroundings, Pip hasn't felt the need to really bark since being a big city girl.`,
       gender: "Male",
-      size: "large",
+      size: "Large",
       dateOfBirth: "2022-02-22",
       breedId: breeds[2].id,
       orderId: orders[2].id,
@@ -166,7 +256,7 @@ async function seed() {
       description:
         "Lily is a big bundle of joy. She loves semi-playing fetch, meeting new people, and giving kisses. Lily is a very curious dog yet caring and loving. She has bursts of energy then can naps for hours afterward. She loves to nap on the couch andwith you in the bed, but is also completely fine sleeping in her crate at night just as long as she gets a treat out of it! Though when she is awake she needs lots of attention and entertainment.She always gravitates towards squeaky toys and she sometimes plays with her food as if kibble jumps. Lily likes to be active when she has the energyand she's energetic for most of the day. She currently is obsessed with shoes and will grab 'em given the chance. Lily's a little shy with strangers for about 1 minute, after that she's made a new best friend. Lily has a great personality with lots of love to give.",
       gender: "Female",
-      size: "small",
+      size: "Small",
       dateOfBirth: "2022-01-08",
       breedId: breeds[9].id,
       orderId: orders[3].id,
@@ -178,7 +268,7 @@ async function seed() {
       description:
         "Summer is a 3 months old, 17-pound female from the NYCACC. She is a crate-trained, housebroken Summer Russel Terrier mix with all the spunk and intelligence that are characteristic of this breed. She seeks a spacious home and dreams of having a yard, outside the city with folks who have experience with JR-type (terrier) dogs! Because she struggles with dog reactivity on walks, Waggytail has enrolled Summer in a 4-week home-based training program. Summer will be sent to her new forever home with a VIP SWAG BAG: 2 complimentary sessions with his AMAZING trainer, toys, collar, and leash are included.",
       gender: "Female",
-      size: "small",
+      size: "Small",
       dateOfBirth: "2022-01-08",
       breedId: breeds[6].id,
       orderId: orders[4].id,

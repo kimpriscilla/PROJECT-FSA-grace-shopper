@@ -2,37 +2,6 @@ import React from "react";
 
 export const AboutUs = (props) => {
   return (
-    /*
-    <section className="error-page section">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6 offset-lg-3 col-12">
-            <div className="text-center">
-              <img
-                src="/aboutus.png"
-                style={{ width: 500 + "px", height: "auto" }}
-                title=""
-                alt="Responsive image"
-              />
-              <h5>
-                <p>
-                  Welcome to Grace Barker. Our purpose is to provide an
-                  efficient, secure, and informative experience as you find your
-                  next fury friend. We work with breeders across the United
-                  States who are licensed through the USDA Animal and Plant
-                  Health Inspection Services to ensure that safe and ethical
-                  guidelines are followed throughout the entire process** Our
-                  team provides a rewarding experience for both beginners and
-                  seasoned dog owners alike.
-                </p>
-              </h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    */
-
     <section className="section about-section gray-bg" id="about">
       <div className="container">
         <div className="row align-items-center flex-row-reverse">

@@ -34,9 +34,11 @@ class _App extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar />
-        <Routes />
+      <div id="page-container">
+        <div id="content-wrap">
+          <Navbar />
+          <Routes />
+        </div>
         <Footer />
       </div>
     );

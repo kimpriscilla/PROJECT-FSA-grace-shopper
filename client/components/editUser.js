@@ -41,10 +41,11 @@ class editUser extends Component {
     )[0];
 
     return (
-      <div>
+      <div style={{ fontFamily: "dosis" }}>
         <div>
-          <h3>EDIT USER DETAILS</h3>
+          <h3 className="text-center">EDIT USER DETAILS</h3>
         </div>
+        <br />
         {/* <form onSubmit={this.handleSubmit}>
           <table>
             <tbody>
@@ -130,6 +131,7 @@ class editUser extends Component {
                 <strong>Information</strong>
                 <br />
 
+                <hr />
                 <div className="table-responsive">
                   <form onSubmit={this.handleSubmit}>
                     <table className="table table-user-information">
@@ -186,7 +188,11 @@ class editUser extends Component {
                         </tr>
                         {this.props.auth.role === "admin" ? (
                           <tr>
-                            <td>Update Role </td>
+                            <td>
+                              <span style={{ fontWeight: "bold" }}>
+                                Update Role{" "}
+                              </span>
+                            </td>
                             <td>
                               <select
                                 name="role"
@@ -203,7 +209,12 @@ class editUser extends Component {
                         )}
                       </tbody>
                     </table>
-                    <button>Save</button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-warning btn-md rounded-pill"
+                    >
+                      Save
+                    </button>
                   </form>
                 </div>
               </div>

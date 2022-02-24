@@ -7,7 +7,12 @@ export default function Breed() {
 
   return (
     <div>
-      <h1>Browse By Breed:</h1>
+      <h1
+        className="text-center"
+        style={{ fontFamily: "dosis", fontWeight: 600 }}
+      >
+        Browse By Breed:
+      </h1>
       <ul id="dogCards">
         {breeds.map((breed) => (
           <li key={breed.id}>
@@ -16,10 +21,25 @@ export default function Breed() {
                 <img src={breed.imageUrl} />
               </li>
               <li>
-                {breed.name} ({breed.stock})
+                <span
+                  style={{
+                    fontFamily: "dosis",
+                    fontWeight: "600",
+                    fontSize: 150 + "%",
+                  }}
+                >
+                  {breed.name} ({breed.stock})
+                </span>
               </li>
               <li>
-                <Link to={`/breed/${breed.id}`}> Shop </Link>
+                <a href={`/breed/${breed.id}`}>
+                  <button
+                    type="button"
+                    className="btn btn-outline-warning btn-md rounded-pill"
+                  >
+                    <span style={{ fontWeight: "bold" }}> SHOP </span>
+                  </button>
+                </a>
               </li>
               <li></li>
             </ul>
