@@ -25,11 +25,8 @@ import DataPortal from "./components/dataPortal";
 import Analytics from "./components/Analytics";
 import AdminEditDogs from "./components/AdminEditDogs";
 import AdminEditUsers from "./components/AdminEditUsers";
-<<<<<<< HEAD
 import orderMap from './components/orderMap';
-=======
 import ContactUs from "./components/ContactUs";
->>>>>>> 229c18d8e0510f94c68bf3e7fd77f5336cdbbb3c
 
 const retrieveId = JSON.parse(localStorage.getItem("guest"));
 if (!retrieveId) {
