@@ -57,6 +57,7 @@ export const addUser = (user) => {
   //console.log("INSIDE THE STORE ADD USERRRR-->", user);
   return async (dispatch) => {
     const newUser = (await axios.post("/api/users", user)).data;
+    console.log(newUser, "line 60, aaaaaa");
     dispatch(_addUsers(newUser));
   };
 };
@@ -79,8 +80,14 @@ export default function (state = [], action) {
       );
     case ADD_USER:
       if (action.user !== "User already exists") {
+        const error = "Success!";
+        const target = document.getElementById("log");
+        target.innerHTML = error;
         return [...state, action.user];
       } else {
+        const error = "user exist";
+        const target = document.getElementById("log");
+        target.innerHTML = error;
         return state;
       }
     case DELETE_USER:

@@ -85,6 +85,7 @@ class CreateUser extends Component {
                           >
                             <span style={{ fontWeight: "bold" }}> SIGN UP</span>
                           </button>
+                          <pre id="log"></pre>
                         </div>
                       </div>
                     </form>

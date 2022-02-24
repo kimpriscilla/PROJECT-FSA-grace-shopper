@@ -210,12 +210,12 @@ function allDogs({ addCart }) {
               />
             </td>
           </tr>
-          <tr>
+          {/* <tr>
             <td>Number of Pets Per Page</td>
             <td>
               <input type="text" value={petPerPage} onChange={handlePets} />
             </td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
 
