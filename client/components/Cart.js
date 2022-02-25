@@ -224,14 +224,6 @@ class Cart extends React.Component {
                   </button>
                   {/* </a> */}
                 </Link>
-                <a href={`/checkout/${authId ? authId : "guest"}`}>
-                  <button
-                    type="button"
-                    className="btn btn-outline-warning btn-md rounded-pill"
-                  >
-                    href
-                  </button>
-                </a>
               </div>
             </div>
           </div>
