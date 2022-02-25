@@ -51,7 +51,9 @@ class Routes extends Component {
         {/*//! for guest, not logged in */}
         {!isLoggedIn ? (
           <Switch>
+            <Route exact path="/" component={Home} />
             <Route path="/home" component={Home} />
+
             <Route path="/dogs" exact component={allDogs} />
             {/* <Route path="/" exact component={Login} /> */}
             <Route path="/login" component={Login} />
@@ -66,7 +68,7 @@ class Routes extends Component {
             <Route exact path={"/breed"} component={Breed} />
             <Route path={`/breed/:id`} component={SelectedBreed} />
             <Route path="/ContactUs" component={ContactUs} />
-            <Redirect to="/home" />
+            {/* <Redirect to="/home" /> */}
           </Switch>
         ) : // ! for logged in users
         authRole === "user" ? (
