@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addOrder } from "../store/order/order";
+import { getCart } from "../store/cart/cart";
 import { useHistory } from "react-router";
 
 let tempUserId = 1;
@@ -37,6 +38,7 @@ export default function PaymentForm() {
   }
 
   const cartItems = useSelector((state) => state.cartItems);
+  console.log("HELLOOOOOO USER IDDDDD--->", userId);
 
   const totalPrice = cartItems.reduce((acc, cartItem) => {
     return (acc += cartItem.pet.price * 1);

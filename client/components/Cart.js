@@ -18,7 +18,7 @@ class Cart extends React.Component {
   render() {
     const cartItems = this.props.cartItems;
     const authId = this.props.authId ? this.props.authId : null;
-    console.log(cartItems);
+    // console.log(cartItems);
     return (
       // <div>
       //   <ul id="dogCards">
@@ -233,7 +233,7 @@ class Cart extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    cartItems: state.cartItems || [],
+    cartItems: state.cartItems,
     authId: state.auth.id,
   };
 };
