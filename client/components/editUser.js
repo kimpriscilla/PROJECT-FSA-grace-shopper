@@ -43,7 +43,9 @@ class editUser extends Component {
     return (
       <div style={{ fontFamily: "dosis" }}>
         <div>
-          <h3 className="text-center">EDIT USER DETAILS</h3>
+          <h3 className="text-center" style={{ color: "red" }}>
+            EDIT USER DETAILS
+          </h3>
         </div>
         <br />
         {/* <form onSubmit={this.handleSubmit}>
@@ -211,7 +213,7 @@ class editUser extends Component {
                     </table>
                     <button
                       type="button"
-                      className="btn btn-outline-warning btn-md rounded-pill"
+                      className="btn btn-outline-danger btn-md rounded-pill"
                     >
                       Save
                     </button>

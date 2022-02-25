@@ -17,8 +17,8 @@ class Order extends React.Component {
       return <h1>You have no orders yet!</h1>;
     } else {
       return (
-        <div>
-          <h1>Order History</h1>
+        <div style={{ fontFamily: "dosis" }}>
+          <h1 className="text-center">Order History</h1>
           <ul id="dogCards">
             {orders.map((order) => {
               let cartItems = order.cart_items;

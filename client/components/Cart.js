@@ -18,7 +18,7 @@ class Cart extends React.Component {
   render() {
     const cartItems = this.props.cartItems;
     const authId = this.props.authId ? this.props.authId : null;
-    // console.log(cartItems);
+    console.log(cartItems);
     return (
       // <div>
       //   <ul id="dogCards">
@@ -185,7 +185,13 @@ class Cart extends React.Component {
               </div>
 
               <div className="d-flex flex-wrap justify-content-between align-items-center pb-4">
-                <div className="mt-4"></div>
+                <div
+                  className="mt-4"
+                  style={{ fontWeight: 400, fontSize: 20 + "px" }}
+                >
+                  {"Once order is placed, you will receive confirmation email!"}
+                </div>
+
                 <div className="d-flex">
                   <div className="text-right mt-4 mr-5"></div>
                   <div className="text-right mt-4">
@@ -214,16 +220,14 @@ class Cart extends React.Component {
                 >
                   Back to shopping
                 </button>
-                {/* <a href={`/checkout/${authId ? authId : "guest"}`}> */}
-                <Link to={`/checkout/${authId ? authId : "guest"}`}>
+                <a href={`/checkout/${authId ? authId : "guest"}`}>
                   <button
                     type="button"
                     className="btn btn-outline-warning btn-md rounded-pill"
                   >
                     Proceed to Check Out
                   </button>
-                  {/* </a> */}
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -235,7 +239,7 @@ class Cart extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    cartItems: state.cartItems,
+    cartItems: state.cartItems || [],
     authId: state.auth.id,
   };
 };
