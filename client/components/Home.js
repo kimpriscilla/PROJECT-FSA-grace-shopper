@@ -122,7 +122,7 @@ export const Home = (props) => {
                       WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
-                    SHOP BY BREED
+                    BROWSE BY BREED
                   </h1>
 
                   <a href="/breed">
@@ -169,7 +169,7 @@ export const Home = (props) => {
                       WebkitTextStroke: "black " + 2 + "px",
                     }}
                   >
-                    FOR SALE
+                    FOR ADOPTION
                   </p>
 
                   <a href="/breed">
