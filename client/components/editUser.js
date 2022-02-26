@@ -13,10 +13,14 @@ class editUser extends Component {
 
   input = (event) => {
     this.setState({ ...this.state, [event.target.name]: event.target.value });
+    if (!this.state.id) {
+      this.setState({ ...this.state, id: this.props.auth.id });
+    }
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     this.props._editUser(this.state);
   };
 
@@ -212,7 +216,7 @@ class editUser extends Component {
                       </tbody>
                     </table>
                     <button
-                      type="button"
+                      type="submit"
                       className="btn btn-outline-danger btn-md rounded-pill"
                     >
                       Save
