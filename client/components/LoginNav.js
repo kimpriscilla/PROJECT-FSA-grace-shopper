@@ -18,7 +18,11 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
           >
             <ul className="nav nav-tabs">
               <li className="nav-item">
-                <Link to="/home" className="nav-link">
+                <Link
+                  to="/home"
+                  className="nav-link"
+                  style={{ fontWeight: "bold", color: "brown" }}
+                >
                   Home
                 </Link>
               </li>
@@ -30,24 +34,37 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
                   href="/"
                   role="button"
                   aria-expanded="false"
+                  style={{ fontWeight: "bold", color: "brown" }}
                 >
                   Dogs
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="/dogs">
+                    <a
+                      className="dropdown-item"
+                      href="/dogs"
+                      style={{ fontWeight: "bold", color: "brown" }}
+                    >
                       Available Dogs
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/breed">
+                    <a
+                      className="dropdown-item"
+                      href="/breed"
+                      style={{ fontWeight: "bold", color: "brown" }}
+                    >
                       Breed
                     </a>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <Link to="/AboutUs" className="nav-link">
+                <Link
+                  to="/AboutUs"
+                  className="nav-link"
+                  style={{ fontWeight: "bold", color: "brown" }}
+                >
                   About Us
                 </Link>
               </li>
@@ -60,6 +77,7 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
                   className="nav-link active"
                   aria-current="page"
                   href={`/checkout/${id}`}
+                  style={{ fontWeight: "bold", color: "brown" }}
                 >
                   Checkout
                 </a>
@@ -71,12 +89,17 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
                   href="/"
                   role="button"
                   aria-expanded="false"
+                  style={{ fontWeight: "bold", color: "brown" }}
                 >
                   My Account
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to={`/users/${id}`}>
+                    <Link
+                      className="dropdown-item"
+                      to={`/users/${id}`}
+                      style={{ fontWeight: "bold", color: "brown" }}
+                    >
                       Account
                     </Link>
                   </li>
@@ -84,6 +107,7 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
                     <Link
                       to={`/account/orders/${id}`}
                       className="dropdown-item"
+                      style={{ fontWeight: "bold", color: "brown" }}
                     >
                       Orders
                     </Link>
@@ -95,6 +119,7 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
                         aria-current="page"
                         href="/home"
                         onClick={handleClick}
+                        style={{ fontWeight: "bold", color: "brown" }}
                       >
                         Log Out
                       </a>
@@ -103,6 +128,7 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
                         className="nav-link active"
                         aria-current="page"
                         href="/login"
+                        style={{ fontWeight: "bold", color: "brown" }}
                       >
                         Log In
                       </a>

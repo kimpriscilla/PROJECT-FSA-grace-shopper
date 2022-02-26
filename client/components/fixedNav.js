@@ -16,7 +16,7 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
         <ul className="nav nav-tabs">
           <li className="nav-item">
             <Link to="/home" className="nav-link ">
-              <span> Home </span>
+              <span style={{ fontWeight: "bold", color: "brown" }}> Home </span>
             </Link>
           </li>
           <li className="nav-item dropdown">
@@ -26,24 +26,37 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
               href="/"
               role="button"
               aria-expanded="false"
+              style={{ fontWeight: "bold", color: "brown" }}
             >
               Dogs
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a className="dropdown-item " href="/dogs">
+                <a
+                  className="dropdown-item "
+                  href="/dogs"
+                  style={{ fontWeight: "bold", color: "brown" }}
+                >
                   Available Dogs
                 </a>
               </li>
               <li>
-                <a className="dropdown-item " href="/breed">
+                <a
+                  className="dropdown-item "
+                  href="/breed"
+                  style={{ fontWeight: "bold", color: "brown" }}
+                >
                   Breeds
                 </a>
               </li>
             </ul>
           </li>
           <li className="nav-item">
-            <Link to="/AboutUs" className="nav-link ">
+            <Link
+              to="/AboutUs"
+              className="nav-link "
+              style={{ fontWeight: "bold", color: "brown" }}
+            >
               About Us
             </Link>
           </li>
@@ -53,7 +66,12 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
       <div>
         <ul className="nav justify-content-end">
           <li className="nav-item">
-            <a className="nav-link active " aria-current="page" href="/create">
+            <a
+              className="nav-link active "
+              aria-current="page"
+              href="/create"
+              style={{ fontWeight: "bold", color: "brown" }}
+            >
               Sign Up
             </a>
           </li>
@@ -64,11 +82,17 @@ const Fixed = ({ handleClick, isLoggedIn }) => (
                 aria-current="page"
                 href="/home"
                 onClick={handleClick}
+                style={{ fontWeight: "bold", color: "brown" }}
               >
                 LogOut
               </a>
             ) : (
-              <a className="nav-link active " aria-current="page" href="/login">
+              <a
+                className="nav-link active "
+                aria-current="page"
+                href="/login"
+                style={{ fontWeight: "bold", color: "brown" }}
+              >
                 Log In
               </a>
             )}

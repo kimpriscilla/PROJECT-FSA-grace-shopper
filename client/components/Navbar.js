@@ -31,6 +31,7 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
                 className=" nav-link active"
                 aria-current="page"
                 href="/ContactUs"
+                style={{ fontWeight: "bold", color: "brown" }}
               >
                 Contact Us
               </a>
@@ -42,8 +43,13 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
                 href={`/cart/${authId ? authId : "guest"}`}
               >
                 <div className=" h5">
-                  <i className="bi- bi-cart-fill"></i> ({cart.length})
-                  {/* ({console.log(cart.length)}) */}
+                  <i
+                    className="bi- bi-cart-fill"
+                    style={{ color: "brown" }}
+                  ></i>{" "}
+                  <span style={{ fontWeight: "bold", color: "brown" }}>
+                    ({cart.length})
+                  </span>
                 </div>
               </a>
             </li>
