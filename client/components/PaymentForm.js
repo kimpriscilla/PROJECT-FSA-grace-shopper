@@ -13,15 +13,15 @@ const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
     base: {
-      width: "50%",
+      width: "10%",
       iconColor: "#c4f0ff",
       color: "#fff",
       fontWeight: 500,
       fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
       fontSize: "25px",
       fontSmoothing: "antialiased",
-      ":-webkit-autofill": { color: "#fce883" },
-      "::placeholder": { color: "#87bbfd" },
+      ":-webkit-autofill": { color: "white" },
+      "::placeholder": { color: "black" },
     },
     invalid: {
       iconColor: "#ffc7ee",
@@ -84,8 +84,7 @@ export default function PaymentForm() {
           amount: totalPrice * 100,
           id,
           userId,
-          //shippingAddress: formData.shippingAddress,
-          //billingAddress: formData.billingAddress,
+
           sStreet: formData.sStreet,
           sCity: formData.sCity,
           sZip: formData.sZip,
@@ -108,169 +107,119 @@ export default function PaymentForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <fieldset className="FormGroup">
-        <div className="FormRow">
-          <CardElement options={CARD_OPTIONS} />
+    <>
+      <div className="wrapper">
+        <h4 className="text-uppercase">Payment Details</h4>
+        <CardElement options={CARD_OPTIONS} />
+      </div>
+      <form onSubmit={handleSubmit}>
+        <h2 className="sub-header">Shipping Address</h2>
+        <div className="table-responsive">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th className="col-md-1">Street</th>
+                <th className="col-md-2">City</th>
+                <th className="col-md-3">Zip</th>
+                <th className="col-md-3">State</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="col-md-1">
+                  {" "}
+                  <input
+                    type="text"
+                    name="sStreet"
+                    placeholder="Shipping Street Address"
+                    onChange={handleChange}
+                  ></input>
+                </td>
+                <td className="col-md-2">
+                  {" "}
+                  <input
+                    type="text"
+                    name="sCity"
+                    placeholder="Shipping City"
+                    onChange={handleChange}
+                  ></input>
+                </td>
+                <td className="col-md-3">
+                  <input
+                    type="text"
+                    name="sZip"
+                    placeholder="Shipping Zip Code"
+                    onChange={handleChange}
+                  ></input>
+                </td>
+                <td className="col-md-3">
+                  {" "}
+                  <input
+                    type="text"
+                    name="sState"
+                    placeholder="Shipping State"
+                    onChange={handleChange}
+                  ></input>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </fieldset>
-      <input
-        type="text"
-        name="shippingAddress"
-        placeholder="Shipping Address"
-        onChange={handleChange}
-      ></input>
-      <input
-        name="billingAddress"
-        placeholder="Billing Address"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="sStreet"
-        placeholder="Shipping Street Address"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="sCity"
-        placeholder="Shipping City"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="sZip"
-        placeholder="Shipping Zip Code"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="sState"
-        placeholder="Shipping State"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="bStreet"
-        placeholder="Billing Street Address"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="bCity"
-        placeholder="Billing State"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="bZip"
-        placeholder="Billing Zip Code"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="bState"
-        placeholder="Billing State"
-        onChange={handleChange}
-      ></input>
-
-      <button className="button-37">Place Order</button>
-    </form>
+        <h2 className="sub-header">Billing Address</h2>
+        <div className="table-responsive">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th className="col-md-1">Street</th>
+                <th className="col-md-2">City</th>
+                <th className="col-md-3">Zip</th>
+                <th className="col-md-3">State</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="col-md-1">
+                  <input
+                    type="text"
+                    name="bStreet"
+                    placeholder="Billing Street Address"
+                    onChange={handleChange}
+                  ></input>
+                </td>
+                <td className="col-md-2">
+                  {" "}
+                  <input
+                    type="text"
+                    name="bCity"
+                    placeholder="Billing State"
+                    onChange={handleChange}
+                  ></input>
+                </td>
+                <td className="col-md-3">
+                  <input
+                    type="text"
+                    name="bZip"
+                    placeholder="Billing Zip Code"
+                    onChange={handleChange}
+                  ></input>
+                </td>
+                <td className="col-md-3">
+                  {" "}
+                  <input
+                    type="text"
+                    name="bState"
+                    placeholder="Billing State"
+                    onChange={handleChange}
+                  ></input>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button className="btn btn-outline-warning btn-md rounded-pill">
+          Place Order
+        </button>
+      </form>
+    </>
   );
-
-  //   //   <div className="wrapper">
-  //   //     <h4 className="text-uppercase">Payment Details</h4>
-  //   //     <form className="" onSubmit={handleSubmit}>
-  //   //       <div className="form-group">
-  //   //         {" "}
-  //   //         <label for="name" className="text-uppercase">
-  //   //           name on the card
-  //   //         </label>{" "}
-  //   //         <input type="text" className="form-control" />{" "}
-  //   //       </div>
-  //   //       <div className="form-group">
-  //   //         {" "}
-  //   //         <label for="card" className="text-uppercase">
-  //   //           card number
-  //   //         </label>
-  //   //         {/* <div className="card-number"> */}{" "}
-  //   //         {/* <input
-  //   //           type="text"
-  //   //           className="form-control"
-  //   //           step="4"
-  //   //           placeholder="1234 4567 5869 1234"
-  //   //           pattern="^[0-9].{15,}"
-  //   //         /> */}
-  //   //         {/* <input className="FormGroup" style={{ width: 5 + "rem" }}>
-  //   //           <div className="FormRow">
-  //   //             <CardElement options={CARD_OPTIONS} />
-  //   //           </div>
-  //   //         </input> */}
-  //   //         {/* <img
-  //   //           src="https://www.freepnglogos.com/uploads/mastercard-png/mastercard-marcus-samuelsson-group-2.png"
-  //   //           alt=""
-  //   //           width="20"
-  //   //           height="20"
-  //   //         />{" "} */}
-  //   //       </div>
-  //   //       <div className="d-flex flex-row">
-  //   //         {/* <div className="d-flex "> */}
-  //   //         <div className="form-group">
-  //   //           {" "}
-  //   //           <label for="expiry" className="text-uppercase">
-  //   //             exp.date
-  //   //           </label>{" "}
-  //   //           <input
-  //   //             type="text"
-  //   //             className="form-control"
-  //   //             placeholder="03/2020"
-  //   //           />{" "}
-  //   //           {/* </div> */}
-  //   //         </div>
-  //   //         <div className="form-group">
-  //   //           <label for="cvv" className="text-uppercase">
-  //   //             CVV
-  //   //           </label>{" "}
-  //   //           <input
-  //   //             type="password"
-  //   //             className="form-control pr-5"
-  //   //             maxLength="3"
-  //   //             placeholder="123"
-  //   //           />{" "}
-  //   //         </div>
-  //   //       </div>
-
-  //   //       <div className="form-group">
-  //   //         {" "}
-  //   //         <label for="name" className="text-uppercase">
-  //   //           Billing Address
-  //   //         </label>{" "}
-  //   //         <input type="text" className="form-control" />{" "}
-  //   //       </div>
-  //   //       {/* <div className="form-inline pt-sm-3 pt-2">
-  //   //         {" "}
-  //   //         <input type="checkbox" name="address" id="address" />{" "}
-  //   //         <label for="address" className="px-sm-1 pl-1 pt-sm-0 pt-2">
-  //   //           My billing address is the same as the shipping
-  //   //         </label>{" "}
-  //   //       </div> */}
-
-  //   //       <div className="my-3">
-  //   //         {" "}
-  //   //         <input
-  //   //           type="submit"
-  //   //           value="place your order"
-  //   //           className="text-uppercase btn btn-primary btn-block p-3"
-  //   //         />{" "}
-  //   //       </div>
-  //   //       <div id="form-footer">
-  //   //         <p>By placing your order, you agree to our</p>
-  //   //         <p>
-  //   //           <a href="#">privacy notice</a> {"&"} <a href="#">terms of use</a>.
-  //   //         </p>
-  //   //       </div>
-  //   //     </form>
-  //   //   </div>
-  //   // </>
-  // );
 }

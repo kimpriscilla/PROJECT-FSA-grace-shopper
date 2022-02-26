@@ -9,6 +9,7 @@ class CreateUser extends Component {
       imageUrl: "/default.png",
       email: "",
       password: "",
+      role: "user",
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -28,7 +29,11 @@ class CreateUser extends Component {
     });
   }
   render() {
-    const { email, password } = this.state;
+    const { email, password, role } = this.state;
+    let regular = "regular";
+    if (this.props.auth.role === "admin") {
+      regular = "admin";
+    }
     const { onChange, onSubmit } = this;
     return (
       <>
@@ -77,6 +82,26 @@ class CreateUser extends Component {
                           placeholder="Password"
                         />
                       </div>
+
+                      <div className="input-group mb-4">
+                        <span className="input-group-addon">
+                          <i className="fa fa-lock"></i>
+                        </span>
+                        {regular === "admin" ? (
+                          <select
+                            style={{ fontFamily: "dosis", fontWeight: 400 }}
+                            name="role"
+                            value={role}
+                            onChange={onChange}
+                          >
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                          </select>
+                        ) : (
+                          <div></div>
+                        )}
+                      </div>
+
                       <div className="row">
                         <div className="col-6">
                           <button
@@ -109,6 +134,7 @@ class CreateUser extends Component {
     );
   }
 }
+const mapState = (state) => state;
 
 const mapDispatch = (dispatch) => {
   return {
@@ -118,4 +144,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatch)(CreateUser);
+export default connect(mapState, mapDispatch)(CreateUser);

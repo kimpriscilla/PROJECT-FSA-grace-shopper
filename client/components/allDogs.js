@@ -186,7 +186,7 @@ function allDogs({ addCart }) {
 
   return (
     <div>
-      <table>
+      {/* <table>
         <tbody>
           <tr>
             <td>Search by Breed </td>
@@ -216,8 +216,52 @@ function allDogs({ addCart }) {
               <input type="text" value={petPerPage} onChange={handlePets} />
             </td>
           </tr> */}
-        </tbody>
-      </table>
+      {/* </tbody>
+      </table> */}
+
+      <section>
+        <div
+          className="container p-3 rounded-pill"
+          style={{
+            fontFamily: "dosis",
+            fontWeight: 600,
+            backgroundColor: "#FFF8DC",
+          }}
+        >
+          <div className="row text-center">
+            <div className="col-md">
+              {"Search By Breed:"}
+              <div className="p-1">
+                <input
+                  type="text"
+                  value={search}
+                  onChange={handleSearchChange}
+                />
+              </div>
+            </div>
+            <div className="col-md">
+              {"Search By Price:"}
+              <div className="p-1">
+                <input
+                  type="text"
+                  value={sPrice}
+                  onChange={handleSearchPrice}
+                />
+              </div>
+            </div>
+            <div className="col-md">
+              {"Search By Gender:"}
+              <div className="p-1">
+                <input
+                  type="text"
+                  value={sGender}
+                  onChange={handleSearchGender}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div id="leftAllDogs"></div>
       <Dogs

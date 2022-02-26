@@ -47,7 +47,7 @@ body {
 .wrapper {
   background: #9ab3f5;
   margin: 20px auto;
-  max-width: 400px;
+  max-width: 900px;
   padding: 15px 20px;
   border-radius: 10px;
 }
@@ -210,24 +210,24 @@ form div {
 /*STRIPE*/
 
 .FormGroup {
-  margin: 0 15px 20px;
-  padding: 0;
+  /* margin: 50px 500px 75px 500px; */
+  /* padding: 50px;
   border-style: none;
-  background-color: #7795f8;
-  will-change: opacity, transform;
-  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 #829fff;
-  border-radius: 2px;
+  background-color: #7795f8; */
+  /* will-change: opacity, transform; */
+  /* box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #829fff; */
+  /* border-radius: 2px; */
 }
 
 .FormRow {
   /* display: -ms-flexbox; */
+  background-color: #13aa52;
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  margin-left: 15px;
-  border-top: 1px solid #819efc;
-  width: 50%;
+  margin-left: 400px;
+  width: 55%;
 }
 
 .StripeElement--webkit-autofill {
@@ -235,8 +235,8 @@ form div {
 }
 
 .StripeElement {
-  width: 70%;
-  padding: 11px 15px 11px 0;
+  width: 90%;
+  padding: 0px 100px 5px 0px;
 }
 
 @media (min-width: 768px) {
