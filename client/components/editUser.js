@@ -20,6 +20,7 @@ class editUser extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     this.props._editUser(this.state);
   };
 
