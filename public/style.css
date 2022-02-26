@@ -208,17 +208,16 @@ form div {
 }
 
 /*STRIPE*/
-
+/*
 .FormGroup {
   /* margin: 50px 500px 75px 500px; */
-  /* padding: 50px;
+/* padding: 50px;
   border-style: none;
   background-color: #7795f8; */
-  /* will-change: opacity, transform; */
-  /* box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+/* will-change: opacity, transform; */
+/* box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 #829fff; */
-  /* border-radius: 2px; */
-}
+/* border-radius: 2px; */
 
 .FormRow {
   /* display: -ms-flexbox; */
