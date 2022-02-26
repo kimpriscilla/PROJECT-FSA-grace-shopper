@@ -7,7 +7,7 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
     {authRole === "admin" ? (
       <AdminNav handleClick={handleClick} isLoggedIn={isLoggedIn} />
     ) : (
-      <div>
+      <div style={{ fontFamily: "dosis" }}>
         <nav
           className=" navbar fixed-top navbar-expand-sm scrolling-navbar"
           style={{ backgroundColor: "#FFF8DC" }}
@@ -19,7 +19,7 @@ const LoginNav = ({ handleClick, isLoggedIn, id, authRole }) => (
             <ul className="nav nav-tabs">
               <li className="nav-item">
                 <Link to="/home" className="nav-link">
-                  Home (Logged In)
+                  Home
                 </Link>
               </li>
 

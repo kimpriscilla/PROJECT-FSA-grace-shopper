@@ -88,6 +88,28 @@ class CreateUser extends Component {
                           placeholder="Password"
                         />
                       </div>
+
+
+                      <div className="input-group mb-4">
+                        <span className="input-group-addon">
+                          <i className="fa fa-lock"></i>
+                        </span>
+                        {regular === "admin" ? (
+                          <select
+                            style={{ fontFamily: "dosis", fontWeight: 400 }}
+                            name="role"
+                            value={role}
+                            onChange={onChange}
+                          >
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                          </select>
+                        ) : (
+                          <div></div>
+                        )}
+                      </div>
+
+
                       {regular === "admin" ? (
                         <select
                           style={{ fontFamily: "dosis", fontWeight: 400 }}
@@ -101,6 +123,7 @@ class CreateUser extends Component {
                       ) : (
                         <div></div>
                       )}
+
                       <div className="row">
                         <div className="col-6">
                           <button
@@ -134,6 +157,9 @@ class CreateUser extends Component {
   }
 }
 const mapState = (state) => state;
+
+
+
 const mapDispatch = (dispatch) => {
   return {
     addUser: (user) => {

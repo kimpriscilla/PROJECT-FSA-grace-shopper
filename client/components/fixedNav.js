@@ -2,20 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Fixed = ({ handleClick, isLoggedIn }) => (
-  <div>
+  <div style={{ fontFamily: "dosis" }}>
     <nav
       className=" navbar fixed-top navbar-expand-lg"
       id="fixed-nav"
       style={{ backgroundColor: "#FFF8DC" }}
     >
-      <div className="collapse navbar-collapse " id="navbarSupportedContent">
+      <div
+        className="collapse navbar-collapse "
+        id="navbarSupportedContent"
+        style={{ fontFamily: "dosis", color: "brown" }}
+      >
         <ul className="nav nav-tabs">
           <li className="nav-item">
             <Link to="/home" className="nav-link ">
-              <span style={{ fontWeight: "bold", color: "brown" }}>
-                {" "}
-                Home (Guest){" "}
-              </span>
+              <span> Home </span>
             </Link>
           </li>
           <li className="nav-item dropdown">

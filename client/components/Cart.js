@@ -220,14 +220,15 @@ class Cart extends React.Component {
                 >
                   Back to shopping
                 </button>
-                <a href={`/checkout/${authId ? authId : "guest"}`}>
+
+                <Link to={`/checkout/${authId ? authId : "guest"}`}>
                   <button
                     type="button"
                     className="btn btn-outline-warning btn-md rounded-pill"
                   >
                     Proceed to Check Out
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

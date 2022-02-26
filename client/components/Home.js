@@ -128,7 +128,7 @@ export const Home = (props) => {
                   <a href="/breed">
                     <button
                       type="button"
-                      className="btn btn-outline-warning btn-lg rounded-pill"
+                      className="btn btn-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
@@ -175,7 +175,7 @@ export const Home = (props) => {
                   <a href="/breed">
                     <button
                       type="button"
-                      className="btn btn-outline-warning btn-lg rounded-pill"
+                      className="btn btn-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>
@@ -210,7 +210,7 @@ export const Home = (props) => {
                   <a href="/dogs">
                     <button
                       type="button"
-                      className="btn btn-outline-warning btn-lg rounded-pill"
+                      className="btn btn-warning btn-lg rounded-pill"
                     >
                       <span style={{ fontWeight: "bold" }}> EXPLORE </span>
                     </button>

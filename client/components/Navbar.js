@@ -9,7 +9,7 @@ import AdminNav from "./AdminNav";
 const tempUserId = 1;
 
 const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
-  <div>
+  <div style={{ fontFamily: "dosis" }}>
     <div>
       <nav
         className="navbar sticky-top navbar-light bg-light"
@@ -17,17 +17,6 @@ const Navbar = ({ handleClick, isLoggedIn, authId, cart, authRole }) => (
         style={{ backgroundColor: "#F0FFFF" }}
       >
         <div>
-          {/* <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-sm btn-outline-secondary" type="submit">
-              Search
-            </button>
-          </form> */}
           <a href="/" className="navbar-brand" />
           <span style={{ fontFamily: "dosis", fontWeight: 800 }}>
             {" "}

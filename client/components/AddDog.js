@@ -52,120 +52,10 @@ class AddDog extends Component {
 
     return (
       <>
-        {/* <form onSubmit={onSubmit}>
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                  <input
-                    value={name}
-                    name="name"
-                    onChange={onChange}
-                    placeholder="name"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    value={price}
-                    name="price"
-                    onChange={onChange}
-                    placeholder="price"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    value={description}
-                    name="description"
-                    onChange={onChange}
-                    placeholder="description"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    value={gender}
-                    name="gender"
-                    onChange={onChange}
-                    placeholder="gender"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    value={size}
-                    name="size"
-                    onChange={onChange}
-                    placeholder="size"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    value={dateOfBirth}
-                    name="dateOfBirth"
-                    onChange={onChange}
-                    placeholder="date of birth"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    type="file"
-                    className="file-uploader pull-left"
-                    value={imageUrl}
-                    name="imageUrl"
-                    onChange={onChange}
-                    placeholder="imageUrl"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <select value={breedId} name="breedId" onChange={onChange}>
-                    <option value="">--------------</option>
-                    {this.props.breeds.map((dog) => {
-                      return (
-                        <option value={dog.id} key={dog.id}>
-                          {dog.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <p>
-            <button type="submit" className="btn btn-theme">
-              Add Dog
-            </button>
-          </p>
-        </form> */}
-
-        <div
-          className="container bootstrap snippets bootdey"
-          style={{ fontFamily: "dosis" }}
-        >
+        <div className="container " style={{ fontFamily: "dosis" }}>
           <div className="panel-body inf-content">
             <div className="row">
-              <div className="col-md-3 -md-2">
-                {/* <img
-                  alt=""
-                  style={{ width: 600 + "px" }}
-                  title=""
-                  className="img-circle img-thumbnail isTooltip"
-                  // src={imageUrl ? imageUrl : filtered.imageUrl}
-                  data-original-title="Usuario"
-                /> */}
-              </div>
+              <div className="col-md-3 -md-2"></div>
               <div className=" col-md-6">
                 <h3 className="text-center" style={{ color: "red" }}>
                   ADD NEW DOG
@@ -185,8 +75,7 @@ class AddDog extends Component {
                           </td>
                           <td>
                             <input
-                              type="file"
-                              className="file-uploader pull-left"
+                              type="text"
                               value={imageUrl}
                               name="imageUrl"
                               onChange={onChange}

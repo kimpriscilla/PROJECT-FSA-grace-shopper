@@ -36,8 +36,8 @@ class Confirmation extends React.Component {
       /*Final line of automatic email confirmation code*/
 
       return (
-        <div>
-          <h1>Order Placed!</h1>
+        <div style={{ fontFamily: "dosis" }}>
+          <h1 className="text-center">Order Placed!</h1>
           <ul id="dogCards">
             {this.props.orders.map((order) => {
               let cartItems = order.cart_items;
