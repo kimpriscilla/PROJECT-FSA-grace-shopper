@@ -9,8 +9,8 @@ import Routes from "./Routes";
 import Footer from "./components/Footer";
 import { me } from "./store/auth";
 import { getBreeds } from "./store/pets/breeds";
-import { getBreedSales } from './store/analytics/analytics';
-import { getStateOrders } from './store/analytics/stateOrders';
+import { getBreedSales } from "./store/analytics/analytics";
+import { getStateOrders } from "./store/analytics/stateOrders";
 
 let tempUserId = 1;
 
@@ -67,7 +67,7 @@ const mapDispatch = (dispatch) => {
     },
     getBreeds: () => dispatch(getBreeds()),
     getBreedSales: () => dispatch(getBreedSales()),
-    getStateOrders: () => dispatch(getStateOrders())
+    getStateOrders: () => dispatch(getStateOrders()),
   };
 };
 

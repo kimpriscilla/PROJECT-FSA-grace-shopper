@@ -13,7 +13,7 @@ const AdminEditUsers = ({ users, deleteUser }) => {
         <a href="/create">
           <button
             type="button"
-            className="btn btn-outline-warning btn-md rounded-pill"
+            className="btn btn-outline-danger btn-md rounded-pill"
           >
             {" "}
             ADD USER

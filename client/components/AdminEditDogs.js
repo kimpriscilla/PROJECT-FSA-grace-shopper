@@ -14,7 +14,7 @@ const AdminEditDogs = ({ pets, deletePet }) => (
       <a href="/addDog">
         <button
           type="button"
-          className="btn btn-outline-warning btn-md rounded-pill"
+          className="btn btn-outline-danger btn-md rounded-pill"
         >
           {" "}
           ADD DOG
