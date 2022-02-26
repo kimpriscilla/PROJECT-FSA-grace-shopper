@@ -10,17 +10,30 @@ const Footer = () => (
         <div className="navbar-brand" href="#">
           <ul className="nav flex-column mt-3">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/home">
+              <a
+                className="nav-link"
+                aria-current="page"
+                href="/home"
+                style={{ fontWeight: "bold", color: "brown" }}
+              >
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/dogs">
+              <a
+                className="nav-link"
+                href="/dogs"
+                style={{ fontWeight: "bold", color: "brown" }}
+              >
                 Shop Dogs
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/ContactUs">
+              <a
+                className="nav-link"
+                href="/ContactUs"
+                style={{ fontWeight: "bold", color: "brown" }}
+              >
                 Get In Touch
               </a>
             </li>
